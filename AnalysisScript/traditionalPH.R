@@ -33,7 +33,7 @@ MILK %>%
 
 #' # delete subjects outside of age range ------------------------------------ 
 
-MILK <- MILK %>%
+MILK_0 <- MILK %>%
   filter(tr_age > 39 & tr_age < 80)
 
 #' # define total stroke mortality --------------------------------
