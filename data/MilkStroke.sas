@@ -1,10 +1,3 @@
-															   /*This analysis is designed by Maki Inoue-Choi, Neal Freedman (NCI)
-   Author of the program: Chaochen Wang (Aichi Medical Univ)	
-   Date created: 2019/04/22
-   Date updated: 2019/04/22
-*/
-
-
  data d1 ; missing X ; infile "D:\work\20170228\dataset\C**.DATA" ; input 			 
 
 
