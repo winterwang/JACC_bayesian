@@ -46,10 +46,14 @@ larynx.weibull.model <- function() {
   ### prior for shape
   shape ~ dgamma(.001, .001)
   
+  ### Generated values
+  AFT[2] <- exp(beta[2])
+  HR[2] <- exp(shape * beta[2])
+  p.crit[2] <- step(1 - HR[2])
 }
 
 larynx.data <- c("t", "age", "yr", "c", "stage", "is.censored")
-larynx.params <- c("beta", "loglik")
+larynx.params <- c("beta", "AFT", "HR", "p.crit", "shape")
 library(R2jags)
 
 larynx.weibull.fit <- jags(data = larynx.data,
