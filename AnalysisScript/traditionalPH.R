@@ -21,7 +21,7 @@ library(readr)
 library(tidyverse)
 library(lubridate) # for dealing with date time data 
 
-MILK <- read_csv("data/StrokeMilk.csv", 
+MILK <- read_csv("../data/StrokeMilk.csv", 
                      progress = show_progress(), 
                      col_types = cols(.default = "c"))
 
@@ -133,6 +133,7 @@ MILK_0 %>%
 
 MILK_0 <- MILK_0 %>% 
   mutate(Age = as.numeric(tr_age)) %>% 
+  mutate(Agegrp = cut(as.numeric(tr_age), c(30, 45, 55, 65, 75, 80), right = FALSE)) %>% 
   mutate(followpy = as.numeric(actual)/365.25) 
 
 #' # Identify potential confounders: smoking, alcohol intake, BMI, DM/HYT/MI/APO/Cancer history, Exercise, Energy intake, Sleep duration, vegetable/fru/gretea/cofe intake, school education
@@ -229,7 +230,10 @@ MILK_0 <-  MILK_0 %>%
   replace_na(list(Educgrp = "unknown")) %>% 
   mutate(Educgrp = factor(Educgrp, levels = c("[0,18)",
                                               "[18,70)",
-                                              "unknown"))) 
+                                              "unknown"))) %>% # Define menopause for women
+  mutate(Menopause = if_else(!is.na(MENO_AGE)& tr_sex == "2", TRUE,  # define menopause
+                             if_else(as.numeric(tr_age) >= 50 & tr_sex == "2", 
+                                     TRUE, FALSE)))
 
   
 MILK_0 %>% 
@@ -317,6 +321,11 @@ MILK_0 %>%
   summarise (n= n()) %>%
   mutate(rel.freq = paste0(round(100 * n/sum(n), 2), "%"))  %>% 
   print(n=Inf)
+MILK_0 %>% 
+  group_by(tr_sex, Menopause) %>% 
+  summarise (n= n()) %>%
+  mutate(rel.freq = paste0(round(100 * n/sum(n), 2), "%"))  %>% 
+  print(n=Inf)
 
 
 # 02-04 AREA 地区(施設番号+地区番号)
@@ -395,10 +404,10 @@ MILK_0 %>%
 MData <- MILK_0 %>%
   filter(APO_hist != "TRUE" & IscheHeart != "TRUE" & 
            OtheHeart != "TRUE" & Can_hist != "TRUE" & MI_hist != "TRUE" & !is.na(Mlkfre)) %>% 
-  select(Area, Age, tr_sex, Tot_Stroke, HemoStroke, IscheStroke, CHD, HeartF, MlkLogi, 
+  select(Area, Age, Agegrp, tr_sex, Tot_Stroke, HemoStroke, IscheStroke, CHD, HeartF, MlkLogi, 
          Mlkfre, followpy, Smoking, Alc_Fre, BMI, BMIgrp, DM_hist, HT_hist, KID_hist, 
          LIV_hist, Exercise, Engy, ENERGY, Sleep, Slepgrp, Spi, Fru, Gretea, Cofe, Educ,
-         Educgrp)
+         Educgrp, Menopause)
 
 # data preparation done
 
@@ -427,6 +436,7 @@ epiDisplay::tabpct(MData_men$Mlkfre, MData_men$Tot_Stroke,
 epiDisplay::tabpct(MData_fem$Mlkfre, MData_fem$Tot_Stroke, 
                    percent = "row", graph = FALSE)
 
+
 ###################################################################################################
 ## survival object
 ###################################################################################################
@@ -436,7 +446,10 @@ library(survminer)
 library(cowplot)
 library(ggsci)
 
-su_obj <- Surv(MData$followpy, MData$Tot_Stroke == "I60_9")
+# in Men
+su_obj_men <- Surv(MData_men$followpy, MData_men$Tot_Stroke == "I60_9")
+# in Women
+su_obj_fem <- Surv(MData_fem$followpy, MData_fem$Tot_Stroke == "I60_9")
 
 
 ###################################################################################################
@@ -444,16 +457,16 @@ su_obj <- Surv(MData$followpy, MData$Tot_Stroke == "I60_9")
 ###################################################################################################
 
 
-#+ fig1, echo=FALSE, eval=TRUE, fig.height=6.5, fig.width=7, message=FALSE, warning=FALSE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by drinking frequency (P value was obtained from log-rank tests)",fig.align='center',  out.width='100%', cache=TRUE
+#+ fig1, echo=FALSE, eval=TRUE, fig.height=6.5, fig.width=7, message=FALSE, warning=FALSE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by drinking frequency (P value was obtained from log-rank tests) in Men.",fig.align='center',  out.width='100%', cache=TRUE
 
-surv.Drfreq <- with(MData, survfit(su_obj ~ Mlkfre))
+surv.Drfreq <- with(MData_men, survfit(su_obj_men ~ Mlkfre))
 
 ggsurv_Drfreq <- ggsurvplot(surv.Drfreq, censor = F, xlab = "Time (years)", conf.int = T, 
                             conf.int.style = "step",  # customize style of confidence intervals
                             surv.median.line = "none", ylab = "Survival function",
                             legend.labs = c("Never or past", "< 1/week", "1-2 /week", "3-4 /week", "Daily"), 
                             ggtheme = theme_bw(), palette = "npg",
-                            pval = TRUE, data = MData, # pval.method = TRUE
+                            pval = TRUE, data = MData_men, # pval.method = TRUE
                             risk.table = T,
                             risk.table.y.text.col = T, # colour risk table text annotations.
                             risk.table.y.text = FALSE,  pval.coord = c(0, 0.972),
@@ -475,33 +488,369 @@ ggsurv_Drfreq <- ggpar(
 )
 ggsurv_Drfreq
 
+#+ fig2, echo=FALSE, eval=TRUE, fig.height=6.5, fig.width=7, message=FALSE, warning=FALSE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by drinking frequency (P value was obtained from log-rank tests) in Women.",fig.align='center',  out.width='100%', cache=TRUE
+
+surv.Drfreq <- with(MData_fem, survfit(su_obj_fem ~ Mlkfre))
+
+ggsurv_Drfreq <- ggsurvplot(surv.Drfreq, censor = F, xlab = "Time (years)", conf.int = T, 
+                            conf.int.style = "step",  # customize style of confidence intervals
+                            surv.median.line = "none", ylab = "Survival function",
+                            legend.labs = c("Never or past", "< 1/week", "1-2 /week", "3-4 /week", "Daily"), 
+                            ggtheme = theme_bw(), palette = "npg",
+                            pval = TRUE, data = MData_fem, # pval.method = TRUE
+                            risk.table = T,
+                            risk.table.y.text.col = T, # colour risk table text annotations.
+                            risk.table.y.text = FALSE,  pval.coord = c(0, 0.972),
+                            ylim = c(0.93, 1.0), xlim = c(0, 22)) 
+# show bars instead of names in text annotations)  
+
+ggsurv_Drfreq <- ggpar(
+  ggsurv_Drfreq,
+  font.title    = c(14, "bold", "black"),         
+  # font.subtitle = c(15, "bold.italic", "purple"), 
+  #  font.caption  = c(14, "plain", "orange"),        
+  font.x        = c(14, "bold", "black"),          
+  font.y        = c(14, "bold", "black"),      
+  font.xtickslab = c(13, "bold", "black"),
+  #  font.ytickslab = c(13, "bold", "black"),
+  legend = "bottom", 
+  font.legend  = c(13, "bold", "black"),
+  legend.title = ""
+)
+ggsurv_Drfreq
+
+#' # In Men
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj_men ~ Mlkfre, 
+                 data = MData_men)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
 
 
-## fit univariable cox models 
-## test the proportional hazard proportion of each explanatory variable with time 
 
-####################################################################################
-# # age
-# 
-# # using martingale residuals to investigate a suitable functional form for age
-#####################################################################################
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj_men ~ Mlkfre + Age + strata(Agegrp), 
+                 data = MData_men)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj_men ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea, 
+                 data = MData_men)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' # In women 
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj_fem ~ Mlkfre, 
+                 data = MData_fem)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
 
 
-#+ fig345, echo=TRUE, eval=TRUE, fig.height=6.5, fig.width=6, message=FALSE, warning=FALSE, cache = FALSE
 
-# empty.cox<-coxph(su_obj~1,data=MData)
-# mgale_res<-resid(empty.cox,type="martingale")
-# plot(MData$Age,mgale_res, ylim = c(-0.06, 0.01))
-# lines(lowess(MData$Age,mgale_res)) # not bad
-# cox1<-coxph(su_obj~ Age,data=MData)
-# mgale_res<-resid(cox1,type="martingale")
-# plot(MData$Age,mgale_res, ylim = c(-0.1, 0.01))
-# 
-# # the relationship seems not linear age should be changed
-# 
-# 
-# # check the proportional hazard assumption with time 
-# # test for interactions between the explanatory variable and time as below
-# 
-# age.cox.tt<-coxph(su_obj~Age + tt(Age),data=MData, tt=function(x,t,...) {x*t})
-# summary(age.cox.tt)
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj_fem ~ Mlkfre + Age + strata(Agegrp), 
+                 data = MData_fem)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj_fem ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea + Menopause, 
+                 data = MData_fem)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' # Cause specific: HemoStroke
+
+# in Men
+su_obj_men <- Surv(MData_men$followpy, MData_men$HemoStroke == "I60_2")
+# in Women
+su_obj_fem <- Surv(MData_fem$followpy, MData_fem$HemoStroke == "I60_2")
+
+
+#' # In Men
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj_men ~ Mlkfre, 
+                 data = MData_men)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+
+
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj_men ~ Mlkfre + Age + strata(Agegrp), 
+                 data = MData_men)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj_men ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea, 
+                 data = MData_men)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' # In women 
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj_fem ~ Mlkfre, 
+                 data = MData_fem)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+
+
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj_fem ~ Mlkfre + Age + strata(Agegrp), 
+                 data = MData_fem)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj_fem ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea + Menopause, 
+                 data = MData_fem)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+
+
+#' # Cause specific: IscheStroke
+
+# in Men
+su_obj_men <- Surv(MData_men$followpy, MData_men$IscheStroke == "I63")
+# in Women
+su_obj_fem <- Surv(MData_fem$followpy, MData_fem$IscheStroke == "I63")
+
+
+#' # In Men
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj_men ~ Mlkfre, 
+                 data = MData_men)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+
+
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj_men ~ Mlkfre + Age + strata(Agegrp), 
+                 data = MData_men)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj_men ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea, 
+                 data = MData_men)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' # In women 
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj_fem ~ Mlkfre, 
+                 data = MData_fem)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+
+
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj_fem ~ Mlkfre + Age + strata(Agegrp), 
+                 data = MData_fem)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj_fem ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea + Menopause, 
+                 data = MData_fem)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' # Cause specific: CHD
+
+# in Men
+su_obj_men <- Surv(MData_men$followpy, MData_men$CHD == "I20_5")
+# in Women
+su_obj_fem <- Surv(MData_fem$followpy, MData_fem$CHD == "I20_5")
+
+
+#' # In Men
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj_men ~ Mlkfre, 
+                 data = MData_men)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+
+
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj_men ~ Mlkfre + Age + strata(Agegrp), 
+                 data = MData_men)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj_men ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea, 
+                 data = MData_men)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' # In women 
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj_fem ~ Mlkfre, 
+                 data = MData_fem)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+
+
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj_fem ~ Mlkfre + Age + strata(Agegrp), 
+                 data = MData_fem)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj_fem ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea + Menopause, 
+                 data = MData_fem)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+
+#' # Cause specific: HeartF
+
+# in Men
+su_obj_men <- Surv(MData_men$followpy, MData_men$HeartF == "I50")
+# in Women
+su_obj_fem <- Surv(MData_fem$followpy, MData_fem$HeartF == "I50")
+
+
+#' # In Men
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj_men ~ Mlkfre, 
+                 data = MData_men)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+
+
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj_men ~ Mlkfre + Age + strata(Agegrp), 
+                 data = MData_men)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj_men ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea, 
+                 data = MData_men)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' # In women 
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj_fem ~ Mlkfre, 
+                 data = MData_fem)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+
+
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj_fem ~ Mlkfre + Age + strata(Agegrp), 
+                 data = MData_fem)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj_fem ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea + Menopause, 
+                 data = MData_fem)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
