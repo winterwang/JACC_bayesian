@@ -404,7 +404,7 @@ MILK_0 %>%
 MData <- MILK_0 %>%
   filter(APO_hist != "TRUE" & IscheHeart != "TRUE" & 
            OtheHeart != "TRUE" & Can_hist != "TRUE" & MI_hist != "TRUE" & !is.na(Mlkfre)) %>% 
-  select(Area, Age, Agegrp, tr_sex, Tot_Stroke, HemoStroke, IscheStroke, CHD, HeartF, MlkLogi, 
+  select(Area, Age, Agegrp, tr_sex, ICD10, T_DX, Tot_Stroke, HemoStroke, IscheStroke, CHD, HeartF, MlkLogi, 
          Mlkfre, followpy, Smoking, Alc_Fre, BMI, BMIgrp, DM_hist, HT_hist, KID_hist, 
          LIV_hist, Exercise, Engy, ENERGY, Sleep, Slepgrp, Spi, Fru, Gretea, Cofe, Educ,
          Educgrp, Menopause)
