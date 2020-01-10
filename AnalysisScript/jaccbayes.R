@@ -95,14 +95,15 @@ mcmcplots::traplot(JACC.weibull.fit, c("beta[5]", "HR[5]"))
 
 # samplesHistory("*", mfrow = c(3,1), beg = 501, ask = FALSE)
 Simulated <- coda::as.mcmc(JACC.weibull.fit)
-ggSample <- ggs(Simulated)
 library(ggmcmc)
+
+ggSample <- ggs(Simulated)
 ggSample %>% 
   filter(Iteration >= 500 & Parameter %in% c("beta[5]", "HR[5]")) %>% 
   ggs_traceplot()
 
 update(JACC.weibull.fit, n.iter = 1000)
-autojags(JACC.weibull.fit, n.iter = 1000, Rhat = 1.05, n.update = 2)
+autojags(JACC.weibull.fit, n.iter = 5000, Rhat = 1.05, n.update = 2)
 
 # postsamples <- buildMCMC("*")
 # gelman.diag(Simulated)
@@ -114,10 +115,10 @@ ggSample %>%
   filter(Iteration >= 100 & Parameter %in% c("beta[5]", "AFT[5]")) %>% 
   ggs_autocorrelation()
 
-HR2 <- ggSample %>% 
-  filter(Parameter == "HR[2]")
+HR5 <- ggSample %>% 
+  filter(Parameter == "HR[5]")
 
-plot(density(HR2$value), main = "HR sample 10000", 
+plot(density(HR5$value), main = "HR sample 10000", 
      ylab = "P(theta)", xlab = "theta", col = "red")
 # hist(Y$value, main = "y sample 10000", ylab = "P(Y)", 
 #      xlab = "y", col = "red", prob = TRUE)
