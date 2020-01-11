@@ -529,7 +529,11 @@ library("broom")
 tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
   knitr::kable(.)
 
+epiDisplay::tabpct(MData_men$Mlkfre, MData_men$Tot_Stroke, graph = FALSE)
 
+MData_men %>% 
+  group_by(Mlkfre) %>% 
+  summarise(TotPY = sum(followpy))
 
 #' ## Model1 
 
@@ -550,6 +554,13 @@ tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>%
   knitr::kable(.)
 
 #' # In women 
+
+epiDisplay::tabpct(MData_fem$Mlkfre, MData_fem$Tot_Stroke, graph = FALSE)
+MData_fem %>% 
+  group_by(Mlkfre) %>% 
+  summarise(TotPY = sum(followpy))
+
+
 #' ## Model0
 
 SurvM0 <-  coxph(su_obj_fem ~ Mlkfre, 
@@ -588,6 +599,10 @@ su_obj_fem <- Surv(MData_fem$followpy, MData_fem$HemoStroke == "I60_2")
 
 
 #' # In Men
+#' 
+
+epiDisplay::tabpct(MData_men$Mlkfre, MData_men$HemoStroke)
+
 #' ## Model0
 
 SurvM0 <-  coxph(su_obj_men ~ Mlkfre, 
@@ -618,6 +633,9 @@ tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>%
   knitr::kable(.)
 
 #' # In women 
+
+epiDisplay::tabpct(MData_fem$Mlkfre, MData_fem$HemoStroke)
+
 #' ## Model0
 
 SurvM0 <-  coxph(su_obj_fem ~ Mlkfre, 
@@ -658,6 +676,9 @@ su_obj_fem <- Surv(MData_fem$followpy, MData_fem$IscheStroke == "I63")
 
 
 #' # In Men
+
+epiDisplay::tabpct(MData_men$Mlkfre, MData_men$IscheStroke)
+
 #' ## Model0
 
 SurvM0 <-  coxph(su_obj_men ~ Mlkfre, 
@@ -688,6 +709,9 @@ tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>%
   knitr::kable(.)
 
 #' # In women 
+
+epiDisplay::tabpct(MData_fem$Mlkfre, MData_fem$IscheStroke)
+
 #' ## Model0
 
 SurvM0 <-  coxph(su_obj_fem ~ Mlkfre, 

@@ -7,6 +7,7 @@ output:
   tufte::tufte_handout:
     citation_package: natbib
     latex_engine: xelatex
+    keep_tex: true
   tufte::tufte_html: default
   tufte::tufte_book:
     citation_package: natbib
@@ -302,13 +303,118 @@ MData %>%
 ```
 
 - N of total stroke mortality (I60-I69) confirmed: 2675 (1352 men and 1323 women)
+\newpage
 - Subtypes of stroke and CHD, heart failure: 
     - Ischemic stroke: 957 (520 men and 437 women);
     - Hemorrhagic stroke: 952 (432 men and 520 women);
     - CHD: 1320 (749 men and 571 women);
     - Heart failure: 1097 (498 men and 599 women).
 
-- Follow-up years: 
+- Follow-up years summary in total sample: 
+
+```{r datapre9, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+epiDisplay::summ(MData$followpy, graph = FALSE)
+```
+
+- Follow-up years summary by total stroke mortality events:
+
+```{r datapre8, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+MData %>% 
+  group_by(tr_sex, Tot_Stroke) %>% 
+  summarise(n= n(), MeanFolYear = mean(followpy), MedianFolYear = median(followpy), MaxFolYear = max(followpy))
+```
+
+
+```{r figure1, echo=FALSE, eval=FALSE, fig.height=7, fig.width=6, message=FALSE, warning=FALSE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by drinking frequency (P value was obtained from log-rank tests) in Men.",fig.align='center',  out.width='100%', cache=TRUE}
+
+###################################################################################################
+## survival object
+###################################################################################################
+library(survival)
+library(ggplot2)
+library(survminer)
+library(cowplot)
+library(ggsci)
+
+# in Men
+su_obj_men <- Surv(MData_men$followpy, MData_men$Tot_Stroke == "I60_9")
+# in Women
+su_obj_fem <- Surv(MData_fem$followpy, MData_fem$Tot_Stroke == "I60_9")
+
+###################################################################################################
+## Kaplan-Meier plots and log rank tests for TotStroke and Milk intake  (frequency)
+###################################################################################################
+
+surv.Drfreq <- with(MData_men, survfit(su_obj_men ~ Mlkfre))
+
+ggsurv_Drfreq <- ggsurvplot(surv.Drfreq, censor = F, xlab = "Time (years)", conf.int = T, 
+                            conf.int.style = "step",  # customize style of confidence intervals
+                            surv.median.line = "none", ylab = "Survival function",
+                            legend.labs = c("Never or past", "< 1/week", "1-2 /week", "3-4 /week", "Daily"), 
+                            ggtheme = theme_bw(), palette = "npg",
+                            pval = TRUE, data = MData_men, # pval.method = TRUE
+                            risk.table = T, tables.height = 0.2,
+                            risk.table.y.text.col = T, # colour risk table text annotations.
+                            risk.table.y.text = FALSE,  pval.coord = c(0, 0.972),
+                            ylim = c(0.93, 1.0), xlim = c(0, 22)) 
+# show bars instead of names in text annotations)  
+
+ggsurv_Drfreq <- ggpar(
+  ggsurv_Drfreq,
+  font.title    = c(10, "bold", "black"),         
+  # font.subtitle = c(15, "bold.italic", "purple"), 
+  #  font.caption  = c(14, "plain", "orange"),        
+  font.x        = c(10, "bold", "black"),          
+  font.y        = c(10, "bold", "black"),      
+  font.xtickslab = c(10, "bold", "black"),
+  #  font.ytickslab = c(13, "bold", "black"),
+  legend = "bottom", 
+  font.legend  = c(10, "bold", "black"),
+  legend.title = ""
+)
+ggsurv_Drfreq
+```
+
+```{r fig2, echo=FALSE, eval=FALSE, fig.height=7, fig.width=6, message=FALSE, warning=FALSE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by drinking frequency (P value was obtained from log-rank tests) in Women.",fig.align='center',  out.width='100%', cache=TRUE}
+surv.Drfreq <- with(MData_fem, survfit(su_obj_fem ~ Mlkfre))
+
+ggsurv_Drfreq <- ggsurvplot(surv.Drfreq, censor = F, xlab = "Time (years)", conf.int = T, 
+                            conf.int.style = "step",  # customize style of confidence intervals
+                            surv.median.line = "none", ylab = "Survival function",
+                            legend.labs = c("Never or past", "< 1/week", "1-2 /week", "3-4 /week", "Daily"), 
+                            ggtheme = theme_bw(), palette = "npg",
+                            pval = TRUE, data = MData_fem, # pval.method = TRUE
+                            risk.table = T, tables.height = 0.2,
+                            risk.table.y.text.col = T, # colour risk table text annotations.
+                            risk.table.y.text = FALSE,  pval.coord = c(0, 0.972),
+                            ylim = c(0.93, 1.0), xlim = c(0, 22)) 
+# show bars instead of names in text annotations)  
+
+ggsurv_Drfreq <- ggpar(
+  ggsurv_Drfreq,
+  font.title    = c(10, "bold", "black"),         
+  # font.subtitle = c(15, "bold.italic", "purple"), 
+  #  font.caption  = c(14, "plain", "orange"),        
+  font.x        = c(10, "bold", "black"),          
+  font.y        = c(10, "bold", "black"),      
+  font.xtickslab = c(10, "bold", "black"),
+  #  font.ytickslab = c(13, "bold", "black"),
+  legend = "bottom", 
+  font.legend  = c(10, "bold", "black"),
+  legend.title = ""
+)
+ggsurv_Drfreq
+```
+
+```{r KMmen, echo=FALSE, out.width = '95%', cache=TRUE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by milk drinking frequency (P value was obtained from log-rank tests) in men.",fig.align='center'}
+knitr::include_graphics("fig/KMfigMen.png")
+```
+
+
+```{r KMwomen, echo=FALSE, out.width = '90%', cache=TRUE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by milk drinking frequency (P value was obtained from log-rank tests) in women.",fig.align='center'}
+knitr::include_graphics("fig/KMfigwomen.png")
+```
+
 <!-- Tufte样式在Edward Tufte的书以及物理学家费曼的教科书很常见，它的一个显著特点就是边栏的使用。例如脚注和边栏注解，以及放在边栏里的小型插图。Tufte样式在LaTeX和HTML/CSS中都有实现^[参见Github库[tufte-latex](https://github.com/tufte-latex/tufte-latex)和 [tufte-css](https://github.com/edwardtufte/tufte-css)]。我们将这两种实现都纳入了[**tufte**包](https://github.com/rstudio/tufte)。若需要LaTeX/PDF输出，使用输出格式`tufte_handout`即可，类似地，`tufte_book`可以用来输出PDF书，`tufte_html`生成HTML网页。这些输出格式可以在YAML元数据中指定，或者传给`rmarkdown::render()`函数。若对**rmarkdown**包不熟悉，可参见 @R-rmarkdown。 -->
 
 <!-- ```yaml -->
@@ -475,7 +581,7 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
   footnote(c("Abbreviations: n, number; SD, standard deviation; Alc_Fre, alcohol intake; BMI, Body Mass Index; Slepgrp, sleep duration", "groups; Veg, vegetable intake; Coffe, coffee intake; DM/HT/KID/LIV_hist, diabetes, hypertension, kidney disease,", "liver disease history."))
 ``` 
 
-\begin{table}[!ht]
+\begin{table}[ht]
 Table 2. Baseline characteristics of subjects in the JACC study by milk intake level in Women (n = 54,999).
 
 \centering
@@ -550,57 +656,71 @@ Menopause (\%) &  &  &  &  &  &  & <0.001\\
 \end{table}
 
 
-\newpage
 
-## Traditional survival analysis (Cox proportional hazard model)
+```{r tab2, echo=FALSE, eval=FALSE}
+dt <- read.csv("tab/HRcox.csv", header = T)
+names(dt) <- c("", "Never",  "1-2 t/Mon", "1-2 t/Week", "3-4 t/Week", "Daily")
+dt[1,c(2)] <- c("")
+dt[4, 2] <- c("")
+dt[9, 2] <- c("") 
+dt[14, 2] <- c("") ; dt[19, 2] <- c("") ; dt[22, 2] <- c("") ; dt[27, 2] <- c("") ; dt[32, 2] <- c("")
+library(knitr)
+library(kableExtra)
+kable(dt, format = "latex", caption = "", booktabs = T, linesep = "") %>%
+ kable_styling(latex_options = c("striped","hold_position"), font_size = 9) 
+# %>%
+  # add_header_above(c(" ", "", "", "Milk drinkers" = 4, "")) %>%
+  # add_indent(c(4:6, 8:11, 14:17, 19, 20, 22:25, 27:30, 32:35, 37:39, 41:43, 45, 47, 49, 51, 53, 55)) %>%
+  # footnote(c("Abbreviations: n, number; SD, standard deviation; Alc_Fre, alcohol intake; BMI, Body Mass Index; Slepgrp, sleep duration", "groups; Veg, vegetable intake; Coffe, coffee intake; DM/HT/KID/LIV_hist, diabetes, hypertension, kidney disease,", "liver disease history."))
+
+``` 
 
 
-```{r figure1, echo=FALSE, eval=TRUE, fig.height=6.5, fig.width=7, message=FALSE, warning=FALSE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by drinking frequency (P value was obtained from log-rank tests) in Men.",fig.align='center',  out.width='100%', cache=TRUE}
+\begin{table}[!h]
+Table 3. Sex-specific hazard ratio (95\% CI) of mortality from stroke according to milk intake frequency.
 
-###################################################################################################
-## survival object
-###################################################################################################
-library(survival)
-library(ggplot2)
-library(survminer)
-library(cowplot)
-library(ggsci)
-
-# in Men
-su_obj_men <- Surv(MData_men$followpy, MData_men$Tot_Stroke == "I60_9")
-# in Women
-su_obj_fem <- Surv(MData_fem$followpy, MData_fem$Tot_Stroke == "I60_9")
-
-###################################################################################################
-## Kaplan-Meier plots and log rank tests for TotStroke and Milk intake  (frequency)
-###################################################################################################
-
-surv.Drfreq <- with(MData_men, survfit(su_obj_men ~ Mlkfre))
-
-ggsurv_Drfreq <- ggsurvplot(surv.Drfreq, censor = F, xlab = "Time (years)", conf.int = T, 
-                            conf.int.style = "step",  # customize style of confidence intervals
-                            surv.median.line = "none", ylab = "Survival function",
-                            legend.labs = c("Never or past", "< 1/week", "1-2 /week", "3-4 /week", "Daily"), 
-                            ggtheme = theme_bw(), palette = "npg",
-                            pval = TRUE, data = MData_men, # pval.method = TRUE
-                            risk.table = T,
-                            risk.table.y.text.col = T, # colour risk table text annotations.
-                            risk.table.y.text = FALSE,  pval.coord = c(0, 0.972),
-                            ylim = c(0.93, 1.0), xlim = c(0, 22)) 
-# show bars instead of names in text annotations)  
-
-ggsurv_Drfreq <- ggpar(
-  ggsurv_Drfreq,
-  font.title    = c(14, "bold", "black"),         
-  # font.subtitle = c(15, "bold.italic", "purple"), 
-  #  font.caption  = c(14, "plain", "orange"),        
-  font.x        = c(14, "bold", "black"),          
-  font.y        = c(14, "bold", "black"),      
-  font.xtickslab = c(13, "bold", "black"),
-  #  font.ytickslab = c(13, "bold", "black"),
-  legend = "bottom", 
-  font.legend  = c(13, "bold", "black"),
-  legend.title = ""
-)
-ggsurv_Drfreq
-```
+\centering
+\fontsize{9}{11}\selectfont
+\begin{tabular}[t]{llllll}
+\toprule
+ & Never & 1-2 t/Mon & 1-2 t/Week & 3-4 t/Week & Daily\\
+\midrule
+\rowcolor{gray!6}  Men &  &  &  &  & \\
+N & 8508 & 3522 & 5928 & 5563 & 15865\\
+\rowcolor{gray!6}  Person year & 135704 & 56551 & 97098 & 92153 & 252364\\
+Total Stroke &  &  &  &  \vphantom{1} & \\
+\rowcolor{gray!6}  \hspace{1em}n & 326 & 122 & 181 & 177 & 546\\
+\hspace{1em}Crude model & 1 & 0.89 (0.73, 1.11) & 0.77 (0.64, 0.92) & 0.79 (0.66, 0.95) & 0.90 (0.79, 1.04)\\
+\rowcolor{gray!6}  \hspace{1em}Age-adjusted & 1 & 0.99 (0.80, 1.22) & 0.84 (0.70, 1.01) & 0.86 (0.72, 1.03) & 0.76 (0.66, 0.87)\\
+\hspace{1em}Multivariable-adjusted & 1 & 1.03 (0.83, 1.27) & 0.91 (0.75, 1.09) & 0.96 (0.79, 1.16) & 0.87 (0.76, 1.01)\\
+\rowcolor{gray!6}  Hemorrhagic stroke &  &  &  &  \vphantom{1} & \\
+\hspace{1em}n & 100 & 42 & 58 & 56 & 176\\
+\rowcolor{gray!6}  \hspace{1em}Crude model & 1 & 1.00 (0.70, 1.44) & 0.81 (0.58, 1.11) & 0.82 (0.59, 1.14) & 0.94 (0.74, 1.21)\\
+\hspace{1em}Age-adjusted & 1 & 1.07 (0.75, 1.55) & 0.86 (0.62, 1.19) & 0.87 (0.63, 1.21) & 0.85 (0.66, 1.08)\\
+\rowcolor{gray!6}  \hspace{1em}Multivariable-adjusted & 1 & 1.11 (0.77, 1.60) & 0.94 (0.68, 1.31) & 1.01 (0.72, 1.40) & 0.98 (0.76, 1.27)\\
+Ischemic stroke &  &  &  &  \vphantom{1} & \\
+\rowcolor{gray!6}  \hspace{1em}n & 151 & 41 & 64 & 66 & 198\\
+\hspace{1em}Crude model & 1 & 0.65 (0.46. 0.92) & 0.59 (0.44, 0.79) & 0.63 (0.48, 0.85) & 0.71 (0.57, 0.88)\\
+\rowcolor{gray!6}  \hspace{1em}Age-adjusted & 1 & 0.73 (0.52, 1.03) & 0.65 (0.49, 0.87) & 0.70 (0.53, 0.94) & 0.58 (0.47, 0.72)\\
+\hspace{1em}Multivariable-adjusted & 1 & 0.73 (0.51, 1.04) & 0.67 (0.49, 0.90) & 0.74 (0.55, 0.99) & 0.63 (0.50, 0.79)\\
+\rowcolor{gray!6}  Women &  &  &  &  & \\
+N & 10407 & 3640 & 7590 & 8108 & 25254\\
+\rowcolor{gray!6}  Person year & 173222 & 59904 & 129233 & 139919 & 418925\\
+Total Stroke &  &  &  &  & \\
+\rowcolor{gray!6}  \hspace{1em}n & 300 & 84 & 182 & 172 & 585\\
+\hspace{1em}Crude model & 1 & 0.83 (0.65, 1.05) & 0.81 (0.67, 0.97) & 0.69 (0.58, 0.84) & 0.81 (0.71, 0.93)\\
+\rowcolor{gray!6}  \hspace{1em}Age-adjusted & 1 & 1.01 (0.79, 1.28) & 1.07 (0.89, 1.28) & 0.94 (0.78, 1.13) & 0.88 (0.77, 1.01)\\
+\hspace{1em}Multivariable-adjusted & 1 & 1.05 (0.82, 1.34) & 1.12 (0.93, 1.35) & 1.01 (0.83, 1.22) & 0.99 (0.86, 1.15)\\
+\rowcolor{gray!6}  Hemorrhagic stroke &  &  &  &  & \\
+\hspace{1em}n & 108 & 27 & 78 & 76 & 231\\
+\rowcolor{gray!6}  \hspace{1em}Crude model & 1 & 0.73 (0.48, 1.12) & 0.96 (0.72, 1.29) & 0.86 (0.64, 1.16) & 0.89 (0.71, 1.12)\\
+\hspace{1em}Age-adjusted & 1 & 0.83 (0.54, 1.26) & 1.16 (0.86, 1.55) & 1.04 (0.77, 1.39) & 0.92 (0.73, 1.15)\\
+\rowcolor{gray!6}  \hspace{1em}Multivariable-adjusted & 1 & 0.85 (0.56, 1.30) & 1.21 (0.90, 1.62) & 1.13 (0.84, 1.52) & 1.03 (0.81, 1.29)\\
+Ischemic stroke &  &  &  &  & \\
+\rowcolor{gray!6}  \hspace{1em}n & 102 & 35 & 63 & 50 & 187\\
+\hspace{1em}Crude model & 1 & 1.01 (0.69, 1.48) & 0.82 (0.60, 1.13) & 0.59 (0.43, 0.84) & 0.76 (0.59, 0.97)\\
+\rowcolor{gray!6}  \hspace{1em}Age-adjusted & 1 & 1.29 (0.88, 1.89) & 1.15 (0.84, 1.58) & 0.86 (0.61, 1.20) & 0.86 (0.67, 1.09)\\
+\hspace{1em}Multivariable-adjusted & 1 & 1.30 (0.88, 1.92) & 1.18 (0.86, 1.63) & 0.87 (0.62, 1.23) & 0.93 (0.72, 1.19)\\
+\bottomrule
+\end{tabular}
+\end{table}
