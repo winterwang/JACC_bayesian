@@ -3,7 +3,7 @@
 library(tidyverse)
 library(survminer)
 ## library(bayesSurv)
-devtools::install_github('jburos/biostan', build_vignettes = FALSE, dependencies = TRUE)
+# devtools::install_github('jburos/biostan', build_vignettes = FALSE, dependencies = TRUE)
 library(biostan)
 library(rstan)
 library(bayesplot)
@@ -21,7 +21,6 @@ ggsurvplot(km_fit,
            risk.table = TRUE)
 stan_weibull_survival_model_file <- system.file('stan', 'weibull_survival_model.stan', package =  'biostan')
 biostan::print_stan_file(stan_weibull_survival_model_file)
-
 
 stan_weibull_survival_model_code <- biostan::read_stan_file(stan_weibull_survival_model_file)
 biostan::print_stan_code(stan_weibull_survival_model_code, section = "data")
