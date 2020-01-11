@@ -168,7 +168,7 @@ MILK_0 <-  MILK_0 %>%
   replace_na(list(APO_hist = "unknown")) %>% # recode APO history status
   mutate(KID_hist = if_else(as.numeric(p_KID) > 1, TRUE, FALSE)) %>% 
   replace_na(list(KID_hist = "unknown")) %>% # recode KID history status
-  mutate(LIV_hist = if_else(as.numeric(p_APO) > 1, TRUE, FALSE)) %>% 
+  mutate(LIV_hist = if_else(as.numeric(p_LIV) > 1, TRUE, FALSE)) %>% 
   replace_na(list(LIV_hist = "unknown")) %>% # recode LIV history status
   mutate(Can_hist = if_else(as.numeric(p_can1) > 1 | 
                               as.numeric(p_can2) > 1, TRUE, FALSE)) %>% 

@@ -1,0 +1,702 @@
+---
+title: "Try Bayesian Survival Analysis using the JACC study data"
+subtitle: "Tables and figures for analysing the association between milk intake and stroke mortality."
+author: "Chaochen Wang | Aichi Medical University"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+  tufte::tufte_html: default
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+ctex: yes
+biblio-title: Reference
+bibliography: skeleton.bib
+link-citations: yes
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{longtable}
+- \usepackage{array}
+- \usepackage{multirow}
+- \usepackage{wrapfig}
+- \usepackage{float}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{tabu}
+- \usepackage{threeparttable}
+- \usepackage{threeparttablex}
+- \usepackage[normalem]{ulem}
+- \usepackage{makecell}
+- \usepackage{xcolor}
+---
+
+
+
+```{r setup, include=FALSE}
+library(tufte)
+# tufte版本变化之后更新knitr缓存
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'), 
+kable.force.latex = TRUE)
+options(htmltools.dir.version = FALSE)
+```
+
+## Data preparation 
+
+Before exclusion, we have 110585 participants (46395 men and 64190 women) in the JACC data set: 
+
+<!-- 我们可以用**knitr**包中的`kable()`函数生成简单的表格。HTML输出中表格的标题也会被放在边栏中。 -->
+
+```{r datapre, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(readr)
+library(tidyverse)
+library(lubridate) # for dealing with date time data 
+
+MILK <- read_csv("../data/StrokeMilk.csv", 
+                     progress = show_progress(), 
+                     col_types = cols(.default = "c"))
+
+MILK %>% 
+  filter(tr_age > 39 & tr_age < 80) %>% 
+  group_by(tr_sex) %>% 
+  summarise(n= n()) %>%
+  mutate(rel.freq = paste0(round(100 * n/sum(n), 2), "%"))  
+# delete subjects outside of age range ------------------------------------ 
+
+MILK_0 <- MILK %>%
+  filter(tr_age > 39 & tr_age < 80)
+
+
+MILK_0 <- MILK_0 %>% 
+  mutate(Tot_Stroke = if_else(grepl("I6[0-9][0-9]|I6[0-9]",  
+                                    ICD10), "I60_9", 
+                        if_else(!is.na(ICD10), "other_death", 
+                                      "Alive/Censor"))) %>% 
+    mutate(HemoStroke = if_else(grepl("I6[0-2][0-9]|I6[0-2]",  
+                                    ICD10), "I60_2", 
+                              if_else(!is.na(ICD10), "other_death", 
+                                      "Alive/Censor"))) %>% 
+  mutate(IscheStroke = if_else(grepl("I63[0-9]|I63",  
+                                    ICD10), "I63", 
+                              if_else(!is.na(ICD10), "other_death", 
+                                      "Alive/Censor"))) %>%
+  mutate(CHD = if_else(grepl("I2[0-5][0-9]|I2[0-5]",  
+                                     ICD10), "I20_5", 
+                               if_else(!is.na(ICD10), "other_death", 
+                                       "Alive/Censor"))) %>%
+  mutate(HeartF = if_else(grepl("I50[0-9]|I50",  
+                                     ICD10), "I50", 
+                               if_else(!is.na(ICD10), "other_death", 
+                                       "Alive/Censor"))) %>% 
+  mutate(Milk_fre = as.numeric(MILK)) %>% 
+  mutate(Milk_fre = as.factor(Milk_fre)) %>% 
+  mutate(Mlkfre = fct_collapse(Milk_fre,
+                               Never = "1",
+                               Mon1_2 = "2", 
+                               Wek1_2 = "3",
+                               Wek3_4 = "4",
+                               Daily  = "5")) %>% 
+  mutate(MlkLogi = fct_collapse(Mlkfre,
+                                Never = "Never", 
+                                Drinker = c("Mon1_2", "Wek1_2", "Wek3_4", "Daily"))) %>% 
+    mutate(Age = as.numeric(tr_age)) %>% 
+  mutate(Agegrp = cut(as.numeric(tr_age), c(30, 45, 55, 65, 75, 80), right = FALSE)) %>% 
+  mutate(followpy = as.numeric(actual)/365.25) %>% 
+    mutate(Smoking = replace_na(SM1, "unknown")) %>% 
+  mutate(Smoking = as_factor(Smoking)) %>% 
+  mutate(Smoking = fct_recode(Smoking, Never = "3", Past = "2", Current = "1")) %>% 
+  mutate(Smoking = factor(Smoking, levels = c("Never", "Past", "Current", "unknown"))) %>%  # Smoking
+  mutate(Alc_Fre = if_else(as.numeric(DR1) >= 2, "Never or past", 
+                           if_else(as.numeric(DR1F) == 1, "Daily", 
+                                   if_else(as.numeric(DR1F) == 4, "< 1/week", 
+                                           if_else((as.numeric(DR1F) == 2) | (as.numeric(DR1F) == 3), 
+                                                   "1-4 /week", "Unknown"))))) %>% 
+  mutate(Alc_Fre = fct_explicit_na(Alc_Fre, na_level = "unknown")) %>% 
+  mutate(BMI = as.numeric(wt10)/(as.numeric(ht10)^2) * 100000) %>% # define BMI groups
+  mutate(BMIgrp = cut(BMI, breaks = c(14, 18.5, 25, 30, 40), right = FALSE)) %>% 
+  mutate(BMIgrp = as.character(BMIgrp)) %>% 
+  replace_na(list(BMIgrp = "unknown")) %>% 
+  mutate(BMIgrp = factor(BMIgrp, levels = c("[18.5,25)",
+                                            "[14,18.5)",
+                                            "[25,30)", 
+                                            "[30,40)", "unknown"))) %>%
+  mutate(DM_hist = if_else(as.numeric(p_DM) > 1, TRUE, FALSE)) %>% 
+  replace_na(list(DM_hist = "unknown")) %>% # recode DM history status
+  mutate(HT_hist = if_else(as.numeric(p_HT) > 1, TRUE, FALSE)) %>% 
+  replace_na(list(HT_hist = "unknown")) %>% # recode hyt history status
+  mutate(MI_hist = if_else(as.numeric(p_MI) > 1, TRUE, FALSE)) %>% 
+  replace_na(list(MI_hist = "unknown")) %>% # recode MI history status
+  mutate(APO_hist = if_else(as.numeric(p_APO) > 1, TRUE, FALSE)) %>% 
+  replace_na(list(APO_hist = "unknown")) %>% # recode APO history status
+  mutate(KID_hist = if_else(as.numeric(p_KID) > 1, TRUE, FALSE)) %>% 
+  replace_na(list(KID_hist = "unknown")) %>% # recode KID history status
+  mutate(LIV_hist = if_else(as.numeric(p_LIV) > 1, TRUE, FALSE)) %>% 
+  replace_na(list(LIV_hist = "unknown")) %>% # recode LIV history status
+  mutate(Can_hist = if_else(as.numeric(p_can1) > 1 | 
+                              as.numeric(p_can2) > 1, TRUE, FALSE)) %>% 
+  replace_na(list(Can_hist = "unknown")) %>% # recode Can history status
+  mutate(Exercise = as.numeric(sport) != 4) %>% # define exercise habits
+  mutate(Exercise = as.character(Exercise)) %>% 
+  replace_na(list(Exercise = "unknown")) %>% 
+  mutate(Exercise = factor(Exercise, levels = c("FALSE", "TRUE", "unknown"))) %>% 
+  mutate(Exercise = fct_recode(Exercise, 
+                               "> 1h/w" = "TRUE", 
+                               "Almost0" = "FALSE", 
+                               unknown   = "unknown")) %>% 
+  mutate(Engy = log(as.numeric(ENERGY))) %>% 
+  mutate(Sleep = as.numeric(SLEEP)/10) %>% 
+  mutate(Slepgrp = cut(Sleep, breaks = c(0, 6.9, 7.9, 8.9, 23), right = FALSE)) %>% 
+  mutate(Slepgrp = as.character(Slepgrp)) %>% 
+  replace_na(list(Slepgrp = "unknown")) %>% 
+  mutate(Slepgrp = factor(Slepgrp, levels = c("[0,6.9)",
+                                            "[6.9,7.9)",
+                                            "[7.9,8.9)", 
+                                            "[8.9,23)", "unknown"))) %>% 
+  mutate(Spi = as.factor(SPI)) %>% # define vegetable intake
+  mutate(Spi = fct_collapse(Spi, 
+                            unknown = "X", 
+                            daily = "5",
+                            Thre4tw = "4",
+                            One2tw = "3",
+                            Less1tm = c("1", "2"))) %>% 
+  mutate(Spi = fct_explicit_na(Spi, na_level = "unknown")) %>% 
+  mutate(Fru = as.factor(FRU)) %>% # define fruit intake
+  mutate(Fru = fct_collapse(Fru, 
+                            unknown = "X",
+                            daily = "5",
+                            Thre4tw = "4",
+                            One2tw = "3",
+                            Less1tm = c("1", "2"))) %>% 
+  mutate(Fru = fct_explicit_na(Fru, na_level = "unknown")) %>% 
+  mutate(Gretea = as.factor(GreTEA1)) %>% # define greentea intake
+  mutate(Gretea = fct_collapse(Gretea, 
+                               unknown = "X", 
+                               Thre3tw = "2", 
+                               Thre3tw = "3",
+                               Thre3tw = "4",
+                               Never = "5", 
+                               daily = "1")) %>% 
+  mutate(Gretea = fct_explicit_na(Gretea, na_level = "unknown"))  %>% 
+  mutate(Cofe = as.factor(COFE)) %>% # define greentea intake
+  mutate(Cofe = fct_collapse(Cofe, 
+                               unknown = "X", 
+                               Thre3tw = "2", 
+                               Thre3tw = "3",
+                               Thre3tw = "4",
+                               Never = "5", 
+                               daily = "1")) %>% 
+  mutate(Cofe = fct_explicit_na(Cofe, na_level = "unknown"))  %>% 
+  mutate(Educ = as.numeric(MILK_0$SCHOOL)) %>% 
+  mutate(Educgrp = cut(Educ, breaks = c(0, 18, 70), right = FALSE)) %>% 
+  mutate(Educgrp = as.character(Educgrp)) %>% 
+  replace_na(list(Educgrp = "unknown")) %>% 
+  mutate(Educgrp = factor(Educgrp, levels = c("[0,18)",
+                                              "[18,70)",
+                                              "unknown"))) %>% # Define menopause for women
+  mutate(Menopause = if_else(!is.na(MENO_AGE)& tr_sex == "2", TRUE,  # define menopause
+                             if_else(as.numeric(tr_age) >= 50 & tr_sex == "2", 
+                                     TRUE, FALSE))) %>% 
+    mutate(areano = as.numeric(areano)) %>% 
+  mutate(Area = if_else(areano %in% c(11, 22, 23, 24, 41, 30,
+                                      170, 178, 179, 298, 299), "Touhoku", 
+                  if_else(areano %in% c(51, 61, 81, 91, 92, 93, 
+                                          110, 130, 311), "Kanto", 
+                    if_else(areano %in% c(151, 181), "Chubu", 
+                      if_else(areano %in% c(100, 108, 109, 201, 211, 212, 213, 
+                                214, 221, 241, 242, 243), "Kinki", 
+                        if_else(areano %in% c(250, 261), "Chugoku", 
+                          if_else(areano %in% c(271, 272, 273, 274, 300, 301, 302, 303, 304, 
+                            305, 306, 307, 308, 309), "Kyushiu", "else"))))))) %>% 
+  mutate(Area = factor(Area)) %>% 
+    mutate(p_Oth1 = as.numeric(p_oth1c)) %>% 
+  mutate(p_Oth2 = as.numeric(p_oth2c)) %>% 
+  mutate(IscheHeart = if_else((p_Oth1 >=410 & p_Oth1 <=414) | 
+                                (p_Oth2 >=410 & p_Oth2 <=414), TRUE, FALSE)) %>% 
+  replace_na(list(IscheHeart = "unknown")) %>% # recode IscheHeart history status
+  mutate(OtheHeart = if_else((p_Oth1 >=420 & p_Oth1 <=429) | 
+                                (p_Oth2 >=420 & p_Oth2 <=429), TRUE, FALSE)) %>% 
+  replace_na(list(OtheHeart = "unknown")) #%>% # recode Otherheart history status
+
+MData <- MILK_0 %>%
+  filter(APO_hist != "TRUE" & IscheHeart != "TRUE" & 
+           OtheHeart != "TRUE" & Can_hist != "TRUE" & MI_hist != "TRUE" & !is.na(Mlkfre)) %>% 
+  select(Area, Age, Agegrp, tr_sex, ICD10, T_DX, Tot_Stroke, HemoStroke, IscheStroke, CHD, HeartF, MlkLogi, 
+         Mlkfre, followpy, Smoking, Alc_Fre, BMI, BMIgrp, DM_hist, HT_hist, KID_hist, 
+         LIV_hist, Exercise, Engy, ENERGY, Sleep, Slepgrp, Spi, Fru, Gretea, Cofe, Educ,
+         Educgrp, Menopause)
+
+MData_men <- MData %>% 
+  filter(tr_sex == "1")
+MData_fem <- MData %>% 
+  filter(tr_sex == "2")
+  
+# knitr::kable(
+#   mtcars[1:6, 1:6], caption = 'mtcars数据的前几行。'
+# )
+```
+
+## Excluding participants with conditions
+
+1. With stroke history: n = 1496 (915 men and 581 wmen);
+2. With cancer history: n = 1461 (411 men and 1050 women);
+3. With myocardial infarction history: n = 2994 (1310 men and 1684 women);
+4. With ischemic heart diseases history: n = 186 (91 men, 95 women);
+5. With other heart diseases history (ICD9 codes: 420-429):  n = 518 (204 men and 314 women);
+6. Did not answer the question about milk intake frequency: n = 9545 (3593 men and 5952 women); 
+7. Finally, n = 94385 (39386 men and 54999 women) are left in the data:
+
+```{r datapre2, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+MILK_0 %>% 
+  group_by(tr_sex, APO_hist) %>% 
+  summarise (n= n()) %>%
+  mutate(rel.freq = paste0(round(100 * n/sum(n), 2), "%"))  %>% 
+  print(n=Inf)
+```
+
+
+```{r datapre3, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+
+MILK_0 %>% 
+  group_by(tr_sex, Can_hist) %>% 
+  summarise (n= n()) %>%
+  mutate(rel.freq = paste0(round(100 * n/sum(n), 2), "%"))  %>% 
+  print(n=Inf)
+
+```
+
+
+```{r datapre4, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+
+MILK_0 %>% 
+  group_by(tr_sex, MI_hist) %>% 
+  summarise (n= n()) %>%
+  mutate(rel.freq = paste0(round(100 * n/sum(n), 2), "%"))  %>% 
+  print(n=Inf)
+
+```
+
+
+
+```{r datapre5, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+
+MILK_0 %>% 
+  group_by(tr_sex, IscheHeart) %>% 
+  summarise (n= n()) %>%
+  mutate(rel.freq = paste0(round(100 * n/sum(n), 2), "%"))  %>% 
+  print(n=Inf)
+```
+
+
+```{r datapre6, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+MILK_0 %>% 
+  group_by(tr_sex, OtheHeart) %>% 
+  summarise (n= n()) %>%
+  mutate(rel.freq = paste0(round(100 * n/sum(n), 2), "%"))  %>% 
+  print(n=Inf)
+```
+  
+```{r datapre7, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+MData %>%   
+  group_by(tr_sex, Tot_Stroke) %>%
+  summarise(n= n()) %>%
+  mutate(rel.freq = paste0(round(100 * n/sum(n), 2), "%"))
+```
+
+- N of total stroke mortality (I60-I69) confirmed: 2675 (1352 men and 1323 women)
+- Subtypes of stroke and CHD, heart failure: 
+    - Ischemic stroke: 957 (520 men and 437 women);
+    - Hemorrhagic stroke: 952 (432 men and 520 women);
+    - CHD: 1320 (749 men and 571 women);
+    - Heart failure: 1097 (498 men and 599 women).
+
+<!-- Tufte样式在Edward Tufte的书以及物理学家费曼的教科书很常见，它的一个显著特点就是边栏的使用。例如脚注和边栏注解，以及放在边栏里的小型插图。Tufte样式在LaTeX和HTML/CSS中都有实现^[参见Github库[tufte-latex](https://github.com/tufte-latex/tufte-latex)和 [tufte-css](https://github.com/edwardtufte/tufte-css)]。我们将这两种实现都纳入了[**tufte**包](https://github.com/rstudio/tufte)。若需要LaTeX/PDF输出，使用输出格式`tufte_handout`即可，类似地，`tufte_book`可以用来输出PDF书，`tufte_html`生成HTML网页。这些输出格式可以在YAML元数据中指定，或者传给`rmarkdown::render()`函数。若对**rmarkdown**包不熟悉，可参见 @R-rmarkdown。 -->
+
+<!-- ```yaml -->
+<!-- --- -->
+<!-- title: "一个Tufte样式示例" -->
+<!-- author: "张三" -->
+<!-- ctex: yes -->
+<!-- output: -->
+<!--   tufte::tufte_handout: -->
+<!--     latex_engine: xelatex -->
+<!--   tufte::tufte_html: default -->
+<!-- --- -->
+<!-- ``` -->
+
+<!-- # 章节标题 -->
+
+<!-- Tufte样式不主张太深的章节目录，一般仅仅使用一级标题（Markdown中用一个井号`#`）和二级标题（两个井号）。 -->
+
+\newpage
+
+```{r baseline, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+## 数値として入っているカテゴリカル変数をまとめておきます。
+factorVars <- c("Mlkfre","MlkLogi","Smoking","Alc_Fre","BMIgrp","DM_hist","HT_hist","KID_hist","LIV_hist","Exercise","Slepgrp","Spi",
+                "Fru", "Gretea", "Cofe", "Educgrp")#, 
+                #"Menopause")
+## 変数のvectorを作っておきます
+vars <- c("Age", "Smoking","Alc_Fre","BMI","BMIgrp","Exercise","Slepgrp","Spi",
+                "Fru", "Gretea", "Cofe", "Educgrp", "DM_hist","HT_hist","KID_hist","LIV_hist")
+
+library(tableone)
+tableOne <- CreateTableOne(vars = vars, strata = "MlkLogi", data = MData_men, factorVars = factorVars)
+
+table1 <- print(x = tableOne)
+
+tableTwo <- CreateTableOne(vars = vars, strata = "Mlkfre", data = MData_men, factorVars = factorVars)
+table2 <- print(x = tableTwo)
+write.csv(table1,"tab/table1.csv") 
+write.csv(table2,"tab/table2.csv") 
+```
+
+
+```{r tab1, echo=FALSE, eval=FALSE}
+library(knitr)
+library(kableExtra)
+dt <- read.csv("tab/tab1.csv", header = T)
+names(dt) <- c("Characteristic", "Never", "Drinker", "1-2 t/Mon", "1-2 t/Week", "3-4 t/Week", "Daily", "P value")
+
+kable(dt, format = "latex", caption = "", booktabs = T,linesep = "") %>%
+kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
+  add_header_above(c(" ", "", "", "Milk drinkers" = 4, "")) %>%
+  add_indent(c(4:6, 8:11, 14:17, 19, 20, 22:25, 27:30, 32:35, 37:39, 41:43, 45, 47, 49, 51, 53)) %>%
+  footnote(c("Abbreviations: n, number; SD, standard deviation; Alc_Fre, alcohol intake; BMI, Body Mass Index; Slepgrp, sleep duration", "groups; Veg, vegetable intake; Coffe, coffee intake; DM/HT/KID/LIV_hist, diabetes, hypertension, kidney disease,", "liver disease history."))
+``` 
+
+
+\begin{table}[ht]
+
+Table 1. Baseline characteristics of subjects in the JACC study by milk intake level in Men (n = 39,386).
+
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{llllllll}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{Milk drinkers} & \multicolumn{1}{c}{} \\
+\cmidrule(l{3pt}r{3pt}){4-7}
+Characteristic & Never & Drinker & 1-2 t/Mon & 1-2 t/Week & 3-4 t/Week & Daily & P value\\
+\midrule
+\rowcolor{gray!6}  n & 8508 & 30878 & 3522 & 5928 & 5563 & 15865 & \\
+Age (mean (SD)) & 56.80 (9.97) & 56.78 (10.15) & 55.18 (10.14) & 55.42 (10.10) & 55.43 (9.95) & 58.12 (10.07) & <0.001\\
+\rowcolor{gray!6}  Smoking (\%) &  &  &  &  &  &  & <0.001\\
+\hspace{1em}Never & 1384 (16.3) & 6479 (21.0) & 652 (18.5) & 1091 (18.4) & 1141 (20.5) & 3595 (22.7) & \\
+\rowcolor{gray!6}  \hspace{1em}Past & 1836 (21.6) & 7729 (25.0) & 730 (20.7) & 1298 (21.9) & 1335 (24.0) & 4366 (27.5) & \\
+\hspace{1em}Current & 4996 (58.7) & 15386 (49.8) & 2020 (57.4) & 3313 (55.9) & 2845 (51.1) & 7208 (45.4) & \\
+\rowcolor{gray!6}  Alc\_Fre (\%) &  &  &  &  &  &  & <0.001\\
+\hspace{1em}< 1/week & 355 ( 4.2) & 1469 ( 4.8) & 130 ( 3.7) & 273 ( 4.6) & 301 ( 5.4) & 765 ( 4.8) & \\
+\rowcolor{gray!6}  \hspace{1em}1-4 /week & 1105 (13.0) & 5316 (17.2) & 597 (17.0) & 1056 (17.8) & 1033 (18.6) & 2630 (16.6) & \\
+\hspace{1em}Daily & 4416 (51.9) & 14746 (47.8) & 1793 (50.9) & 2871 (48.4) & 2706 (48.6) & 7376 (46.5) & \\
+\rowcolor{gray!6}  \hspace{1em}Never or past & 2028 (23.8) & 7060 (22.9) & 727 (20.6) & 1257 (21.2) & 1120 (20.1) & 3956 (24.9) & \\
+BMI (mean (SD)) & 22.58 (3.41) & 22.71 (3.41) & 22.76 (2.75) & 22.76 (2.82) & 22.91 (5.44) & 22.61 (2.75) & <0.001\\
+\rowcolor{gray!6}  BMIgrp (\%) &  &  &  &  &  &  & <0.001\\
+\hspace{1em}18.5-24.9 & 6099 (71.7) & 22591 (73.2) & 2562 (72.7) & 4313 (72.8) & 4042 (72.7) & 11674 (73.6) & \\
+\rowcolor{gray!6}  \hspace{1em}< 18.5 & 505 ( 5.9) & 1446 ( 4.7) & 152 ( 4.3) & 266 ( 4.5) & 213 ( 3.8) & 815 ( 5.1) & \\
+\hspace{1em}25-29.9 & 1404 (16.5) & 5246 (17.0) & 612 (17.4) & 1082 (18.3) & 988 (17.8) & 2564 (16.2) & \\
+\rowcolor{gray!6}  \hspace{1em}> 30 & 90 ( 1.1) & 296 ( 1.0) & 38 ( 1.1) & 54 ( 0.9) & 63 ( 1.1) & 141 ( 0.9) & \\
+Exercise (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Almost0 & 5009 (58.9) & 17232 (55.8) & 2274 (64.6) & 3316 (55.9) & 2954 (53.1) & 8688 (54.8) & \\
+\hspace{1em}> 1h/w & 1618 (19.0) & 8509 (27.6) & 934 (26.5) & 1482 (25.0) & 1418 (25.5) & 4675 (29.5) & \\
+\rowcolor{gray!6}  Slepgrp (\%) &  &  &  &  &  &  & <0.001\\
+\hspace{1em}< 6.9 & 1502 (17.7) & 5274 (17.1) & 582 (16.5) & 1036 (17.5) & 948 (17.0) & 2708 (17.1) & \\
+\rowcolor{gray!6}  \hspace{1em}7-7.9 & 2559 (30.1) & 9953 (32.2) & 1182 (33.6) & 1891 (31.9) & 1802 (32.4) & 5078 (32.0) & \\
+\hspace{1em}8-8.9 & 3026 (35.6) & 11074 (35.9) & 1217 (34.6) & 2143 (36.2) & 1953 (35.1) & 5761 (36.3) & \\
+\rowcolor{gray!6}  \hspace{1em}> 9 & 1113 (13.1) & 3102 (10.0) & 374 (10.6) & 581 ( 9.8) & 553 ( 9.9) & 1594 (10.0) & \\
+Veg (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Less1tm & 1002 (11.8) & 2556 ( 8.3) & 556 (15.8) & 508 ( 8.6) & 362 ( 6.5) & 1130 ( 7.1) & \\
+\hspace{1em}One2tw & 2198 (25.8) & 7915 (25.6) & 1118 (31.7) & 1828 (30.8) & 1280 (23.0) & 3689 (23.3) & \\
+\rowcolor{gray!6}  \hspace{1em}Thre4tw & 1787 (21.0) & 7791 (25.2) & 871 (24.7) & 1333 (22.5) & 1582 (28.4) & 4005 (25.2) & \\
+\hspace{1em}daily & 1810 (21.3) & 7844 (25.4) & 709 (20.1) & 1209 (20.4) & 1158 (20.8) & 4768 (30.1) & \\
+\rowcolor{gray!6}  Fruit (\%) &  &  &  &  &  &  & <0.001\\
+\hspace{1em}Less1tm & 1888 (22.2) & 4007 (13.0) & 786 (22.3) & 810 (13.7) & 618 (11.1) & 1793 (11.3) & \\
+\rowcolor{gray!6}  \hspace{1em}One2tw & 1877 (22.1) & 6691 (21.7) & 999 (28.4) & 1581 (26.7) & 1099 (19.8) & 3012 (19.0) & \\
+\hspace{1em}Thre4tw & 1376 (16.2) & 6120 (19.8) & 695 (19.7) & 1122 (18.9) & 1271 (22.8) & 3032 (19.1) & \\
+\rowcolor{gray!6}  \hspace{1em}daily & 1260 (14.8) & 6924 (22.4) & 542 (15.4) & 968 (16.3) & 961 (17.3) & 4453 (28.1) & \\
+Greentea (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}daily & 6508 (76.5) & 24444 (79.2) & 2814 (79.9) & 4641 (78.3) & 4332 (77.9) & 12657 (79.8) & \\
+\hspace{1em}Thre3tw & 737 ( 8.7) & 2926 ( 9.5) & 378 (10.7) & 588 ( 9.9) & 562 (10.1) & 1398 ( 8.8) & \\
+\rowcolor{gray!6}  \hspace{1em}Never & 659 ( 7.7) & 1748 ( 5.7) & 184 ( 5.2) & 327 ( 5.5) & 299 ( 5.4) & 938 ( 5.9) & \\
+Coffe (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}daily & 3727 (43.8) & 15662 (50.7) & 1780 (50.5) & 2845 (48.0) & 2642 (47.5) & 8395 (52.9) & \\
+\hspace{1em}Thre3tw & 2267 (26.6) & 8511 (27.6) & 998 (28.3) & 1822 (30.7) & 1774 (31.9) & 3917 (24.7) & \\
+\rowcolor{gray!6}  \hspace{1em}Never & 2299 (27.0) & 6006 (19.5) & 700 (19.9) & 1123 (18.9) & 983 (17.7) & 3200 (20.2) & \\
+Educgrp (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}>= 18 y.o & 2168 (25.5) & 10701 (34.7) & 1190 (33.8) & 1973 (33.3) & 1726 (31.0) & 5812 (36.6) & \\
+DM\_hist (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}TRUE & 423 ( 5.0) & 1942 ( 6.3) & 160 ( 4.5) & 250 ( 4.2) & 304 ( 5.5) & 1228 ( 7.7) & \\
+HT\_hist (\%) &  &  &  &  &  &  & 0.039\\
+\rowcolor{gray!6}  \hspace{1em}TRUE & 1568 (18.4) & 5526 (17.9) & 616 (17.5) & 1013 (17.1) & 937 (16.8) & 2960 (18.7) & \\
+KID\_hist (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}TRUE & 257 ( 3.0) & 1038 ( 3.4) & 135 ( 3.8) & 178 ( 3.0) & 168 ( 3.0) & 557 ( 3.5) & \\
+LIV\_hist (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}TRUE & 495 ( 5.8) & 2016 ( 6.5) & 223 ( 6.3) & 356 ( 6.0) & 300 ( 5.4) & 1137 ( 7.2) & \\
+\bottomrule
+\multicolumn{8}{l}{\textit{Note: }}\\
+\multicolumn{8}{l}{Abbreviations: n, number; SD, standard deviation; Alc\_Fre, alcohol intake; BMI, Body Mass Index; Slepgrp, sleep duration}\\
+\multicolumn{8}{l}{groups; Veg, vegetable intake; Coffe, coffee intake; DM/HT/KID/LIV\_hist, diabetes, hypertension, kidney disease,}\\
+\multicolumn{8}{l}{liver disease history.}\\
+\end{tabular}
+\end{table}
+
+
+
+
+
+\newpage
+
+```{r baselinef, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+## 数値として入っているカテゴリカル変数をまとめておきます。
+factorVars <- c("Mlkfre","MlkLogi","Smoking","Alc_Fre","BMIgrp","DM_hist","HT_hist","KID_hist","LIV_hist","Exercise","Slepgrp","Spi",
+                "Fru", "Gretea", "Cofe", "Educgrp", 
+                "Menopause")
+## 変数のvectorを作っておきます
+vars <- c("Age", "Smoking","Alc_Fre","BMI","BMIgrp","Exercise","Slepgrp","Spi",
+                "Fru", "Gretea", "Cofe", "Educgrp", "DM_hist","HT_hist","KID_hist","LIV_hist","Menopause")
+
+tableOne <- CreateTableOne(vars = vars, strata = "MlkLogi", data = MData_fem, factorVars = factorVars)
+
+table1 <- print(x = tableOne)
+
+tableTwo <- CreateTableOne(vars = vars, strata = "Mlkfre", data = MData_fem, factorVars = factorVars)
+table2 <- print(x = tableTwo)
+write.csv(table1,"tab/table1f.csv") 
+write.csv(table2,"tab/table2f.csv") 
+```
+
+
+```{r tab1f, echo=FALSE, eval=FALSE}
+
+dt <- read.csv("tab/tab1f.csv", header = T)
+names(dt) <- c("Characteristic", "Never", "Drinker", "1-2 t/Mon", "1-2 t/Week", "3-4 t/Week", "Daily", "P value")
+
+kable(dt, format = "latex", caption = "", booktabs = T,linesep = "") %>%
+kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
+  add_header_above(c(" ", "", "", "Milk drinkers" = 4, "")) %>%
+  add_indent(c(4:6, 8:11, 14:17, 19, 20, 22:25, 27:30, 32:35, 37:39, 41:43, 45, 47, 49, 51, 53, 55)) %>%
+  footnote(c("Abbreviations: n, number; SD, standard deviation; Alc_Fre, alcohol intake; BMI, Body Mass Index; Slepgrp, sleep duration", "groups; Veg, vegetable intake; Coffe, coffee intake; DM/HT/KID/LIV_hist, diabetes, hypertension, kidney disease,", "liver disease history."))
+``` 
+
+\begin{table}[!ht]
+Table 2. Baseline characteristics of subjects in the JACC study by milk intake level in Women (n = 54,999).
+
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{llllllll}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{Milk drinkers} & \multicolumn{1}{c}{} \\
+\cmidrule(l{3pt}r{3pt}){4-7}
+Characteristic & Never & Drinker & 1-2 t/Mon & 1-2 t/Week & 3-4 t/Week & Daily & P value\\
+\midrule
+\rowcolor{gray!6}  n & 10407 & 44592 & 3640 & 7590 & 8108 & 25254 & \\
+Age (mean (SD)) & 58.03 (10.17) & 56.97 (9.99) & 56.52 (10.19) & 55.60 (10.08) & 55.58 (9.89) & 57.90 (9.86) & <0.001\\
+\rowcolor{gray!6}  Smoking (\%) &  &  &  &  &  &  & <0.001\\
+\hspace{1em}Never & 8318 (79.9) & 36978 (82.9) & 2974 (81.7) & 6219 (81.9) & 6763 (83.4) & 21022 (83.2) & \\
+\rowcolor{gray!6}  \hspace{1em}Past & 169 ( 1.6) & 607 ( 1.4) & 49 ( 1.3) & 113 ( 1.5) & 98 ( 1.2) & 347 ( 1.4) & \\
+\hspace{1em}Current & 723 ( 6.9) & 1860 ( 4.2) & 222 ( 6.1) & 420 ( 5.5) & 346 ( 4.3) & 872 ( 3.5) & \\
+\rowcolor{gray!6}  Alc\_Fre (\%) &  &  &  &  &  &  & <0.001\\
+\hspace{1em}< 1/week & 697 ( 6.7) & 3084 ( 6.9) & 191 ( 5.2) & 567 ( 7.5) & 673 ( 8.3) & 1653 ( 6.5) & \\
+\rowcolor{gray!6}  \hspace{1em}1-4 /week & 837 ( 8.0) & 4611 (10.3) & 357 ( 9.8) & 828 (10.9) & 918 (11.3) & 2508 ( 9.9) & \\
+\hspace{1em}Daily & 450 ( 4.3) & 2021 ( 4.5) & 200 ( 5.5) & 325 ( 4.3) & 338 ( 4.2) & 1158 ( 4.6) & \\
+\rowcolor{gray!6}  \hspace{1em}Never or past & 7449 (71.6) & 30670 (68.8) & 2562 (70.4) & 5196 (68.5) & 5416 (66.8) & 17496 (69.3) & \\
+BMI (mean (SD)) & 23.01 (3.38) & 22.91 (3.69) & 23.02 (3.80) & 23.07 (4.41) & 23.07 (3.08) & 22.80 (3.62) & <0.001\\
+\rowcolor{gray!6}  BMIgrp (\%) &  &  &  &  &  &  & <0.001\\
+\hspace{1em}18.5-24.9 & 6589 (63.3) & 30588 (68.6) & 2438 (67.0) & 5121 (67.5) & 5496 (67.8) & 17533 (69.4) & \\
+\rowcolor{gray!6}  \hspace{1em}< 18.5 & 703 ( 6.8) & 2465 ( 5.5) & 188 ( 5.2) & 380 ( 5.0) & 398 ( 4.9) & 1499 ( 5.9) & \\
+\hspace{1em}25-29.9 & 2173 (20.9) & 8545 (19.2) & 756 (20.8) & 1505 (19.8) & 1678 (20.7) & 4606 (18.2) & \\
+\rowcolor{gray!6}  \hspace{1em}> 30 & 280 ( 2.7) & 769 ( 1.7) & 76 ( 2.1) & 175 ( 2.3) & 158 ( 1.9) & 360 ( 1.4) & \\
+Exercise (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Almost0 & 6618 (63.6) & 27513 (61.7) & 2624 (72.1) & 4816 (63.5) & 4790 (59.1) & 15283 (60.5) & \\
+\hspace{1em}> 1h/w & 1417 (13.6) & 9265 (20.8) & 624 (17.1) & 1401 (18.5) & 1522 (18.8) & 5718 (22.6) & \\
+\rowcolor{gray!6}  Slepgrp (\%) &  &  &  &  &  &  & <0.001\\
+\hspace{1em}< 6.9 & 2805 (27.0) & 11968 (26.8) & 1019 (28.0) & 2047 (27.0) & 2103 (25.9) & 6799 (26.9) & \\
+\rowcolor{gray!6}  \hspace{1em}7-7.9 & 3336 (32.1) & 16071 (36.0) & 1245 (34.2) & 2721 (35.8) & 2944 (36.3) & 9161 (36.3) & \\
+\hspace{1em}8-8.9 & 2886 (27.7) & 11432 (25.6) & 914 (25.1) & 1965 (25.9) & 2056 (25.4) & 6497 (25.7) & \\
+\rowcolor{gray!6}  \hspace{1em}> 9 & 887 ( 8.5) & 2543 ( 5.7) & 254 ( 7.0) & 439 ( 5.8) & 435 ( 5.4) & 1415 ( 5.6) & \\
+Veg (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Less1tm & 917 ( 8.8) & 2356 ( 5.3) & 399 (11.0) & 445 ( 5.9) & 337 ( 4.2) & 1175 ( 4.7) & \\
+\hspace{1em}One2tw & 2514 (24.2) & 10127 (22.7) & 1029 (28.3) & 2195 (28.9) & 1642 (20.3) & 5261 (20.8) & \\
+\rowcolor{gray!6}  \hspace{1em}Thre4tw & 2331 (22.4) & 11845 (26.6) & 1001 (27.5) & 1876 (24.7) & 2452 (30.2) & 6516 (25.8) & \\
+\hspace{1em}daily & 2567 (24.7) & 13537 (30.4) & 909 (25.0) & 1866 (24.6) & 1963 (24.2) & 8799 (34.8) & \\
+\rowcolor{gray!6}  Fruit (\%) &  &  &  &  &  &  & <0.001\\
+\hspace{1em}Less1tm & 1397 (13.4) & 3270 ( 7.3) & 523 (14.4) & 594 ( 7.8) & 514 ( 6.3) & 1639 ( 6.5) & \\
+\rowcolor{gray!6}  \hspace{1em}One2tw & 1913 (18.4) & 6761 (15.2) & 801 (22.0) & 1515 (20.0) & 1122 (13.8) & 3323 (13.2) & \\
+\hspace{1em}Thre4tw & 1926 (18.5) & 9018 (20.2) & 845 (23.2) & 1591 (21.0) & 1922 (23.7) & 4660 (18.5) & \\
+\rowcolor{gray!6}  \hspace{1em}daily & 2601 (25.0) & 15939 (35.7) & 967 (26.6) & 2216 (29.2) & 2369 (29.2) & 10387 (41.1) & \\
+Greentea (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}daily & 7680 (73.8) & 34264 (76.8) & 2804 (77.0) & 5800 (76.4) & 6146 (75.8) & 19514 (77.3) & \\
+\hspace{1em}Thre3tw & 946 ( 9.1) & 4615 (10.3) & 394 (10.8) & 848 (11.2) & 921 (11.4) & 2452 ( 9.7) & \\
+\rowcolor{gray!6}  \hspace{1em}Never & 944 ( 9.1) & 2928 ( 6.6) & 230 ( 6.3) & 467 ( 6.2) & 466 ( 5.7) & 1765 ( 7.0) & \\
+Coffe (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}daily & 4121 (39.6) & 21483 (48.2) & 1682 (46.2) & 3519 (46.4) & 3597 (44.4) & 12685 (50.2) & \\
+\hspace{1em}Thre3tw & 2648 (25.4) & 12514 (28.1) & 1069 (29.4) & 2279 (30.0) & 2698 (33.3) & 6468 (25.6) & \\
+\rowcolor{gray!6}  \hspace{1em}Never & 3387 (32.5) & 9670 (21.7) & 835 (22.9) & 1611 (21.2) & 1620 (20.0) & 5604 (22.2) & \\
+Educgrp (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}>= 18 y.o & 2073 (19.9) & 14092 (31.6) & 1016 (27.9) & 2263 (29.8) & 2225 (27.4) & 8588 (34.0) & \\
+DM\_hist (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}TRUE & 269 ( 2.6) & 1642 ( 3.7) & 115 ( 3.2) & 206 ( 2.7) & 219 ( 2.7) & 1102 ( 4.4) & \\
+HT\_hist (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}TRUE & 2236 (21.5) & 8782 (19.7) & 745 (20.5) & 1446 (19.1) & 1533 (18.9) & 5058 (20.0) & \\
+KID\_hist (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}TRUE & 371 ( 3.6) & 1830 ( 4.1) & 142 ( 3.9) & 280 ( 3.7) & 298 ( 3.7) & 1110 ( 4.4) & \\
+LIV\_hist (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}TRUE & 365 ( 3.5) & 2047 ( 4.6) & 178 ( 4.9) & 295 ( 3.9) & 320 ( 3.9) & 1254 ( 5.0) & \\
+Menopause (\%) &  &  &  &  &  &  & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}TRUE & 8213 (78.9) & 34021 (76.3) & 2684 (73.7) & 5408 (71.3) & 5791 (71.4) & 20138 (79.7) & \\
+\bottomrule
+\multicolumn{8}{l}{\textit{Note: }}\\
+\multicolumn{8}{l}{Abbreviations: n, number; SD, standard deviation; Alc\_Fre, alcohol intake; BMI, Body Mass Index; Slepgrp, sleep duration}\\
+\multicolumn{8}{l}{groups; Veg, vegetable intake; Coffe, coffee intake; DM/HT/KID/LIV\_hist, diabetes, hypertension, kidney disease,}\\
+\multicolumn{8}{l}{liver disease history.}\\
+\end{tabular}
+\end{table}
+
+
+\newpage
+
+## Traditional survival analysis (Cox proportional hazard model)
+
+
+```{r figure1, echo=FALSE, eval=TRUE, fig.height=6.5, fig.width=7, message=FALSE, warning=FALSE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by drinking frequency (P value was obtained from log-rank tests) in Men.",fig.align='center',  out.width='100%', cache=TRUE}
+
+###################################################################################################
+## survival object
+###################################################################################################
+library(survival)
+library(ggplot2)
+library(survminer)
+library(cowplot)
+library(ggsci)
+
+# in Men
+su_obj_men <- Surv(MData_men$followpy, MData_men$Tot_Stroke == "I60_9")
+# in Women
+su_obj_fem <- Surv(MData_fem$followpy, MData_fem$Tot_Stroke == "I60_9")
+
+###################################################################################################
+## Kaplan-Meier plots and log rank tests for TotStroke and Milk intake  (frequency)
+###################################################################################################
+
+surv.Drfreq <- with(MData_men, survfit(su_obj_men ~ Mlkfre))
+
+ggsurv_Drfreq <- ggsurvplot(surv.Drfreq, censor = F, xlab = "Time (years)", conf.int = T, 
+                            conf.int.style = "step",  # customize style of confidence intervals
+                            surv.median.line = "none", ylab = "Survival function",
+                            legend.labs = c("Never or past", "< 1/week", "1-2 /week", "3-4 /week", "Daily"), 
+                            ggtheme = theme_bw(), palette = "npg",
+                            pval = TRUE, data = MData_men, # pval.method = TRUE
+                            risk.table = T,
+                            risk.table.y.text.col = T, # colour risk table text annotations.
+                            risk.table.y.text = FALSE,  pval.coord = c(0, 0.972),
+                            ylim = c(0.93, 1.0), xlim = c(0, 22)) 
+# show bars instead of names in text annotations)  
+
+ggsurv_Drfreq <- ggpar(
+  ggsurv_Drfreq,
+  font.title    = c(14, "bold", "black"),         
+  # font.subtitle = c(15, "bold.italic", "purple"), 
+  #  font.caption  = c(14, "plain", "orange"),        
+  font.x        = c(14, "bold", "black"),          
+  font.y        = c(14, "bold", "black"),      
+  font.xtickslab = c(13, "bold", "black"),
+  #  font.ytickslab = c(13, "bold", "black"),
+  legend = "bottom", 
+  font.legend  = c(13, "bold", "black"),
+  legend.title = ""
+)
+ggsurv_Drfreq
+```
+
+
+<!-- # 插图 -->
+
+<!-- ## 边栏插图 -->
+
+<!-- 插图在Tufte的书中非常常见，我们可以使用三种插图：边栏图、全宽图、主栏图。先说边栏图：使用**knitr**代码段选项`fig.margin = TRUE`即可将图形放置在边栏中，如： -->
+
+<!-- ```{r fig-margin, fig.margin = TRUE, fig.cap = "MPG与horsepower两个变量的散点图；颜色代表自动挡或手动挡。", fig.width=3.5, fig.height=3.5, cache=TRUE, message=FALSE, eval=FALSE} -->
+<!-- library(ggplot2) -->
+<!-- mtcars2 <- mtcars -->
+<!-- mtcars2$am <- factor( -->
+<!--   mtcars$am, labels = c('automatic', 'manual') -->
+<!-- ) -->
+<!-- ggplot(mtcars2, aes(hp, mpg, color = am)) + -->
+<!--   geom_point() + geom_smooth() + -->
+<!--   theme(legend.position = 'bottom') -->
+<!-- ``` -->
+
+<!-- 注意我们使用代码段选项`fig.cap`设定了图的标题。当然我们也可以设置图的长宽。 -->
+
+<!-- ## 任意边栏内容 -->
+
+<!-- 事实上我们可以在边栏中放置除了图之外的内容，此时我们不再使用```` ```{r} ````写代码段，而是用```` ```{marginfigure} ````。例如右边有一个微积分第一基本定理。 -->
+
+<!-- ```{marginfigure} -->
+<!-- 根据微积分第一基本定理我们知道，对$x \in [a, b]$有 -->
+<!-- $$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$ -->
+<!-- ``` -->
+
+<!-- 为了文本内容的可移植性（同样的内容可以生成HTML和LaTeX文档），我们建议边栏中不要放置太复杂的内容，简单的加粗、倾斜都没有问题，但不建议在边栏中使用列表、参考文献等内容。 -->
+
+<!-- ## 全宽插图 -->
+
+<!-- 代码段选项`fig.fullwidth = TRUE`可以使得一幅图占用全部页宽，例如： -->
+
+<!-- ```{r fig-fullwidth, fig.width = 10, fig.height = 2, fig.fullwidth = TRUE, fig.cap = "一幅全宽图形。", warning=FALSE, cache=TRUE, message=FALSE} -->
+<!-- ggplot(diamonds, aes(carat, price)) + geom_smooth() + -->
+<!--   facet_grid(~ cut) -->
+<!-- ``` -->
+
+<!-- 其它和图形有关的代码段选项仍然可以使用，一般情况下，全宽图形的`fig.width`选项会较大，而`fig.height`相对较小。上图的尺寸是$10 \times 2$英寸. -->
+
+<!-- ## 主栏插图 -->
+
+<!-- 默认情况下，R代码段生成的图形放置在主栏里，其标题放在边栏中，例如： -->
+
+<!-- ```{r fig-main, fig.cap = "一幅主栏插图。", cache=TRUE} -->
+<!-- ggplot(diamonds, aes(cut, price)) + geom_boxplot() -->
+<!-- ``` -->
+
+<!-- # 边栏附注 -->
+
+<!-- Tufte样式的文档中，脚注会被自动转换为边栏附注^[这里本来是一个脚注]。脚注是带编号的，另一种边栏附注是不带编号的，这种附注需要用**tufte**包中的R函数`margin_note()`在**knitr**行内代码中生成。`r margin_note("这是一个边栏附注，它没有编号。")`与边栏插图一样，边栏附注中我们也不建议写太复杂的内容，通常只是一句简单的文字。 -->
+
+<!-- # 参考文献 -->
+
+<!-- HTML输出中，参考文献默认也放在边栏中。例如这里我们可以引用[@R-base]。这个功能需要在YAML元数据中设置`link-citations: yes`，而且`pandoc-citeproc`程序的版本应该至少是0.7.2。若这两个条件不满足，参考文献会被放在文档末尾。 -->
+
+
+<!-- # 引文 -->
+
+<!-- Markdown语法使用`>`来生成引文，如果需要在引文下面用行内代码以及`quote_footer()`函数加上一句引文来源，例如： -->
+
+<!-- > "多亏了我的律师，要不然我现在还在牢里。两个人一起挖确实比一个人快很多啊。" -->
+<!-- > -->
+<!-- > `r tufte::quote_footer('--- Joe Martin')` -->
+
+<!-- 如果不用这个函数的话，引文底部的话只是一个普通段落： -->
+
+<!-- > "伟人论道，凡人论事，小人论酒。" -->
+<!-- > -->
+<!-- > --- Fran Lebowitz -->
+
+<!-- # 响应式页面 -->
+
+<!-- 这个包生成的HTML页面是响应式的：如果页宽小于760像素，边栏内容会自动隐藏。此时我们可以点击脚注的序号显示它，其它边栏附注则可以通过点击圆圈加号的符号显示。 -->
+
+<!-- # 结语 -->
+
+<!-- 希望诸位喜欢R Markdown的超级简洁性，同时我们感谢Tufte-CSS和Tufte-LaTeX项目的作者们，没有他们的辛勤劳动，就没有这个**tufte**包。这份文档的R Markdown源文档可以在[Github上找到](https://github.com/rstudio/tufte/raw/master/inst/rmarkdown/templates/tufte_ctex/skeleton/skeleton.Rmd)，或者直接使用RStudio菜单`File -> New File -> R Markdown -> From Template`新建一个文档，或直接从R里面打开这个Rmd文件： -->
+
+<!-- ```{r eval=FALSE} -->
+<!-- file.edit( -->
+<!--   tufte:::template_resources( -->
+<!--     'tufte_ctex', '..', 'skeleton', 'skeleton.Rmd' -->
+<!--   ) -->
+<!-- ) -->
+<!-- ``` -->
+
+```{r bib, include=FALSE}
+# create a bib file for the R packages used in this document
+knitr::write_bib(c('base', 'rmarkdown'), file = 'skeleton.bib')
+```

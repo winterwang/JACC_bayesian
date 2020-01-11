@@ -1,0 +1,13 @@
+---
+title: "Tables and figures for the presentation"
+author: "Chaochen Wang | Department of Public Health, Aichi Medical University"
+date: ""`r format(Sys.time(), '%d %B %Y')`""
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data preparation:
+
