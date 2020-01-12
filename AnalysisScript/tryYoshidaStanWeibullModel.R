@@ -36,7 +36,7 @@ stan_weibull_survival_model_data <-
     ## Covariates for event individuals as a matrix
     Xobs_bg = matrix(as.numeric(MData_men$MlkLogi == "Drinker")[MData_men$Tot_Stroke == "I60_9"]),
     ## Covariates for censored individuals as a matrix
-    Xcen_bg = matrix(as.numeric(MData_men$MlkLogi == "Never")[MData_men$Tot_Stroke != "I60_9"])
+    Xcen_bg = matrix(as.numeric(MData_men$MlkLogi == "Drinker")[MData_men$Tot_Stroke != "I60_9"])
   )
 stan_weibull_survival_model_data
 
