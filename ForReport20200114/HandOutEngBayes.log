@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.1.11)  12 JAN 2020 11:23
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.1.11)  12 JAN 2020 13:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**HandOutEng.tex
-(./HandOutEng.tex
+**HandOutEngBayes.tex
+(./HandOutEngBayes.tex
 LaTeX2e <2019-10-01> patch level 3
 
 (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/tufte-latex/tufte-handout
@@ -543,7 +543,7 @@ LaTeX Info: Redefining \cite on input line 694.
 ) (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/natbib/bibentry.sty
 Package: bibentry 2007/10/30 1.5 (PWD)
 )
-No file HandOutEng.bbl.
+No file HandOutEngBayes.bbl.
 \c@@tufte@num@bibkeys=\count279
 (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/sauerj/optparams.sty
 Package: optparams 2004/08/14 v0.9 multiple optional parameters in macros
@@ -718,15 +718,24 @@ Package: nicefrac 1998/08/04 v0.9b Nice fractions
 \L@UnitsRaiseDisplaystyle=\skip96
 \L@UnitsRaiseTextstyle=\skip97
 \L@UnitsRaiseScriptstyle=\skip98
-)) (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box83
-\UL@hyphenbox=\box84
+)) (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2019/11/09
+Style option: `fancyvrb' v3.4 <2019/11/09> (tvz)
+\FV@CodeLineNo=\count306
+\FV@InFile=\read2
+\FV@TabBox=\box83
+\c@FancyVerbLine=\count307
+\FV@StepNumber=\count308
+\FV@OutFile=\write3
+) (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box84
+\UL@hyphenbox=\box85
 \UL@skip=\skip99
 \UL@hook=\toks27
 \UL@height=\dimen192
-\UL@pe=\count306
+\UL@pe=\count309
 \UL@pixel=\dimen193
-\ULC@box=\box85
+\ULC@box=\box86
 Package: ulem 2019/11/18
 \ULdepth=\dimen194
 )
@@ -742,46 +751,46 @@ Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
 \LTright=\skip101
 \LTpre=\skip102
 \LTpost=\skip103
-\LTchunksize=\count307
+\LTchunksize=\count310
 \LTcapwidth=\dimen195
-\LT@head=\box86
-\LT@firsthead=\box87
-\LT@foot=\box88
-\LT@lastfoot=\box89
-\LT@cols=\count308
-\LT@rows=\count309
-\c@LT@tables=\count310
-\c@LT@chunks=\count311
+\LT@head=\box87
+\LT@firsthead=\box88
+\LT@foot=\box89
+\LT@lastfoot=\box90
+\LT@cols=\count311
+\LT@rows=\count312
+\c@LT@tables=\count313
+\c@LT@chunks=\count314
 \LT@p@ftn=\toks28
 ) (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen196
-\ar@mcellbox=\box90
+\ar@mcellbox=\box91
 \extrarowheight=\dimen197
 \NC@list=\toks29
 \extratabsurround=\skip104
 \backup@length=\skip105
-\ar@cellbox=\box91
+\ar@cellbox=\box92
 ) (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip106
-\multirow@cntb=\count312
+\multirow@cntb=\count315
 \multirow@dima=\skip107
 \bigstrutjot=\dimen198
 ) (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen199
 \WF@size=\dimen256
-\c@WF@wrappedlines=\count313
-\WF@box=\box92
+\c@WF@wrappedlines=\count316
+\WF@box=\box93
 \WF@everypar=\toks30
 Package: wrapfig 2003/01/31  v 3.6
 ) (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count314
+\c@float@type=\count317
 \float@exts=\toks31
-\float@box=\box93
+\float@box=\box94
 \@float@everytoks=\toks32
-\@floatcapt=\box94
+\@floatcapt=\box95
 ) (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2018/12/12 v1.0d Color table columns (DPC)
 \everycr=\toks33
@@ -797,17 +806,17 @@ Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
 Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box95
-\sift@deathcycles=\count315
+\@vwid@box=\box96
+\sift@deathcycles=\count318
 \@vwid@loff=\dimen257
 \@vwid@roff=\dimen258
 )
-\c@taburow=\count316
-\tabu@nbcols=\count317
-\tabu@cnt=\count318
-\tabu@Xcol=\count319
-\tabu@alloc=\count320
-\tabu@nested=\count321
+\c@taburow=\count319
+\tabu@nbcols=\count320
+\tabu@cnt=\count321
+\tabu@Xcol=\count322
+\tabu@alloc=\count323
+\tabu@nested=\count324
 \tabu@target=\dimen259
 \tabu@spreadtarget=\dimen260
 \tabu@naturalX=\dimen261
@@ -819,16 +828,16 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabustrutrule=\dimen267
 \tabu@thebody=\toks34
 \tabu@footnotes=\toks35
-\tabu@box=\box96
-\tabu@arstrutbox=\box97
-\tabu@hleads=\box98
-\tabu@vleads=\box99
+\tabu@box=\box97
+\tabu@arstrutbox=\box98
+\tabu@hleads=\box99
+\tabu@vleads=\box100
 \tabu@cellskip=\skip109
 )
 (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threepartt
 able.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box100
+\@tempboxb=\box101
 )
 (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/threeparttablex/threepart
 tablex.sty
@@ -843,87 +852,88 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ) (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen268
-\c@nlinenum=\count322
+\c@nlinenum=\count325
 \TeXr@lab=\toks36
-) (./HandOutEng.aux)
-\openout1 = `HandOutEng.aux'.
+) (./HandOutEngBayes.aux)
+\openout1 = `HandOutEngBayes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 125.
+LaTeX Font Info:    ... okay on input line 125.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 86.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 86.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 86.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 86.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 86.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 86.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 86.
-LaTeX Font Info:    Redeclaring math accent \check on input line 86.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 86.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 86.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 86.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 86.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 86.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 125.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 125.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 125.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 125.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 125.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 125.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 125.
+LaTeX Font Info:    Redeclaring math accent \check on input line 125.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 125.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 125.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 125.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 125.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 125.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 86.
+(Font)              `operators' in the math version `normal' on input line 125.
+
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 86.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 125.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 86.
+(Font)              `operators' in the math version `bold' on input line 125.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 86.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 125.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 86.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 125.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 86.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 125.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 86.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 125.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 86.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 125.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 86.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 125.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 86.
+(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 125.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/bx/it on input line 86.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/bx/it on input line 125.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 86.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 125.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 86.
-\AtBeginShipoutBox=\box101
-Package hyperref Info: Link coloring OFF on input line 86.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 125.
+\AtBeginShipoutBox=\box102
+Package hyperref Info: Link coloring OFF on input line 125.
 (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -933,17 +943,17 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 string.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count323
+\c@section@level=\count326
 )
-LaTeX Info: Redefining \ref on input line 86.
-LaTeX Info: Redefining \pageref on input line 86.
-LaTeX Info: Redefining \nameref on input line 86.
-(./HandOutEng.out) (./HandOutEng.out)
-\@outlinefile=\write3
-\openout3 = `HandOutEng.out'.
+LaTeX Info: Redefining \ref on input line 125.
+LaTeX Info: Redefining \pageref on input line 125.
+LaTeX Info: Redefining \nameref on input line 125.
+(./HandOutEngBayes.out) (./HandOutEngBayes.out)
+\@outlinefile=\write4
+\openout4 = `HandOutEngBayes.out'.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 86.
+LaTeX Info: Redefining \selectfont on input line 125.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -979,154 +989,62 @@ LaTeX Info: Redefining \selectfont on input line 86.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \langwohyphens=\language3
-[1
-
-]
-Overfull \hbox (39.75pt too wide) in paragraph at lines 191--191
-[]\TU/lmtt/m/n/10 ##   tr_sex Tot_Stroke       n MeanFolYear MedianFolYear MaxF
-olYear[] 
- []
-
-
-Overfull \hbox (39.75pt too wide) in paragraph at lines 191--191
-[]\TU/lmtt/m/n/10 ##   <chr>  <chr>        <int>       <dbl>         <dbl>     
- <dbl>[] 
- []
-
-
-Overfull \hbox (39.75pt too wide) in paragraph at lines 191--191
-[]\TU/lmtt/m/n/10 ## 1 1      Alive/Censor 27401        18.1          20.3     
-  23.0[] 
- []
-
-
-Overfull \hbox (39.75pt too wide) in paragraph at lines 191--191
-[]\TU/lmtt/m/n/10 ## 2 1      I60_9         1352        11.2          11.1     
-  22.9[] 
- []
-
-
-Overfull \hbox (39.75pt too wide) in paragraph at lines 191--191
-[]\TU/lmtt/m/n/10 ## 3 1      other_death  10633        11.6          11.8     
-  23.0[] 
- []
-
-
-Overfull \hbox (39.75pt too wide) in paragraph at lines 191--191
-[]\TU/lmtt/m/n/10 ## 4 2      Alive/Censor 45672        17.7          20.1     
-  23.0[] 
- []
-
-
-Overfull \hbox (39.75pt too wide) in paragraph at lines 191--191
-[]\TU/lmtt/m/n/10 ## 5 2      I60_9         1323        11.8          11.9     
-  22.9[] 
- []
-
-
-Overfull \hbox (39.75pt too wide) in paragraph at lines 191--191
-[]\TU/lmtt/m/n/10 ## 6 2      other_death   8004        12.4          13.1     
-  23.0[] 
- []
-
-File: fig/KMfigMen.png Graphic file (type bmp)
-<fig/KMfigMen.png>
-File: fig/KMfigwomen.png Graphic file (type bmp)
-<fig/KMfigwomen.png>
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 211.
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 215--216
-[]\TU/lmr/m/n/10 Table 1. Baseline characteristics of subjects in the JACC stud
-y by
- []
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 219
+LaTeX Font Info:    Trying to load font information for U+msa on input line 138
 .
 (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 219
+LaTeX Font Info:    Trying to load font information for U+msb on input line 138
 .
 (/Users/chaoimac/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (162.58405pt too wide) in paragraph at lines 219--284
- [][] 
+
+LaTeX Warning: Marginpar on page 1 moved.
+
+
+Overfull \hbox (1.96931pt too wide) in paragraph at lines 162--162
+|\TU/lmr/m/it/10.95 An example of a crude Weibull model using the JAGS program 
+in
  []
 
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 166.
+[1
 
-LaTeX Warning: Float too large for page by 22.97636pt on input line 284.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
-[]\TU/lmr/m/n/10 Table 2. Baseline characteristics of subjects in the JACC stud
-y by
- []
-
-
-Overfull \hbox (162.58405pt too wide) in paragraph at lines 293--360
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 42.97636pt on input line 360.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
-[]\TU/lmr/m/n/10 Table 3. Sex-specific hazard ratio (95% CI) of mortality from 
-stroke
- []
-
-
-Overfull \hbox (150.31506pt too wide) in paragraph at lines 367--409
- [][] 
- []
-
-No file HandOutEng.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 415.
+]
+File: HandOutEngBayes_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (ty
+pe pdf)
+<use HandOutEngBayes_files/figure-latex/unnamed-chunk-5-1.pdf>
+No file HandOutEngBayes.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 237.
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 415.
+This message occurred on input line 237.
+
+[2]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 237.
 
 [3]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 415.
-
-[4]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 415.
-
-[5]
-
-Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
-set up.
-This message occurred on input line 415.
-
-[6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 415.
-(./HandOutEng.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 415.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 415.
-Package rerunfilecheck Info: File `HandOutEng.out' has not changed.
-(rerunfilecheck)             Checksum: B453AD77365F9FA9961817B1750436D1;127.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 415.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 237.
+(./HandOutEngBayes.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 237.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 237.
+Package rerunfilecheck Info: File `HandOutEngBayes.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 237.
  ) 
 Here is how much of TeX's memory you used:
- 26120 strings out of 494458
- 480537 string characters out of 6172542
- 699642 words of memory out of 5000000
- 30102 multiletter control sequences out of 15000+600000
- 538214 words of font info for 62 fonts, out of 8000000 for 9000
+ 26499 strings out of 494458
+ 486994 string characters out of 6172542
+ 617045 words of memory out of 5000000
+ 30477 multiletter control sequences out of 15000+600000
+ 537755 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 64i,12n,51p,380b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,11n,51p,385b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on HandOutEng.pdf (6 pages).
+Output written on HandOutEngBayes.pdf (3 pages).
