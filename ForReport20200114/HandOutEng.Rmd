@@ -239,6 +239,7 @@ MData_fem <- MData %>%
 
 ## Excluding participants with conditions
 
+
 1. With stroke history: n = 1496 (915 men and 581 wmen);
 2. With cancer history: n = 1461 (411 men and 1050 women);
 3. With myocardial infarction history: n = 2994 (1310 men and 1684 women);
@@ -246,6 +247,7 @@ MData_fem <- MData %>%
 5. With other heart diseases history (ICD9 codes: 420-429):  n = 518 (204 men and 314 women);
 6. Did not answer the question about milk intake frequency: n = 9545 (3593 men and 5952 women); 
 7. Finally, n = 94385 (39386 men and 54999 women) are left in the data:
+
 
 ```{r datapre2, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
 MILK_0 %>% 
