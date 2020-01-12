@@ -319,6 +319,6 @@ MILKdataMEN <- c("t",  "c", "Mlkfre", "is.censored", "Age", "Smoking",
                  "Educgrp", "Gretea", "Fru")
 M2.params <- c("AFT", "HR", "p.crit")
 jagsfit <- jags.parallel(data=MILKdataMEN,  parameters.to.save = M2.params, 
-                         n.iter=10000, n.burnin=(5000/2), n.chains = 3,
+                         n.iter=100, n.burnin=(50/2), n.chains = 3,
                          model.file=M2.weibull.model)
 print(jagsfit)
