@@ -138,7 +138,7 @@ ggSample <- ggs(Simulated)
 
 ## Check model fitting: 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.margin = FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.margin = FALSE, fig.height=7, fig.width=6}
 library(tidyverse)
 ggSample %>% 
   filter(Iteration >= 500 & Parameter %in% c("beta[5]", "HR[5]", "AFT[5]")) %>% 
