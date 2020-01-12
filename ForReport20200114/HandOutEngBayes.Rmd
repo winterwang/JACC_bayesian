@@ -1,0 +1,147 @@
+---
+title: "Try Bayesian Survival Analysis using the JACC study data (Bayesian Survival Analysis presentations)"
+subtitle: "Tables and figures for analysing the association between milk intake and stroke mortality."
+author: "Chaochen Wang | Aichi Medical University"
+date: "`r Sys.Date()`"
+output:
+  tufte::tufte_handout:
+    citation_package: natbib
+    latex_engine: xelatex
+    keep_tex: true
+    # includes:  
+    #   in_header: preamble-latex.tex
+  tufte::tufte_html: default
+  tufte::tufte_book:
+    citation_package: natbib
+    latex_engine: xelatex
+bibliography: skeleton.bib
+link-citations: yes
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{longtable}
+- \usepackage{array}
+- \usepackage{multirow}
+- \usepackage{wrapfig}
+- \usepackage{float}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{tabu}
+- \usepackage{threeparttable}
+- \usepackage{threeparttablex}
+- \usepackage[normalem]{ulem}
+- \usepackage{makecell}
+- \usepackage{xcolor}
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+
+## Parametric Survival Analysis Model (in a Bayesian way)
+
+
+```{marginfigure}
+Weibull Survival funciton in a proportional hazard way expression is:
+$$S(t | \mathbf{x}) = \exp\{ -\lambda t ^\kappa e^{\mathbf{\beta_{PH}^T x}} \}$$
+```
+
+```{marginfigure}
+Weibull Survival funciton in a AFT way expression is:
+$$S(t | \mathbf{x}) = \exp\{ -\lambda t ^\kappa e^{\kappa\mathbf{\beta_{AFT}^T x}} \}$$
+```
+
+
+- We chose Weibull model to describe the survival data we have.
+
+- Weibull model is both a proportional hazard model and a accelerated failure time (AFT) model. The relationship between the acceleration factor and log hazard ratio:
+
+$$
+\exp(\beta^T_{PH}) = \exp(\kappa\beta^T_{AFT})
+$$
+
+## An example of a crude Weibull model using the JAGS program in R:
+
+```{r modeljag, eval=FALSE}
+jacc.weibull.model <- function() {
+  for(i in 1:39386){
+    # sAge[i] <- (Age[i] - mean(Age[])) / sd(Age[])
+    is.censored[i] ~ dinterval(t[i], c[i])
+    t[i] ~ dweib(shape, lambda[i])
+    lambda[i] <- exp(-mu[i] * shape)
+    mu[i] <- beta[1] + beta[2]*equals(Mlkfre[i], 2) +
+      beta[3]*equals(Mlkfre[i], 3) + beta[4] * equals(Mlkfre[i], 4) +
+      beta[5] * equals(Mlkfre[i], 5) # + 
+      # beta[6] * sAge[i]
+    
+    ### calculate log-likelihoods
+    # y[i] <- ifelse(is.censored[i], c[i], t[i])
+    # loglik[i] <- log(ifelse(is.censored[i],
+    #                  exp(-lambda[i] * (y[i] ^ shape)),
+    #               shape * lambda[i] * (y[i] ^ (shape - 1)) * exp(-lambda[i] * (y[i] ^ shape))))
+  }
+  
+  ## priors for betas
+  for(j in 1:5){
+    beta[j] ~ dnorm(0, 0.001)
+  }
+  
+  ### prior for shape
+  shape ~ dgamma(.001, .001)
+  
+  ### Generated values
+  AFT[2] <- exp(beta[2])
+  HR[2] <- exp(shape * beta[2])
+  p.crit[2] <- step(1 - HR[2])
+  
+  AFT[3] <- exp(beta[3])
+  HR[3] <- exp(shape * beta[3])
+  p.crit[3] <- step(1 - HR[3])
+  
+  AFT[4] <- exp(beta[4])
+  HR[4] <- exp(shape * beta[4])
+  p.crit[4] <- step(1 - HR[4])
+  
+  AFT[5] <- exp(beta[5])
+  HR[5] <- exp(shape * beta[5])
+  p.crit[5] <- step(1 - HR[5])
+}
+```
+
+You can use the following codes to run the above model (careful about the cost of time):
+
+```{r eval=FALSE}
+library(R2jags) #conect to jags sampling engine in R
+jagsfit <- jags.parallel(data = JACCdata,
+                         parameters.to.save = c("beta[5]", "HR[5]", "AFT[5]"),
+                         #add more variables if you want to check more
+                         n.iter = 10000, 
+                         n.burnin = 2500, 
+                         n.chains = 3,
+                         model.file = jacc.weibull.model)
+```
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+load("../data/jagmodel0men.Rdata")
+# Simulated <- coda::as.mcmc(jagsfit)
+Simulated <- mcmcplots::as.mcmc.bugs(jagsfit$BUGSoutput)
+library(ggmcmc)
+ggSample <- ggs(Simulated)
+
+```
+
+
+## Check model fitting: 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.margin = FALSE}
+library(tidyverse)
+ggSample %>% 
+  filter(Iteration >= 500 & Parameter %in% c("beta[5]", "HR[5]", "AFT[5]")) %>% 
+  ggs_traceplot()
+```
+

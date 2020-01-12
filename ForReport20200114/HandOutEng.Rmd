@@ -1,5 +1,5 @@
 ---
-title: "Try Bayesian Survival Analysis using the JACC study data"
+title: "Try Bayesian Survival Analysis using the JACC study data (traditional Cox-proportional hazard model presentations)"
 subtitle: "Tables and figures for analysing the association between milk intake and stroke mortality."
 author: "Chaochen Wang | Aichi Medical University"
 date: "`r Sys.Date()`"
@@ -8,6 +8,8 @@ output:
     citation_package: natbib
     latex_engine: xelatex
     keep_tex: true
+    # includes:  
+    #   in_header: preamble-latex.tex
   tufte::tufte_html: default
   tufte::tufte_book:
     citation_package: natbib
@@ -42,7 +44,7 @@ options(htmltools.dir.version = FALSE)
 
 # Data preparation 
 
-Before exclusion, we have 110585 participants (46395 men and 64190 women) in the JACC data set: 
+Before exclusion, we have 110585 participants (46395 men and 64190 women) aged between 40-79 at baseline in the JACC data set: 
 
 <!-- 我们可以用**knitr**包中的`kable()`函数生成简单的表格。HTML输出中表格的标题也会被放在边栏中。 -->
 
@@ -406,6 +408,7 @@ ggsurv_Drfreq <- ggpar(
 ggsurv_Drfreq
 ```
 
+
 ```{r KMmen, echo=FALSE, out.width = '95%', cache=TRUE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by milk drinking frequency (P value was obtained from log-rank tests) in men.",fig.align='center'}
 knitr::include_graphics("fig/KMfigMen.png")
 ```
@@ -414,24 +417,6 @@ knitr::include_graphics("fig/KMfigMen.png")
 ```{r KMwomen, echo=FALSE, out.width = '90%', cache=TRUE, fig.cap="Kaplan-Meier survival curves for total stroke mortality by milk drinking frequency (P value was obtained from log-rank tests) in women.",fig.align='center'}
 knitr::include_graphics("fig/KMfigwomen.png")
 ```
-
-<!-- Tufte样式在Edward Tufte的书以及物理学家费曼的教科书很常见，它的一个显著特点就是边栏的使用。例如脚注和边栏注解，以及放在边栏里的小型插图。Tufte样式在LaTeX和HTML/CSS中都有实现^[参见Github库[tufte-latex](https://github.com/tufte-latex/tufte-latex)和 [tufte-css](https://github.com/edwardtufte/tufte-css)]。我们将这两种实现都纳入了[**tufte**包](https://github.com/rstudio/tufte)。若需要LaTeX/PDF输出，使用输出格式`tufte_handout`即可，类似地，`tufte_book`可以用来输出PDF书，`tufte_html`生成HTML网页。这些输出格式可以在YAML元数据中指定，或者传给`rmarkdown::render()`函数。若对**rmarkdown**包不熟悉，可参见 @R-rmarkdown。 -->
-
-<!-- ```yaml -->
-<!-- --- -->
-<!-- title: "一个Tufte样式示例" -->
-<!-- author: "张三" -->
-<!-- ctex: yes -->
-<!-- output: -->
-<!--   tufte::tufte_handout: -->
-<!--     latex_engine: xelatex -->
-<!--   tufte::tufte_html: default -->
-<!-- --- -->
-<!-- ``` -->
-
-<!-- # 章节标题 -->
-
-<!-- Tufte样式不主张太深的章节目录，一般仅仅使用一级标题（Markdown中用一个井号`#`）和二级标题（两个井号）。 -->
 
 \newpage
 
@@ -470,7 +455,7 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 ``` 
 
 
-\begin{table}[ht]
+\begin{table}[!htbp]
 
 Table 1. Baseline characteristics of subjects in the JACC study by milk intake level in Men (n = 39,386).
 
@@ -581,7 +566,7 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
   footnote(c("Abbreviations: n, number; SD, standard deviation; Alc_Fre, alcohol intake; BMI, Body Mass Index; Slepgrp, sleep duration", "groups; Veg, vegetable intake; Coffe, coffee intake; DM/HT/KID/LIV_hist, diabetes, hypertension, kidney disease,", "liver disease history."))
 ``` 
 
-\begin{table}[ht]
+\begin{table}[!htbp]
 Table 2. Baseline characteristics of subjects in the JACC study by milk intake level in Women (n = 54,999).
 
 \centering
@@ -657,6 +642,7 @@ Menopause (\%) &  &  &  &  &  &  & <0.001\\
 
 
 
+
 ```{r tab2, echo=FALSE, eval=FALSE}
 dt <- read.csv("tab/HRcox.csv", header = T)
 names(dt) <- c("", "Never",  "1-2 t/Mon", "1-2 t/Week", "3-4 t/Week", "Daily")
@@ -676,7 +662,7 @@ kable(dt, format = "latex", caption = "", booktabs = T, linesep = "") %>%
 ``` 
 
 
-\begin{table}[!h]
+\begin{table}[!htbp]
 Table 3. Sex-specific hazard ratio (95\% CI) of mortality from stroke according to milk intake frequency.
 
 \centering
@@ -724,3 +710,6 @@ Ischemic stroke &  &  &  &  & \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+
+
