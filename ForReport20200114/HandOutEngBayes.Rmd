@@ -31,6 +31,8 @@ header-includes:
 - \usepackage[normalem]{ulem}
 - \usepackage{makecell}
 - \usepackage{xcolor}
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -185,6 +187,7 @@ ggSample %>%
   filter(Iteration >= 120 & Parameter %in% c("beta[5]", "HR[5]", "AFT[5]")) %>% 
   ggs_traceplot()
 ```
+
 ```{r badtrace, echo=FALSE, out.width = '90%', cache=TRUE, fig.cap="Not overlapping traceplot indicating that model is not converged.",fig.align='center', fig.margin = TRUE}
 knitr::include_graphics("fig/badtraceplot.png")
 ```
