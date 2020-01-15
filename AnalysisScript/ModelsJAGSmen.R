@@ -267,29 +267,28 @@ M2.weibull.model <- function() {
       beta[10] * equals(Alc_Fre[i], 1) + beta[11] * equals(Alc_Fre[i], 2) + 
       beta[12] * equals(Alc_Fre[i], 3) + beta[13] * equals(Alc_Fre[i], 5) + 
       beta[14] * equals(BMIgrp[i], 2) + beta[15] * equals(BMIgrp[i], 3) + 
-      beta[16] * equals(BMIgrp[i], 4) + beta[17] * equals(BMIgrp[i], 5)
-    #+ beta[15] * equals(DM_hist[i], 2) +  
-    # beta[16] * equals(DM_hist[i], 3) + 
-    # beta[17] * equals(HT_hist[i], 2) + beta[18] * equals(HT_hist[i], 3) + 
-    # beta[19] * equals(KID_hist[i], 2) + beta[20] * equals(KID_hist[i], 3)  + 
-    # beta[21] * equals(LIV_hist[i], 2) + beta[22] * equals(LIV_hist[i], 3)  + 
-    # beta[23] * equals(Exercise[i], 2) + beta[24] * equals(Exercise[i], 3)  +
-    # beta[25] * equals(Slepgrp[i], 2) + beta[26] * equals(Slepgrp[i], 3) + 
-    # beta[27] * equals(Slepgrp[i], 4) + beta[28] * equals(Slepgrp[i], 5) +
-    # beta[29] * equals(Spi[i], 2) + beta[30] * equals(Spi[i], 3) + 
-    # beta[31] * equals(Spi[i], 4) + beta[32] * equals(Spi[i], 5) + 
-    # beta[33] * equals(Cofe[i], 2) + beta[34] * equals(Cofe[i], 3) + 
-    # beta[35] * equals(Cofe[i], 4) + beta[36] * equals(Educgrp[i], 2) + 
-    # beta[37] * equals(Educgrp[i], 3) +  beta[38] * equals(Gretea[i], 2) + 
-    # beta[39] * equals(Gretea[i], 3) +  beta[40] * equals(Gretea[i], 4) + 
-    # beta[41] * equals(Fru[i], 2) + beta[42] * equals(Fru[i], 3) + 
-    # beta[43] * equals(Fru[i], 4) + beta[44] * equals(Fru[i], 5) #+ 
+      beta[16] * equals(BMIgrp[i], 4) + beta[17] * equals(BMIgrp[i], 5) + 
+     beta[18] * equals(DM_hist[i], 2) + beta[19] * equals(DM_hist[i], 3) +
+    beta[20] * equals(HT_hist[i], 2) + beta[21] * equals(HT_hist[i], 3) +
+    beta[22] * equals(KID_hist[i], 2) + beta[23] * equals(KID_hist[i], 3)  +
+    beta[24] * equals(LIV_hist[i], 2) + beta[25] * equals(LIV_hist[i], 3)  +
+    beta[26] * equals(Exercise[i], 2) + beta[27] * equals(Exercise[i], 3)  +
+    beta[28] * equals(Slepgrp[i], 2) + beta[29] * equals(Slepgrp[i], 3) +
+    beta[30] * equals(Slepgrp[i], 4) + beta[31] * equals(Slepgrp[i], 5) +
+    beta[32] * equals(Spi[i], 2) + beta[33] * equals(Spi[i], 3) +
+    beta[34] * equals(Spi[i], 4) + beta[35] * equals(Spi[i], 5) +
+    beta[36] * equals(Cofe[i], 2) + beta[37] * equals(Cofe[i], 3) +
+    beta[38] * equals(Cofe[i], 4) + beta[39] * equals(Educgrp[i], 2) +
+    beta[40] * equals(Educgrp[i], 3) +  beta[41] * equals(Gretea[i], 2) +
+    beta[42] * equals(Gretea[i], 3) +  beta[43] * equals(Gretea[i], 4) +
+    beta[44] * equals(Fru[i], 2) + beta[45] * equals(Fru[i], 3) +
+    beta[46] * equals(Fru[i], 4) + beta[47] * equals(Fru[i], 5) #+
     # beta[45] * equals(BMIgrp[i], 3) + beta[46] * equals(BMIgrp[i], 4) + 
     # beta[47] * equals(BMIgrp[i], 5) 
   }
   
   ## priors for betas
-  for(j in 1:17){
+  for(j in 1:47){
     beta[j] ~ dnorm(0, 0.001)
   }
   
@@ -316,13 +315,14 @@ M2.weibull.model <- function() {
 }
 
 MILKdataMEN <- c("t",  "c", "Mlkfre", "is.censored", "Age", "Smoking", 
-                 "Alc_Fre", "BMIgrp"#, 
-                 # "DM_hist", "HT_hist", "KID_hist", 
-                 # "LIV_hist", "Exercise", "Slepgrp", "Spi", "Cofe", 
-                 # "Educgrp", "Gretea", "Fru"
+                 "Alc_Fre", "BMIgrp", 
+                 "DM_hist", "HT_hist", "KID_hist",
+                 "LIV_hist", "Exercise", "Slepgrp", "Spi", "Cofe",
+                 "Educgrp", "Gretea", "Fru"
 )
+
 M2.params <- c("AFT", "HR", "p.crit")
-jagsfit <- jags.parallel(data=MILKdataMEN,  parameters.to.save = M2.params, 
+M2menfit <- jags.parallel(data=MILKdataMEN,  parameters.to.save = M2.params, 
                          n.iter=10000, n.burnin=(5000/2), n.chains = 3,
                          model.file=M2.weibull.model)
-print(jagsfit)
+print(M2menfit)
