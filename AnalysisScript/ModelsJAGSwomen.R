@@ -176,14 +176,38 @@ MILKdatafem <- c("t",  "c", "Mlkfre", "is.censored", "Age")
 age.params <- c("AFT", "HR", "p.crit")
 start.time <- Sys.time()
 jagsfit <- jags.parallel(data=MILKdatafem,  parameters.to.save = age.params, 
-                         n.iter=1000000, n.burnin=(5000/2), n.chains = 3,
+                         n.iter=100000, n.burnin=(500/2), n.chains = 3,
                          model.file=Age.weibull.model)
-end.time <- Sys.time()
-end.time - start.time 
+end.time <- Sys.time() 
+end.time - start.time  #Time difference of 15.50321 hours
 #print(jagsfit)
-M1fem_20200527 <- jagsfit
+M1fem_20200603 <- jagsfit
 # print(JACC.weibull.fit)
-print(M1fem_20200527)
+print(M1fem_20200603)
+# Inference for Bugs model at "Age.weibull.model", fit using jags,
+# 3 chains, each with 1e+05 iterations (first 250 discarded), n.thin = 99
+# n.sims = 3021 iterations saved
+#             mu.vect sd.vect      2.5%       25%       50%       75%     97.5%  Rhat n.eff
+# AFT[2]        0.999   0.088     0.847     0.942     0.994     1.051     1.172 1.003  1700
+# AFT[3]        1.106   0.085     0.973     1.057     1.100     1.148     1.257 1.004   640
+# AFT[4]        1.017   0.078     0.891     0.970     1.014     1.058     1.164 1.003  1200
+# AFT[5]        0.950   0.058     0.862     0.917     0.946     0.978     1.055 1.004  1600
+# HR[2]         1.001   0.143     0.757     0.903     0.990     1.088     1.309 1.002  1500
+# HR[3]         1.189   0.138     0.953     1.100     1.179     1.268     1.479 1.004   610
+# HR[4]         1.030   0.123     0.820     0.950     1.024     1.102     1.281 1.003   900
+# HR[5]         0.916   0.086     0.775     0.861     0.908     0.962     1.092 1.004  1100
+# p.crit[2]     0.523   0.500     0.000     0.000     1.000     1.000     1.000 1.002  1200
+# p.crit[3]     0.063   0.243     0.000     0.000     0.000     0.000     1.000 1.006  1300
+# p.crit[4]     0.420   0.494     0.000     0.000     0.000     1.000     1.000 1.002  1400
+# p.crit[5]     0.868   0.339     0.000     1.000     1.000     1.000     1.000 1.007   580
+# deviance  11991.178  79.834 11866.165 11945.083 11985.542 12028.868 12125.671 1.003  1300
+# 
+# For each parameter, n.eff is a crude measure of effective sample size,
+# and Rhat is the potential scale reduction factor (at convergence, Rhat=1).
+# 
+# DIC info (using the rule, pD = var(deviance)/2)
+# pD = 3184.1 and DIC = 15175.3
+# DIC is an estimate of expected predictive error (lower deviance is better).
 save.image(file = "data/JACCmilkstroke.Rdata")
 
 
