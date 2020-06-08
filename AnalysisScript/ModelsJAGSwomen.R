@@ -300,27 +300,27 @@ M2.weibull.model <- function() {
       beta[10] * equals(Alc_Fre[i], 1) + beta[11] * equals(Alc_Fre[i], 2) + 
       beta[12] * equals(Alc_Fre[i], 3) + beta[13] * equals(Alc_Fre[i], 5) + 
       beta[14] * equals(BMIgrp[i], 2) + beta[15] * equals(BMIgrp[i], 3) + 
-      beta[16] * equals(BMIgrp[i], 4) + beta[17] * equals(BMIgrp[i], 5) +
-      beta[18] * equals(DM_hist[i], 2) + beta[19] * equals(DM_hist[i], 3) + 
-    beta[20] * equals(HT_hist[i], 2) + beta[21] * equals(HT_hist[i], 3) +
-    beta[22] * equals(KID_hist[i], 2) + beta[23] * equals(KID_hist[i], 3)  +
-    beta[24] * equals(LIV_hist[i], 2) + beta[25] * equals(LIV_hist[i], 3)  +
-    beta[26] * equals(Exercise[i], 2) + beta[27] * equals(Exercise[i], 3)  +
-    beta[28] * equals(Slepgrp[i], 2) + beta[29] * equals(Slepgrp[i], 3) +
-    beta[30] * equals(Slepgrp[i], 4) + beta[31] * equals(Slepgrp[i], 5) +
-    beta[32] * equals(Spi[i], 2) + beta[33] * equals(Spi[i], 3) +
-    beta[34] * equals(Spi[i], 4) + beta[35] * equals(Spi[i], 5) +
-    beta[36] * equals(Cofe[i], 2) + beta[37] * equals(Cofe[i], 3) +
-    beta[38] * equals(Cofe[i], 4) + beta[39] * equals(Educgrp[i], 2) +
-    beta[40] * equals(Educgrp[i], 3) +  beta[41] * equals(Gretea[i], 2) +
-    beta[42] * equals(Gretea[i], 3) +  beta[43] * equals(Gretea[i], 4) +
-    beta[44] * equals(Fru[i], 2) + beta[45] * equals(Fru[i], 3) +
-    beta[46] * equals(Fru[i], 4) + beta[47] * equals(Fru[i], 5) #+
+      beta[16] * equals(BMIgrp[i], 4) + beta[17] * equals(BMIgrp[i], 5) #+
+    #   beta[18] * equals(DM_hist[i], 2) + beta[19] * equals(DM_hist[i], 3) + 
+    # beta[20] * equals(HT_hist[i], 2) + beta[21] * equals(HT_hist[i], 3) +
+    # beta[22] * equals(KID_hist[i], 2) + beta[23] * equals(KID_hist[i], 3)  +
+    # beta[24] * equals(LIV_hist[i], 2) + beta[25] * equals(LIV_hist[i], 3)  +
+    # beta[26] * equals(Exercise[i], 2) + beta[27] * equals(Exercise[i], 3)  +
+    # beta[28] * equals(Slepgrp[i], 2) + beta[29] * equals(Slepgrp[i], 3) +
+    # beta[30] * equals(Slepgrp[i], 4) + beta[31] * equals(Slepgrp[i], 5) +
+    # beta[32] * equals(Spi[i], 2) + beta[33] * equals(Spi[i], 3) +
+    # beta[34] * equals(Spi[i], 4) + beta[35] * equals(Spi[i], 5) +
+    # beta[36] * equals(Cofe[i], 2) + beta[37] * equals(Cofe[i], 3) +
+    # beta[38] * equals(Cofe[i], 4) + beta[39] * equals(Educgrp[i], 2) +
+    # beta[40] * equals(Educgrp[i], 3) +  beta[41] * equals(Gretea[i], 2) +
+    # beta[42] * equals(Gretea[i], 3) +  beta[43] * equals(Gretea[i], 4) +
+    # beta[44] * equals(Fru[i], 2) + beta[45] * equals(Fru[i], 3) +
+    # beta[46] * equals(Fru[i], 4) + beta[47] * equals(Fru[i], 5) #+
    
   }
   
   ## priors for betas
-  for(j in 1:47){
+  for(j in 1:17){
     beta[j] ~ dnorm(0, 0.001)
   }
   
@@ -347,13 +347,43 @@ M2.weibull.model <- function() {
 }
 
 MILKdatafem <- c("t",  "c", "Mlkfre", "is.censored", "Age", "Smoking", 
-                 "Alc_Fre", "BMIgrp", 
-                 "DM_hist", "HT_hist", "KID_hist",
-                 "LIV_hist", "Exercise", "Slepgrp", "Spi", "Cofe",
-                 "Educgrp", "Gretea", "Fru"
+                 "Alc_Fre", "BMIgrp" #, 
+                 # "DM_hist", "HT_hist", "KID_hist",
+                 # "LIV_hist", "Exercise", "Slepgrp", "Spi", "Cofe",
+                 # "Educgrp", "Gretea", "Fru"
 )
 M2.params <- c("AFT", "HR", "p.crit")
+start.time <- Sys.time()
 jagsfit <- jags.parallel(data=MILKdatafem,  parameters.to.save = M2.params, 
-                         n.iter=10000, n.burnin=(5000/2), n.chains = 3,
+                         n.iter=100000, n.burnin=(500/2), n.chains = 3,
                          model.file=M2.weibull.model)
-print(jagsfit)
+end.time <- Sys.time() 
+end.time - start.time #Time difference of 1.966374 days
+M2fem_20200604 <- jagsfit
+# print(JACC.weibull.fit)
+print(M2fem_20200604)
+# Inference for Bugs model at "M2.weibull.model", fit using jags,
+# 3 chains, each with 1e+05 iterations (first 250 discarded), n.thin = 99
+# n.sims = 3021 iterations saved
+#             mu.vect sd.vect      2.5%       25%       50%       75%     97.5%  Rhat n.eff
+# AFT[2]        1.006   0.124     0.847     0.942     0.995     1.053     1.203 1.009  1100
+# AFT[3]        1.114   0.142     0.977     1.053     1.098     1.148     1.295 1.016   710
+# AFT[4]        1.022   0.119     0.886     0.969     1.010     1.056     1.186 1.014  2900
+# AFT[5]        0.972   0.097     0.877     0.934     0.963     0.994     1.104 1.015  1700
+# HR[2]         1.010   0.168     0.752     0.903     0.992     1.092     1.357 1.004   660
+# HR[3]         1.194   0.170     0.960     1.093     1.175     1.268     1.517 1.007   380
+# HR[4]         1.033   0.150     0.813     0.947     1.018     1.097     1.314 1.004  1400
+# HR[5]         0.950   0.117     0.798     0.889     0.938     0.990     1.175 1.006   610
+# p.crit[2]     0.528   0.499     0.000     0.000     1.000     1.000     1.000 1.003   690
+# p.crit[3]     0.064   0.245     0.000     0.000     0.000     0.000     1.000 1.007  1100
+# p.crit[4]     0.444   0.497     0.000     0.000     0.000     1.000     1.000 1.003   920
+# p.crit[5]     0.781   0.414     0.000     1.000     1.000     1.000     1.000 1.002  1000
+# deviance  11949.549 126.233 11809.943 11893.025 11934.989 11981.600 12112.061 1.005  1800
+# 
+# For each parameter, n.eff is a crude measure of effective sample size,
+# and Rhat is the potential scale reduction factor (at convergence, Rhat=1).
+# 
+# DIC info (using the rule, pD = var(deviance)/2)
+# pD = 7964.3 and DIC = 19913.8
+# DIC is an estimate of expected predictive error (lower deviance is better).
+save.image(file = "data/JACCmilkstroke.Rdata")
