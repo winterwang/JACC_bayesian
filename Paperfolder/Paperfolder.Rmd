@@ -4,8 +4,11 @@ author:
   - name: Chaochen Wang
     affil: 1,*
     orcid: 0000-0001-5533-1497
-  - name: John Doe
-    affil: 2, \dagger, \ddagger
+  - name: Hiroshi Yatsuya
+    affil: 2 
+  - name: Yingsong Lin
+    affil: 1
+  - name: 
 affiliation:
   - num: 1
     address: |
@@ -25,7 +28,7 @@ secondnote: |
   These authors contributed equally to this work.
 correspondence: |
   leutnant@fh-muenster.de; Tel.: +XX-000-00-0000.
-journal: water
+journal: nutrients
 type: article
 status: submit
 bibliography: mybibfile.bib
