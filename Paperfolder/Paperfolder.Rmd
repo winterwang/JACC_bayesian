@@ -10,15 +10,15 @@ author:
   - name: Yingsong Lin
     affil: 1
     orcid: 0000-0003-0214-3649
-  - name: Shogo Kikuchi
-    affil: 1
-    orcid: 0000-0001-9499-9668
   - name: Tae Sasakabe 
     affil: 1 
     orcid: 0000-0002-7417-5693
   - name: Sayo Kawai
     affil: 1
     orcid: 0000-0002-5156-4880
+  - name: Shogo Kikuchi
+    affil: 1
+    orcid: 0000-0001-9499-9668
   - name: Hiroyasu Iso
     affil: 3
     orcid: 0000-0002-9241-7289 
@@ -82,8 +82,8 @@ conflictsofinterest: |
 # sampleavailability: |
 #   Samples of the compounds ...... are available from the authors.
 abbreviations:
-  - short: MDPI
-    long: Multidisciplinary Digital Publishing Institute
+  - short: JACC
+    long: Japan Collaborative Cohort 
   - short: DOAJ
     long: Directory of open access journals
   - short: TLA
@@ -103,48 +103,48 @@ output: rticles::mdpi_article
 
 # Introduction
 
-The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper [@bertrand-krajewski_distribution_1998; @leutnant_stormwater_2016]. And now citing a book reference @gujer_systems_2008. Please use the command [@leutnant_stormwater_2016] for the following MDPI journals, which use author-date citation: Administrative Sciences, Arts, Econometrics, Economies, Genealogy, Humanities, IJFS, JRFM, Laws, Religions, Risks, Social Sciences.
+<!-- The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper [@bertrand-krajewski_distribution_1998; @leutnant_stormwater_2016]. And now citing a book reference @gujer_systems_2008. Please use the command [@leutnant_stormwater_2016] for the following MDPI journals, which use author-date citation: Administrative Sciences, Arts, Econometrics, Economies, Genealogy, Humanities, IJFS, JRFM, Laws, Religions, Risks, Social Sciences. -->
 
 
 # Materials and Methods
 
-Materials and Methods should be described with sufficient details to allow others to replicate and build on published results. Please note that publication of your manuscript implicates that you must make all materials, data, computer code, and protocols associated with the publication available to readers. Please disclose at the submission stage any restrictions on the availability of materials or information. New methods and protocols should be described in detail while well-established methods can be briefly described and appropriately cited.
+<!-- Materials and Methods should be described with sufficient details to allow others to replicate and build on published results. Please note that publication of your manuscript implicates that you must make all materials, data, computer code, and protocols associated with the publication available to readers. Please disclose at the submission stage any restrictions on the availability of materials or information. New methods and protocols should be described in detail while well-established methods can be briefly described and appropriately cited. -->
 
-Research manuscripts reporting large datasets that are deposited in a publicly available database should specify where the data have been deposited and provide the relevant accession numbers. If the accession numbers have not yet been obtained at the time of submission, please state that they will be provided during review. They must be provided prior to publication.
+<!-- Research manuscripts reporting large datasets that are deposited in a publicly available database should specify where the data have been deposited and provide the relevant accession numbers. If the accession numbers have not yet been obtained at the time of submission, please state that they will be provided during review. They must be provided prior to publication. -->
 
-Interventionary studies involving animals or humans, and other studies require ethical approval must list the authority that provided approval and the corresponding ethical approval code.
+<!-- Interventionary studies involving animals or humans, and other studies require ethical approval must list the authority that provided approval and the corresponding ethical approval code. -->
 
 # Results
 
-This section may be divided by subheadings. It should provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn.
+<!-- This section may be divided by subheadings. It should provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn. -->
 
 ## Subsection Heading Here
 
-Subsection text here.
+<!-- Subsection text here. -->
 
 ### Subsubsection Heading Here
 
-Bulleted lists look like this:
+<!-- Bulleted lists look like this: -->
 
-* First bullet
-* Second bullet
-* Third bullet
+<!-- * First bullet -->
+<!-- * Second bullet -->
+<!-- * Third bullet -->
 
-Numbered lists can be added as follows:
+<!-- Numbered lists can be added as follows: -->
 
-1. First item
-2. Second item
-3. Third item
+<!-- 1. First item -->
+<!-- 2. Second item -->
+<!-- 3. Third item -->
 
-The text continues here.
+<!-- The text continues here. -->
 
-All figures and tables should be cited in the main text as Figure 1, Table 1, etc.
+<!-- All figures and tables should be cited in the main text as Figure 1, Table 1, etc. -->
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=3 cm]{logo-mdpi}
-\caption{This is a figure, Schemes follow the same formatting. If there are multiple panels, they should be listed as: (\textbf{a}) Description of what is contained in the first panel. (\textbf{b}) Description of what is contained in the second panel. Figures should be placed in the main text near to the first time they are cited. A caption on a single line should be centered.}
-\end{figure}
+<!-- \begin{figure}[H] -->
+<!-- \centering -->
+<!-- \includegraphics[width=3 cm]{logo-mdpi} -->
+<!-- \caption{This is a figure, Schemes follow the same formatting. If there are multiple panels, they should be listed as: (\textbf{a}) Description of what is contained in the first panel. (\textbf{b}) Description of what is contained in the second panel. Figures should be placed in the main text near to the first time they are cited. A caption on a single line should be centered.} -->
+<!-- \end{figure} -->
 
 
 \begin{table}[H]
@@ -161,20 +161,20 @@ entry 2		& data			& data\\
 \end{tabular}
 \end{table}
 
-This is an example of an equation:
+<!-- This is an example of an equation: -->
 
-\begin{equation}
-\mathbb{S}
-\end{equation}
+<!-- \begin{equation} -->
+<!-- \mathbb{S} -->
+<!-- \end{equation} -->
 <!-- If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph. -->
 
 <!-- Please punctuate equations as regular text. Theorem-type environments (including propositions, lemmas, corollaries etc.) can be formatted as follows: -->
-Example of a theorem:
-\begin{Theorem}
-Example text of a theorem.
-\end{Theorem}
+<!-- Example of a theorem: -->
+<!-- \begin{Theorem} -->
+<!-- Example text of a theorem. -->
+<!-- \end{Theorem} -->
 
-The text continues here. Proofs must be formatted as follows:
+<!-- The text continues here. Proofs must be formatted as follows: -->
 
 <!-- Example of a proof: -->
 <!-- \begin{proof}[Proof of Theorem 1] -->
@@ -184,11 +184,11 @@ The text continues here. Proofs must be formatted as follows:
 
 # Discussion
 
-Authors should discuss the results and how they can be interpreted in perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted.
+<!-- Authors should discuss the results and how they can be interpreted in perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted. -->
 
 # Conclusion
 
-This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
+<!-- This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex. -->
 
 <!-- # Patents -->
 
