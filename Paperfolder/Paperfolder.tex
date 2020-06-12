@@ -82,27 +82,39 @@
 % Authors, for the paper (add full first names)
 \Author{Chaochen
 Wang$^{1,*}$\href{https://orcid.org/0000-0001-5533-1497}{\orcidicon}, Hiroshi
-Yatsuya$^{2}$, Yingsong Lin$^{1}$, $^{}$}
+Yatsuya$^{2}$\href{https://orcid.org/0000-0002-6220-9251}{\orcidicon}, Yingsong
+Lin$^{1}$\href{https://orcid.org/0000-0003-0214-3649}{\orcidicon}, Shogo
+Kikuchi$^{1}$\href{https://orcid.org/0000-0001-9499-9668}{\orcidicon}, Tae
+Sasakabe$^{1}$\href{https://orcid.org/0000-0002-7417-5693}{\orcidicon}, Sayo
+Kawai$^{1}$\href{https://orcid.org/0000-0002-5156-4880}{\orcidicon}, Hiroyasu
+Iso$^{3}$\href{https://orcid.org/0000-0002-9241-7289}{\orcidicon}, Akiko
+Tamakoshi$^{4}$\href{https://orcid.org/0000-0002-9761-3879}{\orcidicon}}
 
 % Authors, for metadata in PDF
-\AuthorNames{Chaochen Wang, Hiroshi Yatsuya, Yingsong Lin, }
+\AuthorNames{Chaochen Wang, Hiroshi Yatsuya, Yingsong Lin, Shogo
+Kikuchi, Tae Sasakabe, Sayo Kawai, Hiroyasu Iso, Akiko Tamakoshi}
 
 % Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
 \address{%
-$^{1}$ \quad Muenster University of Applied Sciences - Institute for
-Infrastructure, Water, Resources, Environment Correnstr. 25, 48149
-Muenster,
-Germany; \href{mailto:leutnant@fh-muenster.de}{\nolinkurl{leutnant@fh-muenster.de}}\\
-$^{2}$ \quad Your department Street, City,
-Country; \href{mailto:mail@mail.com}{\nolinkurl{mail@mail.com}}\\
+$^{1}$ \quad Department of Public Health, Aichi Medical University
+School of Medicine, Nagakute, Japan; \\
+$^{2}$ \quad Departmet of Public Health, Fujita Health University School
+of Medicine, Toyoake, Japan; \\
+$^{3}$ \quad Public Health, Department of Social Medicine, Osaka
+University Graduate School of Medicine, Osaka, Japan; \\
+$^{4}$ \quad Department of Public Health, Faculty of Medicine, Hokkaido
+University, Sapporo, Japan; \\
 }
 % Contact information of the corresponding author
-\corres{Correspondence: \href{mailto:leutnant@fh-muenster.de}{\nolinkurl{leutnant@fh-muenster.de}};
-Tel.: +XX-000-00-0000.}
+\corres{Correspondence: Email.:
+\href{mailto:chaochen@wangcc.me}{\nolinkurl{chaochen@wangcc.me}}; Tel.:
++81-561-62-3311. Department of Public Health, Aichi Medical University
+School of Medicine, 1-1 Yazakokarimata, Nagakute, Aichi, 480-1195, Japan
+(C.W.)}
 
 % Current address and/or shared authorship
-\firstnote{Current address: Updated affiliation}
-\secondnote{These authors contributed equally to this work.}
+
+
 
 
 
@@ -112,7 +124,6 @@ Tel.: +XX-000-00-0000.}
 % The commands \thirdnote{} till \eighthnote{} are available for further notes
 
 % Simple summary
-\simplesumm{A Simple summary goes here.}
 
 % Abstract (Do not insert blank lines, i.e. \\)
 \abstract{A single paragraph of about 200 words maximum. For research
@@ -163,15 +174,6 @@ subject discipline.).}
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\hypertarget{version}{%
-\section{Version}\label{version}}
-
-This Rmd-skeleton uses the mdpi Latex template published 2019/02.
-However, the official template gets more frequently updated than the
-`rticles' package. Therefore, please make sure prior to paper
-submission, that you're using the most recent .cls, .tex and .bst files
-(available \href{http://www.mdpi.com/authors/latex}{here}).
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -328,26 +330,16 @@ support of your research work. Clearly state if you received funds for
 covering the costs to publish in open access.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\authorcontributions{For research articles with several authors, a short
-paragraph specifying their individual contributions must be provided.
-The following statements should be used ``X.X. and Y.Y. conceive and
-designed the experiments; X.X. performed the experiments; X.X. and Y.Y.
-analyzed the data; W.W. contributed reagents/materials/analysis tools;
-Y.Y. wrote the paper.'\,' Authorship must be limited to those who have
-contributed substantially to the work reported.}
+\authorcontributions{``X.X. and Y.Y. conceive and designed the
+experiments; X.X. performed the experiments; X.X. and Y.Y. analyzed the
+data; W.W. contributed reagents/materials/analysis tools; Y.Y. wrote the
+paper.'\,'}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\conflictsofinterest{Declare conflicts of interest or state `The authors
-declare no conflict of interest.' Authors must identify and declare any
-personal circumstances or interest that may be perceived as
-inappropriately influencing the representation or interpretation of
-reported research results. Any role of the funding sponsors in the
-design of the study; in the collection, analyses or interpretation of
-data in the writing of the manuscript, or in the decision to publish the
-results must be declared in this section. If there is no role, please
-state `The founding sponsors had no role in the design of the study; in
-the collection, analyses, or interpretation of data; in the writing of
-the manuscript, an in the decision to publish the results'.}
+\conflictsofinterest{The authors declare no conflict of interest. The
+founding sponsors had no role in the design of the study; in the
+collection, analyses, or interpretation of data; in the writing of the
+manuscript, an in the decision to publish the results.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
@@ -361,7 +353,6 @@ TLA & Three letter acronym \\
 LD & linear dichroism \\
 \end{tabular}}
 
-\input{"appendix.tex"}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Citations and References in Supplementary files are permitted provided that they also appear in the reference list here.
@@ -392,8 +383,6 @@ LD & linear dichroism \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
-\sampleavailability{Samples of the compounds \ldots\ldots{} are
-available from the authors.}
 
 %% for journal Sci
 %\reviewreports{\\

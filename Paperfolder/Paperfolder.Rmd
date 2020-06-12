@@ -6,35 +6,54 @@ author:
     orcid: 0000-0001-5533-1497
   - name: Hiroshi Yatsuya
     affil: 2 
+    orcid: 0000-0002-6220-9251
   - name: Yingsong Lin
     affil: 1
-  - name: 
+    orcid: 0000-0003-0214-3649
+  - name: Shogo Kikuchi
+    affil: 1
+    orcid: 0000-0001-9499-9668
+  - name: Tae Sasakabe 
+    affil: 1 
+    orcid: 0000-0002-7417-5693
+  - name: Sayo Kawai
+    affil: 1
+    orcid: 0000-0002-5156-4880
+  - name: Hiroyasu Iso
+    affil: 3
+    orcid: 0000-0002-9241-7289 
+  - name: Akiko Tamakoshi
+    affil: 4
+    orcid: 0000-0002-9761-3879 
 affiliation:
   - num: 1
     address: |
-      Muenster University of Applied Sciences - 
-      Institute for Infrastructure, Water, Resources, Environment
-      Correnstr. 25, 48149 Muenster, Germany
-    email: leutnant@fh-muenster.de
+      Department of Public Health, Aichi Medical University School of Medicine, Nagakute, Japan
+#    email: chaochen@wangcc.me
   - num: 2
     address: |
-      Your department
-      Street, City, Country
-    email: mail@mail.com
+      Departmet of Public Health, Fujita Health University School of Medicine, Toyoake, Japan
+  - num: 3
+    address: |
+      Public Health, Department of Social Medicine, Osaka University Graduate School of Medicine, Osaka, Japan
+  - num: 4
+    address: |
+      Department of Public Health, Faculty of Medicine, Hokkaido University, Sapporo, Japan
+#    email: yatsuya@gmail.com
 # firstnote to eighthnote
-firstnote: |
-  Current address: Updated affiliation
-secondnote: |
-  These authors contributed equally to this work.
+# firstnote: |
+#   Current address: Updated affiliation
+# secondnote: |
+#   These authors contributed equally to this work.
 correspondence: |
-  leutnant@fh-muenster.de; Tel.: +XX-000-00-0000.
+  Email.: chaochen@wangcc.me; Tel.: +81-561-62-3311. Department of Public Health, Aichi Medical University School of Medicine, 1-1 Yazakokarimata, Nagakute, Aichi, 480-1195, Japan (C.W.)
 journal: nutrients
 type: article
 status: submit
 bibliography: mybibfile.bib
-appendix: appendix.tex
-simplesummary: |
-  A Simple summary goes here.
+# appendix: appendix.tex
+# simplesummary: |
+#  A Simple summary goes here.
 abstract: |
   A single paragraph of about 200 words maximum. For research articles, 
   abstracts should give a pertinent overview of the work. We strongly encourage
@@ -55,25 +74,13 @@ acknowledgement: |
   Clearly state if you received funds for covering the costs to publish in open 
   access.
 authorcontributions: |
-  For research articles with several authors, a short paragraph specifying their 
-  individual contributions must be provided. The following statements should be 
-  used ``X.X. and Y.Y. conceive and designed the experiments; X.X. performed the 
+  ``X.X. and Y.Y. conceive and designed the experiments; X.X. performed the 
   experiments; X.X. and Y.Y. analyzed the data; W.W. contributed 
-  reagents/materials/analysis tools; Y.Y. wrote the paper.'' Authorship must be
-  limited to those who have contributed substantially to the work reported.
+  reagents/materials/analysis tools; Y.Y. wrote the paper.''
 conflictsofinterest: |
-  Declare conflicts of interest or state 'The authors declare no conflict of 
-  interest.' Authors must identify and declare any personal circumstances or
-  interest that may be perceived as inappropriately influencing the
-  representation or interpretation of reported research results. Any role of the
-  funding sponsors in the design of the study; in the collection, analyses or 
-  interpretation of data in the writing of the manuscript, or in the decision to 
-  publish the results must be declared in this section. If there is no role, 
-  please state 'The founding sponsors had no role in the design of the study; 
-  in the collection, analyses, or interpretation of data; in the writing of the 
-  manuscript, an in the decision to publish the results'.
-sampleavailability: |
-  Samples of the compounds ...... are available from the authors.
+  The authors declare no conflict of interest. The founding sponsors had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript, an in the decision to publish the results.
+# sampleavailability: |
+#   Samples of the compounds ...... are available from the authors.
 abbreviations:
   - short: MDPI
     long: Multidisciplinary Digital Publishing Institute
@@ -86,13 +93,13 @@ abbreviations:
 output: rticles::mdpi_article
 ---
 
-# Version
+<!-- # Version -->
 
-This Rmd-skeleton uses the mdpi Latex template published 2019/02. 
-However, the official template gets more frequently updated than the 'rticles'
-package. Therefore, please make sure prior to paper submission, that you're 
-using the most recent .cls, .tex and .bst files 
-(available [here](http://www.mdpi.com/authors/latex)).
+<!-- This Rmd-skeleton uses the mdpi Latex template published 2019/02.  -->
+<!-- However, the official template gets more frequently updated than the 'rticles' -->
+<!-- package. Therefore, please make sure prior to paper submission, that you're  -->
+<!-- using the most recent .cls, .tex and .bst files  -->
+<!-- (available [here](http://www.mdpi.com/authors/latex)). -->
 
 # Introduction
 
