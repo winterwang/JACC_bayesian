@@ -50,7 +50,7 @@ correspondence: |
 journal: nutrients
 type: article
 status: submit
-bibliography: mybibfile.bib
+bibliography: milk.bib
 # appendix: appendix.tex
 # simplesummary: |
 #  A Simple summary goes here.
