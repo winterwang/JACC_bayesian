@@ -147,7 +147,7 @@ output: rticles::mdpi_article
 <!-- \end{figure} -->
 
 
-```{r tab1, echo=FALSE, eval=FALSE, message=FALSE}
+```{r tab1, echo=FALSE, eval=TRUE, message=FALSE}
 library(knitr)
 library(kableExtra)
 dt <- read.csv("tab/HRAFTweib.csv", header = T)
@@ -157,6 +157,9 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
   add_header_above(c(" ", "Hazard ratio (HR)" = 5, "Acceleration factor (AF)" = 4)) %>% 
   footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", " Probability indicates that the p for HR smaller than 1."))
 ```
+
+
+
 
 
 \begin{table}[H]
