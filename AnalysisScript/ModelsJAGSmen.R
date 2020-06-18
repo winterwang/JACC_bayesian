@@ -423,7 +423,7 @@ save.image(file = "data/JACCmilkstroke.Rdata")
 # DIC info (using the rule, pD = var(deviance)/2)
 # pD = 3031.2 and DIC = 17868.1
 # DIC is an estimate of expected predictive error (lower deviance is better).
-=======
+# =======
 # jaccbayes
 
 
@@ -752,4 +752,3 @@ M2menfit <- jags.parallel(data=MILKdataMEN,  parameters.to.save = M2.params,
                          n.iter=10000, n.burnin=(5000/2), n.chains = 3,
                          model.file=M2.weibull.model)
 print(M2menfit)
->>>>>>> da69867550273960aa54ce724fa178551b867532
