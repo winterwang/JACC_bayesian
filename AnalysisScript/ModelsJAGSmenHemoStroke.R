@@ -74,7 +74,7 @@ library(R2jags)
 
 start.time <- Sys.time()
 jagsfit <- jags.parallel(data=MILKdataMEN,  parameters.to.save = larynx.params, 
-                         n.iter=100000, n.burnin=(5000/2), n.chains = 3, n.thin = 100,
+                         n.iter=100000, n.burnin=(5000/2), n.chains = 3, #n.thin = 100,
                          model.file=jacc.weibull.model0)
 end.time <- Sys.time()
 end.time - start.time 
