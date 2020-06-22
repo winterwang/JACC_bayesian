@@ -1,5 +1,5 @@
 ---
-title: Milk intake and risk of mortality risk 
+title: Milk intake and risk of mortality risk in the Japan Collaborative Cohort Study - a Bayesian survival analysis 
 author:
   - name: Chaochen Wang
     affil: 1,*
@@ -84,12 +84,8 @@ conflictsofinterest: |
 abbreviations:
   - short: JACC
     long: Japan Collaborative Cohort 
-  - short: DOAJ
-    long: Directory of open access journals
-  - short: TLA
-    long: Three letter acronym
-  - short: LD 
-    long: linear dichroism
+  - short: FFQ
+    long: Food Frequency Questionnaire
 output: rticles::mdpi_article
 ---
 
@@ -107,6 +103,14 @@ output: rticles::mdpi_article
 
 
 # Materials and Methods
+
+## The database
+
+We used data from the Japan Collaborative Cohort (JACC) study, which was sponsored by the Ministry of Education, Sports, Science, and Technology of Japan. Sampling methods and details about the JACC study have been described extensively in the literature [@Ohno2001; @Tamakoshi2005; @Tamakoshi2013]. Participants of the JACC study completed self-administered questionnaires about their lifestyles, food intake (food frequency questionnaire, FFQ), and medical histories of cardiovascular disease or cancer. In the final follow-up of the JACC study, data from a total of 110585 individuals (46395 men and 64190 women) were successfully retained for the current analysis. We further excluded samples if they meet one of the following criteria: 1) with any disease history of stroke, cancer, myocardial infarction, ischemic heart disease, or other types heart disease (n = 6655, 2931 men and 3724 women); 2) did not answer the question regarding their milk consumption in the baseline FFQ survey (n = 9545, 3593 men and 5952 women). Finally, 94385 (39386 men and 54999 women) are left in the database. The study design and informed consent procedure were approved by the Ethics Review Committee of Nagoya University School of Medicine.
+
+## Exposure and the outcome of interest
+
+Frequency of milk intake during the preceding year of the baseline was assessed by FFQ from "never", "1-2 times/month", "1-2 times/week", "3-4 times/week", and "Almost daily". 
 
 <!-- Materials and Methods should be described with sufficient details to allow others to replicate and build on published results. Please note that publication of your manuscript implicates that you must make all materials, data, computer code, and protocols associated with the publication available to readers. Please disclose at the submission stage any restrictions on the availability of materials or information. New methods and protocols should be described in detail while well-established methods can be briefly described and appropriately cited. -->
 
