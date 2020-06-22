@@ -73,7 +73,6 @@
   number    = {1},
   pages     = {32527},
   volume    = {60},
-  file      = {:pdfpapers/954-Article Text-6688-1-10-20171113.pdf:PDF},
   owner     = {ccwang},
   publisher = {Taylor \& Francis},
   timestamp = {2020-06-22},
@@ -146,6 +145,18 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
   number    = {4},
   pages     = {144--150},
   volume    = {11},
+  publisher = {Japan Epidemiological Association},
+  timestamp = {2020-06-22},
+}
+
+@Article{Date2005,
+  author    = {Date, Chigusa and Fukui, Mitsuru and Yamamoto, Akio and Wakai, Kenji and Ozeki, Azusa and Motohashi, Yutaka and Adachi, Chieko and Okamoto, Naoyuki and Kurosawa, Michiko and Tokudome, Yuko and others},
+  journal   = {Journal of epidemiology},
+  title     = {Reproducibility and validity of a self-administered food frequency questionnaire used in the JACC study},
+  year      = {2005},
+  number    = {Supplement\_I},
+  pages     = {S9--S23},
+  volume    = {15},
   publisher = {Japan Epidemiological Association},
   timestamp = {2020-06-22},
 }
