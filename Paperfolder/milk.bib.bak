@@ -161,4 +161,55 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
   timestamp = {2020-06-22},
 }
 
+@Article{kishida2020frequency,
+  author    = {Kishida, Rie and Yamagishi, Kazumasa and Muraki, Isao and Sata, Mizuki and Tamakoshi, Akiko and Iso, Hiroyasu and JACC Study Group and others},
+  journal   = {Journal of Atherosclerosis and Thrombosis},
+  title     = {Frequency of Seaweed Intake and Its Association with Cardiovascular Disease Mortality: The JACC Study},
+  year      = {2020},
+  pages     = {53447},
+  publisher = {Japan Atherosclerosis Society},
+  timestamp = {2020-06-22},
+}
+
+@Misc{Plummer2003,
+  author    = {Martyn Plummer},
+  title     = {JAGS: A program for analysis of Bayesian graphical models using Gibbs sampling},
+  year      = {2003},
+  timestamp = {2020-06-23},
+}
+
+@Manual{RCT2020,
+  title        = {R: A Language and Environment for Statistical Computing},
+  address      = {Vienna, Austria},
+  author       = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  year         = {2020},
+  timestamp    = {2020-06-23},
+  url          = {https://www.R-project.org/},
+}
+
+@Article{Lunn2009,
+  author    = {Lunn, David and Spiegelhalter, David and Thomas, Andrew and Best, Nicky},
+  journal   = {Statistics in medicine},
+  title     = {The BUGS project: Evolution, critique and future directions},
+  year      = {2009},
+  number    = {25},
+  pages     = {3049--3067},
+  volume    = {28},
+  publisher = {Wiley Online Library},
+  timestamp = {2020-06-23},
+}
+
+@Article{brooks1998general,
+  author    = {Brooks, Stephen P and Gelman, Andrew},
+  journal   = {Journal of computational and graphical statistics},
+  title     = {General methods for monitoring convergence of iterative simulations},
+  year      = {1998},
+  number    = {4},
+  pages     = {434--455},
+  volume    = {7},
+  publisher = {Taylor \& Francis Group},
+  timestamp = {2020-06-23},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

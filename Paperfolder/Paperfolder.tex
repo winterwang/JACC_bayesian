@@ -241,10 +241,42 @@ Revision of the International Statistical Classification of Diseases and
 Related Health Problems (ICD-10), therefore stroke was defined as
 I60-I69. We further classified these deaths into hemorrhagic stroke
 (I60, I61 and I62) or cerebral infarction (I63) when subtypes of stroke
-in their death certificate were available.
+in their death certificates were available.
 
 \hypertarget{statistical-approach}{%
 \subsection{Statistical approach}\label{statistical-approach}}
+
+We calculated sex-specific means (standard deviation, sd) and proportion
+of selected baseline characteristics according to the frequency of milk
+intake. Overall difference across the milk intake groups were tested by
+either analysis of variance for continuous variables or \(\chi^2\) test
+for categorical variables.
+
+Full parametric proportional hazard models under Bayesian framework with
+Weibull distribution were fitted using Just Another Gibbs Sampler (JAGS)
+program \citep{Plummer2003} version 4.3.0 in R version 4.0.1
+\citep{RCT2020}. JAGS program is similar to the OpenBUGS
+\citep{Lunn2009} project that uses a Gibbs sampling engine for Markov
+Chain Monte Carlo (MCMC) simulation. In the current analysis, we
+specified non-informative prior distributions
+(\(\beta_n \sim N(0, 1000)\), and
+\(\kappa_{\text{shape}} \sim \Gamma(0.001, 0.001)\)) for each of the
+parameters in our models. The Brooks-Gelman-Rubin diagnostic
+\citep{Brooks1998} was used to refine the approximate point of
+convergence, the point when the ratio of the chains is stable around 1
+and the within and between chain variability start to reach stability
+was visually checked. The auto-correlation tool further identified if
+convergence has been achieved or if a high degree of auto-correlation
+exists in the sample. Then, the number of iterations discarded as
+`burn-in' was chosen. All models had a posterior sample size of 100000
+from three separated chains with a ``burn-in'' of 2500 iterations.
+Posterior means (sd) and 95\% Credible Intervals (CrI) of the estimated
+HR were presented for each category of milk intake frequency taking the
+``never'' category as the reference. Posterior probability that the
+estimated hazard ratio (HR) favors the milk intake for frequency that
+higher or equal to ``1-2 times/month'' is smaller compared with those
+who chose ``never'' to their milk intake frequency were calculated as
+\(P(\text{HR} < 1)\).
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -345,6 +377,8 @@ manuscript, an in the decision to publish the results.}
 \begin{tabular}{@{}ll}
 JACC & Japan Collaborative Cohort \\
 FFQ & Food Frequency Questionnaire \\
+MCMC & Markov Chain Monte Carlo \\
+JAGS & Just Another Gibbs Samplers \\
 \end{tabular}}
 
 

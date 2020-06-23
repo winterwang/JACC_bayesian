@@ -86,6 +86,10 @@ abbreviations:
     long: Japan Collaborative Cohort 
   - short: FFQ
     long: Food Frequency Questionnaire
+  - short: MCMC
+    long: Markov Chain Monte Carlo
+  - short: JAGS
+    long: Just Another Gibbs Samplers
 output: rticles::mdpi_article
 ---
 
@@ -112,9 +116,13 @@ We used data from the Japan Collaborative Cohort (JACC) study, which was sponsor
 
 Frequency of milk intake during the preceding year of the baseline was assessed by FFQ from "never", "1-2 times/month", "1-2 times/week", "3-4 times/week", and "Almost daily". The exact amount of milk consumption was difficult to assess here. However, good reproducibility and validity were confirmed previously (Spearman rank correlation coefficient between milk intake frequency and weighed dietary record for 12 days was 0.65) [@Date2005].
 
-The causes and date of death were obtained from death certificates and were systematically reviewed. The follow-up period was defined as from the time of the baseline survey was completed, which was between 1988-1990, until the end of 2009 (administrative censor), or the date when move-out of study area, or the date of death from stroke recorded, whichever occurred first. Other causes of death were treated as censored and assumed not informative. The causes of death were coded by the 10th Revision of the International Statistical Classification of Diseases and Related Health Problems (ICD-10), therefore stroke was defined as I60-I69. We further classified these deaths into hemorrhagic stroke (I60, I61 and I62) or cerebral infarction (I63) when subtypes of stroke in their death certificate were available. 
+The causes and date of death were obtained from death certificates and were systematically reviewed. The follow-up period was defined as from the time of the baseline survey was completed, which was between 1988-1990, until the end of 2009 (administrative censor), or the date when move-out of study area, or the date of death from stroke recorded, whichever occurred first. Other causes of death were treated as censored and assumed not informative. The causes of death were coded by the 10th Revision of the International Statistical Classification of Diseases and Related Health Problems (ICD-10), therefore stroke was defined as I60-I69. We further classified these deaths into hemorrhagic stroke (I60, I61 and I62) or cerebral infarction (I63) when subtypes of stroke in their death certificates were available. 
 
 ## Statistical approach
+
+We calculated sex-specific means (standard deviation, sd) and proportion of selected baseline characteristics according to the frequency of milk intake. Overall difference across the milk intake groups were tested by either analysis of variance for continuous variables or $\chi^2$ test for categorical variables. 
+
+Full parametric proportional hazard models under Bayesian framework with Weibull distribution were fitted using Just Another Gibbs Sampler (JAGS) program [@Plummer2003] version 4.3.0 in R version 4.0.1 [@RCT2020]. JAGS program is similar to the OpenBUGS [@Lunn2009] project that uses a Gibbs sampling engine for Markov Chain Monte Carlo (MCMC) simulation. In the current analysis, we specified non-informative prior distributions ($\beta_n \sim N(0, 1000)$, and $\kappa_{\text{shape}} \sim \Gamma(0.001, 0.001)$) for each of the parameters in our models. The Brooks-Gelman-Rubin diagnostic [@Brooks1998] was used to refine the approximate point of convergence, the point when the ratio of the chains is stable around 1 and the within and between chain variability start to reach stability was visually checked. The auto-correlation tool further identified if convergence has been achieved or if a high degree of auto-correlation exists in the sample. Then, the number of iterations discarded as ‘burn-in’ was chosen. All models had a posterior sample size of 100000 from three separated chains with a "burn-in" of 2500 iterations. Posterior means (sd) and 95% Credible Intervals (CrI) of the estimated HR were presented for each category of milk intake frequency taking the "never" category as the reference. Posterior probability that the estimated hazard ratio (HR) favors the milk intake for frequency that higher or equal to "1-2 times/month" is smaller compared with those who chose "never" to their milk intake frequency were calculated as $P(\text{HR} < 1)$.
 
 <!-- Materials and Methods should be described with sufficient details to allow others to replicate and build on published results. Please note that publication of your manuscript implicates that you must make all materials, data, computer code, and protocols associated with the publication available to readers. Please disclose at the submission stage any restrictions on the availability of materials or information. New methods and protocols should be described in detail while well-established methods can be briefly described and appropriately cited. -->
 
