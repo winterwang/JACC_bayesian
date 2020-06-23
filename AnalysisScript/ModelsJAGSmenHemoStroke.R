@@ -81,4 +81,4 @@ end.time - start.time
 M0menHemoStroke_20200618 <- jagsfit
 print(M0menHemoStroke_20200618)
 save.image(file = "data/JACCmilkstrokewithHemo.Rdata")
-save.image(file = "data/JACCmilkstroke.Rdata")
+# save.image(file = "data/JACCmilkstroke.Rdata")
