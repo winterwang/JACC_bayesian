@@ -122,7 +122,9 @@ The causes and date of death were obtained from death certificates and were syst
 
 We calculated sex-specific means (standard deviation, sd) and proportion of selected baseline characteristics according to the frequency of milk intake. Overall difference across the milk intake groups were tested by either analysis of variance for continuous variables or $\chi^2$ test for categorical variables. 
 
-Full parametric proportional hazard models under Bayesian framework with Weibull distribution were fitted using Just Another Gibbs Sampler (JAGS) program [@Plummer2003] version 4.3.0 in R version 4.0.1 [@RCT2020]. JAGS program is similar to the OpenBUGS [@Lunn2009] project that uses a Gibbs sampling engine for Markov Chain Monte Carlo (MCMC) simulation. In the current analysis, we specified non-informative prior distributions ($\beta_n \sim N(0, 1000)$, and $\kappa_{\text{shape}} \sim \Gamma(0.001, 0.001)$) for each of the parameters in our models. The Brooks-Gelman-Rubin diagnostic [@Brooks1998] was used to refine the approximate point of convergence, the point when the ratio of the chains is stable around 1 and the within and between chain variability start to reach stability was visually checked. The auto-correlation tool further identified if convergence has been achieved or if a high degree of auto-correlation exists in the sample. Then, the number of iterations discarded as ‘burn-in’ was chosen. All models had a posterior sample size of 100000 from three separated chains with a "burn-in" of 2500 iterations. Posterior means (sd) and 95% Credible Intervals (CrI) of the estimated HR were presented for each category of milk intake frequency taking the "never" category as the reference. Posterior probability that the estimated hazard ratio (HR) favors the milk intake for frequency that higher or equal to "1-2 times/month" is smaller compared with those who chose "never" to their milk intake frequency were calculated as $P(\text{HR} < 1)$.
+Full parametric proportional hazard models under Bayesian framework with Weibull distribution were fitted using Just Another Gibbs Sampler (JAGS) program [@Plummer2003] version 4.3.0 in R version 4.0.1 [@RCT2020]. JAGS program is similar to the OpenBUGS [@Lunn2009] project that uses a Gibbs sampling engine for Markov Chain Monte Carlo (MCMC) simulation. In the current analysis, we specified non-informative prior distributions for each of the parameters in our models ($\beta_n \sim N(0, 1000)$, and $\kappa_{\text{shape}} \sim \Gamma(0.001, 0.001)$). The Brooks-Gelman-Rubin diagnostic [@Brooks1998] was used to refine the approximate point of convergence, the point when the ratio of the chains is stable around 1 and the within and between chain variability start to reach stability was visually checked. The auto-correlation tool further identified if convergence has been achieved or if a high degree of auto-correlation exists in the sample. Then, the number of iterations discarded as ‘burn-in’ was chosen. All models had a posterior sample size of 100000 from three separated chains with a "burn-in" of 2500 iterations. Posterior means (sd) and 95% Credible Intervals (CrI) of the estimated HR were presented for each category of milk intake frequency taking the "never" category as the reference. Posterior probability that the estimated hazard of dying from stroke for the milk intake for frequency that higher or equal to "1-2 times/month" is smaller compared with those who chose "never" to their milk intake frequency were calculated as $P(\text{HR} < 1)$. 
+
+The parametric forms of the models fitted in the Bayesian survival analyses include three models: 1) the crude model, 2) the age-centered adjusted model, 3) and a model further adjusted for potential confounders which includes: age (centered, continuous), smoking habit (never, current, former), alcohol intake (never or past, $<$ 4 times/week, Daily), body mass index ($<$ 18.5, $\geq$ 18.5 and $<$ 25, $\geq$ 25 and $<$ 30, $\geq$ 30 kg/m$^2$), history of hypertension, diabetes, kidney/liver diseases (yes/no), exercise (more than 1 hour/week, yes/no), sleep duration ($<$ 7, $\geq$ 7 and $<$ 8, $\geq$ 8 and $<$ 9, $\geq$ 9, hours), coffee intake (never, $<$ 3-4 times/week, almost daily), education level (attended school till age 18, yes/no)
 
 <!-- Materials and Methods should be described with sufficient details to allow others to replicate and build on published results. Please note that publication of your manuscript implicates that you must make all materials, data, computer code, and protocols associated with the publication available to readers. Please disclose at the submission stage any restrictions on the availability of materials or information. New methods and protocols should be described in detail while well-established methods can be briefly described and appropriately cited. -->
 
@@ -131,6 +133,78 @@ Full parametric proportional hazard models under Bayesian framework with Weibull
 <!-- Interventionary studies involving animals or humans, and other studies require ethical approval must list the authority that provided approval and the corresponding ethical approval code. -->
 
 # Results
+
+
+```{r tab1f, echo=FALSE, eval=FALSE}
+library(knitr)
+library(kableExtra)
+
+dt <- read.csv("tab/tab1.csv", header = T)
+names(dt) <- c("", "Never", "Drinker", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Daily", "P value")
+
+kable(dt, format = "latex", caption = "Sex-specific baseline characteristics according to the frequency of milk intake.", booktabs = T,linesep = "") %>%
+kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
+  add_header_above(c(" ", "", "", "Milk drinkers" = 4, "")) %>%
+  # add_indent(c(4:6, 8:11, 14:17, 19, 20, 22:25, 27:30, 32:35, 37:39, 41:43, 45, 47, 49, 51, 53, 55)) %>%
+  pack_rows("Men (n = 39386)", 1, 16) %>%
+  pack_rows("Women (n = 545999)", 17, 32) #%>% 
+  # footnote(c("Abbreviations: n, number; SD, standard deviation; Alc_Fre, alcohol intake; BMI, Body Mass Index; Slepgrp, sleep duration", "groups; Veg, vegetable intake; Coffe, coffee intake; DM/HT/KID/LIV_hist, diabetes, hypertension, kidney disease,", "liver disease history."))
+```
+
+
+
+\begin{table}[H]
+\caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake.}
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lccccccc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\textbf{Milk drinkers}} & \multicolumn{1}{c}{} \\
+\cmidrule(l{3pt}r{3pt}){4-7}
+ & \textbf{Never} & \textbf{Drinker} & \textbf{1-2 times/} & \textbf{1-2 times/} & \textbf{3-4 times/} & \textbf{Almost} & \\
+ &       &         & \textbf{Month}     & \textbf{Week}      & \textbf{Week}         & \textbf{Daily}  & \textbf{\textit{P} value}\\
+\midrule
+\rowcolor{gray!6}  \addlinespace[0.3em]
+\multicolumn{8}{l}{\textbf{Men (n = 39386)}}\\
+\hspace{1em}number of subjects & 8508 & 30878 & 3522 & 5928 & 5563 & 15865 & \\
+\hspace{1em}Age, year (mean (SD)) & 56.8 (9.9) & 56.8 (10.2) & 55.2 (10.1) & 55.4 (10.1) & 55.4 (9.9) & 58.1 (10.1) & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 58.7 & 49.8 & 57.4 & 55.9 & 51.1 & 45.4 & <0.001\\
+\hspace{1em}Daily alcohol drinker, \% & 51.9 & 47.8 & 50.9 & 48.4 & 48.6 & 46.5 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 22.6 (3.4) & 22.7 (3.4) & 22.8 (2.8) & 22.8 (2.8) & 22.9 (5.4) & 22.6 (2.8) & <0.001\\
+\hspace{1em}Exercise (> 1h/week), \% & 19 & 27.6 & 26.5 & 25 & 25.5 & 29.5 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 35.6 & 35.9 & 34.6 & 36.2 & 35.1 & 36.3 & <0.001\\
+\hspace{1em}Vegetable intake, daily, \% & 21.3 & 25.4 & 20.1 & 20.4 & 20.8 & 30.1 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 14.8 & 22.4 & 15.4 & 16.3 & 17.3 & 28.1 & <0.001\\
+\hspace{1em}Green tea intake, daily, \% & 76.5 & 79.2 & 79.9 & 78.3 & 77.9 & 79.8 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 43.8 & 50.7 & 50.5 & 48 & 47.5 & 52.9 & <0.001\\
+\hspace{1em}Educated over 18 years old, \% & 25.5 & 34.7 & 33.8 & 33.3 & 31 & 36.6 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 5.5 & 6.3 & 4.5 & 4.2 & 5.5 & 7.7 & <0.001\\
+\hspace{1em}History of hypertension, \% & 18.4 & 17.9 & 17.5 & 17.1 & 16.8 & 18.7 & 0.039\\
+\rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.0 & 3.4 & 3.8 & 3.0 & 3.0 & 3.5 & <0.001\\
+\hspace{1em}History of liver diseases, \% & 5.8 & 6.5 & 6.3 & 6.0 & 5.4 & 7.2 & <0.001\\
+\rowcolor{gray!6}  \addlinespace[0.3em]
+\multicolumn{8}{l}{\textbf{Women (n = 545999)}}\\
+\hspace{1em}number of subjects & 10407 & 44592 & 3640 & 7590 & 8108 & 25254 & \\
+\hspace{1em}Age, year (mean (SD)) & 58.0 (10.2) & 56.9 (9.9) & 56.5 (10.2) & 55.6 (10.1) & 55.6 (9.9) & 57.9 (9.9) & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 6.9 & 4.2 & 6.1 & 5.5 & 4.3 & 3.5 & <0.001\\
+\hspace{1em}Daily alcohol drinker, \% & 4.3 & 4.5 & 5.5 & 4.3 & 4.2 & 4.6 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}BMI, kg/m2 (mean (SD)) & 23.0 (3.4) & 22.9 (3.7) & 23.0 (3.8) & 23.1 (4.4) & 23.1 (3.1) & 22.8 (3.6) & <0.001\\
+\hspace{1em}Exercise (> 1h/week), \% & 13.6 & 20.8 & 17.1 & 18.5 & 18.8 & 22.6 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 27.7 & 25.6 & 25.1 & 25.9 & 25.4 & 25.7 & <0.001\\
+\hspace{1em}Vegetable intake, daily, \% & 24.7 & 30.4 & 25 & 24.6 & 24.2 & 34.8 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 25 & 35.7 & 26.6 & 29.2 & 29.2 & 41.1 & <0.001\\
+\hspace{1em}Green tea intake, daily, \% & 73.8 & 76.8 & 77.0 & 76.4 & 75.8 & 77.3 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 39.6 & 48.2 & 46.2 & 46.4 & 44.4 & 50.2 & <0.001\\
+\hspace{1em}Educated over 18 years old, \% & 19.9 & 31.6 & 27.9 & 29.8 & 27.4 & 34 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 2.6 & 3.7 & 3.2 & 2.7 & 2.7 & 4.4 & <0.001\\
+\hspace{1em}History of hypertension, \% & 21.5 & 19.7 & 20.5 & 19.1 & 18.9 & 20 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4 & <0.001\\
+\hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0 & <0.001\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
 
 <!-- This section may be divided by subheadings. It should provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn. -->
 
@@ -178,19 +252,19 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 
 
 
-\begin{table}[H]
-\caption{This is a table caption. Tables should be placed in the main text near to the first time they are cited.}
-\centering
-%% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
-\begin{tabular}{ccc}
-\toprule
-\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
-\midrule
-entry 1		& data			& data\\
-entry 2		& data			& data\\
-\bottomrule
-\end{tabular}
-\end{table}
+<!-- \begin{table}[H] -->
+<!-- \caption{This is a table caption. Tables should be placed in the main text near to the first time they are cited.} -->
+<!-- \centering -->
+<!-- %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used. -->
+<!-- \begin{tabular}{ccc} -->
+<!-- \toprule -->
+<!-- \textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\ -->
+<!-- \midrule -->
+<!-- entry 1		& data			& data\\ -->
+<!-- entry 2		& data			& data\\ -->
+<!-- \bottomrule -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
 
 <!-- This is an example of an equation: -->
 
