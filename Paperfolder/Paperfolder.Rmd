@@ -134,13 +134,19 @@ The parametric forms of the models fitted in the Bayesian survival analyses incl
 
 # Results
 
+The total follow-up was 1555073 person-years (median = 19.3 years), during which 2675 death from stroke was confirmed (1352 men and 1323 women). Among these stroke mortality, 957 were cerebral infarction (520 men and 437 women), and 952 were hemorrhagic stroke (432 men and 520 women). 
 
+As listed in \textbf{Table \ref{tab:tab1f}}, compared with those who chose "never" as their milk intake frequency at the baseline, milk drinkers were less likely to be a current smoker or a daily alcohol consumer in both men and women. Furthermore, people consumed milk more than 1-2 times/month were more likely to be a daily consumers of vegetable, fruit  as well as coffee, and more likely to join exercise more than 1 hour/week among either sex.
+
+Table 
+
+ 
 ```{r tab1f, echo=FALSE, eval=FALSE}
 library(knitr)
 library(kableExtra)
 
 dt <- read.csv("tab/tab1.csv", header = T)
-names(dt) <- c("", "Never", "Drinker", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Daily", "P value")
+names(dt) <- c("", "Never", "Drinker", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily", "P value")
 
 kable(dt, format = "latex", caption = "Sex-specific baseline characteristics according to the frequency of milk intake.", booktabs = T,linesep = "") %>%
 kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
@@ -171,13 +177,13 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 \rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 58.7 & 49.8 & 57.4 & 55.9 & 51.1 & 45.4 & <0.001\\
 \hspace{1em}Daily alcohol drinker, \% & 51.9 & 47.8 & 50.9 & 48.4 & 48.6 & 46.5 & <0.001\\
 \rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 22.6 (3.4) & 22.7 (3.4) & 22.8 (2.8) & 22.8 (2.8) & 22.9 (5.4) & 22.6 (2.8) & <0.001\\
-\hspace{1em}Exercise (> 1h/week), \% & 19 & 27.6 & 26.5 & 25 & 25.5 & 29.5 & <0.001\\
+\hspace{1em}Exercise (> 1h/week), \% & 19.0 & 27.6 & 26.5 & 25.0 & 25.5 & 29.5 & <0.001\\
 \rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 35.6 & 35.9 & 34.6 & 36.2 & 35.1 & 36.3 & <0.001\\
 \hspace{1em}Vegetable intake, daily, \% & 21.3 & 25.4 & 20.1 & 20.4 & 20.8 & 30.1 & <0.001\\
 \rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 14.8 & 22.4 & 15.4 & 16.3 & 17.3 & 28.1 & <0.001\\
 \hspace{1em}Green tea intake, daily, \% & 76.5 & 79.2 & 79.9 & 78.3 & 77.9 & 79.8 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 43.8 & 50.7 & 50.5 & 48 & 47.5 & 52.9 & <0.001\\
-\hspace{1em}Educated over 18 years old, \% & 25.5 & 34.7 & 33.8 & 33.3 & 31 & 36.6 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 43.8 & 50.7 & 50.5 & 48.0 & 47.5 & 52.9 & <0.001\\
+\hspace{1em}Educated over 18 years old, \% & 25.5 & 34.7 & 33.8 & 33.3 & 31.0 & 36.6 & <0.001\\
 \rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 5.5 & 6.3 & 4.5 & 4.2 & 5.5 & 7.7 & <0.001\\
 \hspace{1em}History of hypertension, \% & 18.4 & 17.9 & 17.5 & 17.1 & 16.8 & 18.7 & 0.039\\
 \rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.0 & 3.4 & 3.8 & 3.0 & 3.0 & 3.5 & <0.001\\
@@ -191,13 +197,13 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 \rowcolor{gray!6}  \hspace{1em}BMI, kg/m2 (mean (SD)) & 23.0 (3.4) & 22.9 (3.7) & 23.0 (3.8) & 23.1 (4.4) & 23.1 (3.1) & 22.8 (3.6) & <0.001\\
 \hspace{1em}Exercise (> 1h/week), \% & 13.6 & 20.8 & 17.1 & 18.5 & 18.8 & 22.6 & <0.001\\
 \rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 27.7 & 25.6 & 25.1 & 25.9 & 25.4 & 25.7 & <0.001\\
-\hspace{1em}Vegetable intake, daily, \% & 24.7 & 30.4 & 25 & 24.6 & 24.2 & 34.8 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 25 & 35.7 & 26.6 & 29.2 & 29.2 & 41.1 & <0.001\\
+\hspace{1em}Vegetable intake, daily, \% & 24.7 & 30.4 & 25.0 & 24.6 & 24.2 & 34.8 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 25.0 & 35.7 & 26.6 & 29.2 & 29.2 & 41.1 & <0.001\\
 \hspace{1em}Green tea intake, daily, \% & 73.8 & 76.8 & 77.0 & 76.4 & 75.8 & 77.3 & <0.001\\
 \rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 39.6 & 48.2 & 46.2 & 46.4 & 44.4 & 50.2 & <0.001\\
-\hspace{1em}Educated over 18 years old, \% & 19.9 & 31.6 & 27.9 & 29.8 & 27.4 & 34 & <0.001\\
+\hspace{1em}Educated over 18 years old, \% & 19.9 & 31.6 & 27.9 & 29.8 & 27.4 & 34.0 & <0.001\\
 \rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 2.6 & 3.7 & 3.2 & 2.7 & 2.7 & 4.4 & <0.001\\
-\hspace{1em}History of hypertension, \% & 21.5 & 19.7 & 20.5 & 19.1 & 18.9 & 20 & <0.001\\
+\hspace{1em}History of hypertension, \% & 21.5 & 19.7 & 20.5 & 19.1 & 18.9 & 20.0 & <0.001\\
 \rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4 & <0.001\\
 \hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0 & <0.001\\
 \bottomrule
@@ -208,11 +214,11 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 
 <!-- This section may be divided by subheadings. It should provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn. -->
 
-## Subsection Heading Here
+<!-- ## Subsection Heading Here -->
 
 <!-- Subsection text here. -->
 
-### Subsubsection Heading Here
+<!-- ### Subsubsection Heading Here -->
 
 <!-- Bulleted lists look like this: -->
 
@@ -237,15 +243,22 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 <!-- \end{figure} -->
 
 
-```{r tab1, echo=FALSE, eval=TRUE, message=FALSE}
+```{r tab2, echo=FALSE, eval=TRUE, message=FALSE}
 library(knitr)
 library(kableExtra)
 dt <- read.csv("tab/HRAFTweib.csv", header = T)
-names(dt) <- c("Milk intake", "Median", "Mean (SD)", "95% CrI", "MCSE", "Probability", "Median", "Mean (SD)", "95% CrI", "MCSE")
-kable(dt, format = "latex", caption = "", booktabs = T,linesep = "") %>%
+# dt <- data.frame(`Stroke` = c(rep("Total stroke", 15)), dt)
+names(dt) <- c(" ", "Never", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily")
+
+kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in men.", booktabs = T, linesep = "") %>%
+    # collapse_rows(columns = 1, valign = "top") %>% 
+  pack_rows("Model 0", 4, 7) %>%
+  pack_rows("Model 1", 8, 11) %>%
+  pack_rows("Model 2", 12, 15) %>%
 kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
-  add_header_above(c(" ", "Hazard ratio (HR)" = 5, "Acceleration factor (AF)" = 4)) %>% 
-  footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", " Probability indicates that the p for HR smaller than 1."))
+  # add_header_above(c(" ", "Estimated HR in Men" = 4, "Estimated HR in Women" = 4)) %>% 
+  footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", "Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.")) 
+
 ```
 
 
