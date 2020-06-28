@@ -82,3 +82,31 @@ M0menHemoStroke_20200618 <- jagsfit
 print(M0menHemoStroke_20200618)
 save.image(file = "data/JACCmilkstrokewithHemo.Rdata")
 # save.image(file = "data/JACCmilkstroke.Rdata")
+
+
+
+
+# Inference for Bugs model at "M2.weibull.model", fit using jags,
+# 3 chains, each with 1e+05 iterations (first 250 discarded), n.thin = 99
+# n.sims = 3021 iterations saved
+# mu.vect sd.vect      2.5%       25%       50%       75%     97.5%  Rhat n.eff
+# AFT[2]        1.006   0.124     0.847     0.942     0.995     1.053     1.203 1.009  1100
+# AFT[3]        1.114   0.142     0.977     1.053     1.098     1.148     1.295 1.016   710
+# AFT[4]        1.022   0.119     0.886     0.969     1.010     1.056     1.186 1.014  2900
+# AFT[5]        0.972   0.097     0.877     0.934     0.963     0.994     1.104 1.015  1700
+# HR[2]         1.010   0.168     0.752     0.903     0.992     1.092     1.357 1.004   660
+# HR[3]         1.194   0.170     0.960     1.093     1.175     1.268     1.517 1.007   380
+# HR[4]         1.033   0.150     0.813     0.947     1.018     1.097     1.314 1.004  1400
+# HR[5]         0.950   0.117     0.798     0.889     0.938     0.990     1.175 1.006   610
+# p.crit[2]     0.528   0.499     0.000     0.000     1.000     1.000     1.000 1.003   690
+# p.crit[3]     0.064   0.245     0.000     0.000     0.000     0.000     1.000 1.007  1100
+# p.crit[4]     0.444   0.497     0.000     0.000     0.000     1.000     1.000 1.003   920
+# p.crit[5]     0.781   0.414     0.000     1.000     1.000     1.000     1.000 1.002  1000
+# deviance  11949.549 126.233 11809.943 11893.025 11934.989 11981.600 12112.061 1.005  1800
+# 
+# For each parameter, n.eff is a crude measure of effective sample size,
+# and Rhat is the potential scale reduction factor (at convergence, Rhat=1).
+# 
+# DIC info (using the rule, pD = var(deviance)/2)
+# pD = 7964.3 and DIC = 19913.8
+# DIC is an estimate of expected predictive error (lower deviance is better).
