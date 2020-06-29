@@ -160,7 +160,7 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 
 
 \begin{table}[H]
-\caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake.}
+\caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake (JACC study, 1988-2009).}
 \centering
 \fontsize{8}{10}\selectfont
 \begin{tabular}[t]{lccccccc}
@@ -250,18 +250,44 @@ dt <- read.csv("tab/HRAFTweib.csv", header = T)
 # dt <- data.frame(`Stroke` = c(rep("Total stroke", 15)), dt)
 names(dt) <- c(" ", "Never", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily")
 
-kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in men.", booktabs = T, linesep = "") %>%
+kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in men (JACC study, 1988-2009).", booktabs = T, linesep = "") %>%
     # collapse_rows(columns = 1, valign = "top") %>% 
   pack_rows("Model 0", 4, 7) %>%
   pack_rows("Model 1", 8, 11) %>%
   pack_rows("Model 2", 12, 15) %>%
+    pack_rows("Model 0", 17, 20) %>%
+  pack_rows("Model 1", 21, 24) %>%
+  pack_rows("Model 2", 25, 28) %>%
+  pack_rows("Model 0", 30, 33) %>%
+  pack_rows("Model 1", 34, 37) %>%
+  pack_rows("Model 2", 38, 41) %>%
 kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
   # add_header_above(c(" ", "Estimated HR in Men" = 4, "Estimated HR in Women" = 4)) %>% 
-  footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", "Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.")) 
-
+  footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", " Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.", "Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.", "Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of",  "hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.")) 
 ```
 
 
+
+```{r tab3, echo=FALSE, eval=TRUE, message=FALSE}
+dt <- read.csv("tab/HRAFTweibF.csv", header = T)
+# dt <- data.frame(`Stroke` = c(rep("Total stroke", 15)), dt)
+names(dt) <- c(" ", "Never", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily")
+
+kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in women (JACC study, 1988-2009).", booktabs = T, linesep = "") %>%
+    # collapse_rows(columns = 1, valign = "top") %>% 
+  pack_rows("Model 0", 4, 7) %>%
+  pack_rows("Model 1", 8, 11) %>%
+  pack_rows("Model 2", 12, 15) %>%
+  pack_rows("Model 0", 17, 20) %>%
+  pack_rows("Model 1", 21, 24) %>%
+  pack_rows("Model 2", 25, 28) %>%
+  pack_rows("Model 0", 30, 33) %>%
+  pack_rows("Model 1", 34, 37) %>%
+  pack_rows("Model 2", 38, 41) %>%
+kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
+  # add_header_above(c(" ", "Estimated HR in Men" = 4, "Estimated HR in Women" = 4)) %>% 
+  footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", " Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.", "Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.", "Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of",  "hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.")) 
+```
 
 
 
