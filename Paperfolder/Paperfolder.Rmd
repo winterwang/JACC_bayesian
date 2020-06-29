@@ -255,9 +255,11 @@ kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) o
   pack_rows("Model 0", 4, 7) %>%
   pack_rows("Model 1", 8, 11) %>%
   pack_rows("Model 2", 12, 15) %>%
+    row_spec(15,  hline_after = TRUE) %>%
     pack_rows("Model 0", 17, 20) %>%
   pack_rows("Model 1", 21, 24) %>%
   pack_rows("Model 2", 25, 28) %>%
+      row_spec(28,  hline_after = TRUE) %>%
   pack_rows("Model 0", 30, 33) %>%
   pack_rows("Model 1", 34, 37) %>%
   pack_rows("Model 2", 38, 41) %>%
@@ -278,9 +280,11 @@ kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) o
   pack_rows("Model 0", 4, 7) %>%
   pack_rows("Model 1", 8, 11) %>%
   pack_rows("Model 2", 12, 15) %>%
+  row_spec(15,  hline_after = TRUE) %>%
   pack_rows("Model 0", 17, 20) %>%
   pack_rows("Model 1", 21, 24) %>%
   pack_rows("Model 2", 25, 28) %>%
+  row_spec(28,  hline_after = TRUE) %>%
   pack_rows("Model 0", 30, 33) %>%
   pack_rows("Model 1", 34, 37) %>%
   pack_rows("Model 2", 38, 41) %>%
