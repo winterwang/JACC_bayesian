@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.24)  30 JUN 2020 16:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.24)  2 JUL 2020 11:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1305,7 +1305,7 @@ Package rerunfilecheck Info: File `Paperfolder.out' has not changed.
 Here is how much of TeX's memory you used:
  27519 strings out of 482394
  478253 string characters out of 5945715
- 812346 words of memory out of 5000000
+ 812935 words of memory out of 5000000
  42571 multiletter control sequences out of 15000+600000
  583967 words of font info for 211 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1323,7 +1323,7 @@ f-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/wangcc.me/Library/TinyTeX
 eX/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></Users/wangcc.me/Library/Ti
 nyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/wangcc.me/Library/
 TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Paperfolder.pdf (6 pages, 194713 bytes).
+Output written on Paperfolder.pdf (6 pages, 195117 bytes).
 PDF statistics:
  203 PDF objects out of 1000 (max. 8388607)
  161 compressed objects within 2 object streams
