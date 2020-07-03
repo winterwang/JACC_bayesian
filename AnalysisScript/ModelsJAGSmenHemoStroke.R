@@ -443,3 +443,70 @@ M1menHemoStroke_20200701 <- jagsfit
 print(M1menHemoStroke_20200701)
 summary(mcmcplots::as.mcmc.rjags(M1menHemoStroke_20200701))
 save.image(file = "data/JACCmilkstrokewithHemo.Rdata")
+
+
+# Iterations = 1:98393
+# Thinning interval = 98 
+# Number of chains = 4 
+# Sample size per chain = 1005 
+# 
+# 1. Empirical mean and standard deviation for each variable,
+# plus standard error of the mean:
+#   
+#   Mean      SD Naive SE Time-series SE
+# AFT[2]       1.1111  0.1985 0.003130       0.010852
+# AFT[3]       0.9333  0.1467 0.002314       0.007357
+# AFT[4]       0.9628  0.1592 0.002511       0.008552
+# AFT[5]       0.9596  0.1311 0.002067       0.007722
+# HR[2]        1.1373  0.2244 0.003539       0.009477
+# HR[3]        0.9169  0.1654 0.002609       0.007575
+# HR[4]        0.9527  0.1823 0.002875       0.009809
+# HR[5]        0.9477  0.1428 0.002252       0.008262
+# deviance  6060.8100 59.9484 0.945507       5.225167
+# p.crit[2]    0.2881  0.4529 0.007143       0.012517
+# p.crit[3]    0.7241  0.4470 0.007050       0.016330
+# p.crit[4]    0.6435  0.4790 0.007555       0.020082
+# p.crit[5]    0.6930  0.4613 0.007276       0.020135
+# 
+# 2. Quantiles for each variable:
+#   
+#   2.5%       25%       50%      75%    97.5%
+# AFT[2]       0.7950    0.9848    1.0928    1.214    1.575
+# AFT[3]       0.6957    0.8419    0.9210    1.011    1.249
+# AFT[4]       0.7085    0.8605    0.9498    1.043    1.340
+# AFT[5]       0.7592    0.8841    0.9489    1.021    1.247
+# HR[2]        0.7524    0.9815    1.1202    1.272    1.613
+# HR[3]        0.6294    0.8049    0.9014    1.013    1.287
+# HR[4]        0.6531    0.8248    0.9374    1.053    1.372
+# HR[5]        0.7104    0.8540    0.9362    1.027    1.276
+# deviance  5971.2341 6025.2626 6053.7141 6085.181 6206.865
+# p.crit[2]    0.0000    0.0000    0.0000    1.000    1.000
+# p.crit[3]    0.0000    0.0000    1.0000    1.000    1.000
+# p.crit[4]    0.0000    0.0000    1.0000    1.000    1.000
+# p.crit[5]    0.0000    0.0000    1.0000    1.000    1.000
+
+
+# Inference for Bugs model at "M2hemo.weibull.model", fit using jags,
+# 4 chains, each with 1e+05 iterations (first 1500 discarded), n.thin = 98
+# n.sims = 4020 iterations saved
+# mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
+# AFT[2]       1.111   0.198    0.795    0.985    1.093    1.214    1.575 1.002  1600
+# AFT[3]       0.933   0.147    0.696    0.842    0.921    1.011    1.249 1.005   590
+# AFT[4]       0.963   0.159    0.709    0.861    0.950    1.043    1.340 1.003   940
+# AFT[5]       0.960   0.131    0.759    0.884    0.949    1.021    1.247 1.007   660
+# HR[2]        1.137   0.224    0.752    0.982    1.120    1.272    1.613 1.002  1400
+# HR[3]        0.917   0.165    0.629    0.805    0.901    1.013    1.287 1.005   530
+# HR[4]        0.953   0.182    0.653    0.825    0.937    1.053    1.372 1.004   770
+# HR[5]        0.948   0.143    0.710    0.854    0.936    1.027    1.276 1.006   500
+# p.crit[2]    0.288   0.453    0.000    0.000    0.000    1.000    1.000 1.001  3600
+# p.crit[3]    0.724   0.447    0.000    0.000    1.000    1.000    1.000 1.003  1000
+# p.crit[4]    0.644   0.479    0.000    0.000    1.000    1.000    1.000 1.002  2000
+# p.crit[5]    0.693   0.461    0.000    0.000    1.000    1.000    1.000 1.005   570
+# deviance  6060.810  59.948 5971.234 6025.263 6053.714 6085.181 6206.865 1.002  4000
+# 
+# For each parameter, n.eff is a crude measure of effective sample size,
+# and Rhat is the potential scale reduction factor (at convergence, Rhat=1).
+# 
+# DIC info (using the rule, pD = var(deviance)/2)
+# pD = 1797.8 and DIC = 7858.6
+# DIC is an estimate of expected predictive error (lower deviance is better).
