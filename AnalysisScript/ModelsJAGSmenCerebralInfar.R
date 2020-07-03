@@ -15,7 +15,7 @@ table(Mlkfre)
 table(MData_men$Mlkfre) #1 = Never ; 2 = Mon1_2 ; 3 = Wek1_2 ; 4 = Wek3_4 ; 5 = Daily
 
 # define events 
-is.censored <- MData_men$HemoStroke != "I63"
+is.censored <- MData_men$IscheStroke != "I63"
 
 # define followup time for events
 t <- if_else(!is.censored, MData_men$followpy, 0)
@@ -223,7 +223,7 @@ table(MData_men$Gretea) #1 =  daily   ; 2 = Thre3tw  ; 3 = Never ; 4 = unknown
 
 
 
-M2hemo.weibull.model <- function() {
+M2Isch.weibull.model <- function() {
   for(i in 1:39386){
     sAge[i] <- (Age[i] - mean(Age[])) / sd(Age[])
     # sBMI[i] <- (BMI[i] - mean(BMI[])) / sd(BMI[])
@@ -295,7 +295,7 @@ M2.params <- c("AFT", "HR", "p.crit")
 start.time <- Sys.time()
 jagsfit <- jags.parallel(data=MILKdataMEN,  parameters.to.save = M2.params, 
                          n.iter=100000, n.burnin=(3000/2), n.chains = 4,
-                         model.file=M2hemo.weibull.model)
+                         model.file=M2Isch.weibull.model)
 end.time <- Sys.time()
 end.time - start.time 
 
