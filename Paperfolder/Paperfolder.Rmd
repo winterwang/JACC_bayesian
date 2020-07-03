@@ -138,7 +138,7 @@ The total follow-up was 1555073 person-years (median = 19.3 years), during which
 
 As listed in \textbf{Table \ref{tab:tab1f}}, compared with those who chose "never" as their milk intake frequency at the baseline, milk drinkers were less likely to be a current smoker or a daily alcohol consumer in both men and women. Furthermore, people consumed milk more than 1-2 times/month were more likely to be a daily consumers of vegetable, fruit  as well as coffee, and more likely to join exercise more than 1 hour/week among either sex.
 
-Table 
+Detailed results from the Bayesian survival models (crude, age-adjusted and multivariable adjusted) according to the frequency of milk intake separated for men and women are listed in \textbf{Table \ref{tab:tab2}} and \textbf{Table \ref{tab:tab3}}. 
 
  
 ```{r tab1f, echo=FALSE, eval=FALSE}
