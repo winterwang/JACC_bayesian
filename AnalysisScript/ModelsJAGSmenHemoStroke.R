@@ -438,7 +438,7 @@ jagsfit <- jags.parallel(data=MILKdataMEN,  parameters.to.save = M2.params,
                          n.iter=100000, n.burnin=(3000/2), n.chains = 4,
                          model.file=M2hemo.weibull.model)
 end.time <- Sys.time()
-end.time - start.time 
+end.time - start.time  #Time difference of 2.548741 days
 M1menHemoStroke_20200701 <- jagsfit
 print(M1menHemoStroke_20200701)
 summary(mcmcplots::as.mcmc.rjags(M1menHemoStroke_20200701))
