@@ -222,7 +222,8 @@ jagsfit <- jags.parallel(data=MILKdataMEN,  parameters.to.save = age.params,
                          n.iter=100000, n.burnin=(5000/2), n.chains = 4,
                          model.file=AgeIsche.weibull.model)
 end.time <- Sys.time()
-end.time - start.time #
+end.time - start.time # Time difference of 16.76311 hours
+
 
 M1menIscheStroke_20200702 <- jagsfit
 print(M1menIscheStroke_20200702)
@@ -230,7 +231,70 @@ summary(mcmcplots::as.mcmc.rjags(M1menIscheStroke_20200702))
 save(M0menIscheStroke_20200702, M1menIscheStroke_20200702, file = "IscheStrokeMen.RData")
 
 
+# Inference for Bugs model at "AgeIsche.weibull.model", fit using jags,
+# 4 chains, each with 1e+05 iterations (first 2500 discarded), n.thin = 97
+# n.sims = 4020 iterations saved
+# mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
+# AFT[2]       0.835   0.085    0.678    0.778    0.832    0.889    1.010 1.004   640
+# AFT[3]       0.792   0.066    0.671    0.746    0.790    0.836    0.930 1.009   300
+# AFT[4]       0.821   0.069    0.694    0.773    0.819    0.863    0.964 1.005   630
+# AFT[5]       0.740   0.046    0.655    0.710    0.738    0.768    0.835 1.006   440
+# HR[2]        0.723   0.134    0.492    0.629    0.713    0.806    1.018 1.004   770
+# HR[3]        0.655   0.102    0.479    0.582    0.649    0.721    0.879 1.010   280
+# HR[4]        0.698   0.109    0.512    0.622    0.690    0.764    0.938 1.005   540
+# HR[5]        0.576   0.067    0.459    0.531    0.570    0.615    0.723 1.006   490
+# p.crit[2]    0.969   0.174    0.000    1.000    1.000    1.000    1.000 1.030   540
+# p.crit[3]    0.998   0.047    1.000    1.000    1.000    1.000    1.000 1.022  4000
+# p.crit[4]    0.990   0.100    1.000    1.000    1.000    1.000    1.000 1.023  2100
+# p.crit[5]    1.000   0.000    1.000    1.000    1.000    1.000    1.000 1.000     1
+# deviance  6403.727  52.849 6311.268 6371.579 6401.316 6433.091 6502.175 1.032   310
+# 
+# For each parameter, n.eff is a crude measure of effective sample size,
+# and Rhat is the potential scale reduction factor (at convergence, Rhat=1).
+# 
+# DIC info (using the rule, pD = var(deviance)/2)
+# pD = 1383.6 and DIC = 7787.4
+# DIC is an estimate of expected predictive error (lower deviance is better).
 
+# Iterations = 1:97389
+# Thinning interval = 97 
+# Number of chains = 4 
+# Sample size per chain = 1005 
+# 
+# 1. Empirical mean and standard deviation for each variable,
+# plus standard error of the mean:
+#   
+#   Mean       SD  Naive SE Time-series SE
+# AFT[2]       0.8354  0.08503 0.0013411       0.002905
+# AFT[3]       0.7923  0.06607 0.0010421       0.002182
+# AFT[4]       0.8206  0.06887 0.0010863       0.002311
+# AFT[5]       0.7397  0.04572 0.0007210       0.001804
+# HR[2]        0.7232  0.13434 0.0021188       0.004551
+# HR[3]        0.6550  0.10174 0.0016047       0.003541
+# HR[4]        0.6983  0.10870 0.0017144       0.004067
+# HR[5]        0.5762  0.06741 0.0010633       0.002864
+# deviance  6403.7269 52.84895 0.8335340       2.602053
+# p.crit[2]    0.9687  0.17427 0.0027485       0.004999
+# p.crit[3]    0.9978  0.04727 0.0007455       0.001089
+# p.crit[4]    0.9898  0.10049 0.0015849       0.003800
+# p.crit[5]    1.0000  0.00000 0.0000000       0.000000
+# 
+# 2. Quantiles for each variable:
+#   
+#   2.5%       25%       50%       75%     97.5%
+# AFT[2]       0.6781    0.7784    0.8320    0.8889    1.0100
+# AFT[3]       0.6714    0.7459    0.7900    0.8364    0.9298
+# AFT[4]       0.6940    0.7733    0.8186    0.8632    0.9643
+# AFT[5]       0.6546    0.7103    0.7384    0.7681    0.8346
+# HR[2]        0.4920    0.6293    0.7125    0.8057    1.0179
+# HR[3]        0.4794    0.5824    0.6491    0.7205    0.8790
+# HR[4]        0.5120    0.6223    0.6898    0.7639    0.9384
+# HR[5]        0.4592    0.5311    0.5701    0.6155    0.7231
+# deviance  6311.2677 6371.5789 6401.3162 6433.0914 6502.1750
+# p.crit[2]    0.0000    1.0000    1.0000    1.0000    1.0000
+# p.crit[3]    1.0000    1.0000    1.0000    1.0000    1.0000
+# p.crit[4]    1.0000    1.0000    1.0000    1.0000    1.0000
+# p.crit[5]    1.0000    1.0000    1.0000    1.0000    1.0000
 
 #######################Model 2 Mult-ad######################
 #                                                          #
