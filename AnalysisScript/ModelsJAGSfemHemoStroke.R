@@ -88,7 +88,7 @@ save(M0FEMHemoStroke_20200704, file = "HemoStrokeFEM.RData")
 # Inference for Bugs model at "jacchemo.weibull.model0", fit using jags,
 # 4 chains, each with 1e+05 iterations (first 2500 discarded), n.thin = 97
 # n.sims = 4020 iterations saved
-# mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
+#            mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
 # AFT[2]       0.780   0.131    0.549    0.687    0.771    0.865    1.061 1.004   780
 # AFT[3]       0.983   0.124    0.763    0.897    0.975    1.058    1.249 1.001  4000
 # AFT[4]       0.898   0.110    0.701    0.822    0.892    0.966    1.131 1.002  3500
@@ -125,7 +125,7 @@ save(M0FEMHemoStroke_20200704, file = "HemoStrokeFEM.RData")
 # 1. Empirical mean and standard deviation for each variable,
 # plus standard error of the mean:
 #   
-#   Mean       SD Naive SE Time-series SE
+#               Mean       SD Naive SE Time-series SE
 # AFT[2]    7.799e-01  0.13116 0.002069       0.004767
 # AFT[3]    9.828e-01  0.12436 0.001961       0.005866
 # AFT[4]    8.978e-01  0.10953 0.001727       0.004883

@@ -87,7 +87,7 @@ save(M0menIscheStroke_20200702, file = "IscheStrokeMen.RData")
 # Inference for Bugs model at "jaccIschemic.weibull.model0", fit using jags,
 # 4 chains, each with 1e+05 iterations (first 2500 discarded), n.thin = 97
 # n.sims = 4020 iterations saved
-# mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
+#            mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
 # AFT[2]       0.755   0.091    0.593    0.693    0.749    0.813    0.944 1.004   750
 # AFT[3]       0.706   0.072    0.575    0.654    0.703    0.752    0.855 1.002  4000
 # AFT[4]       0.744   0.075    0.609    0.692    0.741    0.790    0.896 1.002  2000
@@ -123,7 +123,7 @@ save(M0menIscheStroke_20200702, file = "IscheStrokeMen.RData")
 # 1. Empirical mean and standard deviation for each variable,
 # plus standard error of the mean:
 #   
-#   Mean       SD  Naive SE Time-series SE
+#                Mean       SD  Naive SE Time-series SE
 # AFT[2]       0.7549  0.09116 0.0014377      0.0030111
 # AFT[3]       0.7058  0.07248 0.0011431      0.0026088
 # AFT[4]       0.7436  0.07506 0.0011839      0.0026173
@@ -146,7 +146,7 @@ save(M0menIscheStroke_20200702, file = "IscheStrokeMen.RData")
 # 
 # 2. Quantiles for each variable:
 #   
-#   2.5%       25%       50%       75%     97.5%
+#                2.5%       25%       50%       75%     97.5%
 # AFT[2]    5.927e-01    0.6934    0.7492    0.8130    0.9437
 # AFT[3]    5.748e-01    0.6545    0.7031    0.7523    0.8548
 # AFT[4]    6.086e-01    0.6918    0.7407    0.7904    0.8965
@@ -234,7 +234,7 @@ save(M0menIscheStroke_20200702, M1menIscheStroke_20200702, file = "IscheStrokeMe
 # Inference for Bugs model at "AgeIsche.weibull.model", fit using jags,
 # 4 chains, each with 1e+05 iterations (first 2500 discarded), n.thin = 97
 # n.sims = 4020 iterations saved
-# mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
+#            mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
 # AFT[2]       0.835   0.085    0.678    0.778    0.832    0.889    1.010 1.004   640
 # AFT[3]       0.792   0.066    0.671    0.746    0.790    0.836    0.930 1.009   300
 # AFT[4]       0.821   0.069    0.694    0.773    0.819    0.863    0.964 1.005   630
@@ -264,7 +264,7 @@ save(M0menIscheStroke_20200702, M1menIscheStroke_20200702, file = "IscheStrokeMe
 # 1. Empirical mean and standard deviation for each variable,
 # plus standard error of the mean:
 #   
-#   Mean       SD  Naive SE Time-series SE
+#                Mean       SD  Naive SE Time-series SE
 # AFT[2]       0.8354  0.08503 0.0013411       0.002905
 # AFT[3]       0.7923  0.06607 0.0010421       0.002182
 # AFT[4]       0.8206  0.06887 0.0010863       0.002311
@@ -281,7 +281,7 @@ save(M0menIscheStroke_20200702, M1menIscheStroke_20200702, file = "IscheStrokeMe
 # 
 # 2. Quantiles for each variable:
 #   
-#   2.5%       25%       50%       75%     97.5%
+#                2.5%       25%       50%       75%     97.5%
 # AFT[2]       0.6781    0.7784    0.8320    0.8889    1.0100
 # AFT[3]       0.6714    0.7459    0.7900    0.8364    0.9298
 # AFT[4]       0.6940    0.7733    0.8186    0.8632    0.9643

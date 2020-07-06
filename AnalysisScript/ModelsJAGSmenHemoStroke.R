@@ -489,7 +489,7 @@ save.image(file = "data/JACCmilkstrokewithHemo.Rdata")
 # Inference for Bugs model at "M2hemo.weibull.model", fit using jags,
 # 4 chains, each with 1e+05 iterations (first 1500 discarded), n.thin = 98
 # n.sims = 4020 iterations saved
-# mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
+#            mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
 # AFT[2]       1.111   0.198    0.795    0.985    1.093    1.214    1.575 1.002  1600
 # AFT[3]       0.933   0.147    0.696    0.842    0.921    1.011    1.249 1.005   590
 # AFT[4]       0.963   0.159    0.709    0.861    0.950    1.043    1.340 1.003   940
