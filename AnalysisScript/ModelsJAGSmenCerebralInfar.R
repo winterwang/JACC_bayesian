@@ -1,4 +1,4 @@
-# HemoStroke == "I63"
+# IschemStroke == "I63"
 
 library(tidyverse)
 load("data/JACCmilkstrokewithHemo.Rdata")
