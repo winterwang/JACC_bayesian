@@ -90,6 +90,12 @@ abbreviations:
     long: Markov Chain Monte Carlo
   - short: JAGS
     long: Just Another Gibbs Samplers
+  - short: HR
+    long: hazard ratio
+  - short: sd
+    long: standard deviation
+  - short: CrI
+    long: credible interval
 output: rticles::mdpi_article
 ---
 
@@ -134,13 +140,8 @@ The parametric forms of the models fitted in the Bayesian survival analyses incl
 
 # Results
 
-The total follow-up was 1555073 person-years (median = 19.3 years), during which 2675 death from stroke was confirmed (1352 men and 1323 women). Among these stroke mortality, 957 were cerebral infarction (520 men and 437 women), and 952 were hemorrhagic stroke (432 men and 520 women). 
+The total follow-up was 1555073 person-years (median = 19.3 years), during which 2675 death from stroke was confirmed (1352 men and 1323 women). Among these stroke mortality, 952 were hemorrhagic stroke (432 men and 520 women), and 957 were cerebral infarction (520 men and 437 women). 
 
-As listed in \textbf{Table \ref{tab:tab1f}}, compared with those who chose "never" as their milk intake frequency at the baseline, milk drinkers were less likely to be a current smoker or a daily alcohol consumer in both men and women. Furthermore, people consumed milk more than 1-2 times/month were more likely to be a daily consumers of vegetable, fruit  as well as coffee, and more likely to join exercise more than 1 hour/week among either sex.
-
-Detailed results from the Bayesian survival models (crude, age-adjusted and multivariable adjusted) according to the frequency of milk intake separated for men and women are listed in \textbf{Table \ref{tab:tab2}} and \textbf{Table \ref{tab:tab3}}. 
-
- 
 ```{r tab1f, echo=FALSE, eval=FALSE}
 library(knitr)
 library(kableExtra)
@@ -212,35 +213,17 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 
 
 
-<!-- This section may be divided by subheadings. It should provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn. -->
+As listed in \textbf{Table \ref{tab:tab1f}}, compared with those who chose "never" as their milk intake frequency at baseline, milk drinkers were less likely to be a current smoker or a daily alcohol consumer in both men and women. Furthermore, people consumed milk more than 1-2 times/month were more likely to be a daily consumers of vegetable, fruit  as well as coffee, and more likely to join exercise more than 1 hour/week among either sex.
 
-<!-- ## Subsection Heading Here -->
+Detailed results from the Bayesian survival models (crude, age-adjusted and multivariable adjusted) according to the frequency of milk intake separated by sex are listed in \textbf{Table \ref{tab:tab2}} (men) and \textbf{Table \ref{tab:tab3}} (women). Compared to those who never had milk, both men and women had lower hazard of dying from total stroke in crude models. Chances that the posterior HRs were estimated to be lower than 1 for those who had at least 1-2 times/month was higher than 86.5% in men and more than 94.6% in women. However, lower hazard was observed to remain after age or multivariable adjustment only in men. Specifically, the mean (sd; 95% CrI) of posterior multivariable-adjusted HRs for daily male consumers of milk was 0.80 (sd = 0.07; 95% CrI: 0.69, 0.93) with a probability of 99.0% to be smaller than the null value (=1). Daily female milk consumers had posterior HRs that was distributed with mean (sd) of 0.95 (sd = 0.12; 95% CrI: 0.80, 1.17) which had 78.0% of chance that their HRs could be lower than 1. 
 
-<!-- Subsection text here. -->
+Posterior distributions of HRs for mortality from hemorrhagic stroke were found to contain the null value for either men or women among all fitted models. In contrast, men who had milk intake frequency higher than 1-2 times/week were found to be associated with averagely 26%-37% lower hazard of dying from cerebral infarction compared with men who never drank milk (Model 2 in \textbf{Table \ref{tab:tab2}}). We were more than 95.7% sure that these posterior HRs could be lower than 1. No associations were observed between milk intake and hazard of cerebral infarction among women.
+ 
+# Discussion
 
-<!-- ### Subsubsection Heading Here -->
+In the JACC study cohort, we observed that 
 
-<!-- Bulleted lists look like this: -->
-
-<!-- * First bullet -->
-<!-- * Second bullet -->
-<!-- * Third bullet -->
-
-<!-- Numbered lists can be added as follows: -->
-
-<!-- 1. First item -->
-<!-- 2. Second item -->
-<!-- 3. Third item -->
-
-<!-- The text continues here. -->
-
-<!-- All figures and tables should be cited in the main text as Figure 1, Table 1, etc. -->
-
-<!-- \begin{figure}[H] -->
-<!-- \centering -->
-<!-- \includegraphics[width=3 cm]{logo-mdpi} -->
-<!-- \caption{This is a figure, Schemes follow the same formatting. If there are multiple panels, they should be listed as: (\textbf{a}) Description of what is contained in the first panel. (\textbf{b}) Description of what is contained in the second panel. Figures should be placed in the main text near to the first time they are cited. A caption on a single line should be centered.} -->
-<!-- \end{figure} -->
+# Conclusion
 
 
 ```{r tab2, echo=FALSE, eval=TRUE, message=FALSE}
@@ -250,7 +233,7 @@ dt <- read.csv("tab/HRAFTweib.csv", header = T)
 # dt <- data.frame(`Stroke` = c(rep("Total stroke", 15)), dt)
 names(dt) <- c(" ", "Never", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily")
 
-kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in men (JACC study, 1988-2009).", booktabs = T, linesep = "") %>%
+kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in men (JACC study, 1988-2009).", booktabs = T, linesep = "", align = "lccccc") %>%
     # collapse_rows(columns = 1, valign = "top") %>% 
   pack_rows("Model 0", 4, 7) %>%
   pack_rows("Model 1", 8, 11) %>%
@@ -275,7 +258,7 @@ dt <- read.csv("tab/HRAFTweibF.csv", header = T)
 # dt <- data.frame(`Stroke` = c(rep("Total stroke", 15)), dt)
 names(dt) <- c(" ", "Never", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily")
 
-kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in women (JACC study, 1988-2009).", booktabs = T, linesep = "") %>%
+kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in women (JACC study, 1988-2009).", booktabs = T, linesep = "", align = "lccccc") %>%
     # collapse_rows(columns = 1, valign = "top") %>% 
   pack_rows("Model 0", 4, 7) %>%
   pack_rows("Model 1", 8, 11) %>%
@@ -294,50 +277,3 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 ```
 
 
-
-<!-- \begin{table}[H] -->
-<!-- \caption{This is a table caption. Tables should be placed in the main text near to the first time they are cited.} -->
-<!-- \centering -->
-<!-- %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used. -->
-<!-- \begin{tabular}{ccc} -->
-<!-- \toprule -->
-<!-- \textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\ -->
-<!-- \midrule -->
-<!-- entry 1		& data			& data\\ -->
-<!-- entry 2		& data			& data\\ -->
-<!-- \bottomrule -->
-<!-- \end{tabular} -->
-<!-- \end{table} -->
-
-<!-- This is an example of an equation: -->
-
-<!-- \begin{equation} -->
-<!-- \mathbb{S} -->
-<!-- \end{equation} -->
-<!-- If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph. -->
-
-<!-- Please punctuate equations as regular text. Theorem-type environments (including propositions, lemmas, corollaries etc.) can be formatted as follows: -->
-<!-- Example of a theorem: -->
-<!-- \begin{Theorem} -->
-<!-- Example text of a theorem. -->
-<!-- \end{Theorem} -->
-
-<!-- The text continues here. Proofs must be formatted as follows: -->
-
-<!-- Example of a proof: -->
-<!-- \begin{proof}[Proof of Theorem 1] -->
-<!-- Text of the proof. Note that the phrase `of Theorem 1' is optional if it is clear which theorem is being referred to. -->
-<!-- \end{proof} -->
-<!-- The text continues here. -->
-
-# Discussion
-
-<!-- Authors should discuss the results and how they can be interpreted in perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted. -->
-
-# Conclusion
-
-<!-- This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex. -->
-
-<!-- # Patents -->
-
-<!-- This section is not mandatory, but may be added if there are patents resulting from the work reported in this manuscript. -->
