@@ -470,7 +470,7 @@ save.image(file = "data/JACCmilkstrokewithHemo.Rdata")
 # 
 # 2. Quantiles for each variable:
 #   
-#   2.5%       25%       50%      75%    97.5%
+#               2.5%       25%       50%      75%    97.5%
 # AFT[2]       0.7950    0.9848    1.0928    1.214    1.575
 # AFT[3]       0.6957    0.8419    0.9210    1.011    1.249
 # AFT[4]       0.7085    0.8605    0.9498    1.043    1.340
