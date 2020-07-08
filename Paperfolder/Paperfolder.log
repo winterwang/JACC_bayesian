@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.24)  8 JUL 2020 11:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.8)  8 JUL 2020 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -99,9 +99,9 @@ Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
 y
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ))
-(/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.st
-y
-Package: pdftexcmds 2020-06-04 v0.32 Utility functions of pdfTeX for LuaTeX (HO
+(/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.
+sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
@@ -940,7 +940,7 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 )
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdfm
 ode.def
-File: l3backend-pdfmode.def 2020-06-23 L3 backend support: PDF mode
+File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count346
 \l__pdf_internal_box=\box80
 ) (./Paperfolder.aux)
@@ -1265,52 +1265,51 @@ Package microtype Info: Loading generic protrusion settings for font family
 {/Users/wangcc.me/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
  <./logo-mdpi-eps-converted-to.pdf> <./logo-orcid-eps-converted-to.pdf> <./logo
 -updates.pdf>] [2]
-Overfull \hbox (49.87177pt too wide) in paragraph at lines 324--369
- [][] 
- []
 
-[3] [4]
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Warning: Float too large for page by 10.82637pt on input line 491.
+[3]
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Float too large for page by 10.82637pt on input line 571.
+LaTeX Warning: Float too large for page by 30.78314pt on input line 526.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 614--614
+LaTeX Warning: Float too large for page by 10.82637pt on input line 606.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 651--651
 
  []
 
-(./Paperfolder.bbl [5])
+[4] (./Paperfolder.bbl)
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 6
-55.
+92.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 ) 
 AED: lastpage setting LastPage
-[6] [7] [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 655.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 655.
+[5] [6] [7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 692.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 692.
 (./Paperfolder.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 655.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 655.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 692.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 692.
 Package rerunfilecheck Info: File `Paperfolder.out' has not changed.
 (rerunfilecheck)             Checksum: 7FB81FDDB0D235EFCEF620A87C0E1621;1143.
  ) 
 Here is how much of TeX's memory you used:
- 27535 strings out of 482394
- 478433 string characters out of 5945715
- 803983 words of memory out of 5000000
- 42575 multiletter control sequences out of 15000+600000
- 584444 words of font info for 217 fonts, out of 8000000 for 9000
+ 27543 strings out of 482394
+ 478629 string characters out of 5945716
+ 832128 words of memory out of 5000000
+ 42582 multiletter control sequences out of 15000+600000
+ 585375 words of font info for 218 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 68i,12n,64p,2397b,502s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,12n,64p,2397b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/wangcc.me/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc} </U
 sers/wangcc.me/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0500.6
 00pk></Users/wangcc.me/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/c
@@ -1324,10 +1323,10 @@ f-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/wangcc.me/Library/TinyTeX
 eX/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></Users/wangcc.me/Library/Ti
 nyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/wangcc.me/Library/
 TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Paperfolder.pdf (8 pages, 201004 bytes).
+Output written on Paperfolder.pdf (7 pages, 202380 bytes).
 PDF statistics:
  221 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 42084 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 178 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 42596 words of extra memory for PDF output out of 42996 (max. 10000000)
 

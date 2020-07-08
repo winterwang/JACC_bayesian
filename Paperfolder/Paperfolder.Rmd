@@ -66,8 +66,7 @@ abstract: |
   contain results which are not presented and substantiated in the main text and 
   should not exaggerate the main conclusions.
 keywords: |
-  keyword 1; keyword 2; keyword 3 (list three to ten pertinent keywords specific 
-  to the article, yet reasonably common within the subject discipline.).
+  milk intake; mortality; stroke; Bayesian survival anlysis; time-to-event data; JACC study 
 acknowledgement: |
   All sources of funding of the study should be disclosed. Please clearly 
   indicate grants that you have received in support of your research work. 
@@ -90,12 +89,18 @@ abbreviations:
     long: Markov Chain Monte Carlo
   - short: JAGS
     long: Just Another Gibbs Samplers
+  - short: AFT
+    long: accelerated failure time 
   - short: HR
     long: hazard ratio
+  - short: AF
+    long: acceleration factor
   - short: sd
     long: standard deviation
   - short: CrI
     long: credible interval
+header-includes:
+   - \usepackage{graphicx}
 output: rticles::mdpi_article
 ---
 
@@ -103,7 +108,9 @@ output: rticles::mdpi_article
 
 # Introduction
 
-Dairy food, especially milk has been recommended to reduce stroke risk by nearly 7% for each 200 g increment of daily consumption [@DeGoede2016]. More intuitive interpretation for a decreasing risk would be possible if we were able to compute the exact probability for people who had milk intake may had lower hazard of dying from stroke compared with those who never drank milk at all. For general public/media reporting, concept of hazard in epidemiological studies could still sometimes be challenging to be understood or misinterpreted since it should be formally defined as the probability of the occurrence of an event at a given time point. Usually, authors of epidemiological papers would tend to use "risk" instead of "hazard" or interchangeably. However, it would still possibly be mixed up with "risk" that only contain pure "probability" without a point or a period of time in cross-sectional settings. For better understanding and interpretation of the data that researchers endeavored to collect, statistical literature have provided plenty of choices that could help us better communicate with each other. 
+Dairy food, especially milk has been recommended to reduce stroke risk by nearly 7% for each 200 g increment of daily consumption [@DeGoede2016]. More intuitive interpretation for a decreasing risk would be possible if we were able to compute the exact probability for people who had milk intake may had lower hazard of dying from stroke compared with those who never drank milk at all. For general public/media reporting, concept of hazard in epidemiological studies could still sometimes be challenging to be understood or misinterpreted since hazard is formally defined as the probability of the occurrence of an event at a given time point [@collett2015modelling]. Usually, authors of epidemiological papers would tend to use "risk" instead of "hazard" or interchangeably. However, it would still possibly be mixed up with "risk" that only contain pure meaning of "probability of an event" without redefining a point or a period of time in cross-sectional settings. For better understanding and interpretation of the findings from data that researchers endeavored to collect, statistical literature have provided plenty of choices that could help us better communicate with each other. Another approach of comparing the time-to-event survival probabilities between different groups would be to model the time before observing an event rather than the hazard which always required the assumption of a proportional hazard. Accelerated failure time models are among these convenient tools that would avoid frequently unmet assumption of proportional hazard and directly show how faster/slower that one individual in an exposure group might have an event compared to others among different exposure groups [@Wei1992]. 
+
+Our aim was to overcome these potential pitfalls, avoid misunderstanding, and provide a more straightforward answer to the main research question that whether someone answered he/she drank milk at the baseline of study had lower hazard of dying from stroke compared with his/her counterparts who said they never consumed milk. If the answer to the primary objective was yes, then the probabilities that individuals with different frequencies of milk intake may had lower hazard compared with those who never drank milk were calculated through a Markov Chain Monte Carlo (MCMC) simulation process. A Bayesian survival analysis method was applied on an existing database and through which, we also provided estimates about whether drinking milk could delay or slow down the speed towards a stroke event from happening after controlling for the other potential confounders. 
 
 
 
@@ -123,19 +130,11 @@ The causes and date of death were obtained from death certificates and were syst
 
 We calculated sex-specific means (standard deviation, sd) and proportion of selected baseline characteristics according to the frequency of milk intake. Overall difference across the milk intake groups were tested by either analysis of variance for continuous variables or $\chi^2$ test for categorical variables. 
 
-Full parametric proportional hazard models under Bayesian framework with Weibull distribution were fitted using Just Another Gibbs Sampler (JAGS) program [@Plummer2003] version 4.3.0 in R version 4.0.1 [@RCT2020]. JAGS program is similar to the OpenBUGS [@Lunn2009] project that uses a Gibbs sampling engine for Markov Chain Monte Carlo (MCMC) simulation. In the current analysis, we specified non-informative prior distributions for each of the parameters in our models ($\beta_n \sim N(0, 1000)$, and $\kappa_{\text{shape}} \sim \Gamma(0.001, 0.001)$). The Brooks-Gelman-Rubin diagnostic [@Brooks1998] was used to refine the approximate point of convergence, the point when the ratio of the chains is stable around 1 and the within and between chain variability start to reach stability was visually checked. The auto-correlation tool further identified if convergence has been achieved or if a high degree of auto-correlation exists in the sample. Then, the number of iterations discarded as ‘burn-in’ was chosen. All models had a posterior sample size of 100000 from three separated chains with a "burn-in" of 2500 iterations. Posterior means (sd) and 95% Credible Intervals (CrI) of the estimated HR were presented for each category of milk intake frequency taking the "never" category as the reference. Posterior probability that the estimated hazard of dying from stroke for the milk intake for frequency that higher or equal to "1-2 times/month" is smaller compared with those who chose "never" to their milk intake frequency were calculated as $P(\text{HR} < 1)$. 
+Full parametric proportional hazard models under Bayesian framework with Weibull distribution were fitted using Just Another Gibbs Sampler (JAGS) program [@Plummer2003] version 4.3.0 in R version 4.0.1 [@RCT2020]. JAGS program is similar to the OpenBUGS [@Lunn2009] project that uses a Gibbs sampling engine for MCMC simulation. In the current analysis, we specified non-informative prior distributions for each of the parameters in our models ($\beta_n \sim N(0, 1000)$, and $\kappa_{\text{shape}} \sim \Gamma(0.001, 0.001)$). The Brooks-Gelman-Rubin diagnostic [@Brooks1998] was used to refine the approximate point of convergence, the point when the ratio of the chains is stable around 1 and the within and between chain variability start to reach stability was visually checked. The auto-correlation tool further identified if convergence has been achieved or if a high degree of auto-correlation exists in the sample. Then, the number of iterations discarded as ‘burn-in’ was chosen. All models had a posterior sample size of 100000 from four separated chains with a "burn-in" of 2500 iterations. Posterior means (sd) and 95% Credible Intervals (CrI) of the estimated hazard ratios (HRs) as well as acceleration factors (AFs) were presented for each category of milk intake frequency taking the "never" category as the reference. Posterior probabilities that the estimated hazard of dying from stroke for the milk intake for frequency that higher or equal to "1-2 times/month" is smaller compared with those who chose "never" to their milk intake frequency were calculated as $P(\text{HR} < 1)$. 
 
-The parametric forms of the models fitted in the Bayesian survival analyses include three models: 1) the crude model, 2) the age-centered adjusted model, 3) and a model further adjusted for potential confounders which includes: age (centered, continuous), smoking habit (never, current, former), alcohol intake (never or past, $<$ 4 times/week, Daily), body mass index ($<$ 18.5, $\geq$ 18.5 and $<$ 25, $\geq$ 25 and $<$ 30, $\geq$ 30 kg/m$^2$), history of hypertension, diabetes, kidney/liver diseases (yes/no), exercise (more than 1 hour/week, yes/no), sleep duration ($<$ 7, $\geq$ 7 and $<$ 8, $\geq$ 8 and $<$ 9, $\geq$ 9, hours), coffee intake (never, $<$ 3-4 times/week, almost daily), education level (attended school till age 18, yes/no)
+The parametric forms of the models fitted in the Bayesian survival analyses included three models: 1) the crude model, 2) the age-centered adjusted model, 3) and a model further adjusted for potential confounders which includes: age (centered, continuous), smoking habit (never, current, former), alcohol intake (never or past, $<$ 4 times/week, Daily), body mass index ($<$ 18.5, $\geq$ 18.5 and $<$ 25, $\geq$ 25 and $<$ 30, $\geq$ 30 kg/m$^2$), history of hypertension, diabetes, kidney/liver diseases (yes/no), exercise (more than 1 hour/week, yes/no), sleep duration ($<$ 7, $\geq$ 7 and $<$ 8, $\geq$ 8 and $<$ 9, $\geq$ 9, hours), coffee intake (never, $<$ 3-4 times/week, almost daily), education level (attended school till age 18, yes/no)
 
-<!-- Materials and Methods should be described with sufficient details to allow others to replicate and build on published results. Please note that publication of your manuscript implicates that you must make all materials, data, computer code, and protocols associated with the publication available to readers. Please disclose at the submission stage any restrictions on the availability of materials or information. New methods and protocols should be described in detail while well-established methods can be briefly described and appropriately cited. -->
 
-<!-- Research manuscripts reporting large datasets that are deposited in a publicly available database should specify where the data have been deposited and provide the relevant accession numbers. If the accession numbers have not yet been obtained at the time of submission, please state that they will be provided during review. They must be provided prior to publication. -->
-
-<!-- Interventionary studies involving animals or humans, and other studies require ethical approval must list the authority that provided approval and the corresponding ethical approval code. -->
-
-# Results
-
-The total follow-up was 1555073 person-years (median = 19.3 years), during which 2675 death from stroke was confirmed (1352 men and 1323 women). Among these stroke mortality, 952 were hemorrhagic stroke (432 men and 520 women), and 957 were cerebral infarction (520 men and 437 women). 
 
 ```{r tab1f, echo=FALSE, eval=FALSE}
 library(knitr)
@@ -155,10 +154,11 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 
 
 
-\begin{table}[H]
+\begin{table}[h]
 \caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake (JACC study, 1988-2009).}
 \centering
 \fontsize{8}{10}\selectfont
+\resizebox{\textwidth}{!}{%
 \begin{tabular}[t]{lccccccc}
 \toprule
 \multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\textbf{Milk drinkers}} & \multicolumn{1}{c}{} \\
@@ -203,10 +203,13 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 \rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4 & <0.001\\
 \hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0 & <0.001\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 
+# Results
+
+The total follow-up was 1555073 person-years (median = 19.3 years), during which 2675 death from stroke was confirmed (1352 men and 1323 women). Among these stroke mortality, 952 were hemorrhagic stroke (432 men and 520 women), and 957 were cerebral infarction (520 men and 437 women). 
 
 As listed in \textbf{Table \ref{tab:tab1f}}, compared with those who chose "never" as their milk intake frequency at baseline, milk drinkers were less likely to be a current smoker or a daily alcohol consumer in both men and women. Furthermore, people consumed milk more than 1-2 times/month were more likely to be a daily consumers of vegetable, fruit  as well as coffee, and more likely to join exercise more than 1 hour/week among either sex.
 
@@ -221,15 +224,136 @@ In the JACC study cohort, we observed that
 # Conclusion
 
 
-```{r tab2, echo=FALSE, eval=TRUE, message=FALSE}
+```{r tab2, echo=FALSE, eval=FALSE, message=FALSE}
 library(knitr)
 library(kableExtra)
 dt <- read.csv("tab/HRAFTweib.csv", header = T)
 # dt <- data.frame(`Stroke` = c(rep("Total stroke", 15)), dt)
 names(dt) <- c(" ", "Never", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily")
 
-kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in men (JACC study, 1988-2009).", booktabs = T, linesep = "", align = "lccccc") %>%
+kable(dt, format = "latex", caption = "Summary of posterior Acceleration Factors (AF) and Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in men (JACC study, 1988-2009).", booktabs = T, linesep = "", align = "lccccc") %>%
+  row_spec(0, bold = T) %>% 
     # collapse_rows(columns = 1, valign = "top") %>% 
+    pack_rows("Model 0", 4, 8) %>%
+  pack_rows("Model 1", 9, 13) %>%
+  pack_rows("Model 2", 14, 18) %>%
+  row_spec(18,  hline_after = TRUE) %>%
+  pack_rows("Model 0", 20, 24) %>%
+  pack_rows("Model 1", 25, 29) %>%
+  pack_rows("Model 2", 30, 34) %>%
+  row_spec(34,  hline_after = TRUE) %>%
+  pack_rows("Model 0", 36, 40) %>%
+  pack_rows("Model 1", 41, 45) %>%
+  pack_rows("Model 2", 46, 50) %>%
+kable_styling(latex_options = c("striped","hold_position"), font_size = 7) %>%
+  # add_header_above(c(" ", "Estimated HR in Men" = 4, "Estimated HR in Women" = 4)) %>% 
+  footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", " Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.", "Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.", "Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of",  "hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.")) 
+```
+
+
+
+\begin{table}[!h]
+
+\caption{\label{tab:tab2}Summary of posterior Acceleration Factors (AF) and Hazard Ratios (HR) of mortality from total stroke, stroke types according to the frequency of milk intake in men (JACC study, 1988-2009).}
+\centering
+\fontsize{6}{8}\selectfont
+\resizebox*{\textwidth}{\dimexpr\textheight-\lineskip\relax}{%
+\begin{tabular}[t]{lccccc}
+\toprule
+\textbf{ } & \textbf{Never} & \textbf{1-2 times/Month} & \textbf{1-2 times/Week} & \textbf{3-4 times/Week} & \textbf{Almost Daily}\\
+\midrule
+\rowcolor{gray!6}  Person-year & 135704 & 56551 & 97098 & 92153 & 252364\\
+N & 8508 & 3522 & 5928 & 5563 & 15865\\
+\rowcolor{gray!6}  Total Stroke & 326 & 122 & 181 & 177 & 546\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 0}}\\
+\hspace{1em}Mean AF (SD) & 1 & 0.93 (0.07) & 0.83 (0.05) & 0.85 (0.05) & 0.93 (0.04)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.81, 1.06) & (0.73, 0.94) & (0.74, 0.96) & (0.85, 1.02)\\
+\hspace{1em}Mean HR (SD) & 1 & 0.89 (0.09) & 0.77 (0.07) & 0.79 (0.07) & 0.90 (0.06)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.73, 1.08) & (0.63, 0.91) & (0.66, 0.94) & (0.79, 1.03)\\
+\hspace{1em}Pr(HR < 1) & - & 86.50\% & 99.90\% & 99.70\% & 93.50\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 1}}\\
+\rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.99 (0.06) & 0.90 (0.05) & 0.91 (0.05) & 0.85 (0.04)\\
+\hspace{1em}95\% CrI & - & (0.87, 1.11) & (0.81, 1.00) & (0.82, 1.01) & (0.78, 0.92)\\
+\rowcolor{gray!6}  \hspace{1em}MeanHR (SD) & 1 & 0.98 (0.11) & 0.84 (0.08) & 0.86 (0.08) & 0.76 (0.05)\\
+\hspace{1em}95\% CrI & - & (0.79, 1.19) & (0.70, 1.00) & (0.71, 1.02) & (0.66, 0.87)\\
+\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 58.70\% & 97.30\% & 96.10\% & 100.00\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 2}}\\
+\hspace{1em}Mean AF (SD) & 1 & 1.00 (0.07) & 0.92 (0.06) & 0.94 (0.06) & 0.88 (0.05)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.88, 1.14) & (0.82, 1.03) & (0.84, 1.05) & (0.81, 0.96)\\
+\hspace{1em}MeanHR (SD) & 1 & 1.01 (0.12) & 0.87 (0.09) & 0.90 (0.09) & 0.80 (0.07)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.81, 1.24) & (0.72, 1.05) & (0.74, 1.08) & (0.69, 0.93)\\
+\hspace{1em}Pr(HR < 1) & - & 50.60\% & 93.70\% & 89.60\% & 99.00\%\\
+\hline
+\rowcolor{gray!6}  Hemorrhagic stroke & 100 & 42 & 58 & 56 & 176\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 0}}\\
+\hspace{1em}Mean AF (SD) & 1 & 1.03 (0.17) & 0.85 (0.12) & 0.87 (0.13) & 0.98 (0.11)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.74, 1.38) & (0.63, 1.12) & (0.65, 1.14) & (0.78, 1.22)\\
+\hspace{1em}MeanHR (SD) & 1 & 1.03 (0.19) & 0.82 (0.14) & 0.84 (0.15) & 0.97 (0.13)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.70, 1.46) & (0.56, 1.14) & (0.60, 1.17) & (0.75, 1.26)\\
+\hspace{1em}Pr(HR < 1) & - & 47.20\% & 88.40\% & 86.30\% & 63.10\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 1}}\\
+\rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 1.08 (0.17) & 0.91 (0.13) & 0.92 (0.13) & 0.90 (0.10)\\
+\hspace{1em}95\% CrI & - & (0.80, 1.45) & (0.70, 1.20) & (0.71, 1.19) & (0.74, 1.11)\\
+\rowcolor{gray!6}  \hspace{1em}MeanHR (SD) & 1 & 1.11 (0.21) & 0.88 (0.16) & 0.90 (0.16) & 0.88 (0.12)\\
+\hspace{1em}95\% CrI & - & (0.75, 1.58) & (0.63, 1.25) & (0.63, 1.24) & (0.67, 1.14)\\
+\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 31.60\% & 79.70\% & 76.60\% & 87.60\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 2}}\\
+\hspace{1em}Mean AF (SD) & 1 & 1.11 (0.18) & 0.93 (0.15) & 0.96 (0.16) & 0.96 (0.13)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.79, 1.58) & (0.70, 1.25) & (0.71, 1.34) & (0.76, 1.25)\\
+\hspace{1em}MeanHR (SD) & 1 & 1.14 (0.22) & 0.92 (0.17) & 0.95 (0.18) & 0.95 (0.14)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.75, 1.61) & (0.63, 1.29) & (0.65, 1.37) & (0.71, 1.27)\\
+\hspace{1em}Pr(HR < 1) & - & 28.80\% & 72.40\% & 64.40\% & 69.30\%\\
+\hline
+\rowcolor{gray!6}  Cerebral infarction & 151 & 41 & 64 & 66 & 198\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 0}}\\
+\hspace{1em}Mean AF (SD) & 1 & 0.76 (0.09) & 0.71 (0.07) & 0.74 (0.08) & 0.79 (0.06)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.59, 0.94) & (0.58, 0.86) & (0.61, 0.89) & (0.68, 0.93)\\
+\hspace{1em}MeanHR (SD) & 1 & 0.65 (0.12) & 0.59 (0.09) & 0.64 (0.09) & 0.71 (0.09)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.46, 0.92) & (0.43, 0.79) & (0.47, 0.85) & (0.56, 0.89)\\
+\hspace{1em}Pr(HR < 1) & - & 99.10\% & 99.90\% & 99.70\% & 99.50\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 1}}\\
+\rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.83 (0.08) & 0.79 (0.07) & 0.82 (0.07) & 0.74 (0.05)\\
+\hspace{1em}95\% CrI & - & (0.68, 1.01) & (0.67, 0.93) & (0.69, 0.96) & (0.66, 0.84)\\
+\rowcolor{gray!6}  \hspace{1em}MeanHR (SD) & 1 & 0.73 (0.13) & 0.65 (0.10) & 0.70 (0.11) & 0.58 (0.07)\\
+\hspace{1em}95\% CrI & - & (0.49, 1.02) & (0.48, 0.88) & (0.51, 0.94) & (0.46, 0.72)\\
+\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 96.90\% & 99.80\% & 98.90\% & 100.00\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 2}}\\
+\hspace{1em}Mean AF (SD) & 1 & 0.84 (0.09) & 0.80 (0.08) & 0.83 (0.08) & 0.75 (0.06)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.67, 1.02) & (0.67, 0.95) & (0.69, 0.99) & (0.66, 0.85)\\
+\hspace{1em}MeanHR (SD) & 1 & 0.73 (0.14) & 0.67 (0.11) & 0.72 (0.12) & 0.61 (0.08)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.50, 1.04) & (0.48, 0.91) & (0.52, 0.99) & (0.48, 0.79)\\
+\hspace{1em}Pr(HR < 1) & - & 96.10\% & 99.10\% & 97.50\% & 99.80\%\\
+\bottomrule
+\multicolumn{6}{l}{\textit{Note: }}\\
+\multicolumn{6}{l}{Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;}\\
+\multicolumn{6}{l}{ Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.}\\
+\multicolumn{6}{l}{Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.}\\
+\multicolumn{6}{l}{Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of}\\
+\multicolumn{6}{l}{hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.}\\
+\end{tabular}}
+\end{table}
+
+
+
+```{r tab3, echo=FALSE, eval=TRUE, message=FALSE}
+library(knitr)
+library(kableExtra)
+dt <- read.csv("tab/HRAFTweibF.csv", header = T)
+# dt <- data.frame(`Stroke` = c(rep("Total stroke", 15)), dt)
+names(dt) <- c(" ", "Never", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily")
+
+kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in women (JACC study, 1988-2009).", booktabs = T, linesep = "", align = "lccccc") %>%
+    # collapse_rows(columns = 1, valign = "top") %>% 
+    row_spec(0, bold = T) %>% 
   pack_rows("Model 0", 4, 7) %>%
   pack_rows("Model 1", 8, 11) %>%
   pack_rows("Model 2", 12, 15) %>%
@@ -241,32 +365,7 @@ kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) o
   pack_rows("Model 0", 30, 33) %>%
   pack_rows("Model 1", 34, 37) %>%
   pack_rows("Model 2", 38, 41) %>%
-kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
-  # add_header_above(c(" ", "Estimated HR in Men" = 4, "Estimated HR in Women" = 4)) %>% 
-  footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", " Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.", "Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.", "Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of",  "hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.")) 
-```
-
-
-
-```{r tab3, echo=FALSE, eval=TRUE, message=FALSE}
-dt <- read.csv("tab/HRAFTweibF.csv", header = T)
-# dt <- data.frame(`Stroke` = c(rep("Total stroke", 15)), dt)
-names(dt) <- c(" ", "Never", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily")
-
-kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in women (JACC study, 1988-2009).", booktabs = T, linesep = "", align = "lccccc") %>%
-    # collapse_rows(columns = 1, valign = "top") %>% 
-  pack_rows("Model 0", 4, 7) %>%
-  pack_rows("Model 1", 8, 11) %>%
-  pack_rows("Model 2", 12, 15) %>%
-  row_spec(15,  hline_after = TRUE) %>%
-  pack_rows("Model 0", 17, 20) %>%
-  pack_rows("Model 1", 21, 24) %>%
-  pack_rows("Model 2", 25, 28) %>%
-  row_spec(28,  hline_after = TRUE) %>%
-  pack_rows("Model 0", 30, 33) %>%
-  pack_rows("Model 1", 34, 37) %>%
-  pack_rows("Model 2", 38, 41) %>%
-kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
+kable_styling(latex_options = c("striped","hold_position"), font_size = 7) %>%
   # add_header_above(c(" ", "Estimated HR in Men" = 4, "Estimated HR in Women" = 4)) %>% 
   footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", " Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.", "Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.", "Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of",  "hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.")) 
 ```
