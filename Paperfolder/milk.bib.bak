@@ -2,7 +2,7 @@
 
 @Article{Talaei2019,
   author    = {Talaei, Mohammad and Hosseini, Naeimeh and van Dam, Rob M and Sadeghi, Masoumeh and Oveisgharan, Shahram and Dianatkhah, Minoo and Sarrafzadegan, Nizal},
-  journal   = {European journal of nutrition},
+  journal   = {European Journal of Nutrition},
   title     = {Whole milk consumption and risk of cardiovascular disease and mortality: Isfahan Cohort Study},
   year      = {2019},
   number    = {1},
@@ -10,12 +10,12 @@
   volume    = {58},
   owner     = {ccwang},
   publisher = {Springer},
-  timestamp = {2020-06-22},
+  timestamp = {2020-07-08},
 }
 
 @Article{Yu2018,
   author    = {Yu, Edward and Hu, Frank B},
-  journal   = {Current atherosclerosis reports},
+  journal   = {Current Atherosclerosis Reports},
   title     = {Dairy products, dairy fatty acids, and the prevention of cardiometabolic disease: a review of recent evidence},
   year      = {2018},
   number    = {5},
@@ -23,7 +23,7 @@
   volume    = {20},
   owner     = {ccwang},
   publisher = {Springer},
-  timestamp = {2020-06-22},
+  timestamp = {2020-07-08},
 }
 
 @Article{Iacoviello2018,
@@ -54,7 +54,7 @@
 
 @Article{Thorning2017,
   author    = {Thorning, Tanja Kongerslev and Bertram, Hanne Christine and Bonjour, Jean-Philippe and De Groot, Lisette and Dupont, Didier and Feeney, Emma and Ipsen, Richard and Lecerf, Jean Michel and Mackie, Alan and McKinley, Michelle C and others},
-  journal   = {The American journal of clinical nutrition},
+  journal   = {The American Journal of Clinical Nutrition},
   title     = {Whole dairy matrix or single nutrients in assessment of health effects: current evidence and knowledge gaps},
   year      = {2017},
   number    = {5},
@@ -62,12 +62,12 @@
   volume    = {105},
   owner     = {ccwang},
   publisher = {Oxford University Press},
-  timestamp = {2020-06-22},
+  timestamp = {2020-07-08},
 }
 
 @Article{Thorning2016,
   author    = {Thorning, Tanja Kongerslev and Raben, Anne and Tholstrup, Tine and Soedamah-Muthu, Sabita S and Givens, Ian and Astrup, Arne},
-  journal   = {Food \& nutrition research},
+  journal   = {Food \& Nutrition Research},
   title     = {Milk and dairy products: good or bad for human health? An assessment of the totality of scientific evidence},
   year      = {2016},
   number    = {1},
@@ -75,7 +75,7 @@
   volume    = {60},
   owner     = {ccwang},
   publisher = {Taylor \& Francis},
-  timestamp = {2020-06-22},
+  timestamp = {2020-07-08},
 }
 
 @Misc{Guo2017,
@@ -93,7 +93,7 @@
 
 @Article{wang_milk_2015,
   author     = {Wang, Chaochen and Yatsuya, Hiroshi and Tamakoshi, Koji and Iso, Hiroyasu and Tamakoshi, Akiko},
-  journal    = {J Epidemiol},
+  journal    = {Journal of Epidemiology},
   title      = {Milk drinking and mortality: findings from the {Japan} collaborative cohort study},
   year       = {2015},
   issn       = {1349-9092},
@@ -112,53 +112,53 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
   language   = {eng},
   owner      = {ccwang},
   shorttitle = {Milk drinking and mortality},
-  timestamp  = {2020-06-22},
+  timestamp  = {2020-07-08},
 }
 
 @Article{Tamakoshi2013,
   author    = {Tamakoshi, Akiko and Ozasa, Kotaro and Fujino, Yoshihisa and Suzuki, Koji and Sakata, Kiyomi and Mori, Mitsuru and Kikuchi, Shogo and Iso, Hiroyasu},
-  journal   = {Journal of epidemiology},
+  journal   = {Journal of Epidemiology},
   title     = {Cohort profile of the Japan Collaborative Cohort Study at final follow-up},
   year      = {2013},
   pages     = {JE20120161},
   publisher = {Japan Epidemiological Association},
-  timestamp = {2020-06-22},
+  timestamp = {2020-07-08},
 }
 
 @Article{Tamakoshi2005,
   author    = {Tamakoshi, Akiko and Yoshimura, Takesumi and Inaba, Yutaka and Ito, Yoshinori and Watanabe, Yoshiyuki and Fukuda, Katsuhiro and Iso, Hiroyasu},
-  journal   = {Journal of epidemiology},
+  journal   = {Journal of Epidemiology},
   title     = {Profile of the JACC study},
   year      = {2005},
   number    = {Supplement\_I},
   pages     = {S4--S8},
   volume    = {15},
   publisher = {Japan Epidemiological Association},
-  timestamp = {2020-06-22},
+  timestamp = {2020-07-08},
 }
 
 @Article{Ohno2001,
   author    = {Ohno, Yoshiyuki and Tamakoshi, Akiko and JACC Study Group and others},
-  journal   = {Journal of epidemiology},
+  journal   = {Journal of Epidemiology},
   title     = {Japan collaborative cohort study for evaluation of cancer risk sponsored by monbusho (JACC study)},
   year      = {2001},
   number    = {4},
   pages     = {144--150},
   volume    = {11},
   publisher = {Japan Epidemiological Association},
-  timestamp = {2020-06-22},
+  timestamp = {2020-07-08},
 }
 
 @Article{Date2005,
   author    = {Date, Chigusa and Fukui, Mitsuru and Yamamoto, Akio and Wakai, Kenji and Ozeki, Azusa and Motohashi, Yutaka and Adachi, Chieko and Okamoto, Naoyuki and Kurosawa, Michiko and Tokudome, Yuko and others},
-  journal   = {Journal of epidemiology},
+  journal   = {Journal of Epidemiology},
   title     = {Reproducibility and validity of a self-administered food frequency questionnaire used in the JACC study},
   year      = {2005},
   number    = {Supplement\_I},
   pages     = {S9--S23},
   volume    = {15},
   publisher = {Japan Epidemiological Association},
-  timestamp = {2020-06-22},
+  timestamp = {2020-07-08},
 }
 
 @Article{kishida2020frequency,
@@ -190,26 +190,63 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
 
 @Article{Lunn2009,
   author    = {Lunn, David and Spiegelhalter, David and Thomas, Andrew and Best, Nicky},
-  journal   = {Statistics in medicine},
+  journal   = {Statistics in Medicine},
   title     = {The BUGS project: Evolution, critique and future directions},
   year      = {2009},
   number    = {25},
   pages     = {3049--3067},
   volume    = {28},
   publisher = {Wiley Online Library},
-  timestamp = {2020-06-23},
+  timestamp = {2020-07-08},
 }
 
-@Article{brooks1998general,
+@Article{Brooks1998,
   author    = {Brooks, Stephen P and Gelman, Andrew},
-  journal   = {Journal of computational and graphical statistics},
+  journal   = {Journal of Computational and Graphical Statistics},
   title     = {General methods for monitoring convergence of iterative simulations},
   year      = {1998},
   number    = {4},
   pages     = {434--455},
   volume    = {7},
   publisher = {Taylor \& Francis Group},
-  timestamp = {2020-06-23},
+  timestamp = {2020-07-08},
+}
+
+@Article{Singh2016,
+  author    = {Singh, Arashdeep and Pezeshki, Adel and Zapata, Rizaldy C and Yee, Nicholas J and Knight, Cameron G and Tuor, Ursula I and Chelikani, Prasanth K},
+  journal   = {The Journal of Nutritional Biochemistry},
+  title     = {Diets enriched in whey or casein improve energy balance and prevent morbidity and renal damage in salt-loaded and high-fat-fed spontaneously hypertensive stroke-prone rats},
+  year      = {2016},
+  pages     = {47--59},
+  volume    = {37},
+  publisher = {Elsevier},
+  timestamp = {2020-07-08},
+}
+
+@Article{Singh2020,
+  author    = {Singh, Arashdeep and Zapata, Rizaldy C and Pezeshki, Adel and Knight, Cameron G and Tuor, Ursula I and Chelikani, Prasanth K},
+  journal   = {The Journal of Nutrition},
+  title     = {Whey Protein and Its Components Lactalbumin and Lactoferrin Affect Energy Balance and Protect against Stroke Onset and Renal Damage in Salt-Loaded, High-Fat Fed Male Spontaneously Hypertensive Stroke-Prone Rats},
+  year      = {2020},
+  number    = {4},
+  pages     = {763--774},
+  volume    = {150},
+  file      = {:pdfpapers/oup-accepted-manuscript-2019.pdf:PDF},
+  publisher = {Oxford University Press},
+  timestamp = {2020-07-08},
+}
+
+@Article{DeGoede2016,
+  author    = {De Goede, Janette and Soedamah-Muthu, Sabita S and Pan, An and Gijsbers, Lieke and Geleijnse, Johanna M},
+  journal   = {Journal of the American Heart Association},
+  title     = {Dairy consumption and risk of stroke: a systematic review and updated dose--response meta-analysis of prospective cohort studies},
+  year      = {2016},
+  number    = {5},
+  pages     = {e002787},
+  volume    = {5},
+  file      = {:pdfpapers/JAHA.115.002787.pdf:PDF},
+  publisher = {Am Heart Assoc},
+  timestamp = {2020-07-08},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
