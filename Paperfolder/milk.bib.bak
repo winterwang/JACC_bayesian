@@ -107,12 +107,11 @@ METHODS: The data were obtained from the Japan Collaborative Cohort (JACC) study
 RESULTS: During a median of 19 years of follow-up, there were 21 775 deaths (28.8\% and 35.3\% from cardiovascular diseases and cancer, respectively). Drinking milk 1-2 times a month was associated with lower all-cause mortality in men compared to those who never drank milk (multivariable-adjusted HR 0.92; 95\% CI, 0.85-0.99). In women, those who drank 3-4 times a week also had a lower mortality risk compared with those who never drank milk (HR 0.91; 95\% CI 0.85-0.98). Inverse associations between drinking milk and mortality from cardiovascular diseases and cancer were found only in men.
 CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower all-cause mortality in men compared to never drinking milk. An inverse association was also found between drinking milk and mortality from both cardiovascular diseases and cancer. However, lower all-cause mortality in women was found only in those who drank milk 3-4 times/week.},
   annote     = {Wang, ChaochenYatsuya, HiroshiTamakoshi, KojiIso, HiroyasuTamakoshi, AkikoENG2014/10/21 06:00J Epidemiol. 2014 Oct 18.},
-  doi        = {10.2188/jea.JE20140081},
   keywords   = {\_tablet, My\_paper},
   language   = {eng},
   owner      = {ccwang},
   shorttitle = {Milk drinking and mortality},
-  timestamp  = {2020-07-08},
+  timestamp  = {2020-07-09},
 }
 
 @Article{Tamakoshi2013,
@@ -272,7 +271,7 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
 
 @Article{Wei1992,
   author    = {Wei, Lee-Jen},
-  journal   = {Statistics in medicine},
+  journal   = {Statistics in Medicine},
   title     = {The accelerated failure time model: a useful alternative to the Cox regression model in survival analysis},
   year      = {1992},
   number    = {14-15},

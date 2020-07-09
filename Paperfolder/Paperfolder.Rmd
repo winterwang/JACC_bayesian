@@ -110,7 +110,7 @@ output: rticles::mdpi_article
 
 Dairy food, especially milk has been recommended to reduce stroke risk by nearly 7% for each 200 g increment of daily consumption [@DeGoede2016]. More intuitive interpretation for a decreasing risk would be possible if we were able to compute the exact probability for people who had milk intake may had lower hazard of dying from stroke compared with those who never drank milk at all. For general public/media reporting, concept of hazard in epidemiological studies could still sometimes be challenging to be understood or misinterpreted since hazard is formally defined as the probability of the occurrence of an event at a given time point [@collett2015modelling]. Usually, authors of epidemiological papers would tend to use "risk" instead of "hazard" or interchangeably. However, it would still possibly be mixed up with "risk" that only contain pure meaning of "probability of an event" without redefining a point or a period of time in cross-sectional settings. For better understanding and interpretation of the findings from data that researchers endeavored to collect, statistical literature have provided plenty of choices that could help us better communicate with each other. Another approach of comparing the time-to-event survival probabilities between different groups would be to model the time before observing an event rather than the hazard which always required the assumption of a proportional hazard to be met. Accelerated failure time models are among these convenient tools that would avoid worrying about the assumption of proportional hazard and directly show how faster/slower that one individual in an exposure group might have an event compared to others among different exposure groups [@Wei1992]. 
 
-Our aim was to overcome these potential pitfalls, avoid misunderstanding, and provide a more straightforward answer to the main research question that whether someone answered he/she drank milk at the baseline of study had lower hazard of dying from stroke compared with his/her counterparts who said they never consumed milk. If the answer to the primary objective was yes, then the probabilities that individuals with different frequencies of milk intake may had lower hazard compared with those who never drank milk were calculated through a Markov Chain Monte Carlo (MCMC) simulation process. A Bayesian survival analysis method was applied on an existing database and through which, we also provided estimates about whether drinking milk could delay or slow down the speed towards a stroke event from happening after controlling for the other potential confounders. 
+Our aim was to overcome these potential pitfalls, avoid misunderstanding, and provide a more straightforward answer to the main research question that whether someone answered he/she drank milk at the baseline of study had lower hazard of dying from stroke compared with his/her counterparts who said they never consumed milk. If the answer to the primary objective was yes, then the probabilities that individuals with different frequencies of milk intake may had lower hazard compared with those who never drank milk were calculated through a Markov Chain Monte Carlo (MCMC) simulation process. A Bayesian survival analysis method was applied on an existing database and through which, we also provided estimates about whether drinking milk could delay or slow down the speed towards a mortality from stroke event from happening after controlling for the other potential confounders. 
 
 
 
@@ -221,11 +221,20 @@ Posterior distributions of AFs and HRs for mortality from hemorrhagic stroke wer
 
 <!-- - summary of the finding -->
 
-In the JACC study cohort, we observed that 
+In the JACC study cohort, our analysis showed that men in Japan who consumed milk almost daily had lower hazard of dying from stroke especially from cerebral infarction. Our evidence also suggested that stroke events were found to be delayed from happening among Japanese male daily milk consumers compared with non-consumers.
 
-- 
+<!-- - comparison with previous meta-analysis -->
+These findings are in line with our previous report [@wang_milk_2015] with further additional and more forthright evidence about whether and how certain we could hold about daily consumption of milk is contributing to a postponed stroke (mostly cerebral infarction) mortality event. A recent meta-analysis of 18 prospective cohort studies had shown a similar negative association [@DeGoede2016] between milk consumption and risk of stroke.
+<!-- - potential biological reasons -->
+
+<!-- - strength and limitation of current study -->
+
+
+
 
 # Conclusion
+
+
 
 
 ```{r tab2, echo=FALSE, eval=FALSE, message=FALSE}
