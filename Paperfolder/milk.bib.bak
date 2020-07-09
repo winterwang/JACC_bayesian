@@ -98,7 +98,6 @@
   year       = {2015},
   issn       = {1349-9092},
   month      = jan,
-  note       = {00007},
   number     = {1},
   pages      = {66--73},
   volume     = {25},
@@ -279,6 +278,30 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
   volume    = {11},
   publisher = {Wiley Online Library},
   timestamp = {2020-07-08},
+}
+
+@Article{Iso1999,
+  author    = {Iso, Hiroyasu and Stampfer, Meir J and Manson, JoAnn E and Rexrode, Kathryn and Hennekens, Charles H and Colditz, Graham A and Speizer, Frank E and Willett, Walter C},
+  journal   = {Stroke},
+  title     = {Prospective study of calcium, potassium, and magnesium intake and risk of stroke in women},
+  year      = {1999},
+  number    = {9},
+  pages     = {1772--1779},
+  volume    = {30},
+  publisher = {Am Heart Assoc},
+  timestamp = {2020-07-09},
+}
+
+@Article{goldbohm2011dairy,
+  author    = {Goldbohm, R Alexandra and Chorus, Astrid MJ and Galindo Garre, Francisca and Schouten, Leo J and van den Brandt, Piet A},
+  journal   = {The American Journal of Clinical Nutrition},
+  title     = {Dairy consumption and 10-y total and cardiovascular mortality: a prospective cohort study in the Netherlands--},
+  year      = {2011},
+  number    = {3},
+  pages     = {615--627},
+  volume    = {93},
+  publisher = {Oxford University Press},
+  timestamp = {2020-07-09},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
