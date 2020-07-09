@@ -108,7 +108,7 @@ output: rticles::mdpi_article
 
 # Introduction
 
-Dairy food, especially milk has been recommended to reduce stroke risk by nearly 7% for each 200 g increment of daily consumption [@DeGoede2016]. More intuitive interpretation for a decreasing risk would be possible if we were able to compute the exact probability for people who had milk intake may had lower hazard of dying from stroke compared with those who never drank milk at all. For general public/media reporting, concept of hazard in epidemiological studies could still sometimes be challenging to be understood or misinterpreted since hazard is formally defined as the probability of the occurrence of an event at a given time point [@collett2015modelling]. Usually, authors of epidemiological papers would tend to use "risk" instead of "hazard" or interchangeably. However, it would still possibly be mixed up with "risk" that only contain pure meaning of "probability of an event" without redefining a point or a period of time in cross-sectional settings. For better understanding and interpretation of the findings from data that researchers endeavored to collect, statistical literature have provided plenty of choices that could help us better communicate with each other. Another approach of comparing the time-to-event survival probabilities between different groups would be to model the time before observing an event rather than the hazard which always required the assumption of a proportional hazard. Accelerated failure time models are among these convenient tools that would avoid frequently unmet assumption of proportional hazard and directly show how faster/slower that one individual in an exposure group might have an event compared to others among different exposure groups [@Wei1992]. 
+Dairy food, especially milk has been recommended to reduce stroke risk by nearly 7% for each 200 g increment of daily consumption [@DeGoede2016]. More intuitive interpretation for a decreasing risk would be possible if we were able to compute the exact probability for people who had milk intake may had lower hazard of dying from stroke compared with those who never drank milk at all. For general public/media reporting, concept of hazard in epidemiological studies could still sometimes be challenging to be understood or misinterpreted since hazard is formally defined as the probability of the occurrence of an event at a given time point [@collett2015modelling]. Usually, authors of epidemiological papers would tend to use "risk" instead of "hazard" or interchangeably. However, it would still possibly be mixed up with "risk" that only contain pure meaning of "probability of an event" without redefining a point or a period of time in cross-sectional settings. For better understanding and interpretation of the findings from data that researchers endeavored to collect, statistical literature have provided plenty of choices that could help us better communicate with each other. Another approach of comparing the time-to-event survival probabilities between different groups would be to model the time before observing an event rather than the hazard which always required the assumption of a proportional hazard to be met. Accelerated failure time models are among these convenient tools that would avoid worrying about the assumption of proportional hazard and directly show how faster/slower that one individual in an exposure group might have an event compared to others among different exposure groups [@Wei1992]. 
 
 Our aim was to overcome these potential pitfalls, avoid misunderstanding, and provide a more straightforward answer to the main research question that whether someone answered he/she drank milk at the baseline of study had lower hazard of dying from stroke compared with his/her counterparts who said they never consumed milk. If the answer to the primary objective was yes, then the probabilities that individuals with different frequencies of milk intake may had lower hazard compared with those who never drank milk were calculated through a Markov Chain Monte Carlo (MCMC) simulation process. A Bayesian survival analysis method was applied on an existing database and through which, we also provided estimates about whether drinking milk could delay or slow down the speed towards a stroke event from happening after controlling for the other potential confounders. 
 
@@ -219,7 +219,11 @@ Posterior distributions of HRs for mortality from hemorrhagic stroke were found 
  
 # Discussion
 
+<!-- - summary of the finding -->
+
 In the JACC study cohort, we observed that 
+
+- 
 
 # Conclusion
 
@@ -257,7 +261,7 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 7) %>%
 \caption{\label{tab:tab2}Summary of posterior Acceleration Factors (AF) and Hazard Ratios (HR) of mortality from total stroke, stroke types according to the frequency of milk intake in men (JACC study, 1988-2009).}
 \centering
 \fontsize{6}{8}\selectfont
-\resizebox*{\textwidth}{\dimexpr\textheight-\lineskip\relax}{%
+\resizebox*{!}{\dimexpr\textheight-\lineskip\relax}{%
 \begin{tabular}[t]{lccccc}
 \toprule
 \textbf{ } & \textbf{Never} & \textbf{1-2 times/Month} & \textbf{1-2 times/Week} & \textbf{3-4 times/Week} & \textbf{Almost Daily}\\
@@ -271,21 +275,21 @@ N & 8508 & 3522 & 5928 & 5563 & 15865\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.81, 1.06) & (0.73, 0.94) & (0.74, 0.96) & (0.85, 1.02)\\
 \hspace{1em}Mean HR (SD) & 1 & 0.89 (0.09) & 0.77 (0.07) & 0.79 (0.07) & 0.90 (0.06)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.73, 1.08) & (0.63, 0.91) & (0.66, 0.94) & (0.79, 1.03)\\
-\hspace{1em}Pr(HR < 1) & - & 86.50\% & 99.90\% & 99.70\% & 93.50\%\\
+\hspace{1em}Pr(HR < 1) & - & 86.5\% & 99.9\% & 99.7\% & 93.5\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 1}}\\
 \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.99 (0.06) & 0.90 (0.05) & 0.91 (0.05) & 0.85 (0.04)\\
 \hspace{1em}95\% CrI & - & (0.87, 1.11) & (0.81, 1.00) & (0.82, 1.01) & (0.78, 0.92)\\
 \rowcolor{gray!6}  \hspace{1em}MeanHR (SD) & 1 & 0.98 (0.11) & 0.84 (0.08) & 0.86 (0.08) & 0.76 (0.05)\\
 \hspace{1em}95\% CrI & - & (0.79, 1.19) & (0.70, 1.00) & (0.71, 1.02) & (0.66, 0.87)\\
-\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 58.70\% & 97.30\% & 96.10\% & 100.00\%\\
+\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 58.7\% & 97.3\% & 96.1\% & 100.0\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 2}}\\
 \hspace{1em}Mean AF (SD) & 1 & 1.00 (0.07) & 0.92 (0.06) & 0.94 (0.06) & 0.88 (0.05)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.88, 1.14) & (0.82, 1.03) & (0.84, 1.05) & (0.81, 0.96)\\
 \hspace{1em}MeanHR (SD) & 1 & 1.01 (0.12) & 0.87 (0.09) & 0.90 (0.09) & 0.80 (0.07)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.81, 1.24) & (0.72, 1.05) & (0.74, 1.08) & (0.69, 0.93)\\
-\hspace{1em}Pr(HR < 1) & - & 50.60\% & 93.70\% & 89.60\% & 99.00\%\\
+\hspace{1em}Pr(HR < 1) & - & 50.6\% & 93.7\% & 89.6\% & 99.0\%\\
 \hline
 \rowcolor{gray!6}  Hemorrhagic stroke & 100 & 42 & 58 & 56 & 176\\
 \addlinespace[0.3em]
@@ -294,21 +298,21 @@ N & 8508 & 3522 & 5928 & 5563 & 15865\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.74, 1.38) & (0.63, 1.12) & (0.65, 1.14) & (0.78, 1.22)\\
 \hspace{1em}MeanHR (SD) & 1 & 1.03 (0.19) & 0.82 (0.14) & 0.84 (0.15) & 0.97 (0.13)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.70, 1.46) & (0.56, 1.14) & (0.60, 1.17) & (0.75, 1.26)\\
-\hspace{1em}Pr(HR < 1) & - & 47.20\% & 88.40\% & 86.30\% & 63.10\%\\
+\hspace{1em}Pr(HR < 1) & - & 47.2\% & 88.4\% & 86.3\% & 63.1\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 1}}\\
 \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 1.08 (0.17) & 0.91 (0.13) & 0.92 (0.13) & 0.90 (0.10)\\
 \hspace{1em}95\% CrI & - & (0.80, 1.45) & (0.70, 1.20) & (0.71, 1.19) & (0.74, 1.11)\\
 \rowcolor{gray!6}  \hspace{1em}MeanHR (SD) & 1 & 1.11 (0.21) & 0.88 (0.16) & 0.90 (0.16) & 0.88 (0.12)\\
 \hspace{1em}95\% CrI & - & (0.75, 1.58) & (0.63, 1.25) & (0.63, 1.24) & (0.67, 1.14)\\
-\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 31.60\% & 79.70\% & 76.60\% & 87.60\%\\
+\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 31.6\% & 79.7\% & 76.6\% & 87.6\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 2}}\\
 \hspace{1em}Mean AF (SD) & 1 & 1.11 (0.18) & 0.93 (0.15) & 0.96 (0.16) & 0.96 (0.13)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.79, 1.58) & (0.70, 1.25) & (0.71, 1.34) & (0.76, 1.25)\\
 \hspace{1em}MeanHR (SD) & 1 & 1.14 (0.22) & 0.92 (0.17) & 0.95 (0.18) & 0.95 (0.14)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.75, 1.61) & (0.63, 1.29) & (0.65, 1.37) & (0.71, 1.27)\\
-\hspace{1em}Pr(HR < 1) & - & 28.80\% & 72.40\% & 64.40\% & 69.30\%\\
+\hspace{1em}Pr(HR < 1) & - & 28.8\% & 72.4\% & 64.4\% & 69.3\%\\
 \hline
 \rowcolor{gray!6}  Cerebral infarction & 151 & 41 & 64 & 66 & 198\\
 \addlinespace[0.3em]
@@ -317,21 +321,21 @@ N & 8508 & 3522 & 5928 & 5563 & 15865\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.59, 0.94) & (0.58, 0.86) & (0.61, 0.89) & (0.68, 0.93)\\
 \hspace{1em}MeanHR (SD) & 1 & 0.65 (0.12) & 0.59 (0.09) & 0.64 (0.09) & 0.71 (0.09)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.46, 0.92) & (0.43, 0.79) & (0.47, 0.85) & (0.56, 0.89)\\
-\hspace{1em}Pr(HR < 1) & - & 99.10\% & 99.90\% & 99.70\% & 99.50\%\\
+\hspace{1em}Pr(HR < 1) & - & 99.1\% & 99.9\% & 99.7\% & 99.5\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 1}}\\
 \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.83 (0.08) & 0.79 (0.07) & 0.82 (0.07) & 0.74 (0.05)\\
 \hspace{1em}95\% CrI & - & (0.68, 1.01) & (0.67, 0.93) & (0.69, 0.96) & (0.66, 0.84)\\
 \rowcolor{gray!6}  \hspace{1em}MeanHR (SD) & 1 & 0.73 (0.13) & 0.65 (0.10) & 0.70 (0.11) & 0.58 (0.07)\\
 \hspace{1em}95\% CrI & - & (0.49, 1.02) & (0.48, 0.88) & (0.51, 0.94) & (0.46, 0.72)\\
-\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 96.90\% & 99.80\% & 98.90\% & 100.00\%\\
+\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 96.9\% & 99.8\% & 98.9\% & 100.0\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 2}}\\
 \hspace{1em}Mean AF (SD) & 1 & 0.84 (0.09) & 0.80 (0.08) & 0.83 (0.08) & 0.75 (0.06)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.67, 1.02) & (0.67, 0.95) & (0.69, 0.99) & (0.66, 0.85)\\
 \hspace{1em}MeanHR (SD) & 1 & 0.73 (0.14) & 0.67 (0.11) & 0.72 (0.12) & 0.61 (0.08)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.50, 1.04) & (0.48, 0.91) & (0.52, 0.99) & (0.48, 0.79)\\
-\hspace{1em}Pr(HR < 1) & - & 96.10\% & 99.10\% & 97.50\% & 99.80\%\\
+\hspace{1em}Pr(HR < 1) & - & 96.1\% & 99.1\% & 97.5\% & 99.8\%\\
 \bottomrule
 \multicolumn{6}{l}{\textit{Note: }}\\
 \multicolumn{6}{l}{Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;}\\
@@ -344,30 +348,120 @@ N & 8508 & 3522 & 5928 & 5563 & 15865\\
 
 
 
-```{r tab3, echo=FALSE, eval=TRUE, message=FALSE}
+```{r tab3, echo=FALSE, eval=FALSE, message=FALSE}
 library(knitr)
 library(kableExtra)
 dt <- read.csv("tab/HRAFTweibF.csv", header = T)
 # dt <- data.frame(`Stroke` = c(rep("Total stroke", 15)), dt)
 names(dt) <- c(" ", "Never", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily")
 
-kable(dt, format = "latex", caption = "Summary of posterior Hazard Ratios (HR) of mortality from total stroke, different stroke type according to the frequency of milk intake in women (JACC study, 1988-2009).", booktabs = T, linesep = "", align = "lccccc") %>%
+kable(dt, format = "latex", caption = "Summary of posterior Acceleration Factors (AF) and Hazard Ratios (HR) of mortality from total stroke, stroke type according to the frequency of milk intake in women (JACC study, 1988-2009).", booktabs = T, linesep = "", align = "lccccc") %>%
     # collapse_rows(columns = 1, valign = "top") %>% 
-    row_spec(0, bold = T) %>% 
-  pack_rows("Model 0", 4, 7) %>%
-  pack_rows("Model 1", 8, 11) %>%
-  pack_rows("Model 2", 12, 15) %>%
-    row_spec(15,  hline_after = TRUE) %>%
-    pack_rows("Model 0", 17, 20) %>%
-  pack_rows("Model 1", 21, 24) %>%
-  pack_rows("Model 2", 25, 28) %>%
-      row_spec(28,  hline_after = TRUE) %>%
-  pack_rows("Model 0", 30, 33) %>%
-  pack_rows("Model 1", 34, 37) %>%
-  pack_rows("Model 2", 38, 41) %>%
+  row_spec(0, bold = T) %>% 
+    # collapse_rows(columns = 1, valign = "top") %>% 
+    pack_rows("Model 0", 4, 8) %>%
+  pack_rows("Model 1", 9, 13) %>%
+  pack_rows("Model 2", 14, 18) %>%
+  row_spec(18,  hline_after = TRUE) %>%
+  pack_rows("Model 0", 20, 24) %>%
+  pack_rows("Model 1", 25, 29) %>%
+  pack_rows("Model 2", 30, 34) %>%
+  row_spec(34,  hline_after = TRUE) %>%
+  pack_rows("Model 0", 36, 40) %>%
+  pack_rows("Model 1", 41, 45) %>%
+  pack_rows("Model 2", 46, 50) %>%
 kable_styling(latex_options = c("striped","hold_position"), font_size = 7) %>%
   # add_header_above(c(" ", "Estimated HR in Men" = 4, "Estimated HR in Women" = 4)) %>% 
   footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", " Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.", "Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.", "Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of",  "hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.")) 
 ```
 
 
+\begin{table}[!h]
+
+\caption{\label{tab:tab3}Summary of posterior Acceleration Factors (AF) and Hazard Ratios (HR) of mortality from total stroke, stroke type according to the frequency of milk intake in women (JACC study, 1988-2009).}
+\centering
+\fontsize{7}{9}\selectfont
+\resizebox*{!}{\dimexpr\textheight-\lineskip\relax}{%
+\begin{tabular}[t]{lccccc}
+\toprule
+\textbf{ } & \textbf{Never} & \textbf{1-2 times/Month} & \textbf{1-2 times/Week} & \textbf{3-4 times/Week} & \textbf{Almost Daily}\\
+\midrule
+\rowcolor{gray!6}  Person-year & 173222 & 59904 & 129233 & 139919 & 418925\\
+N & 10407 & 3640 & 7590 & 8108 & 25254\\
+\rowcolor{gray!6}  Total Stroke & 300 & 84 & 182 & 172 & 585\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 0}}\\
+\hspace{1em}Mean AF (SD) & 1 & 0.88 (0.07) & 0.87 (0.05) & 0.79 (0.05) & 0.88 (0.04)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.75, 1.03) & (0.78, 0.98) & (0.71, 0.90) & (0.80, 0.96)\\
+\hspace{1em}Mean HR (SD) & 1 & 0.83 (0.10) & 0.81 (0.08) & 0.70 (0.07) & 0.81 (0.07)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.64, 1.05) & (0.68, 0.97) & (0.58, 0.85) & (0.71, 0.93)\\
+\hspace{1em}Pr(HR < 1) & - & 94.6\% & 98.7\% & 99.9\% & 99.6\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 1}}\\
+\rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.99 (0.09) & 1.11 (0.08) & 1.02 (0.08) & 0.95 (0.06)\\
+\hspace{1em}95\% CrI & - & (0.85, 1.17) & (0.97, 1.26) & (0.89, 1.16) & (0.86, 1.06)\\
+\rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 1.00 (0.14) & 1.18 (0.14) & 1.03 (0.12) & 0.92 (0.09)\\
+\hspace{1em}95\% CrI & - & (0.76, 1.31) & (0.95, 1.47) & (0.82, 1.28) & (0.78, 1.09)\\
+\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 52.3\% & 6.3\% & 42.0\% & 86.8\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 2}}\\
+\hspace{1em}Mean AF (SD) & 1 & 1.01 (0.12) & 1.11 (0.14) & 1.02 (0.12) & 0.97 (0.09)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.85, 1.20) & (0.97, 1.30) & (0.89, 1.19) & (0.88, 1.10)\\
+\hspace{1em}Mean HR (SD) & 1 & 1.01 (0.17) & 1.19 (0.15) & 1.03 (0.15) & 0.95 (0.12)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.75, 1.36) & (0.96, 1.52) & (0.81, 1.31) & (0.80, 1.17)\\
+\hspace{1em}Pr(HR < 1) & - & 52.8\% & 6.4\% & 44.4\% & 78.0\%\\
+\hline
+\rowcolor{gray!6}  Hemorrhagic stroke & 108 & 27 & 78 & 76 & 231\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 0}}\\
+\hspace{1em}Mean AF (SD) & 1 & 0.78 (0.13) & 0.98 (0.12) & 0.90 (0.11) & 0.92 (0.09)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.55, 1.06) & (0.76, 1.25) & (0.70, 1.13) & (0.76, 1.12)\\
+\hspace{1em}Mean HR (SD) & 1 & 0.73 (0.16) & 0.98 (0.15) & 0.87 (0.14) & 0.89 (0.11)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.47, 1.08) & (0.71, 1.31) & (0.64, 1.16) & (0.71, 1.15)\\
+\hspace{1em}Pr(HR < 1) & - & 94.7\% & 58.1\% & 83.1\% & 83.0\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 1}}\\
+\rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.88 (0.13) & 1.12 (0.13) & 1.04 (0.13) & 0.95 (0.09)\\
+\hspace{1em}95\% CrI & - & (0.63, 1.17) & (0.90, 1.41) & (0.82, 1.32) & (0.80, 1.14)\\
+\rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 0.84 (0.18) & 1.17 (0.18) & 1.06 (0.17) & 0.93 (0.12)\\
+\hspace{1em}95\% CrI & - & (0.54, 1.24) & (0.86, 1.58) & (0.76, 1.45) & (0.73, 1.19)\\
+\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 81.6\% & 16.9\% & 38.9\% & 74.6\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 2}}\\
+\hspace{1em}Mean AF (SD) & 1 &  &  &  \vphantom{2} & \\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - &  &  &  \vphantom{2} & \\
+\hspace{1em}Mean HR (SD) & 1 & 0.85 (0.18) & 1.21 (0.18) & 1.13 (0.17) & 1.03 (0.12)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.56, 1.30) & (0.90, 1.62) & (0.84, 1.52) & (0.81, 1.29)\\
+\hspace{1em}Pr(HR < 1) & - & 79.6\% & 12.7\% & 33.4\% & 71.4\%\\
+\hline
+\rowcolor{gray!6}  Cerebral infarction & 102 & 35 & 63 & 50 & 187\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 0}}\\
+\hspace{1em}Mean AF (SD) & 1 & 1.01 (0.13) & 0.90 (0.09) & 0.75 (0.08) & 0.86 (0.06)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.79, 1.27) & (0.75, 1.10) & (0.60, 0.91) & (0.75, 0.99)\\
+\hspace{1em}Mean HR (SD) & 1 & 1.03 (0.20) & 0.85 (0.14) & 0.61 (0.11) & 0.78 (0.10)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.69, 1.48) & (0.60, 1.13) & (0.43, 0.84) & (0.59, 0.99)\\
+\hspace{1em}Pr(HR < 1) & - & 51.9\% & 75.6\% & 97.6\% & 96.1\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 1}}\\
+\rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 &  &  &  \vphantom{1} & \\
+\hspace{1em}95\% CrI & - &  &  &  \vphantom{1} & \\
+\rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 1.29 (0.14) & 1.15 (0.13) & 0.86 (0.14) & 0.86 (0.15)\\
+\hspace{1em}95\% CrI & - & (0.88, 1.89) & (0.84, 1.58) & (0.61, 1.20) & (0.67, 1.09)\\
+\rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 36.7\% & 42.1\% & 78.7\% & 88.9\%\\
+\addlinespace[0.3em]
+\multicolumn{6}{l}{\textbf{Model 2}}\\
+\hspace{1em}Mean AF (SD) & 1 &  &  &  & \\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - &  &  &  & \\
+\hspace{1em}Mean HR (SD) & 1 & 1.30 (0.11) & 1.18 (0.09) & 0.87 (0.10) & 0.93 (0.07)\\
+\rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.88, 1.92) & (0.86, 1.63) & (0.62, 1.23) & (0.72, 1.19)\\
+\hspace{1em}Pr(HR < 1) & - & 35.1\% & 39.9\% & 75.6\% & 80.1\%\\
+\bottomrule
+\multicolumn{6}{l}{\textit{Note: }}\\
+\multicolumn{6}{l}{Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;}\\
+\multicolumn{6}{l}{ Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.}\\
+\multicolumn{6}{l}{Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.}\\
+\multicolumn{6}{l}{Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of}\\
+\multicolumn{6}{l}{hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.}\\
+\end{tabular}}
+\end{table}

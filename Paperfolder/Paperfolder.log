@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.8)  8 JUL 2020 17:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.8)  9 JUL 2020 11:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -861,148 +861,72 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \c@LT@tables=\count334
 \c@LT@chunks=\count335
 \LT@p@ftn=\toks56
-) (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen308
-\WF@size=\dimen309
-\c@WF@wrappedlines=\count336
-\WF@box=\box70
-\WF@everypar=\toks57
-Package: wrapfig 2003/01/31  v 3.6
-) (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.st
-y
-Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
-(/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
-Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
-)) (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
-Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
-(/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
-Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box71
-\sift@deathcycles=\count337
-\@vwid@loff=\dimen310
-\@vwid@roff=\dimen311
-)
-\c@taburow=\count338
-\tabu@nbcols=\count339
-\tabu@cnt=\count340
-\tabu@Xcol=\count341
-\tabu@alloc=\count342
-\tabu@nested=\count343
-\tabu@target=\dimen312
-\tabu@spreadtarget=\dimen313
-\tabu@naturalX=\dimen314
-\tabucolX=\dimen315
-\tabu@Xsum=\dimen316
-\extrarowdepth=\dimen317
-\abovetabulinesep=\dimen318
-\belowtabulinesep=\dimen319
-\tabustrutrule=\dimen320
-\tabu@thebody=\toks58
-\tabu@footnotes=\toks59
-\tabu@box=\box72
-\tabu@arstrutbox=\box73
-\tabu@hleads=\box74
-\tabu@vleads=\box75
-\tabu@cellskip=\skip85
-)
-(/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threepart
-table.sty
-Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box76
-)
-(/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/threeparttablex/threepar
-ttablex.sty
-Package: threeparttablex 2013/07/23 v0.3 by daleif
-(/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
-
-(/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.st
-y
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-))
-\TPTL@width=\skip86
-) (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box77
-\UL@hyphenbox=\box78
-\UL@skip=\skip87
-\UL@hook=\toks60
-\UL@height=\dimen321
-\UL@pe=\count344
-\UL@pixel=\dimen322
-\ULC@box=\box79
-Package: ulem 2019/11/18
-\ULdepth=\dimen323
-) (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
-Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen324
-\c@nlinenum=\count345
-\TeXr@lab=\toks61
 )
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdfm
 ode.def
 File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count346
-\l__pdf_internal_box=\box80
+\l__kernel_color_stack_int=\count336
+\l__pdf_internal_box=\box70
 ) (./Paperfolder.aux)
 \openout1 = `Paperfolder.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 19
-0.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 17
+6.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/context/base/mkii/supp-pdf.mki
 i
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count347
-\scratchdimen=\dimen325
-\scratchbox=\box81
-\nofMPsegments=\count348
-\nofMParguments=\count349
-\everyMPshowfont=\toks62
-\MPscratchCnt=\count350
-\MPscratchDim=\dimen326
-\MPnumerator=\count351
-\makeMPintoPDFobject=\count352
-\everyMPtoPDFconversion=\toks63
+\scratchcounter=\count337
+\scratchdimen=\dimen308
+\scratchbox=\box71
+\nofMPsegments=\count338
+\nofMParguments=\count339
+\everyMPshowfont=\toks57
+\MPscratchCnt=\count340
+\MPscratchDim=\dimen309
+\MPnumerator=\count341
+\makeMPintoPDFobject=\count342
+\everyMPtoPDFconversion=\toks58
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 190.
-LaTeX Info: Redefining \microtypecontext on input line 190.
+(lastpage)             ! on input line 176.
+LaTeX Info: Redefining \microtypecontext on input line 176.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 190.
+LaTeX Info: Redefining \showhyphens on input line 176.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 ) ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box82
-Package hyperref Info: Link coloring ON on input line 190.
+\AtBeginShipoutBox=\box72
+Package hyperref Info: Link coloring ON on input line 176.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1012,11 +936,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 estring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count353
+\c@section@level=\count343
 )
-LaTeX Info: Redefining \ref on input line 190.
-LaTeX Info: Redefining \pageref on input line 190.
-LaTeX Info: Redefining \nameref on input line 190.
+LaTeX Info: Redefining \ref on input line 176.
+LaTeX Info: Redefining \pageref on input line 176.
+LaTeX Info: Redefining \nameref on input line 176.
 (./Paperfolder.out) (./Paperfolder.out)
 \@outlinefile=\write4
 \openout4 = `Paperfolder.out'.
@@ -1056,14 +980,11 @@ LaTeX Info: Redefining \nameref on input line 190.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package newfloat Info: `float' package detected.
-Package newfloat Info: `wrapfig' package detected.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: longtable package is loaded.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 )
-Package caption Info: threeparttable package is loaded.
-Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package epstopdf Info: Source file: <logo-mdpi.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1073,36 +994,36 @@ Package epstopdf Info: Source file: <logo-mdpi.eps>
 (epstopdf)                    size: 43952 bytes
 (epstopdf)             Command: <repstopdf --outfile=logo-mdpi-eps-converted-to
 .pdf logo-mdpi.eps>
-(epstopdf)             \includegraphics on input line 190.
+(epstopdf)             \includegraphics on input line 176.
 Package epstopdf Info: Output file is already uptodate.
 <logo-mdpi-eps-converted-to.pdf, id=44, 88.33pt x 58.2175pt>
 File: logo-mdpi-eps-converted-to.pdf Graphic file (type pdf)
 <use logo-mdpi-eps-converted-to.pdf>
-Package pdftex.def Info: logo-mdpi-eps-converted-to.pdf  used on input line 190
+Package pdftex.def Info: logo-mdpi-eps-converted-to.pdf  used on input line 176
 .
 (pdftex.def)             Requested size: 43.16885pt x 28.45274pt.
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 1
-90.
+76.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
-190.
+176.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
-190.
+176.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
-190.
+176.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-190.
+176.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
@@ -1111,14 +1032,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 190.
+(Font)              scaled to size 10.42007pt on input line 176.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 190.
+(Font)              scaled to size 7.91925pt on input line 176.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 190.
+(Font)              scaled to size 6.25204pt on input line 176.
 Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
 (epstopdf)                    size: 284378 bytes
@@ -1127,13 +1048,13 @@ Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    size: 12383 bytes
 (epstopdf)             Command: <repstopdf --outfile=logo-orcid-eps-converted-t
 o.pdf logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 190.
+(epstopdf)             \includegraphics on input line 176.
 Package epstopdf Info: Output file is already uptodate.
 <logo-orcid-eps-converted-to.pdf, id=46, 102.3825pt x 102.3825pt>
 File: logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use logo-orcid-eps-converted-to.pdf>
-Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 19
-0.
+Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 17
+6.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1143,12 +1064,12 @@ Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    size: 12383 bytes
 (epstopdf)             Command: <repstopdf --outfile=logo-orcid-eps-converted-t
 o.pdf logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 190.
+(epstopdf)             \includegraphics on input line 176.
 Package epstopdf Info: Output file is already uptodate.
 File: logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use logo-orcid-eps-converted-to.pdf>
-Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 19
-0.
+Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 17
+6.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1158,12 +1079,12 @@ Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    size: 12383 bytes
 (epstopdf)             Command: <repstopdf --outfile=logo-orcid-eps-converted-t
 o.pdf logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 190.
+(epstopdf)             \includegraphics on input line 176.
 Package epstopdf Info: Output file is already uptodate.
 File: logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use logo-orcid-eps-converted-to.pdf>
-Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 19
-0.
+Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 17
+6.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1173,12 +1094,12 @@ Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    size: 12383 bytes
 (epstopdf)             Command: <repstopdf --outfile=logo-orcid-eps-converted-t
 o.pdf logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 190.
+(epstopdf)             \includegraphics on input line 176.
 Package epstopdf Info: Output file is already uptodate.
 File: logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use logo-orcid-eps-converted-to.pdf>
-Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 19
-0.
+Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 17
+6.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1188,12 +1109,12 @@ Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    size: 12383 bytes
 (epstopdf)             Command: <repstopdf --outfile=logo-orcid-eps-converted-t
 o.pdf logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 190.
+(epstopdf)             \includegraphics on input line 176.
 Package epstopdf Info: Output file is already uptodate.
 File: logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use logo-orcid-eps-converted-to.pdf>
-Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 19
-0.
+Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 17
+6.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1203,12 +1124,12 @@ Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    size: 12383 bytes
 (epstopdf)             Command: <repstopdf --outfile=logo-orcid-eps-converted-t
 o.pdf logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 190.
+(epstopdf)             \includegraphics on input line 176.
 Package epstopdf Info: Output file is already uptodate.
 File: logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use logo-orcid-eps-converted-to.pdf>
-Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 19
-0.
+Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 17
+6.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1218,12 +1139,12 @@ Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    size: 12383 bytes
 (epstopdf)             Command: <repstopdf --outfile=logo-orcid-eps-converted-t
 o.pdf logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 190.
+(epstopdf)             \includegraphics on input line 176.
 Package epstopdf Info: Output file is already uptodate.
 File: logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use logo-orcid-eps-converted-to.pdf>
-Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 19
-0.
+Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 17
+6.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1233,26 +1154,26 @@ Package epstopdf Info: Source file: <logo-orcid.eps>
 (epstopdf)                    size: 12383 bytes
 (epstopdf)             Command: <repstopdf --outfile=logo-orcid-eps-converted-t
 o.pdf logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 190.
+(epstopdf)             \includegraphics on input line 176.
 Package epstopdf Info: Output file is already uptodate.
 File: logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use logo-orcid-eps-converted-to.pdf>
-Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 19
-0.
+Package pdftex.def Info: logo-orcid-eps-converted-to.pdf  used on input line 17
+6.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 190.
+(Font)              scaled to size 9.37807pt on input line 176.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 190.
+(Font)              scaled to size 7.29405pt on input line 176.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 190.
+(Font)              scaled to size 5.21004pt on input line 176.
 <logo-updates.pdf, id=56, 832.75539pt x 281.85541pt>
 File: logo-updates.pdf Graphic file (type pdf)
 <use logo-updates.pdf>
-Package pdftex.def Info: logo-updates.pdf  used on input line 190.
+Package pdftex.def Info: logo-updates.pdf  used on input line 176.
 (pdftex.def)             Requested size: 50.43332pt x 17.07182pt.
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
-90.
+76.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
@@ -1270,44 +1191,44 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [3]
 
-LaTeX Warning: Float too large for page by 30.78314pt on input line 526.
+LaTeX Warning: Float too large for page by 30.78314pt on input line 512.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Float too large for page by 10.82637pt on input line 606.
+LaTeX Warning: Float too large for page by 30.78314pt on input line 602.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--651
+Underfull \hbox (badness 10000) in paragraph at lines 647--647
 
  []
 
 [4] (./Paperfolder.bbl)
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 6
-92.
+88.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 ) 
 AED: lastpage setting LastPage
 [5] [6] [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 692.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 692.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 688.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 688.
 (./Paperfolder.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 692.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 692.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 688.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 688.
 Package rerunfilecheck Info: File `Paperfolder.out' has not changed.
 (rerunfilecheck)             Checksum: 7FB81FDDB0D235EFCEF620A87C0E1621;1143.
  ) 
 Here is how much of TeX's memory you used:
- 27543 strings out of 482394
- 478629 string characters out of 5945716
- 832128 words of memory out of 5000000
- 42582 multiletter control sequences out of 15000+600000
- 585375 words of font info for 218 fonts, out of 8000000 for 9000
+ 26418 strings out of 482394
+ 462277 string characters out of 5945716
+ 835513 words of memory out of 5000000
+ 41494 multiletter control sequences out of 15000+600000
+ 585587 words of font info for 221 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  68i,12n,64p,2397b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/wangcc.me/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc} </U
@@ -1323,7 +1244,7 @@ f-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/wangcc.me/Library/TinyTeX
 eX/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></Users/wangcc.me/Library/Ti
 nyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/wangcc.me/Library/
 TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Paperfolder.pdf (7 pages, 202380 bytes).
+Output written on Paperfolder.pdf (7 pages, 202797 bytes).
 PDF statistics:
  221 PDF objects out of 1000 (max. 8388607)
  178 compressed objects within 2 object streams
