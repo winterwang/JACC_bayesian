@@ -444,7 +444,8 @@ jagsfit <- jags.parallel(data=MILKdataFEM,  parameters.to.save = M2.params,
                          n.iter=100000, n.burnin=(3000/2), n.chains = 4,
                          model.file=M2hemo.weibull.model)
 end.time <- Sys.time()
-end.time - start.time 
+end.time - start.time #Time difference of 3.507339 days
+
 M2FEMHemoStroke_20200704 <- jagsfit
 print(M2FEMHemoStroke_20200704)
 summary(mcmcplots::as.mcmc.rjags(M2FEMHemoStroke_20200704))
@@ -453,4 +454,70 @@ summary(mcmcplots::as.mcmc.rjags(M2FEMHemoStroke_20200704))
 save(M0FEMHemoStroke_20200704, 
      M1FEMHemoStroke_20200704,
      M2FEMHemoStroke_20200704, file = "IscheStrokeMen.RData")
+
+# Inference for Bugs model at "M2hemo.weibull.model", fit using jags,
+# 4 chains, each with 1e+05 iterations (first 1500 discarded), n.thin = 98
+# n.sims = 4020 iterations saved
+#            mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
+# AFT[2]       0.931   0.236    0.642    0.807    0.902    1.010    1.335 1.030   360
+# AFT[3]       1.226   0.385    0.926    1.073    1.160    1.264    1.983 1.061   710
+# AFT[4]       1.138   0.330    0.868    1.001    1.081    1.180    1.826 1.072   530
+# AFT[5]       1.035   0.248    0.831    0.935    0.993    1.059    1.547 1.080   390
+# HR[2]        0.899   0.223    0.553    0.747    0.871    1.013    1.396 1.008   560
+# HR[3]        1.264   0.260    0.902    1.101    1.223    1.370    1.903 1.009  1100
+# HR[4]        1.150   0.234    0.827    1.001    1.112    1.251    1.741 1.016   560
+# HR[5]        1.021   0.186    0.779    0.913    0.991    1.080    1.509 1.021   560
+# p.crit[2]    0.732   0.443    0.000    0.000    1.000    1.000    1.000 1.003  1200
+# p.crit[3]    0.095   0.294    0.000    0.000    0.000    0.000    1.000 1.005  1100
+# p.crit[4]    0.248   0.432    0.000    0.000    0.000    0.000    1.000 1.005   590
+# p.crit[5]    0.533   0.499    0.000    0.000    1.000    1.000    1.000 1.008   350
+# deviance  7402.158  78.744 7300.863 7358.306 7391.527 7426.013 7605.092 1.045   580
+# 
+# For each parameter, n.eff is a crude measure of effective sample size,
+# and Rhat is the potential scale reduction factor (at convergence, Rhat=1).
+# 
+# DIC info (using the rule, pD = var(deviance)/2)
+# pD = 3086.2 and DIC = 10488.4
+# DIC is an estimate of expected predictive error (lower deviance is better).
+# > summary(mcmcplots::as.mcmc.rjags(M2FEMHemoStroke_20200704))
+# 
+# Iterations = 1:98393
+# Thinning interval = 98 
+# Number of chains = 4 
+# Sample size per chain = 1005 
+# 
+# 1. Empirical mean and standard deviation for each variable,
+# plus standard error of the mean:
+#   
+#                Mean      SD Naive SE Time-series SE
+# AFT[2]    9.306e-01  0.2357 0.003718       0.018172
+# AFT[3]    1.226e+00  0.3851 0.006073       0.039604
+# AFT[4]    1.138e+00  0.3301 0.005206       0.030179
+# AFT[5]    1.035e+00  0.2480 0.003912       0.025801
+# HR[2]     8.986e-01  0.2235 0.003525       0.015941
+# HR[3]     1.264e+00  0.2601 0.004102       0.026417
+# HR[4]     1.150e+00  0.2343 0.003695       0.026560
+# HR[5]     1.021e+00  0.1855 0.002926       0.021356
+# deviance  7.402e+03 78.7444 1.241958       8.643872
+# p.crit[2] 7.321e-01  0.4429 0.006986       0.022380
+# p.crit[3] 9.527e-02  0.2936 0.004631       0.008107
+# p.crit[4] 2.478e-01  0.4318 0.006810       0.012885
+# p.crit[5] 5.331e-01  0.4990 0.007870       0.022618
+# 
+# 2. Quantiles for each variable:
+#   
+#                2.5%       25%       50%      75%    97.5%
+# AFT[2]       0.6417    0.8072    0.9021    1.010    1.335
+# AFT[3]       0.9262    1.0731    1.1598    1.264    1.983
+# AFT[4]       0.8682    1.0010    1.0812    1.180    1.826
+# AFT[5]       0.8311    0.9346    0.9932    1.059    1.547
+# HR[2]        0.5534    0.7471    0.8708    1.013    1.396
+# HR[3]        0.9022    1.1008    1.2230    1.370    1.903
+# HR[4]        0.8270    1.0014    1.1118    1.251    1.741
+# HR[5]        0.7787    0.9133    0.9907    1.080    1.509
+# deviance  7300.8629 7358.3064 7391.5266 7426.013 7605.092
+# p.crit[2]    0.0000    0.0000    1.0000    1.000    1.000
+# p.crit[3]    0.0000    0.0000    0.0000    0.000    1.000
+# p.crit[4]    0.0000    0.0000    0.0000    0.000    1.000
+# p.crit[5]    0.0000    0.0000    1.0000    1.000    1.000
 
