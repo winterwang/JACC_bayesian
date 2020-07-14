@@ -49,33 +49,19 @@ correspondence: |
   Email.: chaochen@wangcc.me; Tel.: +81-561-62-3311. Department of Public Health, Aichi Medical University School of Medicine, 1-1 Yazakokarimata, Nagakute, Aichi, 480-1195, Japan (C.W.)
 journal: nutrients
 type: article
-status: submit
+status: To be submitted
 bibliography: milk.bib
 # appendix: appendix.tex
 # simplesummary: |
 #  A Simple summary goes here.
 abstract: |
-  A single paragraph of about 200 words maximum. For research articles, 
-  abstracts should give a pertinent overview of the work. We strongly encourage
-  authors to use the following style of structured abstracts, but without 
-  headings: 1) Background: Place the question addressed in a broad context and
-  highlight the purpose of the study; 2) Methods: Describe briefly the main
-  methods or treatments applied; 3) Results: Summarize the article's main 
-  findings; and 4) Conclusion: Indicate the main conclusions or interpretations. 
-  The abstract should be an objective representation of the article, it must not 
-  contain results which are not presented and substantiated in the main text and 
-  should not exaggerate the main conclusions.
+  To further examine the relationship between milk intake and stroke mortality among the Japanese population. We used 
 keywords: |
   milk intake; mortality; stroke; Bayesian survival anlysis; time-to-event data; JACC study 
 acknowledgement: |
-  All sources of funding of the study should be disclosed. Please clearly 
-  indicate grants that you have received in support of your research work. 
-  Clearly state if you received funds for covering the costs to publish in open 
-  access.
+  The authors would like to express their sincere appreciate to Kunio Aoki and Yoshiyuki Ohno, Professors Emeritus at Nagoya University School of Medicine and former chairpersons of the JACC Study. The whole member of JACC Study Group can be found at https://publichealth.med.hokudai.ac.jp/jacc/index.html. The JACC Study has been supported by Grants-in-Aid for Scientific Research from the Ministry of Education, Culture, Sports, Science and Technology of Japan (MEXT, Monbu Kagaku-sho), Tokyo (grant numbers 61010076, 62010074, 63010074, 1010068, 2151065, 3151064, 4151063, 5151069, 6279102, 11181101, 17015022, 18014011, 20014026, 20390156, 26293138, and 16H06277), and Grants-in-Aid from the Ministry of Health, Labour and Welfare, Health and Labour Sciences Research Grants, Japan [H20-Junkankitou (Seishuu)-Ippan-013, H23-Junkankitou (Seishuu)- Ippan-005, H26-Junkankitou (Seisaku)-Ippan-001, and H29-Junkankitou (Seishuu)-Ippan-003]. 
 authorcontributions: |
-  ``X.X. and Y.Y. conceive and designed the experiments; X.X. performed the 
-  experiments; X.X. and Y.Y. analyzed the data; W.W. contributed 
-  reagents/materials/analysis tools; Y.Y. wrote the paper.''
+  ``C.W. and H.Y. conceive and designed the study; C.W. analyzed the data; C.W. wrote the first draft of the paper. A.T. provided the database. All of the authors approved and finalized the manuscript for publication.''
 conflictsofinterest: |
   The authors declare no conflict of interest. The founding sponsors had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript, an in the decision to publish the results.
 # sampleavailability: |
@@ -223,17 +209,17 @@ Posterior distributions of AFs and HRs for mortality from hemorrhagic stroke wer
 
 In the JACC study cohort, our analysis showed that men in Japan who consumed milk almost daily had lower hazard of dying from stroke especially from cerebral infarction. Our evidence also suggested that stroke mortality events were delayed among Japanese male daily milk consumers compared with non-consumers.
 
-<!-- - comparison with previous meta-analysis -->
-These findings are in line with our previous report [@wang_milk_2015]. Moreover, we further updated with more comprehensive and more straightforward evidence about whether and how certain the evidence had shown about daily consumption of milk is contributing to a postponed stroke (mostly cerebral infarction) mortality event among Japanese men. A recent dose-response meta-analysis of 18 prospective cohort studies had also shown a similar negative association [@DeGoede2016] between milk consumption and risk of stroke. The same meta-analysis however also found a slightly higher risk of stroke per 200 g/day whole milk intake from five cohort studies that were conducted on European or American population [@goldbohm2011dairy; @Iso1999]. 
+<!-- - comparison with previous meta-analyses -->
+These findings are in line with our previous report [@wang_milk_2015] as well as other studies conducted in East Asian populations [@umesawa2008dietary;@kondo2013consumption;@ozawa2017dietary;@sauvaget2003intake;@Talaei_2016]. Moreover, we have further updated with more comprehensive and straightforward evidence about whether and how certain the data had shown about daily consumption of milk is contributing to a postponed stroke (mostly cerebral infarction) mortality event among Japanese men. A recent dose-response meta-analysis of 18 prospective cohort studies had also shown a similar negative association [@DeGoede2016] between milk consumption and risk of stroke. The same meta-analysis also reported a greater reduction of risk of stroke (18%) for East Asian population in contrast with the 7% less risk in the pooled overall finding for all populations combined. Benefits of increased milk intake might be particularly noticeable in East Asian countries where strokes are relatively more common, and milk consumption is much lower than those studies conducted among European or American populations [@dehghan2018association]. 
 <!-- - potential biological reasons -->
 
+Possible reasons for a protective effect of milk consumption against stroke could be interpreted as such an association may be mediated by its content in calcium, magnesium, potassium, and other bioactive compounds, as recommended by @Iacoviello2018. Apart from the inorganic minerals in milk that would be helpful with health effects, recent studies on animal models also indicated key evidence that stroke-associated morbidity was delayed in stroke-prone rats who were fed with milk-protein enriched diets [@Chiba2012;@singh2016diets]. More precisely, @Singh2020 found that whey protein and its components lactalbumin and lactoferrin improved energy balance and glycemic control against the onset of neurological deficits associated with stroke. Bioactive peptides from milk proteins were also responsible for limitation of thrombosis [@tokajuk2019whey] through their angiotensin convertase enzyme inhibitory potential, which might partly explain why the effect was found mainly for mortality from cerebral infarction in the current study. 
+
+
 <!-- - strength and limitation of current study -->
+Some limitations here are worth mentioning. First, although our object was not to answer which type of milk is protective, but if such information were somehow available in the JACC study database, more detailed comparison or stratification would have been possible. Second, despite reasonable validity of FFQ in the JACC study cohort was assessed and confirmed, measurement errors are inevitable. Therefore, we did not try to compute the amount of consumption by multiplying an average volume per occasion with the frequency of intake since the random error might be exaggerated and the observed associations may have attenuated. Strengths of our analyses included that we have transformed the research questions to more transparent ones that is easier for interpretation. Direct probabilities that daily milk intake is associated with lower hazard or delayed stroke mortality event were provided here after thorough computer simulation. 
 
-
-
-
-# Conclusion
-
+In conclusion, the JACC study database has provided evidence that Japanese men who consumed milk daily had lower hazard of dying from stroke especially cerebral infarction compared with their counterparts who never consumed milk. Time before an event of stroke mortality occurred were slowed down and delayed among those who drank milk regularly.
 
 
 
@@ -289,14 +275,14 @@ N & 8508 & 3522 & 5928 & 5563 & 15865\\
 \multicolumn{6}{l}{\textbf{Model 1}}\\
 \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.99 (0.06) & 0.90 (0.05) & 0.91 (0.05) & 0.85 (0.04)\\
 \hspace{1em}95\% CrI & - & (0.87, 1.11) & (0.81, 1.00) & (0.82, 1.01) & (0.78, 0.92)\\
-\rowcolor{gray!6}  \hspace{1em}MeanHR (SD) & 1 & 0.98 (0.11) & 0.84 (0.08) & 0.86 (0.08) & 0.76 (0.05)\\
+\rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 0.98 (0.11) & 0.84 (0.08) & 0.86 (0.08) & 0.76 (0.05)\\
 \hspace{1em}95\% CrI & - & (0.79, 1.19) & (0.70, 1.00) & (0.71, 1.02) & (0.66, 0.87)\\
 \rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 58.7\% & 97.3\% & 96.1\% & 100.0\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 2}}\\
 \hspace{1em}Mean AF (SD) & 1 & 1.00 (0.07) & 0.92 (0.06) & 0.94 (0.06) & 0.88 (0.05)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.88, 1.14) & (0.82, 1.03) & (0.84, 1.05) & (0.81, 0.96)\\
-\hspace{1em}MeanHR (SD) & 1 & 1.01 (0.12) & 0.87 (0.09) & 0.90 (0.09) & 0.80 (0.07)\\
+\hspace{1em}Mean HR (SD) & 1 & 1.01 (0.12) & 0.87 (0.09) & 0.90 (0.09) & 0.80 (0.07)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.81, 1.24) & (0.72, 1.05) & (0.74, 1.08) & (0.69, 0.93)\\
 \hspace{1em}Pr(HR < 1) & - & 50.6\% & 93.7\% & 89.6\% & 99.0\%\\
 \hline
@@ -305,21 +291,21 @@ N & 8508 & 3522 & 5928 & 5563 & 15865\\
 \multicolumn{6}{l}{\textbf{Model 0}}\\
 \hspace{1em}Mean AF (SD) & 1 & 1.03 (0.17) & 0.85 (0.12) & 0.87 (0.13) & 0.98 (0.11)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.74, 1.38) & (0.63, 1.12) & (0.65, 1.14) & (0.78, 1.22)\\
-\hspace{1em}MeanHR (SD) & 1 & 1.03 (0.19) & 0.82 (0.14) & 0.84 (0.15) & 0.97 (0.13)\\
+\hspace{1em}Mean HR (SD) & 1 & 1.03 (0.19) & 0.82 (0.14) & 0.84 (0.15) & 0.97 (0.13)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.70, 1.46) & (0.56, 1.14) & (0.60, 1.17) & (0.75, 1.26)\\
 \hspace{1em}Pr(HR < 1) & - & 47.2\% & 88.4\% & 86.3\% & 63.1\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 1}}\\
 \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 1.08 (0.17) & 0.91 (0.13) & 0.92 (0.13) & 0.90 (0.10)\\
 \hspace{1em}95\% CrI & - & (0.80, 1.45) & (0.70, 1.20) & (0.71, 1.19) & (0.74, 1.11)\\
-\rowcolor{gray!6}  \hspace{1em}MeanHR (SD) & 1 & 1.11 (0.21) & 0.88 (0.16) & 0.90 (0.16) & 0.88 (0.12)\\
+\rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 1.11 (0.21) & 0.88 (0.16) & 0.90 (0.16) & 0.88 (0.12)\\
 \hspace{1em}95\% CrI & - & (0.75, 1.58) & (0.63, 1.25) & (0.63, 1.24) & (0.67, 1.14)\\
 \rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 31.6\% & 79.7\% & 76.6\% & 87.6\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 2}}\\
 \hspace{1em}Mean AF (SD) & 1 & 1.11 (0.18) & 0.93 (0.15) & 0.96 (0.16) & 0.96 (0.13)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.79, 1.58) & (0.70, 1.25) & (0.71, 1.34) & (0.76, 1.25)\\
-\hspace{1em}MeanHR (SD) & 1 & 1.14 (0.22) & 0.92 (0.17) & 0.95 (0.18) & 0.95 (0.14)\\
+\hspace{1em}Mean HR (SD) & 1 & 1.14 (0.22) & 0.92 (0.17) & 0.95 (0.18) & 0.95 (0.14)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.75, 1.61) & (0.63, 1.29) & (0.65, 1.37) & (0.71, 1.27)\\
 \hspace{1em}Pr(HR < 1) & - & 28.8\% & 72.4\% & 64.4\% & 69.3\%\\
 \hline
@@ -328,21 +314,21 @@ N & 8508 & 3522 & 5928 & 5563 & 15865\\
 \multicolumn{6}{l}{\textbf{Model 0}}\\
 \hspace{1em}Mean AF (SD) & 1 & 0.76 (0.09) & 0.71 (0.07) & 0.74 (0.08) & 0.79 (0.06)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.59, 0.94) & (0.58, 0.86) & (0.61, 0.89) & (0.68, 0.93)\\
-\hspace{1em}MeanHR (SD) & 1 & 0.65 (0.12) & 0.59 (0.09) & 0.64 (0.09) & 0.71 (0.09)\\
+\hspace{1em}Mean HR (SD) & 1 & 0.65 (0.12) & 0.59 (0.09) & 0.64 (0.09) & 0.71 (0.09)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.46, 0.92) & (0.43, 0.79) & (0.47, 0.85) & (0.56, 0.89)\\
 \hspace{1em}Pr(HR < 1) & - & 99.1\% & 99.9\% & 99.7\% & 99.5\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 1}}\\
 \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.83 (0.08) & 0.79 (0.07) & 0.82 (0.07) & 0.74 (0.05)\\
 \hspace{1em}95\% CrI & - & (0.68, 1.01) & (0.67, 0.93) & (0.69, 0.96) & (0.66, 0.84)\\
-\rowcolor{gray!6}  \hspace{1em}MeanHR (SD) & 1 & 0.73 (0.13) & 0.65 (0.10) & 0.70 (0.11) & 0.58 (0.07)\\
+\rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 0.73 (0.13) & 0.65 (0.10) & 0.70 (0.11) & 0.58 (0.07)\\
 \hspace{1em}95\% CrI & - & (0.49, 1.02) & (0.48, 0.88) & (0.51, 0.94) & (0.46, 0.72)\\
 \rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 96.9\% & 99.8\% & 98.9\% & 100.0\%\\
 \addlinespace[0.3em]
 \multicolumn{6}{l}{\textbf{Model 2}}\\
 \hspace{1em}Mean AF (SD) & 1 & 0.84 (0.09) & 0.80 (0.08) & 0.83 (0.08) & 0.75 (0.06)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.67, 1.02) & (0.67, 0.95) & (0.69, 0.99) & (0.66, 0.85)\\
-\hspace{1em}MeanHR (SD) & 1 & 0.73 (0.14) & 0.67 (0.11) & 0.72 (0.12) & 0.61 (0.08)\\
+\hspace{1em}Mean HR (SD) & 1 & 0.73 (0.14) & 0.67 (0.11) & 0.72 (0.12) & 0.61 (0.08)\\
 \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.50, 1.04) & (0.48, 0.91) & (0.52, 0.99) & (0.48, 0.79)\\
 \hspace{1em}Pr(HR < 1) & - & 96.1\% & 99.1\% & 97.5\% & 99.8\%\\
 \bottomrule

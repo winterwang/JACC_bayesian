@@ -210,17 +210,6 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
   timestamp = {2020-07-08},
 }
 
-@Article{Singh2016,
-  author    = {Singh, Arashdeep and Pezeshki, Adel and Zapata, Rizaldy C and Yee, Nicholas J and Knight, Cameron G and Tuor, Ursula I and Chelikani, Prasanth K},
-  journal   = {The Journal of Nutritional Biochemistry},
-  title     = {Diets enriched in whey or casein improve energy balance and prevent morbidity and renal damage in salt-loaded and high-fat-fed spontaneously hypertensive stroke-prone rats},
-  year      = {2016},
-  pages     = {47--59},
-  volume    = {37},
-  publisher = {Elsevier},
-  timestamp = {2020-07-08},
-}
-
 @Article{Singh2020,
   author    = {Singh, Arashdeep and Zapata, Rizaldy C and Pezeshki, Adel and Knight, Cameron G and Tuor, Ursula I and Chelikani, Prasanth K},
   journal   = {The Journal of Nutrition},
@@ -243,19 +232,6 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
   pages     = {e002787},
   volume    = {5},
   file      = {:pdfpapers/JAHA.115.002787.pdf:PDF},
-  publisher = {Am Heart Assoc},
-  timestamp = {2020-07-08},
-}
-
-@Article{Chiba2012,
-  author    = {Chiba, Tsuyoshi and Itoh, Tatsuki and Tabuchi, Masaki and Ooshima, Kana and Satou, Takao and Ezaki, Osamu},
-  journal   = {Stroke},
-  title     = {Delay of stroke onset by milk proteins in stroke-prone spontaneously hypertensive rats},
-  year      = {2012},
-  number    = {2},
-  pages     = {470--477},
-  volume    = {43},
-  file      = {:pdfpapers/STROKEAHA.111.618496.pdf:PDF},
   publisher = {Am Heart Assoc},
   timestamp = {2020-07-08},
 }
@@ -314,6 +290,129 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
   volume    = {133},
   publisher = {LWW},
   timestamp = {2020-07-09},
+}
+
+@Article{michaelsson2020mixing,
+  author    = {Micha{\"e}lsson, Karl and Byberg, Liisa},
+  journal   = {Nutrients},
+  title     = {Mixing of Apples and Oranges in Milk Research: A Cohort Analysis of Non-Fermented Milk Intake and All-Cause Mortality},
+  year      = {2020},
+  number    = {5},
+  pages     = {1393},
+  volume    = {12},
+  file      = {:pdfpapers/nutrients-12-01393.pdf:PDF},
+  publisher = {Multidisciplinary Digital Publishing Institute},
+  timestamp = {2020-07-09},
+}
+
+@Article{umesawa2008dietary,
+  author    = {Umesawa, Mitsumasa and Iso, Hiroyasu and Ishihara, Junko and Saito, Isao and Kokubo, Yoshihiro and Inoue, Manami and Tsugane, Shoichiro},
+  journal   = {Stroke},
+  title     = {Dietary calcium intake and risks of stroke, its subtypes, and coronary heart disease in Japanese: the JPHC Study Cohort I},
+  year      = {2008},
+  number    = {9},
+  pages     = {2449--2456},
+  volume    = {39},
+  publisher = {Am Heart Assoc},
+  timestamp = {2020-07-14},
+}
+
+@Article{kondo2013consumption,
+  author    = {Kondo, Imako and Ojima, Toshiyuki and Nakamura, Mieko and Hayasaka, Shinya and Hozawa, Atsushi and Saitoh, Shigeyuki and Ohnishi, Hirofumi and Akasaka, Hiroshi and Hayakawa, Takehito and Murakami, Yoshitaka and others},
+  journal   = {Journal of Epidemiology},
+  title     = {Consumption of dairy products and death from cardiovascular disease in the Japanese general population: the NIPPON DATA80},
+  year      = {2013},
+  number    = {1},
+  pages     = {47--54},
+  volume    = {23},
+  publisher = {Japan Epidemiological Association},
+  timestamp = {2020-07-14},
+}
+
+@Article{ozawa2017dietary,
+  author    = {Ozawa, Mio and Yoshida, Daigo and Hata, Jun and Ohara, Tomoyuki and Mukai, Naoko and Shibata, Mao and Uchida, Kazuhiro and Nagata, Masashi and Kitazono, Takanari and Kiyohara, Yutaka and others},
+  journal   = {Stroke},
+  title     = {Dietary protein intake and stroke risk in a general Japanese population: the Hisayama Study},
+  year      = {2017},
+  number    = {6},
+  pages     = {1478--1486},
+  volume    = {48},
+  publisher = {Am Heart Assoc},
+  timestamp = {2020-07-14},
+}
+
+@Article{sauvaget2003intake,
+  author    = {Sauvaget, Catherine and Nagano, Jun and Allen, Naomi and Grant, Eric J and Beral, Valerie},
+  journal   = {International Journal of Epidemiology},
+  title     = {Intake of animal products and stroke mortality in the Hiroshima/Nagasaki Life Span Study},
+  year      = {2003},
+  number    = {4},
+  pages     = {536--543},
+  volume    = {32},
+  publisher = {Oxford University Press},
+  timestamp = {2020-07-14},
+}
+
+@Article{Talaei_2016,
+  author    = {Mohammad Talaei and Woon-Puay Koh and Jian-Min Yuan and An Pan},
+  journal   = {European Journal of Nutrition},
+  title     = {The association between dairy product intake and cardiovascular disease mortality in Chinese adults},
+  year      = {2016},
+  month     = {jul},
+  number    = {7},
+  pages     = {2343--2352},
+  volume    = {56},
+  doi       = {10.1007/s00394-016-1274-1},
+  publisher = {Springer Science and Business Media {LLC}},
+  timestamp = {2020-07-14},
+}
+
+@Article{guo2017milk,
+  author    = {Guo, Jing and Astrup, Arne and Lovegrove, Julie A and Gijsbers, Lieke and Givens, David I and Soedamah-Muthu, Sabita S},
+  journal   = {European Journal of Epidemiology},
+  title     = {Milk and dairy consumption and risk of cardiovascular diseases and all-cause mortality: dose--response meta-analysis of prospective cohort studies},
+  year      = {2017},
+  number    = {4},
+  pages     = {269--287},
+  volume    = {32},
+  publisher = {Springer Verlag},
+  timestamp = {2020-07-14},
+}
+
+@Article{Chiba2012,
+  author    = {Chiba, Tsuyoshi and Itoh, Tatsuki and Tabuchi, Masaki and Ooshima, Kana and Satou, Takao and Ezaki, Osamu},
+  journal   = {Stroke},
+  title     = {Delay of stroke onset by milk proteins in stroke-prone spontaneously hypertensive rats},
+  year      = {2012},
+  number    = {2},
+  pages     = {470--477},
+  volume    = {43},
+  file      = {:pdfpapers/STROKEAHA.111.618496.pdf:PDF},
+  publisher = {Am Heart Assoc},
+  timestamp = {2020-07-14},
+}
+
+@Article{singh2016diets,
+  author    = {Singh, Arashdeep and Pezeshki, Adel and Zapata, Rizaldy C and Yee, Nicholas J and Knight, Cameron G and Tuor, Ursula I and Chelikani, Prasanth K},
+  journal   = {The Journal of nutritional biochemistry},
+  title     = {Diets enriched in whey or casein improve energy balance and prevent morbidity and renal damage in salt-loaded and high-fat-fed spontaneously hypertensive stroke-prone rats},
+  year      = {2016},
+  pages     = {47--59},
+  volume    = {37},
+  publisher = {Elsevier},
+  timestamp = {2020-07-14},
+}
+
+@Article{tokajuk2019whey,
+  author    = {Tokajuk, Anna and Zakrzeska, Agnieszka and Chabielska, Ewa and Car, Halina},
+  journal   = {Applied Physiology, Nutrition, and Metabolism},
+  title     = {Whey protein concentrate limits venous thrombosis in rats},
+  year      = {2019},
+  number    = {8},
+  pages     = {907--910},
+  volume    = {44},
+  publisher = {NRC Research Press},
+  timestamp = {2020-07-14},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
