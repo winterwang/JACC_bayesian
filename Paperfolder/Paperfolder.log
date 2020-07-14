@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.8)  14 JUL 2020 10:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.8)  14 JUL 2020 10:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1189,48 +1189,54 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--411
+[]\T1/ppl/m/n/10 (+20) Detailed re-sults from the Bayesian sur-vival mod-els (c
+rude, age-adjusted and
+ []
+
 [3] [4]
 
-LaTeX Warning: Float too large for page by 30.78314pt on input line 534.
+LaTeX Warning: Float too large for page by 30.78314pt on input line 536.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Float too large for page by 30.78314pt on input line 624.
+LaTeX Warning: Float too large for page by 30.78314pt on input line 626.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 669--669
+Underfull \hbox (badness 10000) in paragraph at lines 671--671
 
  []
 
 (./Paperfolder.bbl [5])
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 7
-10.
+12.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 ) 
 AED: lastpage setting LastPage
 [6] [7] [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 710.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 710.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 712.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 712.
 (./Paperfolder.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 710.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 710.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 712.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 712.
 Package rerunfilecheck Info: File `Paperfolder.out' has not changed.
 (rerunfilecheck)             Checksum: 7FB81FDDB0D235EFCEF620A87C0E1621;1143.
  ) 
 Here is how much of TeX's memory you used:
- 26446 strings out of 482394
- 462654 string characters out of 5945716
- 808099 words of memory out of 5000000
+ 26455 strings out of 482394
+ 462735 string characters out of 5945716
+ 809564 words of memory out of 5000000
  41503 multiletter control sequences out of 15000+600000
- 586374 words of font info for 231 fonts, out of 8000000 for 9000
+ 586851 words of font info for 237 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 68i,12n,64p,2397b,512s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,12n,64p,2397b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/wangcc.me/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc} </U
 sers/wangcc.me/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0500.6
 00pk></Users/wangcc.me/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/c
@@ -1244,7 +1250,7 @@ f-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/wangcc.me/Library/TinyTeX
 eX/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></Users/wangcc.me/Library/Ti
 nyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/wangcc.me/Library/
 TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Paperfolder.pdf (8 pages, 206020 bytes).
+Output written on Paperfolder.pdf (8 pages, 206268 bytes).
 PDF statistics:
  232 PDF objects out of 1000 (max. 8388607)
  188 compressed objects within 2 object streams
