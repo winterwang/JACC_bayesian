@@ -55,7 +55,7 @@ bibliography: milk.bib
 # simplesummary: |
 #  A Simple summary goes here.
 abstract: |
-  To further examine the relationship between milk intake and stroke mortality among the Japanese population. We used 
+  To further examine the relationship between milk intake and stroke mortality among the Japanese population. We used data from the Japan Collaborative Cohort Study to estimate the posterior acceleration factors as well as the hazard ratios comparing individuals with different milk intake frequencies against those who never consumed milk at the study baseline. These estimations were computed through a series of Bayesian survival models that employed a Markov Chain Monte Carlo simulation process. 100000 posterior samples for each individual were generated separately through four independent chains after model convergency were confirmed. Posterior probabilites that daily male consumers of milk 
 keywords: |
   milk intake; mortality; stroke; Bayesian survival anlysis; time-to-event data; JACC study 
 acknowledgement: |
