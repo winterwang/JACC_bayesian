@@ -453,7 +453,7 @@ save(M0femIscheStroke_20200707,
 # Inference for Bugs model at "M2Isch.weibull.model", fit using jags,
 # 4 chains, each with 1e+05 iterations (first 1500 discarded), n.thin = 98
 # n.sims = 4020 iterations saved
-# mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
+#            mu.vect sd.vect     2.5%      25%      50%      75%    97.5%  Rhat n.eff
 # AFT[2]       1.191   0.191    0.944    1.085    1.163    1.253    1.616 1.069   100
 # AFT[3]       1.115   0.149    0.921    1.030    1.095    1.165    1.497 1.070    92
 # AFT[4]       0.955   0.118    0.780    0.887    0.943    1.007    1.208 1.025   300
@@ -484,7 +484,7 @@ save(M0femIscheStroke_20200707,
 # 1. Empirical mean and standard deviation for each variable,
 # plus standard error of the mean:
 #   
-#   Mean       SD Naive SE Time-series SE
+#                Mean       SD Naive SE Time-series SE
 # AFT[2]    1.191e+00  0.19055 0.003005       0.018679
 # AFT[3]    1.115e+00  0.14923 0.002354       0.018897
 # AFT[4]    9.549e-01  0.11846 0.001868       0.010140
@@ -501,7 +501,7 @@ save(M0femIscheStroke_20200707,
 # 
 # 2. Quantiles for each variable:
 #   
-#   2.5%       25%       50%      75%    97.5%
+#                2.5%       25%       50%      75%    97.5%
 # AFT[2]       0.9437    1.0847    1.1633    1.253    1.616
 # AFT[3]       0.9212    1.0301    1.0946    1.165    1.497
 # AFT[4]       0.7797    0.8875    0.9429    1.007    1.208
