@@ -129,68 +129,69 @@ library(kableExtra)
 dt <- read.csv("tab/tab1.csv", header = T)
 names(dt) <- c("", "Never", "Drinker", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily", "P value")
 
-kable(dt, format = "latex", caption = "Sex-specific baseline characteristics according to the frequency of milk intake.", booktabs = T,linesep = "") %>%
+kable(dt[,-8], format = "latex", caption = "Sex-specific baseline characteristics according to the frequency of milk intake.", booktabs = T,linesep = "", align = "lcccccc") %>%
 kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
-  add_header_above(c(" ", "", "", "Milk drinkers" = 4, "")) %>%
+  add_header_above(c(" ", "", "", "Milk drinkers" = 4)) %>%
   # add_indent(c(4:6, 8:11, 14:17, 19, 20, 22:25, 27:30, 32:35, 37:39, 41:43, 45, 47, 49, 51, 53, 55)) %>%
+   row_spec(0, bold = T) %>% 
   pack_rows("Men (n = 39386)", 1, 16) %>%
   pack_rows("Women (n = 54999)", 17, 32) #%>% 
   # footnote(c("Abbreviations: n, number; SD, standard deviation; Alc_Fre, alcohol intake; BMI, Body Mass Index; Slepgrp, sleep duration", "groups; Veg, vegetable intake; Coffe, coffee intake; DM/HT/KID/LIV_hist, diabetes, hypertension, kidney disease,", "liver disease history."))
 ```
 
-
-
 \begin{table}[h]
-\caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake (JACC study, 1988-2009).}
+
+\caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake  (JACC study, 1988-2009).}
 \centering
 \fontsize{8}{10}\selectfont
 \resizebox{\textwidth}{!}{%
-\begin{tabular}[t]{lccccccc}
+\begin{tabular}[t]{lcccccc}
 \toprule
-\multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\textbf{Milk drinkers}} & \multicolumn{1}{c}{} \\
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\textbf{Milk drinkers}} \\
 \cmidrule(l{3pt}r{3pt}){4-7}
- & \textbf{Never} & \textbf{Drinkers} & \textbf{1-2 times/} & \textbf{1-2 times/} & \textbf{3-4 times/} & \textbf{Almost} & \\
- &       &         & \textbf{Month}     & \textbf{Week}      & \textbf{Week}         & \textbf{Daily}  & \textbf{\textit{P} value}\\
+ & \textbf{Never} & \textbf{Drinkers} & \textbf{1-2 times/} & \textbf{1-2 times/} & \textbf{3-4 times/} & \textbf{Almost}  \\
+ &       &         & \textbf{Month}     & \textbf{Week}      & \textbf{Week}         & \textbf{Daily}  \\
 \midrule
 \rowcolor{gray!6}  \addlinespace[0.3em]
-\multicolumn{8}{l}{\textbf{Men (n = 39386)}}\\
-\hspace{1em}number of subjects & 8508 & 30878 & 3522 & 5928 & 5563 & 15865 & \\
-\hspace{1em}Age, year (mean (SD)) & 56.8 (9.9) & 56.8 (10.2) & 55.2 (10.1) & 55.4 (10.1) & 55.4 (9.9) & 58.1 (10.1) & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 58.7 & 49.8 & 57.4 & 55.9 & 51.1 & 45.4 & <0.001\\
-\hspace{1em}Daily alcohol drinker, \% & 51.9 & 47.8 & 50.9 & 48.4 & 48.6 & 46.5 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 22.6 (3.4) & 22.7 (3.4) & 22.8 (2.8) & 22.8 (2.8) & 22.9 (5.4) & 22.6 (2.8) & <0.001\\
-\hspace{1em}Exercise (> 1h/week), \% & 19.0 & 27.6 & 26.5 & 25.0 & 25.5 & 29.5 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 35.6 & 35.9 & 34.6 & 36.2 & 35.1 & 36.3 & <0.001\\
-\hspace{1em}Vegetable intake, daily, \% & 21.3 & 25.4 & 20.1 & 20.4 & 20.8 & 30.1 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 14.8 & 22.4 & 15.4 & 16.3 & 17.3 & 28.1 & <0.001\\
-\hspace{1em}Green tea intake, daily, \% & 76.5 & 79.2 & 79.9 & 78.3 & 77.9 & 79.8 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 43.8 & 50.7 & 50.5 & 48.0 & 47.5 & 52.9 & <0.001\\
-\hspace{1em}Educated over 18 years old, \% & 25.5 & 34.7 & 33.8 & 33.3 & 31.0 & 36.6 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 5.5 & 6.3 & 4.5 & 4.2 & 5.5 & 7.7 & <0.001\\
-\hspace{1em}History of hypertension, \% & 18.4 & 17.9 & 17.5 & 17.1 & 16.8 & 18.7 & 0.039\\
-\rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.0 & 3.4 & 3.8 & 3.0 & 3.0 & 3.5 & <0.001\\
-\hspace{1em}History of liver diseases, \% & 5.8 & 6.5 & 6.3 & 6.0 & 5.4 & 7.2 & <0.001\\
+\multicolumn{7}{l}{\textbf{Men (n = 39386)}}\\
+\hspace{1em}Number of subjects & 8508 & 30878 & 3522 & 5928 & 5563 & 15865\\
+\hspace{1em}Age, year (mean (SD)) & 56.8 (9.9) & 56.8 (10.2) & 55.2 (10.1) & 55.4 (10.1) & 55.4 (9.9) & 58.1 (10.1)\\
+\rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 58.7 & 49.8 & 57.4 & 55.9 & 51.1 & 45.4\\
+\hspace{1em}Daily alcohol drinker, \% & 51.9 & 47.8 & 50.9 & 48.4 & 48.6 & 46.5\\
+\rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 22.6 (3.4) & 22.7 (3.4) & 22.8 (2.8) & 22.8 (2.8) & 22.9 (5.4) & 22.6 (2.8)\\
+\hspace{1em}Exercise (> 1h/week), \% & 19.0 & 27.6 & 26.5 & 25.0 & 25.5 & 29.5\\
+\rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 35.6 & 35.9 & 34.6 & 36.2 & 35.1 & 36.3\\
+\hspace{1em}Vegetable intake, daily, \% & 21.3 & 25.4 & 20.1 & 20.4 & 20.8 & 30.1\\
+\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 14.8 & 22.4 & 15.4 & 16.3 & 17.3 & 28.1\\
+\hspace{1em}Green tea intake, daily, \% & 76.5 & 79.2 & 79.9 & 78.3 & 77.9 & 79.8\\
+\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 43.8 & 50.7 & 50.5 & 48.0 & 47.5 & 52.9\\
+\hspace{1em}Educated over 18 years old, \% & 25.5 & 34.7 & 33.8 & 33.3 & 31.0 & 36.6\\
+\rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 5.0 & 6.3 & 4.5 & 4.2 & 5.5 & 7.7\\
+\hspace{1em}History of hypertension, \% & 18.4 & 17.9 & 17.5 & 17.1 & 16.8 & 18.7\\
+\rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.0 & 3.4 & 3.8 & 3.0 & 3.0 & 3.5\\
+\hspace{1em}History of liver diseases, \% & 5.8 & 6.5 & 6.3 & 6.0 & 5.4 & 7.2\\
 \rowcolor{gray!6}  \addlinespace[0.3em]
-\multicolumn{8}{l}{\textbf{Women (n = 545999)}}\\
-\hspace{1em}number of subjects & 10407 & 44592 & 3640 & 7590 & 8108 & 25254 & \\
-\hspace{1em}Age, year (mean (SD)) & 58.0 (10.2) & 56.9 (9.9) & 56.5 (10.2) & 55.6 (10.1) & 55.6 (9.9) & 57.9 (9.9) & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 6.9 & 4.2 & 6.1 & 5.5 & 4.3 & 3.5 & <0.001\\
-\hspace{1em}Daily alcohol drinker, \% & 4.3 & 4.5 & 5.5 & 4.3 & 4.2 & 4.6 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}BMI, kg/m2 (mean (SD)) & 23.0 (3.4) & 22.9 (3.7) & 23.0 (3.8) & 23.1 (4.4) & 23.1 (3.1) & 22.8 (3.6) & <0.001\\
-\hspace{1em}Exercise (> 1h/week), \% & 13.6 & 20.8 & 17.1 & 18.5 & 18.8 & 22.6 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 27.7 & 25.6 & 25.1 & 25.9 & 25.4 & 25.7 & <0.001\\
-\hspace{1em}Vegetable intake, daily, \% & 24.7 & 30.4 & 25.0 & 24.6 & 24.2 & 34.8 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 25.0 & 35.7 & 26.6 & 29.2 & 29.2 & 41.1 & <0.001\\
-\hspace{1em}Green tea intake, daily, \% & 73.8 & 76.8 & 77.0 & 76.4 & 75.8 & 77.3 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 39.6 & 48.2 & 46.2 & 46.4 & 44.4 & 50.2 & <0.001\\
-\hspace{1em}Educated over 18 years old, \% & 19.9 & 31.6 & 27.9 & 29.8 & 27.4 & 34.0 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 2.6 & 3.7 & 3.2 & 2.7 & 2.7 & 4.4 & <0.001\\
-\hspace{1em}History of hypertension, \% & 21.5 & 19.7 & 20.5 & 19.1 & 18.9 & 20.0 & <0.001\\
-\rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4 & <0.001\\
-\hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0 & <0.001\\
+\multicolumn{7}{l}{\textbf{Women (n = 54999)}}\\
+\hspace{1em}number of subjects & 10407 & 44592 & 3640 & 7590 & 8108 & 25254\\
+\hspace{1em}Age, year (mean (SD)) & 58.0 (10.2) & 56.9 (9.9) & 56.5 (10.2) & 55.6 (10.1) & 55.6 (9.9) & 57.9 (9.9)\\
+\rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 6.9 & 4.2 & 6.1 & 5.5 & 4.3 & 3.5\\
+\hspace{1em}Daily alcohol drinker, \% & 4.3 & 4.5 & 5.5 & 4.3 & 4.2 & 4.6\\
+\rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 23.0 (3.4) & 22.9 (3.7) & 23.0 (3.8) & 23.1 (4.4) & 23.1 (3.1) & 22.8 (3.6)\\
+\hspace{1em}Exercise (> 1h/week), \% & 13.6 & 20.8 & 17.1 & 18.5 & 18.8 & 22.6\\
+\rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 27.7 & 25.6 & 25.1 & 25.9 & 25.4 & 25.7\\
+\hspace{1em}Vegetable intake, daily, \% & 24.7 & 30.4 & 25.0 & 24.6 & 24.2 & 34.8\\
+\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 25.0 & 35.7 & 26.6 & 29.2 & 29.2 & 41.1\\
+\hspace{1em}Green tea intake, daily, \% & 73.8 & 76.8 & 77.0 & 76.4 & 75.8 & 77.3\\
+\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 39.6 & 48.2 & 46.2 & 46.4 & 44.4 & 50.2\\
+\hspace{1em}Educated over 18 years old, \% & 19.9 & 31.6 & 27.9 & 29.8 & 27.4 & 34.0\\
+\rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 2.6 & 3.7 & 3.2 & 2.7 & 2.7 & 4.4\\
+\hspace{1em}History of hypertension, \% & 21.5 & 19.7 & 20.5 & 19.1 & 18.9 & 20.0\\
+\rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4\\
+\hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0\\
 \bottomrule
 \end{tabular}}
 \end{table}
+
 
 
 # Results
