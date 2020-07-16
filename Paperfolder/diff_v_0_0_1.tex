@@ -1,7 +1,7 @@
 %  LaTeX support: latex@mdpi.com
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL Paperfolder_v0_0_0.tex   Thu Jul 16 10:50:49 2020
-%DIF ADD Paperfolder.tex          Thu Jul 16 10:51:01 2020
+%DIF ADD Paperfolder.tex          Thu Jul 16 17:48:17 2020
 %  In case you need support, please attach all files that are necessary for compiling as well as the log file, and specify the details of your LaTeX setup (which operating system and LaTeX version / tools you are using).
 
 %=================================================================
@@ -157,10 +157,11 @@ and HR for daily milk consumers were 0.88 (95\% Credible Interval, CrI:
 %DIF 145c145-148
 %DIF < 0.88, 1.10) and 0.95 (95\% CrI: 0.80, 1.17) for women.}
 %DIF -------
-0.88, 1.10) and 0.95 (95\% CrI: 0.80, 1.17) for women. \DIFaddbegin \DIFadd{In conclusion, %DIF > 
-data from the JACC study has provided strong evidence that daily milk %DIF > 
-intake among Japanese men was associated with delayed and lower hazard %DIF > 
-of mortality from stroke especially cerebral infarction. }\DIFaddend } %DIF > 
+0.88, 1.10) and 0.95 (95\% CrI: 0.80, 1.17) for women.\DIFaddbegin \DIFadd{In conclusion, %DIF >
+    data from the JACC study has provided strong evidence that daily milk %DIF >
+    intake among Japanese men was associated with delayed and lower hazard %DIF >
+    of mortality from stroke especially cerebral infarction. }\DIFaddend
+} %DIF > 
 %DIF -------
 
 % Keywords
@@ -265,36 +266,69 @@ time-to-event data; JACC study}
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Dairy food, especially milk has been \DIFdelbegin \DIFdel{recommended }\DIFdelend \DIFaddbegin \DIFadd{suggested }\DIFaddend to reduce stroke risk by
-nearly 7\% for each 200 g increment of daily consumption
-\citep{DeGoede2016}. More intuitive interpretation for a decreasing risk
+\DIFaddbegin \DIFadd{Eastern Asian populations were reported to have higher burden from
+either mortality or morbidity from stroke than populations in European
+or American regions \mbox{%DIFAUXCMD
+\citep{Kim2014}}\hspace{0pt}%DIFAUXCMD
+. }\DIFaddend Dairy food, especially milk has
+been \DIFdelbegin \DIFdel{recommended }\DIFdelend \DIFaddbegin \DIFadd{suggested }\DIFaddend to reduce stroke risk by nearly 7\% for each 200 g
+increment of daily consumption \citep{DeGoede2016}. \DIFdelbegin \DIFdel{More intuitive interpretation for a decreasing risk
 would be possible if we were able to compute the exact probability for
 people who had milk intake may had lower hazard of dying from stroke
 compared with those who never drank milk at all. For general
-public/media reporting, concept of hazard in epidemiological studies
+public}\DIFdelend \DIFaddbegin \DIFadd{Although 2 daily
+servings of milk or dairy products is recommended in Japan
+\mbox{%DIFAUXCMD
+\citep{Yoshiike2007}}\hspace{0pt}%DIFAUXCMD
+, the actual per capita intake (\(\approx\) 63
+g}\DIFaddend /\DIFdelbegin \DIFdel{media reporting, concept of hazard in epidemiological studies
 could still sometimes be challenging to be understood or misinterpreted
 since hazard is formally defined as the probability of the occurrence of
-an event at a given time point \citep{collett2015modelling}. Usually,
+an event at a given time point \mbox{%DIFAUXCMD
+\citep{collett2015modelling}}\hspace{0pt}%DIFAUXCMD
+. Usually,
 authors of epidemiological papers would tend to use ``risk'' instead of
 ``hazard'' or interchangeably. However, it would still possibly be mixed
 up with ``risk'' that only contain pure meaning of ``probability of an
 event'' without redefining a point or a period of time in
-cross-sectional settings. For better understanding and interpretation of
-the findings from data that researchers endeavored to collect,
-statistical literature have provided plenty of choices that could help
+cross-sectional settings.
+For better understanding and interpretation of
+the findings from data that researchers endeavored to collect, statistical literature have provided plenty of choices that could help
 us better communicate with each other. Another approach of comparing the
-time-to-event survival probabilities between different groups would be
-to model the time before observing an event rather than the hazard which
-always required the assumption of a proportional hazard to be met.
-Accelerated failure time models are among these convenient tools that
-would avoid worrying about the assumption of proportional hazard and
-directly showing how faster/slower one individual in an exposure group
+time-to-event survival probabilities between different groups would be to model the time before observing an event rather than the hazard which
+always required the assumption of a proportional hazard to be met}\DIFdelend \DIFaddbegin \DIFadd{day) of these food groups is much lower and less frequent than that in
+the Western countries \mbox{%DIFAUXCMD
+\citep{Saito2019}}\hspace{0pt}%DIFAUXCMD
+. Given that previous reports
+have also indicated no significant
+\mbox{%DIFAUXCMD
+\citep{Iso1999, sauvaget2003intake, Elwood2004} }\hspace{0pt}%DIFAUXCMD
+or even positive
+associations \mbox{%DIFAUXCMD
+\citep{Larsson2009}}\hspace{0pt}%DIFAUXCMD
+, whether people with such a low level
+intake of milk can still benefit against stroke would be questionable.
+Even if there is any benefit, not every individual with habitual milk
+intake can avoid dying from stroke. A more intuitive interpretation
+would be available if we were able to show the probabilities and how
+certain the existing data can provide evidence about whether drinking
+milk can delay a stroke event or lower the hazard of dying from stroke}\DIFaddend .
+Accelerated failure time models \DIFdelbegin \DIFdel{are among these }\DIFdelend \DIFaddbegin \DIFadd{under Bayesian framework are }\DIFaddend convenient
+tools that would \DIFaddbegin \DIFadd{help }\DIFaddend avoid worrying about the assumption of
+proportional hazard \DIFdelbegin \DIFdel{and
+directly showing }\DIFdelend \DIFaddbegin \DIFadd{normally required in a Cox proportional hazard model
+and can directly show }\DIFaddend how faster/slower \DIFdelbegin \DIFdel{one individual }\DIFdelend \DIFaddbegin \DIFadd{individuals }\DIFaddend in an exposure group
 might have an event compared to others among different exposure groups
-\citep{Wei1992}.
+\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{Wei1992}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{Wei1992, ibrahim2014b}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddend .
 
-Our aim was to overcome these potential pitfalls, avoid
-misunderstanding, and provide a more straightforward answer to the main
-research question that whether someone answered he/she drank milk at the
+Our aim was to \DIFdelbegin \DIFdel{overcome these potential pitfalls, avoid
+misunderstanding, and }\DIFdelend provide a more straightforward answer to the \DIFdelbegin \DIFdel{main
+}\DIFdelend \DIFaddbegin \DIFadd{primary
+}\DIFaddend research question that whether someone answered he/she drank milk at the
 baseline of study had lower hazard of dying from stroke compared with
 his/her counterparts who said they never consumed milk. If the answer to
 the primary objective was yes, then the probabilities that individuals
@@ -302,9 +336,11 @@ with different frequencies of milk intake may had lower hazard compared
 with those who never drank milk were calculated through a Markov Chain
 Monte Carlo (MCMC) simulation process. A Bayesian survival analysis
 method was applied on an existing database and through which, we also
-provided estimates about whether drinking milk could delay or slow down
-the speed towards a mortality from stroke event from happening after
-controlling for the other potential confounders.
+provided estimates about whether drinking milk could delay \DIFdelbegin \DIFdel{or slow down
+the speed towards a mortality from stroke
+}\DIFdelend \DIFaddbegin \DIFadd{a stroke
+mortality }\DIFaddend event from happening after controlling for the other potential
+confounders.
 
 \hypertarget{materials-and-methods}{%
 \section{Materials and Methods}\label{materials-and-methods}}
@@ -361,9 +397,10 @@ in their death certificates were available.
 
 We calculated sex-specific means (standard deviation, sd) and proportion
 of selected baseline characteristics according to the frequency of milk
-intake. Overall difference across the milk intake groups were tested by
+intake. \DIFdelbegin \DIFdel{Overall difference across the milk intake groups were tested by
 either analysis of variance for continuous variables or \(\chi^2\) test
-for categorical variables.
+for categorical variables}\DIFdelend \DIFaddbegin \DIFadd{Age-adjusted stroke mortality rate were expressed as per 1000
+person-year through the poisson regression model}\DIFaddend .
 
 Full parametric proportional hazard models under Bayesian framework with
 Weibull distribution were fitted using Just Another Gibbs Sampler (JAGS)
@@ -512,7 +549,11 @@ The total follow-up was 1555073 person-years (median = 19.3 years),
 during which 2675 death from stroke was confirmed (1352 men and 1323
 women). Among these stroke mortality, 952 were hemorrhagic stroke (432
 men and 520 women), and 957 were cerebral infarction (520 men and 437
-women).
+women). \DIFaddbegin \DIFadd{Age-adjusted stroke mortality rate for each category of milk
+intake frequency was estimated to be 1.8, 2.0, 1.7, 1.6, 1.5 per 1000
+person-year for men and 1.3, 1.4, 1.2, 1.1, 1.2 per 1000 person-year for
+women.
+}\DIFaddend 
 
 As listed in \textbf{Table \ref{tab:tab1f}}, compared with those who
 chose ``never'' as their milk intake frequency at baseline, milk
@@ -780,20 +821,24 @@ angiotensin convertase enzyme inhibitory potential, which might partly
 explain why the effect was found mainly for mortality from cerebral
 infarction in the current study.
 
-Some limitations here are worth mentioning. First, although our object
+Some limitations here are worth mentioning. First, \DIFdelbegin \DIFdel{although our object
 was not to answer which type of milk is protective, but if such
 information were somehow available in the JACC study database, more
-detailed comparison or stratification would have been possible. Second,
-despite reasonable validity of FFQ in the JACC study cohort was assessed
-and confirmed, measurement errors are inevitable. Therefore, we did not
-try to compute the amount of consumption by multiplying an average
-volume per occasion with the frequency of intake since the random error
-might be exaggerated and the observed associations may have attenuated.
-Strengths of our analyses included that we have transformed the research
-questions to more transparent ones that is easier for interpretation.
-Direct probabilities that daily milk intake is associated with lower
-hazard or delayed stroke mortality event were provided here after
-thorough computer simulation.
+detailed comparison or stratification would have been possible}\DIFdelend \DIFaddbegin \DIFadd{the milk intake
+frequency as well as other lifestyle information was collected only once
+at the baseline and was self-reported. Apparently habits in life are
+possible to alter over the time and these would resulted in
+misclassfication and residual confoudings}\DIFaddend . Second, despite reasonable
+validity of FFQ in the JACC study cohort was assessed and confirmed,
+measurement errors are inevitable. Therefore, we did not try to compute
+the amount of consumption by multiplying an average volume per occasion
+with the frequency of intake since the random error might be exaggerated
+and the observed associations may have attenuated. Strengths of our
+analyses included that we have transformed the research questions to
+more transparent ones that is easier for interpretation. Direct
+probabilities that daily milk intake is associated with lower hazard or
+delayed stroke mortality event were provided here after thorough
+computer simulation.
 
 In conclusion, the JACC study database has provided evidence that
 Japanese men who consumed milk daily had lower hazard of dying from
