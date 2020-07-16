@@ -39,6 +39,12 @@ affiliation:
   - num: 4
     address: |
       Department of Public Health, Faculty of Medicine, Hokkaido University, Sapporo, Japan
+#    email: yatsuya@gmail.com
+# firstnote to eighthnote
+# firstnote: |
+#   Current address: Updated affiliation
+# secondnote: |
+#   These authors contributed equally to this work.
 correspondence: |
   Email.: chaochen@wangcc.me; Tel.: +81-561-62-3311. Department of Public Health, Aichi Medical University School of Medicine, 1-1 Yazakokarimata, Nagakute, Aichi, 480-1195, Japan (C.W.)
 journal: nutrients
@@ -49,7 +55,7 @@ bibliography: milk.bib
 # simplesummary: |
 #  A Simple summary goes here.
 abstract: |
-  The aim was to further examine the relationship between milk intake and stroke mortality among the Japanese population. We used data from the Japan Collaborative Cohort (JACC) Study to estimate the posterior acceleration factors (AF) as well as the hazard ratios (HR) comparing individuals with different milk intake frequencies against those who never consumed milk at the study baseline. These estimations were computed through a series of Bayesian survival models that employed a Markov Chain Monte Carlo simulation process. 100000 posterior samples for each individual were generated separately through four independent chains after model convergency were confirmed. Posterior probabilites that daily milk consumers had lower hazard or delayed mortality from strokes compared to non-consumers was 99.0% and 78.0% for men and women, respectively. Accordingly, the estimated posterior means of AF and HR for daily milk consumers were 0.88 (95% Credible Interval, CrI: 0.81, 0.96) and 0.80 (95% CrI: 0.69, 0.93) for men and 0.97 (95% CrI: 0.88, 1.10) and 0.95 (95% CrI: 0.80, 1.17) for women. In conclusion, data from the JACC study has provided strong evidence that daily milk intake among Japanese men was associated with delayed and lower hazard of mortality from stroke especially cerebral infarction.
+  The aim was to further examine the relationship between milk intake and stroke mortality among the Japanese population. We used data from the Japan Collaborative Cohort Study to estimate the posterior acceleration factors (AF) as well as the hazard ratios (HR) comparing individuals with different milk intake frequencies against those who never consumed milk at the study baseline. These estimations were computed through a series of Bayesian survival models that employed a Markov Chain Monte Carlo simulation process. 100000 posterior samples for each individual were generated separately through four independent chains after model convergency were confirmed. Posterior probabilites that daily milk consumers had lower hazard or delayed mortality from strokes compared to non-consumers was 99.0% and 78.0% for men and women, respectively. Accordingly, the estimated posterior means of AF and HR for daily milk consumers were 0.88 (95% Credible Interval, CrI: 0.81, 0.96) and 0.80 (95% CrI: 0.69, 0.93) for men and 0.97 (95% CrI: 0.88, 1.10) and 0.95 (95% CrI: 0.80, 1.17) for women.
 keywords: |
   milk intake; mortality; stroke; Bayesian survival anlysis; time-to-event data; JACC study 
 acknowledgement: |
@@ -88,7 +94,7 @@ output: rticles::mdpi_article
 
 # Introduction
 
-Dairy food, especially milk has been suggested to reduce stroke risk by nearly 7% for each 200 g increment of daily consumption [@DeGoede2016]. More intuitive interpretation for a decreasing risk would be possible if we were able to compute the exact probability for people who had milk intake may had lower hazard of dying from stroke compared with those who never drank milk at all. For general public/media reporting, concept of hazard in epidemiological studies could still sometimes be challenging to be understood or misinterpreted since hazard is formally defined as the probability of the occurrence of an event at a given time point [@collett2015modelling]. Usually, authors of epidemiological papers would tend to use "risk" instead of "hazard" or interchangeably. However, it would still possibly be mixed up with "risk" that only contain pure meaning of "probability of an event" without redefining a point or a period of time in cross-sectional settings. For better understanding and interpretation of the findings from data that researchers endeavored to collect, statistical literature have provided plenty of choices that could help us better communicate with each other. Another approach of comparing the time-to-event survival probabilities between different groups would be to model the time before observing an event rather than the hazard which always required the assumption of a proportional hazard to be met. Accelerated failure time models are among these convenient tools that would avoid worrying about the assumption of proportional hazard and directly showing how faster/slower one individual in an exposure group might have an event compared to others among different exposure groups [@Wei1992]. 
+Dairy food, especially milk has been recommended to reduce stroke risk by nearly 7% for each 200 g increment of daily consumption [@DeGoede2016]. More intuitive interpretation for a decreasing risk would be possible if we were able to compute the exact probability for people who had milk intake may had lower hazard of dying from stroke compared with those who never drank milk at all. For general public/media reporting, concept of hazard in epidemiological studies could still sometimes be challenging to be understood or misinterpreted since hazard is formally defined as the probability of the occurrence of an event at a given time point [@collett2015modelling]. Usually, authors of epidemiological papers would tend to use "risk" instead of "hazard" or interchangeably. However, it would still possibly be mixed up with "risk" that only contain pure meaning of "probability of an event" without redefining a point or a period of time in cross-sectional settings. For better understanding and interpretation of the findings from data that researchers endeavored to collect, statistical literature have provided plenty of choices that could help us better communicate with each other. Another approach of comparing the time-to-event survival probabilities between different groups would be to model the time before observing an event rather than the hazard which always required the assumption of a proportional hazard to be met. Accelerated failure time models are among these convenient tools that would avoid worrying about the assumption of proportional hazard and directly showing how faster/slower one individual in an exposure group might have an event compared to others among different exposure groups [@Wei1992]. 
 
 Our aim was to overcome these potential pitfalls, avoid misunderstanding, and provide a more straightforward answer to the main research question that whether someone answered he/she drank milk at the baseline of study had lower hazard of dying from stroke compared with his/her counterparts who said they never consumed milk. If the answer to the primary objective was yes, then the probabilities that individuals with different frequencies of milk intake may had lower hazard compared with those who never drank milk were calculated through a Markov Chain Monte Carlo (MCMC) simulation process. A Bayesian survival analysis method was applied on an existing database and through which, we also provided estimates about whether drinking milk could delay or slow down the speed towards a mortality from stroke event from happening after controlling for the other potential confounders. 
 
@@ -123,69 +129,68 @@ library(kableExtra)
 dt <- read.csv("tab/tab1.csv", header = T)
 names(dt) <- c("", "Never", "Drinker", "1-2 times/Month", "1-2 times/Week", "3-4 times/Week", "Almost Daily", "P value")
 
-kable(dt[,-8], format = "latex", caption = "Sex-specific baseline characteristics according to the frequency of milk intake.", booktabs = T,linesep = "", align = "lcccccc") %>%
+kable(dt, format = "latex", caption = "Sex-specific baseline characteristics according to the frequency of milk intake.", booktabs = T,linesep = "") %>%
 kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
-  add_header_above(c(" ", "", "", "Milk drinkers" = 4)) %>%
+  add_header_above(c(" ", "", "", "Milk drinkers" = 4, "")) %>%
   # add_indent(c(4:6, 8:11, 14:17, 19, 20, 22:25, 27:30, 32:35, 37:39, 41:43, 45, 47, 49, 51, 53, 55)) %>%
-   row_spec(0, bold = T) %>% 
   pack_rows("Men (n = 39386)", 1, 16) %>%
   pack_rows("Women (n = 54999)", 17, 32) #%>% 
   # footnote(c("Abbreviations: n, number; SD, standard deviation; Alc_Fre, alcohol intake; BMI, Body Mass Index; Slepgrp, sleep duration", "groups; Veg, vegetable intake; Coffe, coffee intake; DM/HT/KID/LIV_hist, diabetes, hypertension, kidney disease,", "liver disease history."))
 ```
 
-\begin{table}[h]
 
-\caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake  (JACC study, 1988-2009).}
+
+\begin{table}[h]
+\caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake (JACC study, 1988-2009).}
 \centering
 \fontsize{8}{10}\selectfont
 \resizebox{\textwidth}{!}{%
-\begin{tabular}[t]{lcccccc}
+\begin{tabular}[t]{lccccccc}
 \toprule
-\multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\textbf{Milk drinkers}} \\
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\textbf{Milk drinkers}} & \multicolumn{1}{c}{} \\
 \cmidrule(l{3pt}r{3pt}){4-7}
- & \textbf{Never} & \textbf{Drinkers} & \textbf{1-2 times/} & \textbf{1-2 times/} & \textbf{3-4 times/} & \textbf{Almost}  \\
- &       &         & \textbf{Month}     & \textbf{Week}      & \textbf{Week}         & \textbf{Daily}  \\
+ & \textbf{Never} & \textbf{Drinkers} & \textbf{1-2 times/} & \textbf{1-2 times/} & \textbf{3-4 times/} & \textbf{Almost} & \\
+ &       &         & \textbf{Month}     & \textbf{Week}      & \textbf{Week}         & \textbf{Daily}  & \textbf{\textit{P} value}\\
 \midrule
 \rowcolor{gray!6}  \addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Men (n = 39386)}}\\
-\hspace{1em}Number of subjects & 8508 & 30878 & 3522 & 5928 & 5563 & 15865\\
-\hspace{1em}Age, year (mean (SD)) & 56.8 (9.9) & 56.8 (10.2) & 55.2 (10.1) & 55.4 (10.1) & 55.4 (9.9) & 58.1 (10.1)\\
-\rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 58.7 & 49.8 & 57.4 & 55.9 & 51.1 & 45.4\\
-\hspace{1em}Daily alcohol drinker, \% & 51.9 & 47.8 & 50.9 & 48.4 & 48.6 & 46.5\\
-\rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 22.6 (3.4) & 22.7 (3.4) & 22.8 (2.8) & 22.8 (2.8) & 22.9 (5.4) & 22.6 (2.8)\\
-\hspace{1em}Exercise (> 1h/week), \% & 19.0 & 27.6 & 26.5 & 25.0 & 25.5 & 29.5\\
-\rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 35.6 & 35.9 & 34.6 & 36.2 & 35.1 & 36.3\\
-\hspace{1em}Vegetable intake, daily, \% & 21.3 & 25.4 & 20.1 & 20.4 & 20.8 & 30.1\\
-\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 14.8 & 22.4 & 15.4 & 16.3 & 17.3 & 28.1\\
-\hspace{1em}Green tea intake, daily, \% & 76.5 & 79.2 & 79.9 & 78.3 & 77.9 & 79.8\\
-\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 43.8 & 50.7 & 50.5 & 48.0 & 47.5 & 52.9\\
-\hspace{1em}Educated over 18 years old, \% & 25.5 & 34.7 & 33.8 & 33.3 & 31.0 & 36.6\\
-\rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 5.0 & 6.3 & 4.5 & 4.2 & 5.5 & 7.7\\
-\hspace{1em}History of hypertension, \% & 18.4 & 17.9 & 17.5 & 17.1 & 16.8 & 18.7\\
-\rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.0 & 3.4 & 3.8 & 3.0 & 3.0 & 3.5\\
-\hspace{1em}History of liver diseases, \% & 5.8 & 6.5 & 6.3 & 6.0 & 5.4 & 7.2\\
+\multicolumn{8}{l}{\textbf{Men (n = 39386)}}\\
+\hspace{1em}number of subjects & 8508 & 30878 & 3522 & 5928 & 5563 & 15865 & \\
+\hspace{1em}Age, year (mean (SD)) & 56.8 (9.9) & 56.8 (10.2) & 55.2 (10.1) & 55.4 (10.1) & 55.4 (9.9) & 58.1 (10.1) & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 58.7 & 49.8 & 57.4 & 55.9 & 51.1 & 45.4 & <0.001\\
+\hspace{1em}Daily alcohol drinker, \% & 51.9 & 47.8 & 50.9 & 48.4 & 48.6 & 46.5 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 22.6 (3.4) & 22.7 (3.4) & 22.8 (2.8) & 22.8 (2.8) & 22.9 (5.4) & 22.6 (2.8) & <0.001\\
+\hspace{1em}Exercise (> 1h/week), \% & 19.0 & 27.6 & 26.5 & 25.0 & 25.5 & 29.5 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 35.6 & 35.9 & 34.6 & 36.2 & 35.1 & 36.3 & <0.001\\
+\hspace{1em}Vegetable intake, daily, \% & 21.3 & 25.4 & 20.1 & 20.4 & 20.8 & 30.1 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 14.8 & 22.4 & 15.4 & 16.3 & 17.3 & 28.1 & <0.001\\
+\hspace{1em}Green tea intake, daily, \% & 76.5 & 79.2 & 79.9 & 78.3 & 77.9 & 79.8 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 43.8 & 50.7 & 50.5 & 48.0 & 47.5 & 52.9 & <0.001\\
+\hspace{1em}Educated over 18 years old, \% & 25.5 & 34.7 & 33.8 & 33.3 & 31.0 & 36.6 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 5.5 & 6.3 & 4.5 & 4.2 & 5.5 & 7.7 & <0.001\\
+\hspace{1em}History of hypertension, \% & 18.4 & 17.9 & 17.5 & 17.1 & 16.8 & 18.7 & 0.039\\
+\rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.0 & 3.4 & 3.8 & 3.0 & 3.0 & 3.5 & <0.001\\
+\hspace{1em}History of liver diseases, \% & 5.8 & 6.5 & 6.3 & 6.0 & 5.4 & 7.2 & <0.001\\
 \rowcolor{gray!6}  \addlinespace[0.3em]
-\multicolumn{7}{l}{\textbf{Women (n = 54999)}}\\
-\hspace{1em}number of subjects & 10407 & 44592 & 3640 & 7590 & 8108 & 25254\\
-\hspace{1em}Age, year (mean (SD)) & 58.0 (10.2) & 56.9 (9.9) & 56.5 (10.2) & 55.6 (10.1) & 55.6 (9.9) & 57.9 (9.9)\\
-\rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 6.9 & 4.2 & 6.1 & 5.5 & 4.3 & 3.5\\
-\hspace{1em}Daily alcohol drinker, \% & 4.3 & 4.5 & 5.5 & 4.3 & 4.2 & 4.6\\
-\rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 23.0 (3.4) & 22.9 (3.7) & 23.0 (3.8) & 23.1 (4.4) & 23.1 (3.1) & 22.8 (3.6)\\
-\hspace{1em}Exercise (> 1h/week), \% & 13.6 & 20.8 & 17.1 & 18.5 & 18.8 & 22.6\\
-\rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 27.7 & 25.6 & 25.1 & 25.9 & 25.4 & 25.7\\
-\hspace{1em}Vegetable intake, daily, \% & 24.7 & 30.4 & 25.0 & 24.6 & 24.2 & 34.8\\
-\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 25.0 & 35.7 & 26.6 & 29.2 & 29.2 & 41.1\\
-\hspace{1em}Green tea intake, daily, \% & 73.8 & 76.8 & 77.0 & 76.4 & 75.8 & 77.3\\
-\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 39.6 & 48.2 & 46.2 & 46.4 & 44.4 & 50.2\\
-\hspace{1em}Educated over 18 years old, \% & 19.9 & 31.6 & 27.9 & 29.8 & 27.4 & 34.0\\
-\rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 2.6 & 3.7 & 3.2 & 2.7 & 2.7 & 4.4\\
-\hspace{1em}History of hypertension, \% & 21.5 & 19.7 & 20.5 & 19.1 & 18.9 & 20.0\\
-\rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4\\
-\hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0\\
+\multicolumn{8}{l}{\textbf{Women (n = 545999)}}\\
+\hspace{1em}number of subjects & 10407 & 44592 & 3640 & 7590 & 8108 & 25254 & \\
+\hspace{1em}Age, year (mean (SD)) & 58.0 (10.2) & 56.9 (9.9) & 56.5 (10.2) & 55.6 (10.1) & 55.6 (9.9) & 57.9 (9.9) & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 6.9 & 4.2 & 6.1 & 5.5 & 4.3 & 3.5 & <0.001\\
+\hspace{1em}Daily alcohol drinker, \% & 4.3 & 4.5 & 5.5 & 4.3 & 4.2 & 4.6 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}BMI, kg/m2 (mean (SD)) & 23.0 (3.4) & 22.9 (3.7) & 23.0 (3.8) & 23.1 (4.4) & 23.1 (3.1) & 22.8 (3.6) & <0.001\\
+\hspace{1em}Exercise (> 1h/week), \% & 13.6 & 20.8 & 17.1 & 18.5 & 18.8 & 22.6 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 27.7 & 25.6 & 25.1 & 25.9 & 25.4 & 25.7 & <0.001\\
+\hspace{1em}Vegetable intake, daily, \% & 24.7 & 30.4 & 25.0 & 24.6 & 24.2 & 34.8 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 25.0 & 35.7 & 26.6 & 29.2 & 29.2 & 41.1 & <0.001\\
+\hspace{1em}Green tea intake, daily, \% & 73.8 & 76.8 & 77.0 & 76.4 & 75.8 & 77.3 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 39.6 & 48.2 & 46.2 & 46.4 & 44.4 & 50.2 & <0.001\\
+\hspace{1em}Educated over 18 years old, \% & 19.9 & 31.6 & 27.9 & 29.8 & 27.4 & 34.0 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 2.6 & 3.7 & 3.2 & 2.7 & 2.7 & 4.4 & <0.001\\
+\hspace{1em}History of hypertension, \% & 21.5 & 19.7 & 20.5 & 19.1 & 18.9 & 20.0 & <0.001\\
+\rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4 & <0.001\\
+\hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0 & <0.001\\
 \bottomrule
 \end{tabular}}
 \end{table}
-
 
 
 # Results
@@ -454,6 +459,5 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 7) %>%
   # add_header_above(c(" ", "Estimated HR in Men" = 4, "Estimated HR in Women" = 4)) %>% 
   footnote(c("Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;", " Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.", "Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.", "Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of",  "hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.")) 
 ```
-
 
 

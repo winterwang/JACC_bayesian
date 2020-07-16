@@ -1,4 +1,7 @@
 %  LaTeX support: latex@mdpi.com
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL Paperfolder_v0_0_0.tex   Thu Jul 16 10:50:49 2020
+%DIF ADD Paperfolder.tex          Thu Jul 16 10:51:01 2020
 %  In case you need support, please attach all files that are necessary for compiling as well as the log file, and specify the details of your LaTeX setup (which operating system and LaTeX version / tools you are using).
 
 %=================================================================
@@ -129,12 +132,21 @@ School of Medicine, 1-1 Yazakokarimata, Nagakute, Aichi, 480-1195, Japan
 % Abstract (Do not insert blank lines, i.e. \\)
 \abstract{The aim was to further examine the relationship between milk
 intake and stroke mortality among the Japanese population. We used data
-from the Japan Collaborative Cohort (JACC) Study to estimate the
-posterior acceleration factors (AF) as well as the hazard ratios (HR)
-comparing individuals with different milk intake frequencies against
-those who never consumed milk at the study baseline. These estimations
-were computed through a series of Bayesian survival models that employed
-a Markov Chain Monte Carlo simulation process. 100000 posterior samples
+%DIF 132-137c132-137
+%DIF < from the Japan Collaborative Cohort Study to estimate the posterior
+%DIF < acceleration factors (AF) as well as the hazard ratios (HR) comparing
+%DIF < individuals with different milk intake frequencies against those who
+%DIF < never consumed milk at the study baseline. These estimations were
+%DIF < computed through a series of Bayesian survival models that employed a
+%DIF < Markov Chain Monte Carlo simulation process. 100000 posterior samples
+%DIF -------
+from the Japan Collaborative Cohort (JACC) Study to estimate the %DIF > 
+posterior acceleration factors (AF) as well as the hazard ratios (HR) %DIF > 
+comparing individuals with different milk intake frequencies against %DIF > 
+those who never consumed milk at the study baseline. These estimations %DIF > 
+were computed through a series of Bayesian survival models that employed %DIF > 
+a Markov Chain Monte Carlo simulation process. 100000 posterior samples %DIF > 
+%DIF -------
 for each individual were generated separately through four independent
 chains after model convergency were confirmed. Posterior probabilites
 that daily milk consumers had lower hazard or delayed mortality from
@@ -142,10 +154,14 @@ strokes compared to non-consumers was 99.0\% and 78.0\% for men and
 women, respectively. Accordingly, the estimated posterior means of AF
 and HR for daily milk consumers were 0.88 (95\% Credible Interval, CrI:
 0.81, 0.96) and 0.80 (95\% CrI: 0.69, 0.93) for men and 0.97 (95\% CrI:
-0.88, 1.10) and 0.95 (95\% CrI: 0.80, 1.17) for women. In conclusion,
-data from the JACC study has provided strong evidence that daily milk
-intake among Japanese men was associated with delayed and lower hazard
-of mortality from stroke especially cerebral infarction.}
+%DIF 145c145-148
+%DIF < 0.88, 1.10) and 0.95 (95\% CrI: 0.80, 1.17) for women.}
+%DIF -------
+0.88, 1.10) and 0.95 (95\% CrI: 0.80, 1.17) for women. \DIFaddbegin \DIFadd{In conclusion, %DIF > 
+data from the JACC study has provided strong evidence that daily milk %DIF > 
+intake among Japanese men was associated with delayed and lower hazard %DIF > 
+of mortality from stroke especially cerebral infarction. }\DIFaddend } %DIF > 
+%DIF -------
 
 % Keywords
 \keyword{milk intake; mortality; stroke; Bayesian survival anlysis;
@@ -180,6 +196,68 @@ time-to-event data; JACC study}
 
 
 \usepackage{graphicx}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -187,7 +265,7 @@ time-to-event data; JACC study}
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Dairy food, especially milk has been suggested to reduce stroke risk by
+Dairy food, especially milk has been \DIFdelbegin \DIFdel{recommended }\DIFdelend \DIFaddbegin \DIFadd{suggested }\DIFaddend to reduce stroke risk by
 nearly 7\% for each 200 g increment of daily consumption
 \citep{DeGoede2016}. More intuitive interpretation for a decreasing risk
 would be possible if we were able to compute the exact probability for
@@ -327,11 +405,59 @@ than 1 hour/week, yes/no), sleep duration (\(<\) 7, \(\geq\) 7 and \(<\)
 till age 18, yes/no)
 
 \begin{table}[h]
+\DIFaddbeginFL 
 
-\caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake  (JACC study, 1988-2009).}
+\DIFaddendFL \caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake  (JACC study, 1988-2009).}
 \centering
 \fontsize{8}{10}\selectfont
-\resizebox{\textwidth}{!}{%
+\DIFdelbeginFL %DIFDELCMD < \resizebox{\textwidth}{!}{%
+%DIFDELCMD < \begin{tabular}[t]{lccccccc}
+%DIFDELCMD < \toprule
+%DIFDELCMD < \multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\textbf{Milk drinkers}} & \multicolumn{1}{c}{} \\
+%DIFDELCMD < \cmidrule(l{3pt}r{3pt}){4-7}
+%DIFDELCMD <  & \textbf{Never} & \textbf{Drinkers} & \textbf{1-2 times/} & \textbf{1-2 times/} & \textbf{3-4 times/} & \textbf{Almost} & \\
+%DIFDELCMD <  &       &         & \textbf{Month}     & \textbf{Week}      & \textbf{Week}         & \textbf{Daily}  & \textbf{\textit{P} value}\\
+%DIFDELCMD < \midrule
+%DIFDELCMD < \rowcolor{gray!6}  \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{8}{l}{\textbf{Men (n = 39386)}}\\
+%DIFDELCMD < \hspace{1em}number of subjects & 8508 & 30878 & 3522 & 5928 & 5563 & 15865 & \\
+%DIFDELCMD < \hspace{1em}Age, year (mean (SD)) & 56.8 (9.9) & 56.8 (10.2) & 55.2 (10.1) & 55.4 (10.1) & 55.4 (9.9) & 58.1 (10.1) & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 58.7 & 49.8 & 57.4 & 55.9 & 51.1 & 45.4 & <0.001\\
+%DIFDELCMD < \hspace{1em}Daily alcohol drinker, \% & 51.9 & 47.8 & 50.9 & 48.4 & 48.6 & 46.5 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 22.6 (3.4) & 22.7 (3.4) & 22.8 (2.8) & 22.8 (2.8) & 22.9 (5.4) & 22.6 (2.8) & <0.001\\
+%DIFDELCMD < \hspace{1em}Exercise (> 1h/week), \% & 19.0 & 27.6 & 26.5 & 25.0 & 25.5 & 29.5 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 35.6 & 35.9 & 34.6 & 36.2 & 35.1 & 36.3 & <0.001\\
+%DIFDELCMD < \hspace{1em}Vegetable intake, daily, \% & 21.3 & 25.4 & 20.1 & 20.4 & 20.8 & 30.1 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 14.8 & 22.4 & 15.4 & 16.3 & 17.3 & 28.1 & <0.001\\
+%DIFDELCMD < \hspace{1em}Green tea intake, daily, \% & 76.5 & 79.2 & 79.9 & 78.3 & 77.9 & 79.8 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 43.8 & 50.7 & 50.5 & 48.0 & 47.5 & 52.9 & <0.001\\
+%DIFDELCMD < \hspace{1em}Educated over 18 years old, \% & 25.5 & 34.7 & 33.8 & 33.3 & 31.0 & 36.6 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 5.5 & 6.3 & 4.5 & 4.2 & 5.5 & 7.7 & <0.001\\
+%DIFDELCMD < \hspace{1em}History of hypertension, \% & 18.4 & 17.9 & 17.5 & 17.1 & 16.8 & 18.7 & 0.039\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.0 & 3.4 & 3.8 & 3.0 & 3.0 & 3.5 & <0.001\\
+%DIFDELCMD < \hspace{1em}History of liver diseases, \% & 5.8 & 6.5 & 6.3 & 6.0 & 5.4 & 7.2 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{8}{l}{\textbf{Women (n = 545999)}}\\
+%DIFDELCMD < \hspace{1em}number of subjects & 10407 & 44592 & 3640 & 7590 & 8108 & 25254 & \\
+%DIFDELCMD < \hspace{1em}Age, year (mean (SD)) & 58.0 (10.2) & 56.9 (9.9) & 56.5 (10.2) & 55.6 (10.1) & 55.6 (9.9) & 57.9 (9.9) & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 6.9 & 4.2 & 6.1 & 5.5 & 4.3 & 3.5 & <0.001\\
+%DIFDELCMD < \hspace{1em}Daily alcohol drinker, \% & 4.3 & 4.5 & 5.5 & 4.3 & 4.2 & 4.6 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}BMI, kg/m2 (mean (SD)) & 23.0 (3.4) & 22.9 (3.7) & 23.0 (3.8) & 23.1 (4.4) & 23.1 (3.1) & 22.8 (3.6) & <0.001\\
+%DIFDELCMD < \hspace{1em}Exercise (> 1h/week), \% & 13.6 & 20.8 & 17.1 & 18.5 & 18.8 & 22.6 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 27.7 & 25.6 & 25.1 & 25.9 & 25.4 & 25.7 & <0.001\\
+%DIFDELCMD < \hspace{1em}Vegetable intake, daily, \% & 24.7 & 30.4 & 25.0 & 24.6 & 24.2 & 34.8 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 25.0 & 35.7 & 26.6 & 29.2 & 29.2 & 41.1 & <0.001\\
+%DIFDELCMD < \hspace{1em}Green tea intake, daily, \% & 73.8 & 76.8 & 77.0 & 76.4 & 75.8 & 77.3 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 39.6 & 48.2 & 46.2 & 46.4 & 44.4 & 50.2 & <0.001\\
+%DIFDELCMD < \hspace{1em}Educated over 18 years old, \% & 19.9 & 31.6 & 27.9 & 29.8 & 27.4 & 34.0 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 2.6 & 3.7 & 3.2 & 2.7 & 2.7 & 4.4 & <0.001\\
+%DIFDELCMD < \hspace{1em}History of hypertension, \% & 21.5 & 19.7 & 20.5 & 19.1 & 18.9 & 20.0 & <0.001\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4 & <0.001\\
+%DIFDELCMD < \hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0 & <0.001\\
+%DIFDELCMD < \bottomrule
+%DIFDELCMD < \end{tabular}}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \resizebox{\textwidth}{!}{%
 \begin{tabular}[t]{lcccccc}
 \toprule
 \multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\textbf{Milk drinkers}} \\
@@ -377,7 +503,7 @@ till age 18, yes/no)
 \hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0\\
 \bottomrule
 \end{tabular}}
-\end{table}
+\DIFaddendFL \end{table}
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
