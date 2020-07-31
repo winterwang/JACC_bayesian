@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.16)  17 JUL 2020 15:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.16)  31 JUL 2020 17:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1190,7 +1190,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--417
+Underfull \hbox (badness 10000) in paragraph at lines 398--419
 []\T1/ppl/m/n/10 (+20) Detailed re-sults from the Bayesian sur-vival mod-els (c
 rude, age-adjusted and
  []
@@ -1202,30 +1202,30 @@ Overfull \vbox (30.78314pt too high) has occurred while \output is active []
 Overfull \vbox (30.78314pt too high) has occurred while \output is active []
 
 [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 730--730
+Underfull \hbox (badness 10000) in paragraph at lines 732--732
 
  []
 
 (./Paperfolder.bbl [8])
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 7
-71.
+73.
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 ) 
 AED: lastpage setting LastPage
 [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 771.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 771.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 773.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 773.
 (./Paperfolder.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 771.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 771.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 773.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 773.
 Package rerunfilecheck Info: File `Paperfolder.out' has not changed.
 (rerunfilecheck)             Checksum: A500D2F0C723450A2BDE860448B69422;1051.
  ) 
 Here is how much of TeX's memory you used:
  26544 strings out of 482394
  464158 string characters out of 5945715
- 809888 words of memory out of 5000000
+ 811051 words of memory out of 5000000
  41546 multiletter control sequences out of 15000+600000
  587068 words of font info for 258 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1242,7 +1242,7 @@ f-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/wangcc.me/Library/TinyTeX
 /texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/wangcc.me/Library/TinyT
 eX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/wangcc.me/Library/Tin
 yTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Paperfolder.pdf (9 pages, 213741 bytes).
+Output written on Paperfolder.pdf (9 pages, 213824 bytes).
 PDF statistics:
  261 PDF objects out of 1000 (max. 8388607)
  216 compressed objects within 3 object streams
