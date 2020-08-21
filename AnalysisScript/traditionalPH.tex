@@ -91,7 +91,7 @@
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -110,8 +110,6 @@
 \setcounter{secnumdepth}{5}
 \usepackage{bookmark}
 \usepackage{xltxtra}
-\usepackage{zxjatype}
-\usepackage[ipaex]{zxjafont}
 
 \title{JACC study Milk intake and stroke mortality analysis}
 \author{Chaochen Wang}
@@ -135,7 +133,7 @@
 \end{Shaded}
 
 \begin{verbatim}
-## -- Attaching packages ------------------------------------------------------------------------------------------- tidyverse 1.3.0 --
+## -- Attaching packages ------------------ tidyverse 1.3.0 --
 \end{verbatim}
 
 \begin{verbatim}
@@ -146,14 +144,14 @@
 \end{verbatim}
 
 \begin{verbatim}
-## -- Conflicts ---------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## -- Conflicts --------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(lubridate) }\CommentTok{# for dealing with date time data }
+\KeywordTok{library}\NormalTok{(lubridate) }\CommentTok{\# for dealing with date time data }
 \end{Highlighting}
 \end{Shaded}
 
@@ -170,15 +168,15 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"../data/StrokeMilk.csv"}\NormalTok{, }
-                     \DataTypeTok{progress =} \KeywordTok{show_progress}\NormalTok{(), }
-                     \DataTypeTok{col_types =} \KeywordTok{cols}\NormalTok{(}\DataTypeTok{.default =} \StringTok{"c"}\NormalTok{))}
+\NormalTok{MILK \textless{}{-}}\StringTok{ }\KeywordTok{read\_csv}\NormalTok{(}\StringTok{"../data/StrokeMilk.csv"}\NormalTok{, }
+                     \DataTypeTok{progress =} \KeywordTok{show\_progress}\NormalTok{(), }
+                     \DataTypeTok{col\_types =} \KeywordTok{cols}\NormalTok{(}\DataTypeTok{.default =} \StringTok{"c"}\NormalTok{))}
 
-\NormalTok{MILK }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{filter}\NormalTok{(tr_age }\OperatorTok{>}\StringTok{ }\DecValTok{39} \OperatorTok{&}\StringTok{ }\NormalTok{tr_age }\OperatorTok{<}\StringTok{ }\DecValTok{80}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }
+\NormalTok{MILK }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(tr\_age }\OperatorTok{\textgreater{}}\StringTok{ }\DecValTok{39} \OperatorTok{\&}\StringTok{ }\NormalTok{tr\_age }\OperatorTok{\textless{}}\StringTok{ }\DecValTok{80}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }
 \end{Highlighting}
 \end{Shaded}
 
@@ -200,8 +198,8 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0}\NormalTok{ <-}\StringTok{ }\NormalTok{MILK }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{filter}\NormalTok{(tr_age }\OperatorTok{>}\StringTok{ }\DecValTok{39} \OperatorTok{&}\StringTok{ }\NormalTok{tr_age }\OperatorTok{<}\StringTok{ }\DecValTok{80}\NormalTok{)}
+\NormalTok{MILK\_}\DecValTok{0}\NormalTok{ \textless{}{-}}\StringTok{ }\NormalTok{MILK }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(tr\_age }\OperatorTok{\textgreater{}}\StringTok{ }\DecValTok{39} \OperatorTok{\&}\StringTok{ }\NormalTok{tr\_age }\OperatorTok{\textless{}}\StringTok{ }\DecValTok{80}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -211,15 +209,15 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0}\NormalTok{ <-}\StringTok{ }\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Tot_Stroke =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"I6[0-9][0-9]|I6[0-9]"}\NormalTok{,  }
-\NormalTok{                                    ICD10), }\StringTok{"I60_9"}\NormalTok{, }
-                        \KeywordTok{if_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ICD10), }\StringTok{"other_death"}\NormalTok{, }
+\NormalTok{MILK\_}\DecValTok{0}\NormalTok{ \textless{}{-}}\StringTok{ }\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Tot\_Stroke =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"I6[0{-}9][0{-}9]|I6[0{-}9]"}\NormalTok{,  }
+\NormalTok{                                    ICD10), }\StringTok{"I60\_9"}\NormalTok{, }
+                        \KeywordTok{if\_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ICD10), }\StringTok{"other\_death"}\NormalTok{, }
                                       \StringTok{"Alive/Censor"}\NormalTok{))) }
-\NormalTok{MILK_}\DecValTok{0}\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Tot_Stroke) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))}
+\NormalTok{MILK\_}\DecValTok{0}\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Tot\_Stroke) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -266,29 +264,29 @@ I69 Sequelae of cerebrovascular disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0}\NormalTok{ <-}\StringTok{ }\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{HemoStroke =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"I6[0-2][0-9]|I6[0-2]"}\NormalTok{,  }
-\NormalTok{                                    ICD10), }\StringTok{"I60_2"}\NormalTok{, }
-                              \KeywordTok{if_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ICD10), }\StringTok{"other_death"}\NormalTok{, }
-                                      \StringTok{"Alive/Censor"}\NormalTok{))) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{IscheStroke =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"I63[0-9]|I63"}\NormalTok{,  }
+\NormalTok{MILK\_}\DecValTok{0}\NormalTok{ \textless{}{-}}\StringTok{ }\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{HemoStroke =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"I6[0{-}2][0{-}9]|I6[0{-}2]"}\NormalTok{,  }
+\NormalTok{                                    ICD10), }\StringTok{"I60\_2"}\NormalTok{, }
+                              \KeywordTok{if\_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ICD10), }\StringTok{"other\_death"}\NormalTok{, }
+                                      \StringTok{"Alive/Censor"}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{IscheStroke =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"I63[0{-}9]|I63"}\NormalTok{,  }
 \NormalTok{                                    ICD10), }\StringTok{"I63"}\NormalTok{, }
-                              \KeywordTok{if_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ICD10), }\StringTok{"other_death"}\NormalTok{, }
-                                      \StringTok{"Alive/Censor"}\NormalTok{))) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{CHD =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"I2[0-5][0-9]|I2[0-5]"}\NormalTok{,  }
-\NormalTok{                                     ICD10), }\StringTok{"I20_5"}\NormalTok{, }
-                               \KeywordTok{if_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ICD10), }\StringTok{"other_death"}\NormalTok{, }
-                                       \StringTok{"Alive/Censor"}\NormalTok{))) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{HeartF =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"I50[0-9]|I50"}\NormalTok{,  }
+                              \KeywordTok{if\_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ICD10), }\StringTok{"other\_death"}\NormalTok{, }
+                                      \StringTok{"Alive/Censor"}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{CHD =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"I2[0{-}5][0{-}9]|I2[0{-}5]"}\NormalTok{,  }
+\NormalTok{                                     ICD10), }\StringTok{"I20\_5"}\NormalTok{, }
+                               \KeywordTok{if\_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ICD10), }\StringTok{"other\_death"}\NormalTok{, }
+                                       \StringTok{"Alive/Censor"}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{HeartF =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"I50[0{-}9]|I50"}\NormalTok{,  }
 \NormalTok{                                     ICD10), }\StringTok{"I50"}\NormalTok{, }
-                               \KeywordTok{if_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ICD10), }\StringTok{"other_death"}\NormalTok{, }
+                               \KeywordTok{if\_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(ICD10), }\StringTok{"other\_death"}\NormalTok{, }
                                        \StringTok{"Alive/Censor"}\NormalTok{)))}
 
 
-\NormalTok{MILK_}\DecValTok{0}\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, HemoStroke) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))}
+\NormalTok{MILK\_}\DecValTok{0}\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, HemoStroke) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -311,10 +309,10 @@ I69 Sequelae of cerebrovascular disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0}\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, IscheStroke) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))}
+\NormalTok{MILK\_}\DecValTok{0}\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, IscheStroke) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -337,10 +335,10 @@ I69 Sequelae of cerebrovascular disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0}\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, CHD) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))}
+\NormalTok{MILK\_}\DecValTok{0}\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, CHD) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -363,10 +361,10 @@ I69 Sequelae of cerebrovascular disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0}\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, HeartF) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))}
+\NormalTok{MILK\_}\DecValTok{0}\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, HeartF) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -393,18 +391,18 @@ I69 Sequelae of cerebrovascular disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0}\NormalTok{ <-}\StringTok{ }\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Milk_fre =} \KeywordTok{as.numeric}\NormalTok{(MILK)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Milk_fre =} \KeywordTok{as.factor}\NormalTok{(Milk_fre)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Mlkfre =} \KeywordTok{fct_collapse}\NormalTok{(Milk_fre,}
+\NormalTok{MILK\_}\DecValTok{0}\NormalTok{ \textless{}{-}}\StringTok{ }\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Milk\_fre =} \KeywordTok{as.numeric}\NormalTok{(MILK)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Milk\_fre =} \KeywordTok{as.factor}\NormalTok{(Milk\_fre)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Mlkfre =} \KeywordTok{fct\_collapse}\NormalTok{(Milk\_fre,}
                                \DataTypeTok{Never =} \StringTok{"1"}\NormalTok{,}
-                               \DataTypeTok{Mon1_2 =} \StringTok{"2"}\NormalTok{, }
-                               \DataTypeTok{Wek1_2 =} \StringTok{"3"}\NormalTok{,}
-                               \DataTypeTok{Wek3_4 =} \StringTok{"4"}\NormalTok{,}
-                               \DataTypeTok{Daily  =} \StringTok{"5"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{MlkLogi =} \KeywordTok{fct_collapse}\NormalTok{(Mlkfre,}
+                               \DataTypeTok{Mon1\_2 =} \StringTok{"2"}\NormalTok{, }
+                               \DataTypeTok{Wek1\_2 =} \StringTok{"3"}\NormalTok{,}
+                               \DataTypeTok{Wek3\_4 =} \StringTok{"4"}\NormalTok{,}
+                               \DataTypeTok{Daily  =} \StringTok{"5"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{MlkLogi =} \KeywordTok{fct\_collapse}\NormalTok{(Mlkfre,}
                                 \DataTypeTok{Never =} \StringTok{"Never"}\NormalTok{, }
-                                \DataTypeTok{Drinker =} \KeywordTok{c}\NormalTok{(}\StringTok{"Mon1_2"}\NormalTok{, }\StringTok{"Wek1_2"}\NormalTok{, }\StringTok{"Wek3_4"}\NormalTok{, }\StringTok{"Daily"}\NormalTok{)))}
+                                \DataTypeTok{Drinker =} \KeywordTok{c}\NormalTok{(}\StringTok{"Mon1\_2"}\NormalTok{, }\StringTok{"Wek1\_2"}\NormalTok{, }\StringTok{"Wek3\_4"}\NormalTok{, }\StringTok{"Daily"}\NormalTok{)))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -420,10 +418,10 @@ I69 Sequelae of cerebrovascular disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Mlkfre) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))}
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Mlkfre) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -452,10 +450,10 @@ I69 Sequelae of cerebrovascular disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, MlkLogi) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))}
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, MlkLogi) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -481,9 +479,9 @@ I69 Sequelae of cerebrovascular disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0}\NormalTok{ <-}\StringTok{ }\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Age =} \KeywordTok{as.numeric}\NormalTok{(tr_age)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Agegrp =} \KeywordTok{cut}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(tr_age), }\KeywordTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{45}\NormalTok{, }\DecValTok{55}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{80}\NormalTok{), }\DataTypeTok{right =} \OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0}\NormalTok{ \textless{}{-}}\StringTok{ }\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Age =} \KeywordTok{as.numeric}\NormalTok{(tr\_age)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Agegrp =} \KeywordTok{cut}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(tr\_age), }\KeywordTok{c}\NormalTok{(}\DecValTok{30}\NormalTok{, }\DecValTok{45}\NormalTok{, }\DecValTok{55}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{80}\NormalTok{), }\DataTypeTok{right =} \OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{followpy =} \KeywordTok{as.numeric}\NormalTok{(actual)}\OperatorTok{/}\FloatTok{365.25}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
@@ -496,100 +494,100 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0}\NormalTok{ <-}\StringTok{  }\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Smoking =} \KeywordTok{replace_na}\NormalTok{(SM1, }\StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Smoking =} \KeywordTok{as_factor}\NormalTok{(Smoking)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Smoking =} \KeywordTok{fct_recode}\NormalTok{(Smoking, }\DataTypeTok{Never =} \StringTok{"3"}\NormalTok{, }\DataTypeTok{Past =} \StringTok{"2"}\NormalTok{, }\DataTypeTok{Current =} \StringTok{"1"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Smoking =} \KeywordTok{factor}\NormalTok{(Smoking, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"Never"}\NormalTok{, }\StringTok{"Past"}\NormalTok{, }\StringTok{"Current"}\NormalTok{, }\StringTok{"unknown"}\NormalTok{))) }\OperatorTok{%>%}\StringTok{  }\CommentTok{# Smoking}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Alc_Fre =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(DR1) }\OperatorTok{>=}\StringTok{ }\DecValTok{2}\NormalTok{, }\StringTok{"Never or past"}\NormalTok{, }
-                           \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(DR1F) }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{, }\StringTok{"Daily"}\NormalTok{, }
-                                   \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(DR1F) }\OperatorTok{==}\StringTok{ }\DecValTok{4}\NormalTok{, }\StringTok{"< 1/week"}\NormalTok{, }
-                                           \KeywordTok{if_else}\NormalTok{((}\KeywordTok{as.numeric}\NormalTok{(DR1F) }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{|}\StringTok{ }\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(DR1F) }\OperatorTok{==}\StringTok{ }\DecValTok{3}\NormalTok{), }
-                                                   \StringTok{"1-4 /week"}\NormalTok{, }\StringTok{"Unknown"}\NormalTok{))))) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Alc_Fre =} \KeywordTok{fct_explicit_na}\NormalTok{(Alc_Fre, }\DataTypeTok{na_level =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{BMI =} \KeywordTok{as.numeric}\NormalTok{(wt10)}\OperatorTok{/}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(ht10)}\OperatorTok{^}\DecValTok{2}\NormalTok{) }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# define BMI groups}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{BMIgrp =} \KeywordTok{cut}\NormalTok{(BMI, }\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{14}\NormalTok{, }\FloatTok{18.5}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{40}\NormalTok{), }\DataTypeTok{right =} \OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{BMIgrp =} \KeywordTok{as.character}\NormalTok{(BMIgrp)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{BMIgrp =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0}\NormalTok{ \textless{}{-}}\StringTok{  }\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Smoking =} \KeywordTok{replace\_na}\NormalTok{(SM1, }\StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Smoking =} \KeywordTok{as\_factor}\NormalTok{(Smoking)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Smoking =} \KeywordTok{fct\_recode}\NormalTok{(Smoking, }\DataTypeTok{Never =} \StringTok{"3"}\NormalTok{, }\DataTypeTok{Past =} \StringTok{"2"}\NormalTok{, }\DataTypeTok{Current =} \StringTok{"1"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Smoking =} \KeywordTok{factor}\NormalTok{(Smoking, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"Never"}\NormalTok{, }\StringTok{"Past"}\NormalTok{, }\StringTok{"Current"}\NormalTok{, }\StringTok{"unknown"}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}\StringTok{  }\CommentTok{\# Smoking}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Alc\_Fre =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(DR1) }\OperatorTok{\textgreater{}=}\StringTok{ }\DecValTok{2}\NormalTok{, }\StringTok{"Never or past"}\NormalTok{, }
+                           \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(DR1F) }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{, }\StringTok{"Daily"}\NormalTok{, }
+                                   \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(DR1F) }\OperatorTok{==}\StringTok{ }\DecValTok{4}\NormalTok{, }\StringTok{"\textless{} 1/week"}\NormalTok{, }
+                                           \KeywordTok{if\_else}\NormalTok{((}\KeywordTok{as.numeric}\NormalTok{(DR1F) }\OperatorTok{==}\StringTok{ }\DecValTok{2}\NormalTok{) }\OperatorTok{|}\StringTok{ }\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(DR1F) }\OperatorTok{==}\StringTok{ }\DecValTok{3}\NormalTok{), }
+                                                   \StringTok{"1{-}4 /week"}\NormalTok{, }\StringTok{"Unknown"}\NormalTok{))))) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Alc\_Fre =} \KeywordTok{fct\_explicit\_na}\NormalTok{(Alc\_Fre, }\DataTypeTok{na\_level =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{BMI =} \KeywordTok{as.numeric}\NormalTok{(wt10)}\OperatorTok{/}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(ht10)}\OperatorTok{\^{}}\DecValTok{2}\NormalTok{) }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# define BMI groups}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{BMIgrp =} \KeywordTok{cut}\NormalTok{(BMI, }\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{14}\NormalTok{, }\FloatTok{18.5}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{40}\NormalTok{), }\DataTypeTok{right =} \OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{BMIgrp =} \KeywordTok{as.character}\NormalTok{(BMIgrp)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{BMIgrp =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{BMIgrp =} \KeywordTok{factor}\NormalTok{(BMIgrp, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"[18.5,25)"}\NormalTok{,}
                                             \StringTok{"[14,18.5)"}\NormalTok{,}
                                             \StringTok{"[25,30)"}\NormalTok{, }
-                                            \StringTok{"[30,40)"}\NormalTok{, }\StringTok{"unknown"}\NormalTok{))) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{DM_hist =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p_DM) }\OperatorTok{>}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{DM_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# recode DM history status}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{HT_hist =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p_HT) }\OperatorTok{>}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{HT_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# recode hyt history status}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{MI_hist =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p_MI) }\OperatorTok{>}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{MI_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# recode MI history status}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{APO_hist =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p_APO) }\OperatorTok{>}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{APO_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# recode APO history status}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{KID_hist =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p_KID) }\OperatorTok{>}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{KID_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# recode KID history status}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{LIV_hist =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p_LIV) }\OperatorTok{>}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{LIV_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# recode LIV history status}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Can_hist =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p_can1) }\OperatorTok{>}\StringTok{ }\DecValTok{1} \OperatorTok{|}\StringTok{ }
-\StringTok{                              }\KeywordTok{as.numeric}\NormalTok{(p_can2) }\OperatorTok{>}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{Can_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# recode LIV history status}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Exercise =} \KeywordTok{as.numeric}\NormalTok{(sport) }\OperatorTok{!=}\StringTok{ }\DecValTok{4}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# define exercise habits}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Exercise =} \KeywordTok{as.character}\NormalTok{(Exercise)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{Exercise =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Exercise =} \KeywordTok{factor}\NormalTok{(Exercise, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"FALSE"}\NormalTok{, }\StringTok{"TRUE"}\NormalTok{, }\StringTok{"unknown"}\NormalTok{))) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Exercise =} \KeywordTok{fct_recode}\NormalTok{(Exercise, }
-                               \StringTok{"> 1h/w"}\NormalTok{ =}\StringTok{ "TRUE"}\NormalTok{, }
+                                            \StringTok{"[30,40)"}\NormalTok{, }\StringTok{"unknown"}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{DM\_hist =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p\_DM) }\OperatorTok{\textgreater{}}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{DM\_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# recode DM history status}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{HT\_hist =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p\_HT) }\OperatorTok{\textgreater{}}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{HT\_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# recode hyt history status}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{MI\_hist =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p\_MI) }\OperatorTok{\textgreater{}}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{MI\_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# recode MI history status}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{APO\_hist =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p\_APO) }\OperatorTok{\textgreater{}}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{APO\_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# recode APO history status}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{KID\_hist =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p\_KID) }\OperatorTok{\textgreater{}}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{KID\_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# recode KID history status}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{LIV\_hist =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p\_LIV) }\OperatorTok{\textgreater{}}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{LIV\_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# recode LIV history status}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Can\_hist =} \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(p\_can1) }\OperatorTok{\textgreater{}}\StringTok{ }\DecValTok{1} \OperatorTok{|}\StringTok{ }
+\StringTok{                              }\KeywordTok{as.numeric}\NormalTok{(p\_can2) }\OperatorTok{\textgreater{}}\StringTok{ }\DecValTok{1}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{Can\_hist =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# recode LIV history status}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Exercise =} \KeywordTok{as.numeric}\NormalTok{(sport) }\OperatorTok{!=}\StringTok{ }\DecValTok{4}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# define exercise habits}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Exercise =} \KeywordTok{as.character}\NormalTok{(Exercise)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{Exercise =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Exercise =} \KeywordTok{factor}\NormalTok{(Exercise, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"FALSE"}\NormalTok{, }\StringTok{"TRUE"}\NormalTok{, }\StringTok{"unknown"}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Exercise =} \KeywordTok{fct\_recode}\NormalTok{(Exercise, }
+                               \StringTok{"\textgreater{} 1h/w"}\NormalTok{ =}\StringTok{ "TRUE"}\NormalTok{, }
                                \StringTok{"Almost0"}\NormalTok{ =}\StringTok{ "FALSE"}\NormalTok{, }
-                               \DataTypeTok{unknown   =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Engy =} \KeywordTok{log}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(ENERGY))) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Sleep =} \KeywordTok{as.numeric}\NormalTok{(SLEEP)}\OperatorTok{/}\DecValTok{10}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Slepgrp =} \KeywordTok{cut}\NormalTok{(Sleep, }\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{6.9}\NormalTok{, }\FloatTok{7.9}\NormalTok{, }\FloatTok{8.9}\NormalTok{, }\DecValTok{23}\NormalTok{), }\DataTypeTok{right =} \OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Slepgrp =} \KeywordTok{as.character}\NormalTok{(Slepgrp)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{Slepgrp =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+                               \DataTypeTok{unknown   =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Engy =} \KeywordTok{log}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(ENERGY))) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Sleep =} \KeywordTok{as.numeric}\NormalTok{(SLEEP)}\OperatorTok{/}\DecValTok{10}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Slepgrp =} \KeywordTok{cut}\NormalTok{(Sleep, }\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{6.9}\NormalTok{, }\FloatTok{7.9}\NormalTok{, }\FloatTok{8.9}\NormalTok{, }\DecValTok{23}\NormalTok{), }\DataTypeTok{right =} \OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Slepgrp =} \KeywordTok{as.character}\NormalTok{(Slepgrp)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{Slepgrp =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Slepgrp =} \KeywordTok{factor}\NormalTok{(Slepgrp, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"[0,6.9)"}\NormalTok{,}
                                             \StringTok{"[6.9,7.9)"}\NormalTok{,}
                                             \StringTok{"[7.9,8.9)"}\NormalTok{, }
-                                            \StringTok{"[8.9,23)"}\NormalTok{, }\StringTok{"unknown"}\NormalTok{))) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Spi =} \KeywordTok{as.factor}\NormalTok{(SPI)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# define vegetable intake}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Spi =} \KeywordTok{fct_collapse}\NormalTok{(Spi, }
+                                            \StringTok{"[8.9,23)"}\NormalTok{, }\StringTok{"unknown"}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Spi =} \KeywordTok{as.factor}\NormalTok{(SPI)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# define vegetable intake}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Spi =} \KeywordTok{fct\_collapse}\NormalTok{(Spi, }
                             \DataTypeTok{unknown =} \StringTok{"X"}\NormalTok{, }
                             \DataTypeTok{daily =} \StringTok{"5"}\NormalTok{,}
                             \DataTypeTok{Thre4tw =} \StringTok{"4"}\NormalTok{,}
                             \DataTypeTok{One2tw =} \StringTok{"3"}\NormalTok{,}
-                            \DataTypeTok{Less1tm =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{))) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Spi =} \KeywordTok{fct_explicit_na}\NormalTok{(Spi, }\DataTypeTok{na_level =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Fru =} \KeywordTok{as.factor}\NormalTok{(FRU)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# define fruit intake}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Fru =} \KeywordTok{fct_collapse}\NormalTok{(Fru, }
+                            \DataTypeTok{Less1tm =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Spi =} \KeywordTok{fct\_explicit\_na}\NormalTok{(Spi, }\DataTypeTok{na\_level =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Fru =} \KeywordTok{as.factor}\NormalTok{(FRU)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# define fruit intake}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Fru =} \KeywordTok{fct\_collapse}\NormalTok{(Fru, }
                             \DataTypeTok{unknown =} \StringTok{"X"}\NormalTok{,}
                             \DataTypeTok{daily =} \StringTok{"5"}\NormalTok{,}
                             \DataTypeTok{Thre4tw =} \StringTok{"4"}\NormalTok{,}
                             \DataTypeTok{One2tw =} \StringTok{"3"}\NormalTok{,}
-                            \DataTypeTok{Less1tm =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{))) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Fru =} \KeywordTok{fct_explicit_na}\NormalTok{(Fru, }\DataTypeTok{na_level =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Gretea =} \KeywordTok{as.factor}\NormalTok{(GreTEA1)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# define greentea intake}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Gretea =} \KeywordTok{fct_collapse}\NormalTok{(Gretea, }
+                            \DataTypeTok{Less1tm =} \KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Fru =} \KeywordTok{fct\_explicit\_na}\NormalTok{(Fru, }\DataTypeTok{na\_level =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Gretea =} \KeywordTok{as.factor}\NormalTok{(GreTEA1)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# define greentea intake}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Gretea =} \KeywordTok{fct\_collapse}\NormalTok{(Gretea, }
                                \DataTypeTok{unknown =} \StringTok{"X"}\NormalTok{, }
                                \DataTypeTok{Thre3tw =} \StringTok{"2"}\NormalTok{, }
                                \DataTypeTok{Thre3tw =} \StringTok{"3"}\NormalTok{,}
                                \DataTypeTok{Thre3tw =} \StringTok{"4"}\NormalTok{,}
                                \DataTypeTok{Never =} \StringTok{"5"}\NormalTok{, }
-                               \DataTypeTok{daily =} \StringTok{"1"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Gretea =} \KeywordTok{fct_explicit_na}\NormalTok{(Gretea, }\DataTypeTok{na_level =} \StringTok{"unknown"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Cofe =} \KeywordTok{as.factor}\NormalTok{(COFE)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# define greentea intake}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Cofe =} \KeywordTok{fct_collapse}\NormalTok{(Cofe, }
+                               \DataTypeTok{daily =} \StringTok{"1"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Gretea =} \KeywordTok{fct\_explicit\_na}\NormalTok{(Gretea, }\DataTypeTok{na\_level =} \StringTok{"unknown"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Cofe =} \KeywordTok{as.factor}\NormalTok{(COFE)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# define greentea intake}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Cofe =} \KeywordTok{fct\_collapse}\NormalTok{(Cofe, }
                                \DataTypeTok{unknown =} \StringTok{"X"}\NormalTok{, }
                                \DataTypeTok{Thre3tw =} \StringTok{"2"}\NormalTok{, }
                                \DataTypeTok{Thre3tw =} \StringTok{"3"}\NormalTok{,}
                                \DataTypeTok{Thre3tw =} \StringTok{"4"}\NormalTok{,}
                                \DataTypeTok{Never =} \StringTok{"5"}\NormalTok{, }
-                               \DataTypeTok{daily =} \StringTok{"1"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Cofe =} \KeywordTok{fct_explicit_na}\NormalTok{(Cofe, }\DataTypeTok{na_level =} \StringTok{"unknown"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Educ =} \KeywordTok{as.numeric}\NormalTok{(MILK_}\DecValTok{0}\OperatorTok{$}\NormalTok{SCHOOL)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Educgrp =} \KeywordTok{cut}\NormalTok{(Educ, }\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{70}\NormalTok{), }\DataTypeTok{right =} \OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Educgrp =} \KeywordTok{as.character}\NormalTok{(Educgrp)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{Educgrp =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+                               \DataTypeTok{daily =} \StringTok{"1"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Cofe =} \KeywordTok{fct\_explicit\_na}\NormalTok{(Cofe, }\DataTypeTok{na\_level =} \StringTok{"unknown"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Educ =} \KeywordTok{as.numeric}\NormalTok{(MILK\_}\DecValTok{0}\OperatorTok{$}\NormalTok{SCHOOL)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Educgrp =} \KeywordTok{cut}\NormalTok{(Educ, }\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{70}\NormalTok{), }\DataTypeTok{right =} \OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Educgrp =} \KeywordTok{as.character}\NormalTok{(Educgrp)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{Educgrp =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Educgrp =} \KeywordTok{factor}\NormalTok{(Educgrp, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"[0,18)"}\NormalTok{,}
                                               \StringTok{"[18,70)"}\NormalTok{,}
-                                              \StringTok{"unknown"}\NormalTok{))) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# Define menopause for women}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Menopause =} \KeywordTok{if_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(MENO_AGE)}\OperatorTok{&}\StringTok{ }\NormalTok{tr_sex }\OperatorTok{==}\StringTok{ "2"}\NormalTok{, }\OtherTok{TRUE}\NormalTok{,  }\CommentTok{# define menopause}
-                             \KeywordTok{if_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(tr_age) }\OperatorTok{>=}\StringTok{ }\DecValTok{50} \OperatorTok{&}\StringTok{ }\NormalTok{tr_sex }\OperatorTok{==}\StringTok{ "2"}\NormalTok{, }
+                                              \StringTok{"unknown"}\NormalTok{))) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# Define menopause for women}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Menopause =} \KeywordTok{if\_else}\NormalTok{(}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(MENO\_AGE)}\OperatorTok{\&}\StringTok{ }\NormalTok{tr\_sex }\OperatorTok{==}\StringTok{ "2"}\NormalTok{, }\OtherTok{TRUE}\NormalTok{,  }\CommentTok{\# define menopause}
+                             \KeywordTok{if\_else}\NormalTok{(}\KeywordTok{as.numeric}\NormalTok{(tr\_age) }\OperatorTok{\textgreater{}=}\StringTok{ }\DecValTok{50} \OperatorTok{\&}\StringTok{ }\NormalTok{tr\_sex }\OperatorTok{==}\StringTok{ "2"}\NormalTok{, }
                                      \OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)))}
 \end{Highlighting}
 \end{Shaded}
@@ -714,10 +712,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Smoking) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Smoking) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -743,10 +741,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Alc_Fre) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Alc\_Fre) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -774,10 +772,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, BMIgrp) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, BMIgrp) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -805,10 +803,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, DM_hist) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, DM\_hist) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -832,10 +830,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, HT_hist) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, HT\_hist) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -859,10 +857,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, MI_hist) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, MI\_hist) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -886,10 +884,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, APO_hist) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, APO\_hist) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -913,10 +911,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, KID_hist) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, KID\_hist) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -940,10 +938,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, LIV_hist) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, LIV\_hist) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -967,10 +965,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Can_hist) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Can\_hist) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -994,10 +992,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Exercise) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Exercise) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1021,10 +1019,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Slepgrp) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Slepgrp) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1052,10 +1050,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Spi) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Spi) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1083,10 +1081,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Fru) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Fru) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1114,10 +1112,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Gretea) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Gretea) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1143,10 +1141,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Cofe) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Cofe) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1172,10 +1170,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Educgrp) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Educgrp) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1199,10 +1197,10 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Menopause) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Menopause) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1223,26 +1221,26 @@ education}\label{identify-potential-confounders-smoking-alcohol-intake-bmi-dmhyt
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# 02-04 AREA 地区(施設番号+地区番号)}
-\CommentTok{# – touhoku: (1, 2, 3, 4, 17, 29)}
-\CommentTok{# – kanto: (5, 6, 8, 9, 11, 13, 31)}
-\CommentTok{# – chubu: (15, 18)}
-\CommentTok{# – kinki: (10, 20, 21, 22, 24)}
-\CommentTok{# – chugoku: (25, 26)}
-\CommentTok{# – kyushiu: (27, 30)}
+\CommentTok{\# 02{-}04 AREA 地区(施設番号+地区番号)}
+\CommentTok{\# – touhoku: (1, 2, 3, 4, 17, 29)}
+\CommentTok{\# – kanto: (5, 6, 8, 9, 11, 13, 31)}
+\CommentTok{\# – chubu: (15, 18)}
+\CommentTok{\# – kinki: (10, 20, 21, 22, 24)}
+\CommentTok{\# – chugoku: (25, 26)}
+\CommentTok{\# – kyushiu: (27, 30)}
 
-\NormalTok{MILK_}\DecValTok{0}\NormalTok{ <-}\StringTok{ }\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{areano =} \KeywordTok{as.numeric}\NormalTok{(areano)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Area =} \KeywordTok{if_else}\NormalTok{(areano }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{11}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{41}\NormalTok{, }\DecValTok{30}\NormalTok{,}
+\NormalTok{MILK\_}\DecValTok{0}\NormalTok{ \textless{}{-}}\StringTok{ }\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{areano =} \KeywordTok{as.numeric}\NormalTok{(areano)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Area =} \KeywordTok{if\_else}\NormalTok{(areano }\OperatorTok{\%in\%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{11}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{41}\NormalTok{, }\DecValTok{30}\NormalTok{,}
                                       \DecValTok{170}\NormalTok{, }\DecValTok{178}\NormalTok{, }\DecValTok{179}\NormalTok{, }\DecValTok{298}\NormalTok{, }\DecValTok{299}\NormalTok{), }\StringTok{"Touhoku"}\NormalTok{, }
-                  \KeywordTok{if_else}\NormalTok{(areano }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{51}\NormalTok{, }\DecValTok{61}\NormalTok{, }\DecValTok{81}\NormalTok{, }\DecValTok{91}\NormalTok{, }\DecValTok{92}\NormalTok{, }\DecValTok{93}\NormalTok{, }
+                  \KeywordTok{if\_else}\NormalTok{(areano }\OperatorTok{\%in\%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{51}\NormalTok{, }\DecValTok{61}\NormalTok{, }\DecValTok{81}\NormalTok{, }\DecValTok{91}\NormalTok{, }\DecValTok{92}\NormalTok{, }\DecValTok{93}\NormalTok{, }
                                           \DecValTok{110}\NormalTok{, }\DecValTok{130}\NormalTok{, }\DecValTok{311}\NormalTok{), }\StringTok{"Kanto"}\NormalTok{, }
-                    \KeywordTok{if_else}\NormalTok{(areano }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{151}\NormalTok{, }\DecValTok{181}\NormalTok{), }\StringTok{"Chubu"}\NormalTok{, }
-                      \KeywordTok{if_else}\NormalTok{(areano }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{108}\NormalTok{, }\DecValTok{109}\NormalTok{, }\DecValTok{201}\NormalTok{, }\DecValTok{211}\NormalTok{, }\DecValTok{212}\NormalTok{, }\DecValTok{213}\NormalTok{, }
+                    \KeywordTok{if\_else}\NormalTok{(areano }\OperatorTok{\%in\%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{151}\NormalTok{, }\DecValTok{181}\NormalTok{), }\StringTok{"Chubu"}\NormalTok{, }
+                      \KeywordTok{if\_else}\NormalTok{(areano }\OperatorTok{\%in\%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{108}\NormalTok{, }\DecValTok{109}\NormalTok{, }\DecValTok{201}\NormalTok{, }\DecValTok{211}\NormalTok{, }\DecValTok{212}\NormalTok{, }\DecValTok{213}\NormalTok{, }
                                 \DecValTok{214}\NormalTok{, }\DecValTok{221}\NormalTok{, }\DecValTok{241}\NormalTok{, }\DecValTok{242}\NormalTok{, }\DecValTok{243}\NormalTok{), }\StringTok{"Kinki"}\NormalTok{, }
-                        \KeywordTok{if_else}\NormalTok{(areano }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{250}\NormalTok{, }\DecValTok{261}\NormalTok{), }\StringTok{"Chugoku"}\NormalTok{, }
-                          \KeywordTok{if_else}\NormalTok{(areano }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{271}\NormalTok{, }\DecValTok{272}\NormalTok{, }\DecValTok{273}\NormalTok{, }\DecValTok{274}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DecValTok{301}\NormalTok{, }\DecValTok{302}\NormalTok{, }\DecValTok{303}\NormalTok{, }\DecValTok{304}\NormalTok{, }
-                            \DecValTok{305}\NormalTok{, }\DecValTok{306}\NormalTok{, }\DecValTok{307}\NormalTok{, }\DecValTok{308}\NormalTok{, }\DecValTok{309}\NormalTok{), }\StringTok{"Kyushiu"}\NormalTok{, }\StringTok{"else"}\NormalTok{))))))) }\OperatorTok{%>%}\StringTok{ }
+                        \KeywordTok{if\_else}\NormalTok{(areano }\OperatorTok{\%in\%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{250}\NormalTok{, }\DecValTok{261}\NormalTok{), }\StringTok{"Chugoku"}\NormalTok{, }
+                          \KeywordTok{if\_else}\NormalTok{(areano }\OperatorTok{\%in\%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{271}\NormalTok{, }\DecValTok{272}\NormalTok{, }\DecValTok{273}\NormalTok{, }\DecValTok{274}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DecValTok{301}\NormalTok{, }\DecValTok{302}\NormalTok{, }\DecValTok{303}\NormalTok{, }\DecValTok{304}\NormalTok{, }
+                            \DecValTok{305}\NormalTok{, }\DecValTok{306}\NormalTok{, }\DecValTok{307}\NormalTok{, }\DecValTok{308}\NormalTok{, }\DecValTok{309}\NormalTok{), }\StringTok{"Kyushiu"}\NormalTok{, }\StringTok{"else"}\NormalTok{))))))) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Area =} \KeywordTok{factor}\NormalTok{(Area))}
 \end{Highlighting}
 \end{Shaded}
@@ -1260,10 +1258,10 @@ other ischemic heart disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, APO_hist) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, APO\_hist) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1287,10 +1285,10 @@ other ischemic heart disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, Can_hist) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, Can\_hist) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1314,10 +1312,10 @@ other ischemic heart disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, MI_hist) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, MI\_hist) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1341,15 +1339,15 @@ other ischemic heart disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0}\NormalTok{ <-}\StringTok{ }\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{p_Oth1 =} \KeywordTok{as.numeric}\NormalTok{(p_oth1c)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{p_Oth2 =} \KeywordTok{as.numeric}\NormalTok{(p_oth2c)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{IscheHeart =} \KeywordTok{if_else}\NormalTok{((p_Oth1 }\OperatorTok{>=}\DecValTok{410} \OperatorTok{&}\StringTok{ }\NormalTok{p_Oth1 }\OperatorTok{<=}\DecValTok{414}\NormalTok{) }\OperatorTok{|}\StringTok{ }
-\StringTok{                                }\NormalTok{(p_Oth2 }\OperatorTok{>=}\DecValTok{410} \OperatorTok{&}\StringTok{ }\NormalTok{p_Oth2 }\OperatorTok{<=}\DecValTok{414}\NormalTok{), }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{IscheHeart =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# recode IscheHeart history status}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{OtheHeart =} \KeywordTok{if_else}\NormalTok{((p_Oth1 }\OperatorTok{>=}\DecValTok{420} \OperatorTok{&}\StringTok{ }\NormalTok{p_Oth1 }\OperatorTok{<=}\DecValTok{429}\NormalTok{) }\OperatorTok{|}\StringTok{ }
-\StringTok{                                }\NormalTok{(p_Oth2 }\OperatorTok{>=}\DecValTok{420} \OperatorTok{&}\StringTok{ }\NormalTok{p_Oth2 }\OperatorTok{<=}\DecValTok{429}\NormalTok{), }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{replace_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{OtheHeart =} \StringTok{"unknown"}\NormalTok{)) }\CommentTok{#%>% # recode Otherheart history status}
+\NormalTok{MILK\_}\DecValTok{0}\NormalTok{ \textless{}{-}}\StringTok{ }\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{p\_Oth1 =} \KeywordTok{as.numeric}\NormalTok{(p\_oth1c)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{p\_Oth2 =} \KeywordTok{as.numeric}\NormalTok{(p\_oth2c)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{IscheHeart =} \KeywordTok{if\_else}\NormalTok{((p\_Oth1 }\OperatorTok{\textgreater{}=}\DecValTok{410} \OperatorTok{\&}\StringTok{ }\NormalTok{p\_Oth1 }\OperatorTok{\textless{}=}\DecValTok{414}\NormalTok{) }\OperatorTok{|}\StringTok{ }
+\StringTok{                                }\NormalTok{(p\_Oth2 }\OperatorTok{\textgreater{}=}\DecValTok{410} \OperatorTok{\&}\StringTok{ }\NormalTok{p\_Oth2 }\OperatorTok{\textless{}=}\DecValTok{414}\NormalTok{), }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{IscheHeart =} \StringTok{"unknown"}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }\CommentTok{\# recode IscheHeart history status}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{OtheHeart =} \KeywordTok{if\_else}\NormalTok{((p\_Oth1 }\OperatorTok{\textgreater{}=}\DecValTok{420} \OperatorTok{\&}\StringTok{ }\NormalTok{p\_Oth1 }\OperatorTok{\textless{}=}\DecValTok{429}\NormalTok{) }\OperatorTok{|}\StringTok{ }
+\StringTok{                                }\NormalTok{(p\_Oth2 }\OperatorTok{\textgreater{}=}\DecValTok{420} \OperatorTok{\&}\StringTok{ }\NormalTok{p\_Oth2 }\OperatorTok{\textless{}=}\DecValTok{429}\NormalTok{), }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{replace\_na}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{OtheHeart =} \StringTok{"unknown"}\NormalTok{)) }\CommentTok{\#\%\textgreater{}\% \# recode Otherheart history status}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1375,10 +1373,10 @@ other ischemic heart disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, IscheHeart) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, IscheHeart) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1402,10 +1400,10 @@ other ischemic heart disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(tr_sex, OtheHeart) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"%"}\NormalTok{))  }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(tr\_sex, OtheHeart) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{ (}\DataTypeTok{n=} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rel.freq =} \KeywordTok{paste0}\NormalTok{(}\KeywordTok{round}\NormalTok{(}\DecValTok{100} \OperatorTok{*}\StringTok{ }\NormalTok{n}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(n), }\DecValTok{2}\NormalTok{), }\StringTok{"\%"}\NormalTok{))  }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{print}\NormalTok{(}\DataTypeTok{n=}\OtherTok{Inf}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1429,20 +1427,20 @@ other ischemic heart disease
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MData <-}\StringTok{ }\NormalTok{MILK_}\DecValTok{0} \OperatorTok{%>%}
-\StringTok{  }\KeywordTok{filter}\NormalTok{(APO_hist }\OperatorTok{!=}\StringTok{ "TRUE"} \OperatorTok{&}\StringTok{ }\NormalTok{IscheHeart }\OperatorTok{!=}\StringTok{ "TRUE"} \OperatorTok{&}\StringTok{ }
-\StringTok{           }\NormalTok{OtheHeart }\OperatorTok{!=}\StringTok{ "TRUE"} \OperatorTok{&}\StringTok{ }\NormalTok{Can_hist }\OperatorTok{!=}\StringTok{ "TRUE"} \OperatorTok{&}\StringTok{ }\NormalTok{MI_hist }\OperatorTok{!=}\StringTok{ "TRUE"} \OperatorTok{&}\StringTok{ }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(Mlkfre)) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{select}\NormalTok{(Area, Age, Agegrp, tr_sex, ICD10, T_DX, Tot_Stroke, HemoStroke, IscheStroke, CHD, HeartF, MlkLogi, }
-\NormalTok{         Mlkfre, followpy, Smoking, Alc_Fre, BMI, BMIgrp, DM_hist, HT_hist, KID_hist, }
-\NormalTok{         LIV_hist, Exercise, Engy, ENERGY, Sleep, Slepgrp, Spi, Fru, Gretea, Cofe, Educ,}
+\NormalTok{MData \textless{}{-}}\StringTok{ }\NormalTok{MILK\_}\DecValTok{0} \OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(APO\_hist }\OperatorTok{!=}\StringTok{ "TRUE"} \OperatorTok{\&}\StringTok{ }\NormalTok{IscheHeart }\OperatorTok{!=}\StringTok{ "TRUE"} \OperatorTok{\&}\StringTok{ }
+\StringTok{           }\NormalTok{OtheHeart }\OperatorTok{!=}\StringTok{ "TRUE"} \OperatorTok{\&}\StringTok{ }\NormalTok{Can\_hist }\OperatorTok{!=}\StringTok{ "TRUE"} \OperatorTok{\&}\StringTok{ }\NormalTok{MI\_hist }\OperatorTok{!=}\StringTok{ "TRUE"} \OperatorTok{\&}\StringTok{ }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(Mlkfre)) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(Area, Age, Agegrp, tr\_sex, ICD10, T\_DX, Tot\_Stroke, HemoStroke, IscheStroke, CHD, HeartF, MlkLogi, }
+\NormalTok{         Mlkfre, followpy, Smoking, Alc\_Fre, BMI, BMIgrp, DM\_hist, HT\_hist, KID\_hist, }
+\NormalTok{         LIV\_hist, Exercise, Engy, ENERGY, Sleep, Slepgrp, Spi, Fru, Gretea, Cofe, Educ,}
 \NormalTok{         Educgrp, Menopause)}
 
-\CommentTok{# data preparation done}
+\CommentTok{\# data preparation done}
 
-\NormalTok{MData_men <-}\StringTok{ }\NormalTok{MData }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{filter}\NormalTok{(tr_sex }\OperatorTok{==}\StringTok{ "1"}\NormalTok{)}
-\NormalTok{MData_fem <-}\StringTok{ }\NormalTok{MData }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{filter}\NormalTok{(tr_sex }\OperatorTok{==}\StringTok{ "2"}\NormalTok{)}
+\NormalTok{MData\_men \textless{}{-}}\StringTok{ }\NormalTok{MData }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(tr\_sex }\OperatorTok{==}\StringTok{ "1"}\NormalTok{)}
+\NormalTok{MData\_fem \textless{}{-}}\StringTok{ }\NormalTok{MData }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(tr\_sex }\OperatorTok{==}\StringTok{ "2"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1453,13 +1451,13 @@ analyses}\label{before-entering-the-analyses-ordered-we-need-to-explore-by-preli
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Number of subjects, number of cases, person years }
-\CommentTok{# by frequency}
+\CommentTok{\# Number of subjects, number of cases, person years }
+\CommentTok{\# by frequency}
 
-\NormalTok{MData_men }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(Mlkfre) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{pyear =} \KeywordTok{sum}\NormalTok{(followpy), }\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate_if}\NormalTok{(is.numeric, format, }\DecValTok{2}\NormalTok{)}
+\NormalTok{MData\_men }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(Mlkfre) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{pyear =} \KeywordTok{sum}\NormalTok{(followpy), }\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate\_if}\NormalTok{(is.numeric, format, }\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1480,10 +1478,10 @@ analyses}\label{before-entering-the-analyses-ordered-we-need-to-explore-by-preli
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MData_fem }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(Mlkfre) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{pyear =} \KeywordTok{sum}\NormalTok{(followpy), }\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate_if}\NormalTok{(is.numeric, format, }\DecValTok{2}\NormalTok{)}
+\NormalTok{MData\_fem }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(Mlkfre) }\OperatorTok{\%\textgreater{}\%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{pyear =} \KeywordTok{sum}\NormalTok{(followpy), }\DataTypeTok{n =} \KeywordTok{n}\NormalTok{()) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate\_if}\NormalTok{(is.numeric, format, }\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1504,7 +1502,7 @@ analyses}\label{before-entering-the-analyses-ordered-we-need-to-explore-by-preli
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData_men}\OperatorTok{$}\NormalTok{Mlkfre, MData_men}\OperatorTok{$}\NormalTok{Tot_Stroke, }
+\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData\_men}\OperatorTok{$}\NormalTok{Mlkfre, MData\_men}\OperatorTok{$}\NormalTok{Tot\_Stroke, }
                    \DataTypeTok{percent =} \StringTok{"row"}\NormalTok{, }\DataTypeTok{graph =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1528,7 +1526,7 @@ analyses}\label{before-entering-the-analyses-ordered-we-need-to-explore-by-preli
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData_fem}\OperatorTok{$}\NormalTok{Mlkfre, MData_fem}\OperatorTok{$}\NormalTok{Tot_Stroke, }
+\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData\_fem}\OperatorTok{$}\NormalTok{Mlkfre, MData\_fem}\OperatorTok{$}\NormalTok{Tot\_Stroke, }
                    \DataTypeTok{percent =} \StringTok{"row"}\NormalTok{, }\DataTypeTok{graph =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1552,9 +1550,9 @@ analyses}\label{before-entering-the-analyses-ordered-we-need-to-explore-by-preli
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{###################################################################################################}
-\CommentTok{## survival object}
-\CommentTok{###################################################################################################}
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\#\# survival object}
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
 \KeywordTok{library}\NormalTok{(survival)}
 \KeywordTok{library}\NormalTok{(ggplot2)}
 \KeywordTok{library}\NormalTok{(survminer)}
@@ -1614,18 +1612,18 @@ analyses}\label{before-entering-the-analyses-ordered-we-need-to-explore-by-preli
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(ggsci)}
 
-\CommentTok{# In all}
-\NormalTok{su_obj <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData}\OperatorTok{$}\NormalTok{followpy, MData}\OperatorTok{$}\NormalTok{Tot_Stroke }\OperatorTok{==}\StringTok{ "I60_9"}\NormalTok{)}
+\CommentTok{\# In all}
+\NormalTok{su\_obj \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData}\OperatorTok{$}\NormalTok{followpy, MData}\OperatorTok{$}\NormalTok{Tot\_Stroke }\OperatorTok{==}\StringTok{ "I60\_9"}\NormalTok{)}
 
-\CommentTok{# in Men}
-\NormalTok{su_obj_men <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData_men}\OperatorTok{$}\NormalTok{followpy, MData_men}\OperatorTok{$}\NormalTok{Tot_Stroke }\OperatorTok{==}\StringTok{ "I60_9"}\NormalTok{)}
-\CommentTok{# in Women}
-\NormalTok{su_obj_fem <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData_fem}\OperatorTok{$}\NormalTok{followpy, MData_fem}\OperatorTok{$}\NormalTok{Tot_Stroke }\OperatorTok{==}\StringTok{ "I60_9"}\NormalTok{)}
+\CommentTok{\# in Men}
+\NormalTok{su\_obj\_men \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData\_men}\OperatorTok{$}\NormalTok{followpy, MData\_men}\OperatorTok{$}\NormalTok{Tot\_Stroke }\OperatorTok{==}\StringTok{ "I60\_9"}\NormalTok{)}
+\CommentTok{\# in Women}
+\NormalTok{su\_obj\_fem \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData\_fem}\OperatorTok{$}\NormalTok{followpy, MData\_fem}\OperatorTok{$}\NormalTok{Tot\_Stroke }\OperatorTok{==}\StringTok{ "I60\_9"}\NormalTok{)}
 
 
-\CommentTok{###################################################################################################}
-\CommentTok{## Kaplan-Meier plots and log rank tests for TotStroke and Milk intake  (frequency)}
-\CommentTok{###################################################################################################}
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
+\CommentTok{\#\# Kaplan{-}Meier plots and log rank tests for TotStroke and Milk intake  (frequency)}
+\CommentTok{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1654,11 +1652,11 @@ analyses}\label{before-entering-the-analyses-ordered-we-need-to-explore-by-preli
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
                  \DataTypeTok{data =}\NormalTok{ MData)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -1682,7 +1680,7 @@ MlkfreDaily & 0.8350038 & 0.0498459 & -3.617533 & 0.0002974 & 0.7572854
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData}\OperatorTok{$}\NormalTok{Mlkfre, MData}\OperatorTok{$}\NormalTok{Tot_Stroke, }\DataTypeTok{graph =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData}\OperatorTok{$}\NormalTok{Mlkfre, MData}\OperatorTok{$}\NormalTok{Tot\_Stroke, }\DataTypeTok{graph =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1725,8 +1723,8 @@ MlkfreDaily & 0.8350038 & 0.0498459 & -3.617533 & 0.0002974 & 0.7572854
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MData }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(Mlkfre) }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MData }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(Mlkfre) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{TotPY =} \KeywordTok{sum}\NormalTok{(followpy))}
 \end{Highlighting}
 \end{Shaded}
@@ -1751,10 +1749,10 @@ MlkfreDaily & 0.8350038 & 0.0498459 & -3.617533 & 0.0002974 & 0.7572854
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(tr_sex), }
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(tr\_sex), }
                  \DataTypeTok{data =}\NormalTok{ MData)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -1876,12 +1874,12 @@ as.factor(tr\_sex)2\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp)}\OperatorTok{+}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(tr_sex) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp)}\OperatorTok{+}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(tr\_sex) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea, }
                  \DataTypeTok{data =}\NormalTok{ MData)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -2618,12 +2616,12 @@ Greteaunknown\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM3 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre}\OperatorTok{*}\KeywordTok{as.factor}\NormalTok{(tr_sex) }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM3 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre}\OperatorTok{*}\KeywordTok{as.factor}\NormalTok{(tr\_sex) }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea, }
                  \DataTypeTok{data =}\NormalTok{ MData)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM3, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM3, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -3417,18 +3415,26 @@ MlkfreDaily:as.factor(tr\_sex)2\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{anova}\NormalTok{(SurvM2, SurvM3)}
+\NormalTok{SurvM \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea, }
+                 \DataTypeTok{data =}\NormalTok{ MData)}
+
+
+\KeywordTok{anova}\NormalTok{(SurvM, SurvM3)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## Analysis of Deviance Table
 ##  Cox model: response is  su_obj
-##  Model 1: ~ Mlkfre + Age + strata(Agegrp) + as.factor(tr_sex) + Smoking + Alc_Fre + BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea
+##  Model 1: ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea
 ##  Model 2: ~ Mlkfre * as.factor(tr_sex) + Age + strata(Agegrp) + Smoking + Alc_Fre + BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea
-##   loglik  Chisq Df P(>|Chi|)
-## 1 -24117                    
-## 2 -24115 2.9932  4     0.559
+##   loglik  Chisq Df P(>|Chi|)    
+## 1 -24155                        
+## 2 -24115 79.945  5 8.617e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 \end{verbatim}
 
 \hypertarget{in-men}{%
@@ -3439,11 +3445,11 @@ MlkfreDaily:as.factor(tr\_sex)2\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -3467,7 +3473,7 @@ MlkfreDaily & 0.9024874 & 0.0700243 & -1.465214 & 0.1428626 & 0.7867494
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData_men}\OperatorTok{$}\NormalTok{Mlkfre, MData_men}\OperatorTok{$}\NormalTok{Tot_Stroke, }\DataTypeTok{graph =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData\_men}\OperatorTok{$}\NormalTok{Mlkfre, MData\_men}\OperatorTok{$}\NormalTok{Tot\_Stroke, }\DataTypeTok{graph =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3510,8 +3516,8 @@ MlkfreDaily & 0.9024874 & 0.0700243 & -1.465214 & 0.1428626 & 0.7867494
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MData_men }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(Mlkfre) }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MData\_men }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(Mlkfre) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{TotPY =} \KeywordTok{sum}\NormalTok{(followpy))}
 \end{Highlighting}
 \end{Shaded}
@@ -3536,10 +3542,10 @@ MlkfreDaily & 0.9024874 & 0.0700243 & -1.465214 & 0.1428626 & 0.7867494
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -3568,12 +3574,12 @@ Age & 1.1459568 & 0.0104664 & 13.0169169 & 0.0000000 & 1.1226884 &
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea, }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -4295,7 +4301,7 @@ Greteaunknown\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData_fem}\OperatorTok{$}\NormalTok{Mlkfre, MData_fem}\OperatorTok{$}\NormalTok{Tot_Stroke, }\DataTypeTok{graph =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData\_fem}\OperatorTok{$}\NormalTok{Mlkfre, MData\_fem}\OperatorTok{$}\NormalTok{Tot\_Stroke, }\DataTypeTok{graph =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4338,8 +4344,8 @@ Greteaunknown\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{MData_fem }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(Mlkfre) }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{MData\_fem }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
+\StringTok{  }\KeywordTok{group\_by}\NormalTok{(Mlkfre) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{TotPY =} \KeywordTok{sum}\NormalTok{(followpy))}
 \end{Highlighting}
 \end{Shaded}
@@ -4364,11 +4370,11 @@ Greteaunknown\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -4395,10 +4401,10 @@ MlkfreDaily & 0.8126953 & 0.0710695 & -2.918256 & 0.0035199 & 0.7070226
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -4427,12 +4433,12 @@ Age & 1.1568656 & 0.0108181 & 13.4695388 & 0.0000000 & 1.1325948 &
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea }\OperatorTok{+}\StringTok{ }\NormalTok{Menopause, }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -5169,10 +5175,10 @@ MenopauseTRUE\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# in Men}
-\NormalTok{su_obj_men <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData_men}\OperatorTok{$}\NormalTok{followpy, MData_men}\OperatorTok{$}\NormalTok{HemoStroke }\OperatorTok{==}\StringTok{ "I60_2"}\NormalTok{)}
-\CommentTok{# in Women}
-\NormalTok{su_obj_fem <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData_fem}\OperatorTok{$}\NormalTok{followpy, MData_fem}\OperatorTok{$}\NormalTok{HemoStroke }\OperatorTok{==}\StringTok{ "I60_2"}\NormalTok{)}
+\CommentTok{\# in Men}
+\NormalTok{su\_obj\_men \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData\_men}\OperatorTok{$}\NormalTok{followpy, MData\_men}\OperatorTok{$}\NormalTok{HemoStroke }\OperatorTok{==}\StringTok{ "I60\_2"}\NormalTok{)}
+\CommentTok{\# in Women}
+\NormalTok{su\_obj\_fem \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData\_fem}\OperatorTok{$}\NormalTok{followpy, MData\_fem}\OperatorTok{$}\NormalTok{HemoStroke }\OperatorTok{==}\StringTok{ "I60\_2"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5181,7 +5187,7 @@ MenopauseTRUE\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData_men}\OperatorTok{$}\NormalTok{Mlkfre, MData_men}\OperatorTok{$}\NormalTok{HemoStroke)}
+\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData\_men}\OperatorTok{$}\NormalTok{Mlkfre, MData\_men}\OperatorTok{$}\NormalTok{HemoStroke)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5229,11 +5235,11 @@ MenopauseTRUE\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -5260,10 +5266,10 @@ MlkfreDaily & 0.9442372 & 0.1252492 & -0.4581096 & 0.6468737 & 0.7387012
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -5292,12 +5298,12 @@ Age & 1.0812843 & 0.0183013 & 4.2701629 & 0.0000195 & 1.0431862 &
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea, }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -6019,7 +6025,7 @@ Greteaunknown\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData_fem}\OperatorTok{$}\NormalTok{Mlkfre, MData_fem}\OperatorTok{$}\NormalTok{HemoStroke)}
+\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData\_fem}\OperatorTok{$}\NormalTok{Mlkfre, MData\_fem}\OperatorTok{$}\NormalTok{HemoStroke)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6067,11 +6073,11 @@ Greteaunknown\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -6098,10 +6104,10 @@ MlkfreDaily & 0.8894565 & 0.1166414 & -1.0043148 & 0.3152269 & 0.7076840
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -6130,12 +6136,12 @@ Age & 1.0972778 & 0.0164735 & 5.6352378 & 0.0000000 & 1.0624152 &
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea }\OperatorTok{+}\StringTok{ }\NormalTok{Menopause, }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -6872,10 +6878,10 @@ MenopauseTRUE\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# in Men}
-\NormalTok{su_obj_men <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData_men}\OperatorTok{$}\NormalTok{followpy, MData_men}\OperatorTok{$}\NormalTok{IscheStroke }\OperatorTok{==}\StringTok{ "I63"}\NormalTok{)}
-\CommentTok{# in Women}
-\NormalTok{su_obj_fem <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData_fem}\OperatorTok{$}\NormalTok{followpy, MData_fem}\OperatorTok{$}\NormalTok{IscheStroke }\OperatorTok{==}\StringTok{ "I63"}\NormalTok{)}
+\CommentTok{\# in Men}
+\NormalTok{su\_obj\_men \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData\_men}\OperatorTok{$}\NormalTok{followpy, MData\_men}\OperatorTok{$}\NormalTok{IscheStroke }\OperatorTok{==}\StringTok{ "I63"}\NormalTok{)}
+\CommentTok{\# in Women}
+\NormalTok{su\_obj\_fem \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData\_fem}\OperatorTok{$}\NormalTok{followpy, MData\_fem}\OperatorTok{$}\NormalTok{IscheStroke }\OperatorTok{==}\StringTok{ "I63"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6884,7 +6890,7 @@ MenopauseTRUE\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData_men}\OperatorTok{$}\NormalTok{Mlkfre, MData_men}\OperatorTok{$}\NormalTok{IscheStroke)}
+\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData\_men}\OperatorTok{$}\NormalTok{Mlkfre, MData\_men}\OperatorTok{$}\NormalTok{IscheStroke)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6932,11 +6938,11 @@ MenopauseTRUE\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -6963,10 +6969,10 @@ MlkfreDaily & 0.7089936 & 0.1081102 & -3.181093 & 0.0014672 & 0.5736127
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -6995,12 +7001,12 @@ Age & 1.1908810 & 0.0170434 & 10.249906 & 0.0000000 & 1.1517574 &
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea, }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -7722,7 +7728,7 @@ Greteaunknown\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData_fem}\OperatorTok{$}\NormalTok{Mlkfre, MData_fem}\OperatorTok{$}\NormalTok{IscheStroke)}
+\NormalTok{epiDisplay}\OperatorTok{::}\KeywordTok{tabpct}\NormalTok{(MData\_fem}\OperatorTok{$}\NormalTok{Mlkfre, MData\_fem}\OperatorTok{$}\NormalTok{IscheStroke)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7770,11 +7776,11 @@ Greteaunknown\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -7801,10 +7807,10 @@ MlkfreDaily & 0.7628325 & 0.1231793 & -2.1977466 & 0.0279672 & 0.5992096
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -7833,12 +7839,12 @@ Age & 1.2344720 & 0.0196322 & 10.7294688 & 0.0000000 & 1.1878737 &
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea }\OperatorTok{+}\StringTok{ }\NormalTok{Menopause, }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -8575,10 +8581,10 @@ MenopauseTRUE\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# in Men}
-\NormalTok{su_obj_men <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData_men}\OperatorTok{$}\NormalTok{followpy, MData_men}\OperatorTok{$}\NormalTok{CHD }\OperatorTok{==}\StringTok{ "I20_5"}\NormalTok{)}
-\CommentTok{# in Women}
-\NormalTok{su_obj_fem <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData_fem}\OperatorTok{$}\NormalTok{followpy, MData_fem}\OperatorTok{$}\NormalTok{CHD }\OperatorTok{==}\StringTok{ "I20_5"}\NormalTok{)}
+\CommentTok{\# in Men}
+\NormalTok{su\_obj\_men \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData\_men}\OperatorTok{$}\NormalTok{followpy, MData\_men}\OperatorTok{$}\NormalTok{CHD }\OperatorTok{==}\StringTok{ "I20\_5"}\NormalTok{)}
+\CommentTok{\# in Women}
+\NormalTok{su\_obj\_fem \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData\_fem}\OperatorTok{$}\NormalTok{followpy, MData\_fem}\OperatorTok{$}\NormalTok{CHD }\OperatorTok{==}\StringTok{ "I20\_5"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8590,11 +8596,11 @@ MenopauseTRUE\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -8621,10 +8627,10 @@ MlkfreDaily & 0.9060687 & 0.0940136 & -1.0492112 & 0.2940809 & 0.7535926
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -8653,12 +8659,12 @@ Age & 1.1130282 & 0.0140503 & 7.6215160 & 0.0000000 & 1.0827958 &
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea, }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -9383,11 +9389,11 @@ Greteaunknown\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -9414,10 +9420,10 @@ MlkfreDaily & 0.9015677 & 0.1094816 & -0.9464620 & 0.3439130 & 0.7274571
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -9446,12 +9452,12 @@ Age & 1.1721849 & 0.0166594 & 9.5363440 & 0.0000000 & 1.1345291 &
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea }\OperatorTok{+}\StringTok{ }\NormalTok{Menopause, }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -10188,10 +10194,10 @@ MenopauseTRUE\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# in Men}
-\NormalTok{su_obj_men <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData_men}\OperatorTok{$}\NormalTok{followpy, MData_men}\OperatorTok{$}\NormalTok{HeartF }\OperatorTok{==}\StringTok{ "I50"}\NormalTok{)}
-\CommentTok{# in Women}
-\NormalTok{su_obj_fem <-}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData_fem}\OperatorTok{$}\NormalTok{followpy, MData_fem}\OperatorTok{$}\NormalTok{HeartF }\OperatorTok{==}\StringTok{ "I50"}\NormalTok{)}
+\CommentTok{\# in Men}
+\NormalTok{su\_obj\_men \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData\_men}\OperatorTok{$}\NormalTok{followpy, MData\_men}\OperatorTok{$}\NormalTok{HeartF }\OperatorTok{==}\StringTok{ "I50"}\NormalTok{)}
+\CommentTok{\# in Women}
+\NormalTok{su\_obj\_fem \textless{}{-}}\StringTok{ }\KeywordTok{Surv}\NormalTok{(MData\_fem}\OperatorTok{$}\NormalTok{followpy, MData\_fem}\OperatorTok{$}\NormalTok{HeartF }\OperatorTok{==}\StringTok{ "I50"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10203,11 +10209,11 @@ MenopauseTRUE\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -10234,10 +10240,10 @@ MlkfreDaily & 1.0890675 & 0.1178539 & 0.7239628 & 0.4690886 & 0.8644450
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -10266,12 +10272,12 @@ Age & 1.1542319 & 0.0176620 & 8.1211207 & 0.0000000 & 1.1149597 &
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_men }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_men }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea, }
-                 \DataTypeTok{data =}\NormalTok{ MData_men)}
+                 \DataTypeTok{data =}\NormalTok{ MData\_men)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -10996,11 +11002,11 @@ Greteaunknown\strut
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM0 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre, }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+\NormalTok{SurvM0 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre, }
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
 \KeywordTok{library}\NormalTok{(}\StringTok{"broom"}\NormalTok{)}
-\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM0, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -11027,10 +11033,10 @@ MlkfreDaily & 0.7735712 & 0.1016797 & -2.524964 & 0.0115710 & 0.6337972
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM1 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+\NormalTok{SurvM1 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp), }
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM1, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}
@@ -11059,12 +11065,12 @@ Age & 1.1980416 & 0.0166858 & 10.8288901 & 0.0000000 & 1.1594952 &
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{SurvM2 <-}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su_obj_fem }\OperatorTok{~}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc_Fre }\OperatorTok{+}\StringTok{ }
-\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
+\NormalTok{SurvM2 \textless{}{-}}\StringTok{  }\KeywordTok{coxph}\NormalTok{(su\_obj\_fem }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{Mlkfre }\OperatorTok{+}\StringTok{ }\NormalTok{Age }\OperatorTok{+}\StringTok{ }\KeywordTok{strata}\NormalTok{(Agegrp) }\OperatorTok{+}\StringTok{ }\NormalTok{Smoking }\OperatorTok{+}\StringTok{ }\NormalTok{Alc\_Fre }\OperatorTok{+}\StringTok{ }
+\StringTok{                   }\NormalTok{BMIgrp }\OperatorTok{+}\StringTok{ }\NormalTok{DM\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{HT\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{KID\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{LIV\_hist }\OperatorTok{+}\StringTok{ }\NormalTok{Exercise }\OperatorTok{+}\StringTok{ }
 \StringTok{                   }\NormalTok{Slepgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Spi }\OperatorTok{+}\StringTok{ }\NormalTok{Fru }\OperatorTok{+}\StringTok{ }\NormalTok{Cofe }\OperatorTok{+}\StringTok{ }\NormalTok{Educgrp }\OperatorTok{+}\StringTok{ }\NormalTok{Gretea }\OperatorTok{+}\StringTok{ }\NormalTok{Menopause, }
-                 \DataTypeTok{data =}\NormalTok{ MData_fem)}
+                 \DataTypeTok{data =}\NormalTok{ MData\_fem)}
 
-\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{tidy}\NormalTok{(SurvM2, }\DataTypeTok{exponentiate =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{conf.int =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{\%\textgreater{}\%}\StringTok{ }
 \StringTok{  }\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(.)}
 \end{Highlighting}
 \end{Shaded}

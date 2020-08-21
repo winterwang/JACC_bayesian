@@ -12,8 +12,6 @@
 #' header-includes: 
 #'   - \usepackage{bookmark} 
 #'   - \usepackage{xltxtra} 
-#'   - \usepackage{zxjatype} 
-#'   - \usepackage[ipaex]{zxjafont} 
 #' ---
 #' # Read in the data
 
@@ -567,7 +565,14 @@ SurvM3 <-  coxph(su_obj ~ Mlkfre*as.factor(tr_sex) + Age + strata(Agegrp) + Smok
 tidy(SurvM3, exponentiate = TRUE, conf.int = TRUE) %>% 
   knitr::kable(.)
 
-anova(SurvM2, SurvM3)
+
+SurvM <-  coxph(su_obj ~ Mlkfre + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea, 
+                 data = MData)
+
+
+anova(SurvM, SurvM3)
 
 
 #' # In Men
