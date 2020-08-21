@@ -446,6 +446,9 @@ library(survminer)
 library(cowplot)
 library(ggsci)
 
+# In all
+su_obj <- Surv(MData$followpy, MData$Tot_Stroke == "I60_9")
+
 # in Men
 su_obj_men <- Surv(MData_men$followpy, MData_men$Tot_Stroke == "I60_9")
 # in Women
@@ -518,6 +521,54 @@ ggsurv_Drfreq <- ggpar(
   legend.title = ""
 )
 ggsurv_Drfreq
+
+
+#' # In ALL
+#' ## Model0
+
+SurvM0 <-  coxph(su_obj ~ Mlkfre, 
+                 data = MData)
+
+library("broom")
+tidy(SurvM0, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+epiDisplay::tabpct(MData$Mlkfre, MData$Tot_Stroke, graph = FALSE)
+
+MData %>% 
+  group_by(Mlkfre) %>% 
+  summarise(TotPY = sum(followpy))
+
+#' ## Model1 
+
+SurvM1 <-  coxph(su_obj ~ Mlkfre + Age + strata(Agegrp) + as.factor(tr_sex), 
+                 data = MData)
+
+tidy(SurvM1, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 
+
+SurvM2 <-  coxph(su_obj ~ Mlkfre + Age + strata(Agegrp)+ as.factor(tr_sex) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea, 
+                 data = MData)
+
+tidy(SurvM2, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+#' ## Model2 sex interaction 
+
+SurvM3 <-  coxph(su_obj ~ Mlkfre*as.factor(tr_sex) + Age + strata(Agegrp) + Smoking + Alc_Fre + 
+                   BMIgrp + DM_hist + HT_hist + KID_hist + LIV_hist + Exercise + 
+                   Slepgrp + Spi + Fru + Cofe + Educgrp + Gretea, 
+                 data = MData)
+
+tidy(SurvM3, exponentiate = TRUE, conf.int = TRUE) %>% 
+  knitr::kable(.)
+
+anova(SurvM2, SurvM3)
+
 
 #' # In Men
 #' ## Model0
