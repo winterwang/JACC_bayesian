@@ -135,17 +135,17 @@ comparing individuals with different milk intake frequencies against
 those who never consumed milk at the study baseline. These estimations
 were computed through a series of Bayesian survival models that employed
 a Markov Chain Monte Carlo simulation process. 100000 posterior samples
-for each individual were generated separately through four independent
-chains after model convergency were confirmed. Posterior probabilites
-that daily milk consumers had lower hazard or delayed mortality from
-strokes compared to non-consumers was 99.0\% and 78.0\% for men and
-women, respectively. Accordingly, the estimated posterior means of AF
-and HR for daily milk consumers were 0.88 (95\% Credible Interval, CrI:
-0.81, 0.96) and 0.80 (95\% CrI: 0.69, 0.93) for men and 0.97 (95\% CrI:
-0.88, 1.10) and 0.95 (95\% CrI: 0.80, 1.17) for women. In conclusion,
-data from the JACC study has provided strong evidence that daily milk
-intake among Japanese men was associated with delayed and lower hazard
-of mortality from stroke especially cerebral infarction.}
+were generated separately through four independent chains after model
+convergency were confirmed. Posterior probabilites that daily milk
+consumers had lower hazard or delayed mortality from strokes compared to
+non-consumers was 99.0\% and 78.0\% for men and women, respectively.
+Accordingly, the estimated posterior means of AF and HR for daily milk
+consumers were 0.88 (95\% Credible Interval, CrI: 0.81, 0.96) and 0.80
+(95\% CrI: 0.69, 0.93) for men and 0.97 (95\% CrI: 0.88, 1.10) and 0.95
+(95\% CrI: 0.80, 1.17) for women. In conclusion, data from the JACC
+study has provided strong evidence that daily milk intake among Japanese
+men was associated with delayed and lower hazard of mortality from
+stroke especially cerebral infarction.}
 
 % Keywords
 \keyword{milk intake; mortality; stroke; Bayesian survival anlysis;
@@ -228,7 +228,8 @@ Monte Carlo (MCMC) simulation process. A Bayesian survival analysis
 method was applied on an existing database and through which, we also
 provided estimates about whether drinking milk could delay a stroke
 mortality event from happening after controlling for the other potential
-confounders.
+confounders. Analyses would be conducted stratified by sex or any other
+factor that might suggest any modification effect on the association.
 
 \hypertarget{materials-and-methods}{%
 \section{Materials and Methods}\label{materials-and-methods}}
@@ -265,7 +266,9 @@ assessed by FFQ from ``never'', ``1-2 times/month'', ``1-2 times/week'',
 consumption was difficult to assess here. However, good reproducibility
 and validity were confirmed previously (Spearman rank correlation
 coefficient between milk intake frequency and weighed dietary record for
-12 days was 0.65) \citep{Date2005}.
+12 days was 0.65) \citep{Date2005}. From the validation study
+\citep{Date2005} of the FFQ, daily consumers of milk was found to have a
+median intake of 146 gram per day.
 
 The causes and date of death were obtained from death certificates and
 were systematically reviewed. The follow-up period was defined as from
@@ -283,10 +286,13 @@ in their death certificates were available.
 \hypertarget{statistical-approach}{%
 \subsection{Statistical approach}\label{statistical-approach}}
 
-We calculated sex-specific means (standard deviation, sd) and proportion
-of selected baseline characteristics according to the frequency of milk
-intake. Age-adjusted stroke mortality rate were expressed as per 1000
-person-year predicted through poisson regression models.
+Since there is significant effect modification by sex found in the total
+sample, all of the subsequent analyses were performed in men and women
+separately. We calculated sex-specific means (standard deviation, sd)
+and proportion of selected baseline characteristics according to the
+frequency of milk intake. Age-adjusted stroke mortality rate were
+expressed as per 1000 person-year predicted through poisson regression
+models.
 
 Full parametric proportional hazard models under Bayesian framework with
 Weibull distribution were fitted using Just Another Gibbs Sampler (JAGS)
@@ -627,32 +633,46 @@ N & 10407 & 3640 & 7590 & 8108 & 25254\\
 \end{table}
 
 These findings showed similar negative effect estimates reported
-previously \citep{wang_milk_2015}, in which the outcomes of interests
-were focused on cardiovascular diseases and all-cause mortality. Other
-studies conducted in East Asian populations also suggested comparable
-results
-\citep{umesawa2008dietary, kondo2013consumption, ozawa2017dietary, Talaei_2016}.
-However the Life Span Study \citep{sauvaget2003intake} which was
-conducted about 10 years prior to the JACC Study reported null
-association between milk intake and fatal stroke among men and women
-combined who survived from the Hiroshima and Nagasaki atomic bomb. The
-difference could be explained by the different population targeted as
-well as the fact that
-
-Moreover, we have further updated with more comprehensive and
-straightforward evidence about whether and how certain the data had
-shown about daily consumption of milk is contributing to a postponed
-stroke (mostly cerebral infarction) mortality event among Japanese men.
-A recent dose-response meta-analysis of 18 prospective cohort studies
-had also shown a similar negative association \citep{DeGoede2016}
-between milk consumption and risk of stroke. The same meta-analysis also
-reported a greater reduction of risk of stroke (18\%) for East Asian
-population in contrast with the 7\% less risk in the pooled overall
-finding for all populations combined. Benefits of increased milk intake
-might be particularly noticeable in East Asian countries where strokes
-are relatively more common, and milk consumption is much lower than
-those studies conducted among European or American populations
-\citep{dehghan2018association}.
+previously \citep{wang_milk_2015} using data from the same cohort, in
+which the outcomes of interests were focused on cardiovascular diseases
+and all-cause mortality. Moreover, we have further updated the results
+with more comprehensive and straightforward evidence about whether and
+how certain the data had shown about daily consumption of milk is
+contributing to a postponed stroke (mostly cerebral infarction)
+mortality event among Japanese men. A recent dose-response meta-analysis
+of 18 prospective cohort studies had shown a similar negative
+association \citep{DeGoede2016} between milk consumption and risk of
+stroke. The same meta-analysis also reported a greater reduction of risk
+of stroke (18\%) for East Asian population in contrast with the 7\% less
+risk in the pooled overall finding for all populations combined.
+Benefits of increased milk intake might be particularly noticeable in
+East Asian countries where strokes are relatively more common, and milk
+consumption is much lower than those studies conducted among European or
+American populations \citep{dehghan2018association}. However, the Life
+Span Study \citep{sauvaget2003intake}, which was conducted about 10
+years earlier than the JACC Study, reported null association between
+milk intake and fatal stroke among men and women combined who survived
+from the Hiroshima and Nagasaki atomic bomb. The difference could be
+largely explained by the different targeting populations between the two
+studies. \citet{kondo2013consumption} also reported null association in
+either men or women from the NIPPON DATA80 study. In fact, the exact
+number of stroke mortality events was about 85\% less and the number of
+participants in the NIPPON DATA80 was about 90\% less than those in the
+JACC study database, their null association might likely due to its
+limited statistical power. \citet{umesawa2008dietary} reported that
+dairy calcium intake was inversely associated with ischemic stroke
+mortality risk which could be considered as one of the potential
+evidence that supported our findings. Furthermore, stronger inverse
+association between milk consumption and stroke mortality in men rather
+than in women was found in the Singapore Chinese Health Study
+\citep{Talaei_2016} as well. The reasons for this gender differences is
+currently unknown. It might be contributed by generally better/healthier
+lifestyles (much less smokers and alcohol drinkers) in women regardless
+of milk intake frequency, or maybe due to other factors that was not
+available/considered by our models such as intake of calcium
+supplements. The probably existing beneficial effect by milk intake is
+probably less evident in women than that in men. Further investigation
+is needed.
 
 Possible reasons for a protective effect of milk consumption against
 stroke could be interpreted as such an association may be mediated by
