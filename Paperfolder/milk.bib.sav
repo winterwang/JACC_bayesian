@@ -542,4 +542,16 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
   timestamp = {2020-07-16},
 }
 
+@Article{hu2014dairy,
+  author    = {Hu, D and Huang, J and Wang, Y and Zhang, D and Qu, Y},
+  journal   = {Nutrition, Metabolism and Cardiovascular Diseases},
+  title     = {Dairy foods and risk of stroke: a meta-analysis of prospective cohort studies},
+  year      = {2014},
+  number    = {5},
+  pages     = {460--469},
+  volume    = {24},
+  publisher = {Elsevier},
+  timestamp = {2020-08-24},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
