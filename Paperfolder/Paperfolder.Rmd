@@ -38,7 +38,7 @@ affiliation:
       Public Health, Department of Social Medicine, Osaka University Graduate School of Medicine, Osaka, Japan
   - num: 4
     address: |
-      Department of Public Health, Hokkaido University, Graduate School of Medicine, Sapporo, Japan
+      Department of Public Health, Hokkaido University, Faculty of Medicine, Sapporo, Japan
 correspondence: |
   Email.: chaochen@wangcc.me; Tel.: +81-561-62-3311. Department of Public Health, Aichi Medical University School of Medicine, 1-1 Yazakokarimata, Nagakute, Aichi, 480-1195, Japan (C.W.)
 journal: nutrients
@@ -88,7 +88,9 @@ output: rticles::mdpi_article
 
 # Introduction
 
-Eastern Asian populations were reported to have higher burden from either mortality or morbidity from stroke than populations in European or American regions [@Kim2014]. Dairy food, especially milk has been suggested to reduce stroke risk by nearly 7% for each 200 g increment of daily consumption [@DeGoede2016]. Although 2 daily servings of milk or dairy products is recommended in Japan [@Yoshiike2007], the actual per capita intake ($\approx$ 63 g/day) of these food groups is much lower and less frequent than that in Western countries [@Saito2019]. Given that previous reports have also indicated no significant [@Iso1999;@sauvaget2003intake;@Elwood2004] or even positive associations [@Larsson2009], whether people with such a low level intake of milk can still benefit against stroke would require elucidation. A more intuitive interpretation would be available if we were able to show the probabilities and how certain the existing data can provide evidence about whether drinking milk can delay or lower the hazard of dying from stroke. Accelerated failure time models under Bayesian framework are convenient tools that would help avoid worrying about the assumption of proportional hazard normally required in a Cox proportional hazard model and can directly show how faster/slower individuals in one exposure group might have an event compared to others among different exposure groups [@Wei1992;@ibrahim2014b].
+Eastern Asian populations were reported to have higher burden from either mortality or morbidity from stroke than populations in European or American regions [@Kim2014]. Dairy food, especially milk has been suggested to reduce stroke risk by nearly 7% for each 200 g increment of daily consumption [@DeGoede2016]. Although 2 daily servings of milk or dairy products is recommended in Japan [@Yoshiike2007], the actual per capita intake ($\approx$ 63 g/day) of these food groups is much lower and less frequent than that in Western countries [@Saito2019]. Given that previous reports have also indicated no significant [@Iso1999;@sauvaget2003intake;@Elwood2004] or even positive associations [@Larsson2009], it would be of interest to provide information on the association within a context that most individuals have much lower range of milk intake compared to most of the previous studies. Whether people with such a low level intake of milk can still benefit against stroke would require elucidation. 
+
+Moreover, a more intuitive interpretation would be available if we were able to show the probabilities and how certain the existing data can provide evidence about whether drinking milk can delay or lower the hazard of dying from stroke. Accelerated failure time models (AFT) under Bayesian framework are convenient tools that would help avoid worrying about the assumption of proportional hazard normally required in a Cox proportional hazard model. AFT model is also helpful in estimating acceleration factors in addition to hazard ratios which can be interpreted as the speed for developing an event of interest. This speed parameter shows how faster/slower individuals in one exposure group might have an event compared to others among different exposure groups [@Wei1992;@ibrahim2014b]. AFT models 
 
 Our aim was to provide a more straightforward answer to the primary research question that whether someone answered he/she drank milk at the baseline of study had lower hazard of dying from stroke compared with his/her counterparts who said they never consumed milk. If the answer to the primary objective was yes, then the probabilities that individuals with different frequencies of milk intake may had lower hazard compared with those who never drank milk were calculated through a Markov Chain Monte Carlo (MCMC) simulation process. A Bayesian survival analysis method was applied on an existing database and through which, we also provided estimates about whether drinking milk could delay a stroke mortality event from happening after controlling for the other potential confounders. 
 
@@ -288,11 +290,12 @@ N & 8508 & 3522 & 5928 & 5563 & 15865\\
 \hspace{1em}Pr(HR < 1) & - & 96.1\% & 99.1\% & 97.5\% & 99.8\%\\
 \bottomrule
 \multicolumn{6}{l}{\textit{Note: }}\\
-\multicolumn{6}{l}{Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;}\\
+\multicolumn{6}{l}{Abbreviations: N, number of subjects, SD, standard deviation; CrI, credible interval.}\\
 \multicolumn{6}{l}{ Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.}\\
 \multicolumn{6}{l}{Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.}\\
-\multicolumn{6}{l}{Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of}\\
-\multicolumn{6}{l}{hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.}\\
+\multicolumn{6}{l}{Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of hypertension, }\\
+\multicolumn{6}{l}{diabetes, kidney/liver diseases, exercise, sleep duration,  quartiles of total energy intake, coffee intake, and }\\
+\multicolumn{6}{l}{education level.}\\
 \end{tabular}}
 \end{table}
 
@@ -408,24 +411,31 @@ N & 10407 & 3640 & 7590 & 8108 & 25254\\
 \hspace{1em}Pr(HR < 1) & - & 7.3\% & 15.6\% & 72.8\% & 70.0\%\\
 \bottomrule
 \multicolumn{6}{l}{\textit{Note: }}\\
-\multicolumn{6}{l}{Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;}\\
+\multicolumn{6}{l}{Abbreviations: N, number of subjects, SD, standard deviation; CrI, credible interval.}\\
 \multicolumn{6}{l}{ Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.}\\
 \multicolumn{6}{l}{Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.}\\
-\multicolumn{6}{l}{Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of}\\
-\multicolumn{6}{l}{hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.}\\
+\multicolumn{6}{l}{Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of hypertension, }\\
+\multicolumn{6}{l}{diabetes, kidney/liver diseases, exercise, sleep duration,  quartiles of total energy intake, coffee intake, and }\\
+\multicolumn{6}{l}{education level.}\\
 \end{tabular}}
 \end{table}
 
 
-<!-- - comparison with previous meta-analyses -->
-These findings are in line with our previous report [@wang_milk_2015] as well as other studies conducted in East Asian populations [@umesawa2008dietary;@kondo2013consumption;@ozawa2017dietary;@sauvaget2003intake;@Talaei_2016]. Moreover, we have further updated with more comprehensive and straightforward evidence about whether and how certain the data had shown about daily consumption of milk is contributing to a postponed stroke (mostly cerebral infarction) mortality event among Japanese men. A recent dose-response meta-analysis of 18 prospective cohort studies had also shown a similar negative association [@DeGoede2016] between milk consumption and risk of stroke. The same meta-analysis also reported a greater reduction of risk of stroke (18%) for East Asian population in contrast with the 7% less risk in the pooled overall finding for all populations combined. Benefits of increased milk intake might be particularly noticeable in East Asian countries where strokes are relatively more common, and milk consumption is much lower than those studies conducted among European or American populations [@dehghan2018association]. 
+<!-- - comparison with previous meta-analyses/studies in japan -->
+These findings showed similar negative effect estimates reported previously [@wang_milk_2015], in which the outcomes of interests were focused on cardiovascular diseases and all-cause mortality. Other studies conducted in East Asian populations also suggested comparable results [@umesawa2008dietary;@kondo2013consumption;@ozawa2017dietary;@Talaei_2016]. However the Life Span Study [@sauvaget2003intake] which was conducted about 10 years prior to the JACC Study reported null association between milk intake and fatal stroke among men and women combined who survived from the Hiroshima and Nagasaki atomic bomb. The difference could be explained by the different population targeted as well as the fact that 
+
+Moreover, we have further updated with more comprehensive and straightforward evidence about whether and how certain the data had shown about daily consumption of milk is contributing to a postponed stroke (mostly cerebral infarction) mortality event among Japanese men. A recent dose-response meta-analysis of 18 prospective cohort studies had also shown a similar negative association [@DeGoede2016] between milk consumption and risk of stroke. The same meta-analysis also reported a greater reduction of risk of stroke (18%) for East Asian population in contrast with the 7% less risk in the pooled overall finding for all populations combined. Benefits of increased milk intake might be particularly noticeable in East Asian countries where strokes are relatively more common, and milk consumption is much lower than those studies conducted among European or American populations [@dehghan2018association]. 
 <!-- - potential biological reasons -->
 
 Possible reasons for a protective effect of milk consumption against stroke could be interpreted as such an association may be mediated by its content in calcium, magnesium, potassium, and other bioactive compounds, as recommended by @Iacoviello2018. Apart from the inorganic minerals in milk that would be helpful with health effects, recent studies on animal models also indicated key evidence that stroke-associated morbidity was delayed in stroke-prone rats who were fed with milk-protein enriched diets [@Chiba2012;@singh2016diets]. More precisely, @Singh2020 found that whey protein and its components lactalbumin and lactoferrin improved energy balance and glycemic control against the onset of neurological deficits associated with stroke. Bioactive peptides from milk proteins were also responsible for limitation of thrombosis [@tokajuk2019whey] through their angiotensin convertase enzyme inhibitory potential, which might partly explain why the effect was found mainly for mortality from cerebral infarction in the current study. 
 
 
 <!-- - strength and limitation of current study -->
+## Strength and limitations
+
 Some limitations here are worth mentioning. First, the milk intake frequency as well as other lifestyle information was collected only once at the baseline and was self-reported. Apparently life habits are possible to alter over time and these would resulted in misclassfication and residual confoundings. Second, despite reasonable validity of FFQ in the JACC study cohort was assessed and confirmed, measurement errors are inevitable. Therefore, we did not try to compute the amount of consumption by multiplying an average volume per occasion with the frequency of intake since the random error might be exaggerated and the observed associations may have attenuated. Strengths of our analyses included that we have transformed the research questions to more transparent ones that is easier for interpretation. Direct probabilities that daily milk intake is associated with lower hazard or delayed stroke mortality event were provided here after thorough computer simulations. 
+
+## Conclusion
 
 In conclusion, the JACC study database has provided evidence that Japanese men who consumed milk daily had lower hazard of dying from stroke particularly cerebral infarction compared with their counterparts who never consumed milk. Time before an event of stroke mortality occurred were slowed down and delayed among men who drank milk regularly.
 

@@ -10,6 +10,11 @@ output:
     line_numbers: FALSE 
 ---
 
+
+We appreciate the reviewers for their helpful comments. We have incorporated them in the revised manuscript. Please find below a detailed point-by-point responses to all comments. In the tracked changes manuscript, we provided the LaTeX diff file so that changes made can easily be identified. A clean file without tracked changes was also included. 
+
+
+
 ## Comment from reviewer #1 
 
 
@@ -32,7 +37,7 @@ output:
 *Congratulations to the authors of the interestingly described research on a large group of participants.*
 
 
-
+[Response:] We really appreciate the reviewer for the positive comments. We have updated the manuscript with separated sections for study limitations and conclusions. 
 
 
 
@@ -45,8 +50,25 @@ output:
 *I have the following comments and questions for the authors:*
 
 1. *The introduction and discussion should however be more clear about the fact that the study is being performed in the lower range of the milk intake distribution. The dose-response meta-analysis in reference 2 indicates that the association may be non-linear. It would be good if the authors in more detail compared their results with other studies using fatal stroke as outcome and perhaps also focus on those cohorts with a low milk intake. For example, please elaborate on references 6, 20-23 in the discussion. Some of the references do not investigate milk intake per se. In the discussion, please specify that reference 19 does not investigate stroke mortality but CVD and all-cause mortality.*
+
+
+[Response:] Thanks for pointing these out. We have updated the introduction as well as the discussion parts in order to better showing that these participants actually represent those in the lower range of milk intake. Discussion comparing our findings with previous studies conducted in East Asian population has been expanded in more details. The fact that reference 19 was looking into CVD and all-cause mortality has been clarified. 
+
+
+
+
+
 2. *I am unfortunately not familiar with the Bayesian models used in this work. I am sure that many readers will be in a similar situation as me. I appreciate that these models can calculate hazard ratios without fulfilling the proportional hazards assumption. The authors should in more detail describe the benefits and limitations of these models in relation to the more commonly used Cox proportional hazards regression. Is a HR estimated from these models directly comparable with that from a Cox model? How is an acceleration factor interpreted? Do the models assume that a higher milk intake is associated with a lower stroke mortality, indicated also by the Pr(HR<1)? If so, how would that influence the validity of the method since you in the introduction write that there are reports of inverse associations, no association, and direct associations? In Table 2, both SD and 95% CrI are given. Is there a reason for specifying the SD?*
+
+
 2. *Why were analyses performed stratified by sex? Since no pooled analysis is presented, the reason for a stratified analysis should be stated in the aims, unless this was a secondary analysis and then also the results from the total cohort should be presented. The authors should also discuss the observed sex differences in more detail. Do other studies show similar sex differences? What potential biological mechanisms may explain them?*
+
+
+[Response:] It is reasonable to conduct the analysis separated in men and women since we found significant interaction effect by sex on the association between milk intake through a quick likelihood ratio test comparing Cox proportional hazard models with and without the interaction terms between sex and milk intake frequencies (P for interaction < 0.0001). Our stratified analyses also suggested the AFs and HRs might be in slightly different directions among 2 out of 4 frequencies (Table 2 and Table 3, results in the "total stroke" parts), we therefore believe it is legitimate to conduct analyses stratified by sex. 
+
+The interaction effect by sex was found probably due to the fact that women had relatively less mortality rates of fatal stroke and much better life habits (much less smokers and alcohol drinkers). The probably existing but tiny beneficial effect by milk intake is probably less apparent in women than in men in the JACC study cohort.   
+
+
 3. *The aim states to “provide a more straightforward answer to the primary research question” – compared to what? And how is this more straightforward answer achieved. This is not clear, neither in the aim nor in the discussion (lines166-167). Please revise.*
 3. *Please describe the context of milk intake in Japan. Is milk consumed as a beverage with food, added to coffee or other consumption patterns? Are other milk products than fresh non-fermented milk consumed and could be included in the “milk” exposure?*
 2. *Please specify age at baseline in abstract and methods.*

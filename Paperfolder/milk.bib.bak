@@ -527,4 +527,16 @@ CONCLUSIONS: Drinking milk at least 1-2 times a month was associated with lower 
   timestamp = {2020-07-16},
 }
 
+@Article{Omurlu2009,
+  author    = {Omurlu, Imran Kurt and Ozdamar, Kazim and Ture, Mevlut},
+  journal   = {Expert systems with applications},
+  title     = {Comparison of Bayesian survival analysis and Cox regression analysis in simulated and breast cancer data sets},
+  year      = {2009},
+  number    = {8},
+  pages     = {11341--11346},
+  volume    = {36},
+  publisher = {Elsevier},
+  timestamp = {2020-07-16},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
