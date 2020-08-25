@@ -79,10 +79,13 @@ The updated manuscript have included these information in the methods section as
 
 3. *The aim states to “provide a more straightforward answer to the primary research question” – compared to what? And how is this more straightforward answer achieved. This is not clear, neither in the aim nor in the discussion (lines166-167). Please revise.*
 
-[Response:] Thanks for your suggestion. The more straightforward answer is provided as Pr(HR < 1) which shows the percentages of HRs calculated through the large amount of simulations. The detailed interpretation is described above in answering your second comment. These probabilities shows directly how certain it is for individuals with that milk intake frequency could have lower hazard compared with those who never consume milk. We have added clearer descriptions about these 
+[Response:] Thanks for your suggestion. The more straightforward answer is provided as Pr(HR < 1) which shows the percentages of HRs < 1 calculated through the large amount of simulations. The detailed interpretation is described above in answering your second comment. These probabilities shows directly how certain it is for individuals with that milk intake frequency could have lower hazard compared with those who never consume milk. In traditional way the answer was not clear since only estimates of HRs, 95% confidence intervals, and/or P-values were shown. None of these actually directly answer the question "how sure it is to have lower hazard?" We have added clearer descriptions about these research questions and interpretations. 
 
 
 3. *Please describe the context of milk intake in Japan. Is milk consumed as a beverage with food, added to coffee or other consumption patterns? Are other milk products than fresh non-fermented milk consumed and could be included in the “milk” exposure?*
+
+[Response:] 
+
 2. *Please specify age at baseline in abstract and methods.*
 2. *Outcome ascertainment: Information on cause of death was from death certificates. Is there a possibility of individual linkage of the FFQ responses to a cause of death registry or were each of the participants’ death certificates reviewed? How many died from other causes, how many moved from the study area (and were thus lost to follow-up) and how many were censored at the end of follow-up (alive). Has stroke mortality changed during follow-up? Is there a difference in time trends of stroke subtype mortality? In how many cases was stroke subtype not recorded? The authors should also discuss potential reasons for differences in the results for stroke subtypes.*
 2. *I agree with the authors that presenting the results in the FFQ categories is a good option, rather than to calculate the amount of consumption. However, I wonder if there is some indication from the validation study as to how much is on average consumed in the higher categories of intake?*
