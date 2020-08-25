@@ -1,0 +1,1 @@
+latexdiff Paperfolder20200801.tex Paperfolder.tex > diff.tex

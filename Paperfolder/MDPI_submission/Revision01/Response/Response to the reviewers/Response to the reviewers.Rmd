@@ -2,7 +2,7 @@
 title: Response to the reviewers
 subtitle: Milk intake and stroke mortality in the Japan Collaborative Cohort Study - a Bayesian survival analysis
 author:  Chaochen Wang, Hiroshi Yatsuya, Yingsong Lin, Tae Sasakabe, Sayo Kawai, Shogo Kikuchi, Hiroyasu Iso, Akiko Tamakoshi
-# date:  `r Sys.Date()` updated
+# date:  " updated `r Sys.Date()`"
 output:
   redoc::redoc:
     highlight_outputs: TRUE
@@ -52,9 +52,7 @@ We appreciate the reviewers for their helpful comments. We have incorporated the
 - *The introduction and discussion should however be more clear about the fact that the study is being performed in the lower range of the milk intake distribution. The dose-response meta-analysis in reference 2 indicates that the association may be non-linear. It would be good if the authors in more detail compared their results with other studies using fatal stroke as outcome and perhaps also focus on those cohorts with a low milk intake. For example, please elaborate on references 6, 20-23 in the discussion. Some of the references do not investigate milk intake per se. In the discussion, please specify that reference 19 does not investigate stroke mortality but CVD and all-cause mortality.*
 
 
-[Response:] Thanks for pointing these out. We have updated the introduction as well as the discussion parts in order to better showing that these participants actually represent those in the lower range of milk intake. Discussion comparing our findings with previous studies conducted in East Asian population has been expanded in more details. The fact that reference 19 was looking into CVD and all-cause mortality has been clarified. 
-
-
+[Response:] Thanks for pointing these out. We have updated the introduction as well as the discussion parts in order to better showing that these participants actually represent those in the lower range of milk intake. Discussion comparing our findings with previous studies conducted in East Asian population has been expanded in more details. The fact that reference 19 (currently reference 16) was looking into CVD and all-cause mortality has been clarified. 
 
 
 
@@ -93,8 +91,20 @@ The updated manuscript have included these information in the methods section as
 
 - *Outcome ascertainment: Information on cause of death was from death certificates. Is there a possibility of individual linkage of the FFQ responses to a cause of death registry or were each of the participants’ death certificates reviewed? How many died from other causes, how many moved from the study area (and were thus lost to follow-up) and how many were censored at the end of follow-up (alive). Has stroke mortality changed during follow-up? Is there a difference in time trends of stroke subtype mortality? In how many cases was stroke subtype not recorded? The authors should also discuss potential reasons for differences in the results for stroke subtypes.*
 
-[Response:] We have added these details of information at the beginning of the results section. In the study area, investigators conducted systematic review of death certificates till the end of 2009. Date and cause of death were confirmed with the permission of the Director-General of the Prime Minister's Office. 
+[Response:] We have added these detailed information at the beginning of the results section. In the study area, investigators conducted systematic review of death certificates till the end of 2009. Date and cause of death were confirmed with the permission of the Director-General of the Prime Minister's Office. Number of deaths from causes other than stroke were 18868 (10731 men and 8137 women); 5493 (2022 men and 3471 women) dropped out from the follow-up (5.8%); 67349 (25281 men and 42068 women) were censored at the end of follow-up (71.4%). Among the 2675 stroke mortality confirmed in the JACC study, 766 were unfortunately not recorded with subtypes. The median (IQR) of follow-up years for cerebral infarction mortality were 11.2 (7.1, 15.3) and 11.8 (7.9, 16.4) in men and women; the median (IQR) of follow-up years for hemorrhagic stroke mortality were 9.9 (5.4, 12.3) and 10.9 (5.9, 15.1) in men and women. Potential reasons for differences in the results for stroke subtypes are described in discussion. 
 
 - *I agree with the authors that presenting the results in the FFQ categories is a good option, rather than to calculate the amount of consumption. However, I wonder if there is some indication from the validation study as to how much is on average consumed in the higher categories of intake?*
-- *Why did you adjust for sleep duration, is that a factor that influences both milk intake and stroke mortality risk?*
+
+[Response:] Thanks for your positive comments. The validation study of the FFQ used in the JACC study found that the median intake for a daily milk consumer was about 146 grams per day. This has been added in the first paragraph of "2.2 Exposure and the outcome of interest" section. 
+
+- *Why did you adjust for sleep duration, is that a factor that influences both milk intake and stroke mortality risk?* 
+
+[Response:] Thanks for pointing this out. Previous report (cited as below) using the same data showed that healthy lifestyle behaviors (including milk intake daily and proper sleep duration) were associated with CVD mortality and therefore, we also included sleep duration as one of the potential confounders. 
+
+
+Eri Eguchi, Hiroyasu Iso, Naohito Tanabe, Yasuhiko Wada, Hiroshi Yatsuya, Shogo Kikuchi, Yutaka Inaba, Akiko Tamakoshi, on behalf of the Japan Collaborative Cohort Study Group, Healthy lifestyle behaviours and cardiovascular mortality among Japanese men and women: the Japan collaborative cohort study, European Heart Journal, Volume 33, Issue 4, February 2012, Pages 467–477. 
+
 - *The manuscript has minor language errors throughout and would benefit from a language review.*
+
+[Response:] Many thanks for your detailed comments that helped us in improving the quality and readability of our manuscript. We tried our best to check and fixed the language errors throughout the revised version of the paper. 
+

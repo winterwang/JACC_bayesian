@@ -106,7 +106,7 @@ We used data from the Japan Collaborative Cohort (JACC) study, which was sponsor
 
 Frequency of milk intake during the preceding year of the baseline was assessed by FFQ from "never", "1-2 times/month", "1-2 times/week", "3-4 times/week", and "Almost daily". The exact amount of milk consumption was difficult to assess here. However, good reproducibility and validity were confirmed previously (Spearman rank correlation coefficient between milk intake frequency and weighed dietary record for 12 days was 0.65) [@Date2005]. From the same validation study [@Date2005] on the FFQ, daily consumers of milk was found to have a median intake of 146 gram per day. In the baseline year of the JACC study (between 1988 and 1990), most "milk and dairy product" consumption (92.1%) was in the form of whole milk [@eigyogenjyo]. 
 
-The causes and date of death were obtained from death certificates and were systematically reviewed. The follow-up period was defined as from the time of the baseline survey was completed, which was between 1988-1990, until the end of 2009 (administrative censor), or the date when move-out of study area, or the date of death from stroke recorded, whichever occurred first. Other causes of death were treated as censored and assumed not informative. The causes of death were coded by the 10th Revision of the International Statistical Classification of Diseases and Related Health Problems (ICD-10), therefore stroke was defined as I60-I69. We further classified these deaths into hemorrhagic stroke (I60, I61 and I62) or cerebral infarction (I63) when subtypes of stroke in their death certificates were available. 
+In the study area, investigators conducted systematic review of death certificates till the end of 2009. Date and cause of death were confirmed with the permission of the Director-General of the Prime Minister's Office. The follow-up period was defined as from the time of the baseline survey was completed, which was between 1988-1990, until the end of 2009 (administrative censor), or the date when move-out of study area, or the date of death from stroke recorded, whichever occurred first. Other causes of death were treated as censored and assumed not informative. The causes of death were coded by the 10th Revision of the International Statistical Classification of Diseases and Related Health Problems (ICD-10), therefore stroke was defined as I60-I69. We further classified these deaths into hemorrhagic stroke (I60, I61 and I62) or cerebral infarction (I63) when subtypes of stroke in their death certificates were available. 
 
 ## Statistical approach
 
@@ -194,19 +194,13 @@ kable_styling(latex_options = c("striped","hold_position"), font_size = 8) %>%
 
 # Results
 
-The total follow-up was 1555073 person-years (median = 19.3 years), during which 2675 death from stroke was confirmed (1352 men and 1323 women). Among these stroke mortality, 952 were hemorrhagic stroke (432 men and 520 women), and 957 were cerebral infarction (520 men and 437 women). Age-adjusted stroke mortality rates for each category of milk intake frequency was estimated to be 1.8, 2.0, 1.7, 1.6, 1.5 per 1000 person-year for men and 1.3, 1.4, 1.2, 1.1, 1.2 per 1000 person-year for women. 
+The total follow-up was 1555073 person-years (median = 19.3 years), during which 2675 deaths from stroke were confirmed (1352 men and 1323 women). Among these stroke mortality, 952 were hemorrhagic stroke (432 men and 520 women), and 957 were cerebral infarction (520 men and 437 women). Number of deaths from causes other than stroke were 18868 (10731 men and 8137 women); 5493 (2022 men and 3471 women) dropped out from the follow-up (5.8%); 67349 (25281 men and 42068 women) were censored at the end of follow-up (71.4%). The median (interquartile range, IQR) of follow-up years for hemorrhagic stroke mortality were 9.9 (5.4, 12.3) in men and 10.9 (5.9, 15.1) in women; the median (IQR) of follow-up years for cerebral infarction mortality were 11.2 (7.1, 15.3) and 11.8 (7.9, 16.4) in men and women. Age-adjusted stroke mortality rates for each category of milk intake frequency was estimated to be 1.8, 2.0, 1.7, 1.6, 1.5 per 1000 person-year for men and 1.3, 1.4, 1.2, 1.1, 1.2 per 1000 person-year for women. 
 
 As listed in \textbf{Table \ref{tab:tab1f}}, compared with those who chose "never" as their milk intake frequency at baseline, milk drinkers were less likely to be a current smoker or a daily alcohol consumer in both men and women. Furthermore, people consumed milk more than 1-2 times/month were more likely to be a daily consumers of vegetable, fruit  as well as coffee, and more likely to join exercise more than 1 hour/week among both sexes.
 
-Detailed results from the Bayesian survival models (crude, age-adjusted and multivariable-adjusted) according to the frequency of milk intake separated by sex are listed in \textbf{Table \ref{tab:tab2}} (men) and \textbf{Table \ref{tab:tab3}} (women). Compared to those who never had milk, both men and women had slower speed and lower hazard of dying from total stroke in crude models. Velocities that milk consumers dying from stroke is slower by a crude acceleration factor (AF) between 0.79 (sd = 0.05; 95% CrI: 0.74, 0.90) and 0.93 (sd = 0.04; 95% CrI: 0.85, 1.02) compared with non-consumers. Chances that the posterior crude HRs were estimated to be lower than 1 for those who had at least 1-2 times/month was higher than 86.5% in men and greater than 94.6% in women. However, lower hazard and delayed time-to-event was observed to remain after age or multivariable adjustment only among daily male milk consumers. Specifically, the mean (sd; 95% CrI) of posterior multivariable-adjusted AF and HR for daily male consumers of milk were 0.88 (sd = 0.05; 95% CrI: 0.81, 0.96) and 0.80 (sd = 0.07; 95% CrI: 0.69, 0.93) with a probability of 99.0% to be smaller than the null value (=1). Daily female milk consumers had posterior AFs and HRs that were distributed with means of 0.97 (sd = 0.09; 95% CrI: 0.88, 1.10) and 0.95 (sd = 0.12; 95% CrI: 0.80, 1.17) which had about 78.0% of chance that their HRs could be smaller than 1. 
+Detailed results from the Bayesian survival models (crude, age-adjusted and multivariable-adjusted) according to the frequency of milk intake separated by sex are listed in \textbf{Table \ref{tab:tab2}} (men) and \textbf{Table \ref{tab:tab3}} (women). Compared to those who never had milk, both men and women had slower speed and lower hazard of dying from total stroke in crude models. Velocities that milk consumers dying from stroke is slower by a crude acceleration factor (AF) between 0.79 (sd = 0.05; 95% CrI: 0.74, 0.90) and 0.93 (sd = 0.04; 95% CrI: 0.85, 1.02) compared with non-consumers. Chances that the posterior crude HRs were estimated to be lower than 1 for those who had at least 1-2 times/month was higher than 86.5% in men and greater than 94.6% in women. However, lower hazard and delayed time-to-event was observed to remain after age or multivariable adjustment only among daily male 
 
-Posterior distributions of AFs and HRs for mortality from hemorrhagic stroke were found to contain the null value for either men or women among all fitted models. In contrast, men who had milk intake frequency higher than 1-2 times/week were found to be associated with averagely 17%-20% slower velocity or 28%-39% lower hazard of dying from cerebral infarction compared to men who never drank milk (Model 2 in \textbf{Table \ref{tab:tab2}}). Probability that the posterior HRs distributed below the null value was greater or equal to 97.5%. No evidence was found about the associations between milk intake and hazard of cerebral infarction mortality among women.
- 
-# Discussion
 
-<!-- - summary of the finding -->
-
-In the JACC study cohort, our analyses showed that men in Japan who consumed milk almost daily had lower hazard of dying from stroke especially from cerebral infarction. Our evidence also suggested that stroke mortality events were delayed among Japanese male daily milk consumers compared with non-consumers.
 
 \begin{table}[H]
 
@@ -419,6 +413,18 @@ N & 10407 & 3640 & 7590 & 8108 & 25254\\
 \multicolumn{6}{l}{education level.}\\
 \end{tabular}}
 \end{table}
+
+
+\noindent
+milk consumers. Specifically, the mean (sd; 95% CrI) of posterior multivariable-adjusted AF and HR for daily male consumers of milk were 0.88 (sd = 0.05; 95% CrI: 0.81, 0.96) and 0.80 (sd = 0.07; 95% CrI: 0.69, 0.93) with a probability of 99.0% to be smaller than the null value (=1). Daily female milk consumers had posterior AFs and HRs that were distributed with means of 0.97 (sd = 0.09; 95% CrI: 0.88, 1.10) and 0.95 (sd = 0.12; 95% CrI: 0.80, 1.17) which had about 78.0% of chance that their HRs could be smaller than 1. 
+
+Posterior distributions of AFs and HRs for mortality from hemorrhagic stroke were found to contain the null value for either men or women among all fitted models. In contrast, men who had milk intake frequency higher than 1-2 times/week were found to be associated with averagely 17%-20% slower velocity or 28%-39% lower hazard of dying from cerebral infarction compared to men who never drank milk (Model 2 in \textbf{Table \ref{tab:tab2}}). Probability that the posterior HRs distributed below the null value was greater or equal to 97.5%. No evidence was found about the associations between milk intake and hazard of cerebral infarction mortality among women.
+ 
+# Discussion
+
+<!-- - summary of the finding -->
+
+In the JACC study cohort, our analyses showed that men in Japan who consumed milk almost daily had lower hazard of dying from stroke especially from cerebral infarction. Our evidence also suggested that stroke mortality events were delayed among Japanese male daily milk consumers compared with non-consumers.
 
 
 <!-- - comparison with previous meta-analyses/studies in japan -->

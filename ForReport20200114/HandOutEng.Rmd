@@ -70,6 +70,7 @@ MILK_0 <- MILK %>%
 
 
 MILK_0 <- MILK_0 %>% 
+  mutate(Death = if_else(T_DX > 1, "dropped", "deaths")) %>% 
   mutate(Tot_Stroke = if_else(grepl("I6[0-9][0-9]|I6[0-9]",  
                                     ICD10), "I60_9", 
                         if_else(!is.na(ICD10), "other_death", 
@@ -222,7 +223,7 @@ MILK_0 <- MILK_0 %>%
 MData <- MILK_0 %>%
   filter(APO_hist != "TRUE" & IscheHeart != "TRUE" & 
            OtheHeart != "TRUE" & Can_hist != "TRUE" & MI_hist != "TRUE" & !is.na(Mlkfre)) %>% 
-  select(Area, Age, Agegrp, tr_sex, ICD10, T_DX, Tot_Stroke, HemoStroke, IscheStroke, CHD, HeartF, MlkLogi, 
+  select(Area, Age, Agegrp, tr_sex, ICD10, T_DX, Tot_Stroke, HemoStroke, IscheStroke, CHD, HeartF, MlkLogi, Death, 
          Mlkfre, followpy, Smoking, Alc_Fre, BMI, BMIgrp, DM_hist, HT_hist, KID_hist, 
          LIV_hist, Exercise, Engy, ENERGY, Sleep, Slepgrp, Spi, Fru, Gretea, Cofe, Educ,
          Educgrp, Menopause)
@@ -308,6 +309,7 @@ MData %>%
 
 - N of total stroke mortality (I60-I69) confirmed: 2675 (1352 men and 1323 women)
 \newpage
+- Numbers of individuals dropped out from follow-up
 - Subtypes of stroke and CHD, heart failure: 
     - Ischemic stroke: 957 (520 men and 437 women);
     - Hemorrhagic stroke: 952 (432 men and 520 women);
@@ -325,7 +327,16 @@ epiDisplay::summ(MData$followpy, graph = FALSE)
 ```{r datapre8, cache=TRUE, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 MData %>% 
   group_by(tr_sex, Tot_Stroke) %>% 
-  summarise(n= n(), MeanFolYear = mean(followpy), MedianFolYear = median(followpy), MaxFolYear = max(followpy))
+  summarise(n= n(), MeanFolYear = mean(followpy), MedianFolYear = median(followpy), minFolYear = min(followpy), MaxFolYear = max(followpy))
+
+MData %>% 
+  group_by(tr_sex, IscheStroke) %>% 
+  summarise(n= n(), MeanFolYear = mean(followpy), MedianFolYear = median(followpy), minFolYear = min(followpy), MaxFolYear = max(followpy), qs = quantile(followpy, c(0.25, 0.75)), prob = c(0.25, 0.75))
+
+MData %>% 
+  group_by(tr_sex, HemoStroke) %>% 
+  summarise(n= n(), MeanFolYear = mean(followpy), MedianFolYear = median(followpy), minFolYear = min(followpy), MaxFolYear = max(followpy), qs = quantile(followpy, c(0.25, 0.75)), prob = c(0.25, 0.75))
+
 ```
 
 
