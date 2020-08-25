@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.21)  24 AUG 2020 17:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.21)  25 AUG 2020 23:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -931,14 +931,14 @@ Package: settobox 2016/05/16 v1.5 Assign box dimensions to length registers (HO
 \DIFdelgraphicsbox=\box73
 \DIFdelgraphicswidth=\skip86
 \DIFdelgraphicsheight=\skip87
-LaTeX Info: Redefining \DIFaddbegin on input line 258.
-LaTeX Info: Redefining \DIFaddend on input line 259.
-LaTeX Info: Redefining \DIFdelbegin on input line 260.
-LaTeX Info: Redefining \DIFdelend on input line 261.
-LaTeX Info: Redefining \DIFaddbeginFL on input line 266.
-LaTeX Info: Redefining \DIFaddendFL on input line 267.
-LaTeX Info: Redefining \DIFdelbeginFL on input line 268.
-LaTeX Info: Redefining \DIFdelendFL on input line 269.
+LaTeX Info: Redefining \DIFaddbegin on input line 265.
+LaTeX Info: Redefining \DIFaddend on input line 266.
+LaTeX Info: Redefining \DIFdelbegin on input line 267.
+LaTeX Info: Redefining \DIFdelend on input line 268.
+LaTeX Info: Redefining \DIFaddbeginFL on input line 273.
+LaTeX Info: Redefining \DIFaddendFL on input line 274.
+LaTeX Info: Redefining \DIFdelbeginFL on input line 275.
+LaTeX Info: Redefining \DIFdelendFL on input line 276.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdfm
 ode.def
@@ -948,26 +948,26 @@ File: l3backend-pdfmode.def 2020-08-07 L3 backend support: PDF mode
 ) (./diff.aux)
 \openout1 = `diff.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 272.
-LaTeX Font Info:    ... okay on input line 272.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 272.
-LaTeX Font Info:    ... okay on input line 272.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 272.
-LaTeX Font Info:    ... okay on input line 272.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 272.
-LaTeX Font Info:    ... okay on input line 272.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 272.
-LaTeX Font Info:    ... okay on input line 272.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 272.
-LaTeX Font Info:    ... okay on input line 272.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 272.
-LaTeX Font Info:    ... okay on input line 272.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 272.
-LaTeX Font Info:    ... okay on input line 272.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 272.
-LaTeX Font Info:    ... okay on input line 272.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 279.
+LaTeX Font Info:    ... okay on input line 279.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 279.
+LaTeX Font Info:    ... okay on input line 279.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 279.
+LaTeX Font Info:    ... okay on input line 279.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 279.
+LaTeX Font Info:    ... okay on input line 279.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 279.
+LaTeX Font Info:    ... okay on input line 279.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 279.
+LaTeX Font Info:    ... okay on input line 279.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 279.
+LaTeX Font Info:    ... okay on input line 279.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 279.
+LaTeX Font Info:    ... okay on input line 279.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 279.
+LaTeX Font Info:    ... okay on input line 279.
 LaTeX Font Info:    Trying to load font information for T1+ppl on input line 27
-2.
+9.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
@@ -989,15 +989,15 @@ i
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 272.
-LaTeX Info: Redefining \microtypecontext on input line 272.
+(lastpage)             ! on input line 279.
+LaTeX Info: Redefining \microtypecontext on input line 279.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 272.
+LaTeX Info: Redefining \showhyphens on input line 279.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1006,7 +1006,7 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box76
-Package hyperref Info: Link coloring ON on input line 272.
+Package hyperref Info: Link coloring ON on input line 279.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1020,9 +1020,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count345
 )
-LaTeX Info: Redefining \ref on input line 272.
-LaTeX Info: Redefining \pageref on input line 272.
-LaTeX Info: Redefining \nameref on input line 272.
+LaTeX Info: Redefining \ref on input line 279.
+LaTeX Info: Redefining \pageref on input line 279.
+LaTeX Info: Redefining \nameref on input line 279.
  (./diff.out) (./diff.out)
 \@outlinefile=\write4
 \openout4 = `diff.out'.
@@ -1078,40 +1078,40 @@ Package epstopdf Info: Source file: <Definitions/logo-mdpi.eps>
 (epstopdf)                    size: 43952 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-mdpi-eps-
 converted-to.pdf Definitions/logo-mdpi.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
 <Definitions/logo-mdpi-eps-converted-to.pdf, id=47, 88.33pt x 58.2175pt>
 File: Definitions/logo-mdpi-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-mdpi-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-mdpi-eps-converted-to.pdf  used on in
-put line 272.
+put line 279.
 (pdftex.def)             Requested size: 43.16885pt x 28.45274pt.
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 2
-72.
+79.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
-272.
+279.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
-272.
+279.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
-272.
+279.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-272.
+279.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
@@ -1121,15 +1121,15 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 272.
+(Font)              scaled to size 10.42007pt on input line 279.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 272.
+(Font)              scaled to size 7.91925pt on input line 279.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 272.
+(Font)              scaled to size 6.25204pt on input line 279.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
 (epstopdf)                    size: 284378 bytes
@@ -1139,13 +1139,13 @@ f>
 (epstopdf)                    size: 12397 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
 <Definitions/logo-orcid-eps-converted-to.pdf, id=49, 102.3825pt x 102.3825pt>
 File: Definitions/logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
-nput line 272.
+nput line 279.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1156,12 +1156,12 @@ f>
 (epstopdf)                    size: 12397 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
 File: Definitions/logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
-nput line 272.
+nput line 279.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1172,12 +1172,12 @@ f>
 (epstopdf)                    size: 12397 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
 File: Definitions/logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
-nput line 272.
+nput line 279.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1188,12 +1188,12 @@ f>
 (epstopdf)                    size: 12397 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
 File: Definitions/logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
-nput line 272.
+nput line 279.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1204,12 +1204,12 @@ f>
 (epstopdf)                    size: 12397 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
 File: Definitions/logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
-nput line 272.
+nput line 279.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1220,12 +1220,12 @@ f>
 (epstopdf)                    size: 12397 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
 File: Definitions/logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
-nput line 272.
+nput line 279.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1236,12 +1236,12 @@ f>
 (epstopdf)                    size: 12397 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
 File: Definitions/logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
-nput line 272.
+nput line 279.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 Package epstopdf Info: Source file: <Definitions/logo-orcid.eps>
 (epstopdf)                    date: 2020-06-18 16:49:16
@@ -1252,26 +1252,26 @@ f>
 (epstopdf)                    size: 12397 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-orcid-eps
 -converted-to.pdf Definitions/logo-orcid.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
 File: Definitions/logo-orcid-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-orcid-eps-converted-to.pdf  used on i
-nput line 272.
+nput line 279.
 (pdftex.def)             Requested size: 9.10509pt x 9.10466pt.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 272.
+(Font)              scaled to size 9.37807pt on input line 279.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 272.
+(Font)              scaled to size 7.29405pt on input line 279.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 272.
+(Font)              scaled to size 5.21004pt on input line 279.
 <Definitions/logo-updates.pdf, id=59, 832.75539pt x 281.85541pt>
 File: Definitions/logo-updates.pdf Graphic file (type pdf)
 <use Definitions/logo-updates.pdf>
-Package pdftex.def Info: Definitions/logo-updates.pdf  used on input line 272.
+Package pdftex.def Info: Definitions/logo-updates.pdf  used on input line 279.
 (pdftex.def)             Requested size: 50.43332pt x 17.07182pt.
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 2
-72.
+79.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -1288,52 +1288,51 @@ onverted-to.pdf> <./Definitions/logo-updates.pdf>] [2]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 505--526
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 536--546
 []\T1/ppl/m/n/10 (+20) Detailed re-sults from the Bayesian sur-vival mod-els (c
 rude, age-adjusted and
  []
 
-[3] [4] [5]
+[4]
 Overfull \vbox (30.77875pt too high) has occurred while \output is active []
 
 
-[6]
+[5]
 Overfull \vbox (30.77875pt too high) has occurred while \output is active []
 
 
-[7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 1059--1059
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 926--926
 
  []
 
-(./diff.bbl [9] [10])
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 1
-100.
+[8] (./diff.bbl [9])
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 9
+67.
 
 (/Users/wangcc.me/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
 
 AED: lastpage setting LastPage
-[11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1100.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1100.
+[10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 967.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 967.
  (./diff.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1100.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1100.
-
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 967.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 967.
 Package rerunfilecheck Info: File `diff.out' has not changed.
 (rerunfilecheck)             Checksum: BCE64B892BC3073548797216932353BD;1339.
  ) 
 Here is how much of TeX's memory you used:
- 26699 strings out of 482816
- 466376 string characters out of 5954387
- 789438 words of memory out of 5000000
- 41265 multiletter control sequences out of 15000+600000
- 589765 words of font info for 262 fonts, out of 8000000 for 9000
+ 26708 strings out of 482816
+ 466499 string characters out of 5954387
+ 825201 words of memory out of 5000000
+ 41268 multiletter control sequences out of 15000+600000
+ 590083 words of font info for 266 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 68i,12n,64p,2390b,540s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,12n,64p,2390b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
  </Users/wangcc.me/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss
 0500.600pk>{/Users/wangcc.me/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r
 .enc}</Users/wangcc.me/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/c
@@ -1347,10 +1346,10 @@ f-dist/fonts/type1/public/mathpazo/fplmri.pfb></Users/wangcc.me/Library/TinyTeX
 brary/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/wangcc.me/
 Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/wangcc.m
 e/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on diff.pdf (11 pages, 224927 bytes).
+Output written on diff.pdf (10 pages, 231930 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 245 compressed objects within 3 object streams
+ 291 PDF objects out of 1000 (max. 8388607)
+ 244 compressed objects within 3 object streams
  62 named destinations out of 1000 (max. 500000)
  42092 words of extra memory for PDF output out of 42996 (max. 10000000)
 
