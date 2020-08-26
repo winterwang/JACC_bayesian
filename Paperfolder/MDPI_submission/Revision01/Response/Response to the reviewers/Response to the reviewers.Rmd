@@ -106,5 +106,5 @@ Eri Eguchi, Hiroyasu Iso, Naohito Tanabe, Yasuhiko Wada, Hiroshi Yatsuya, Shogo 
 
 - *The manuscript has minor language errors throughout and would benefit from a language review.*
 
-[Response:] Many thanks for your detailed comments that helped us in improving the quality and readability of our manuscript. We tried our best to check and fixed the language errors throughout the revised version of the paper. 
+[Response:] Many thanks for your detailed comments that helped us to improve the quality and readability of our manuscript. We tried our best to check and fix the language errors throughout the revised version of the paper. 
 
