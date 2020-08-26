@@ -2,7 +2,7 @@
 %  In case you need support, please attach all files that are necessary for compiling as well as the log file, and specify the details of your LaTeX setup (which operating system and LaTeX version / tools you are using).
 
 %=================================================================
-\documentclass[nutrients,article,submitted,moreauthors,pdftex]{mdpi}
+\documentclass[nutrients,article,submitted,moreauthors,pdftex]{Definitions/mdpi}
 
 % If you would like to post an early version of this manuscript as a preprint, you may use preprint as the journal and change 'submit' to 'accept'. The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
 
@@ -137,7 +137,7 @@ never consumed milk at the study baseline. These estimations were
 computed through a series of Bayesian survival models that employed a
 Markov Chain Monte Carlo simulation process. 100000 posterior samples
 were generated separately through four independent chains after model
-convergency were confirmed. Posterior probabilites that daily milk
+convergency was confirmed. Posterior probabilites that daily milk
 consumers had lower hazard or delayed mortality from strokes compared to
 non-consumers was 99.0\% and 78.0\% for men and women, respectively.
 Accordingly, the estimated posterior means of AF and HR for daily milk
@@ -188,12 +188,12 @@ time-to-event data; JACC study}
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Eastern Asian populations were reported to have higher burden from
-either mortality or morbidity from stroke than populations in European
-or American regions \citep{Kim2014}. Dairy food, especially milk has
-been suggested to reduce stroke risk by nearly 7\% for each 200 g
-increment of daily consumption \citep{DeGoede2016}. Although 2 daily
-servings of milk or dairy products is recommended in Japan
+Eastern Asian populations were reported to have higher burden from both
+mortality and morbidity from stroke than populations in European or
+American regions \citep{Kim2014}. Dairy foods, especially milk has been
+suggested to related with decreased stroke risk by nearly 7\% for each
+200 g increment of daily consumption \citep{DeGoede2016}. Although 2
+daily servings of milk or dairy products is recommended in Japan
 \citep{Yoshiike2007}, the actual per capita intake (\(\approx\) 63
 g/day) of these food groups is much lower and less frequent than that in
 Western countries \citep{Saito2019}. Given that previous reports have
@@ -205,25 +205,25 @@ have much lower range of milk intake compared to most of the previous
 studies. Whether people with such a low level intake of milk can still
 benefit against stroke would require elucidation.
 
-Moreover, a more intuitive interpretation would be available if we were
-able to show the probabilities and how certain the existing data can
-provide evidence about whether drinking milk can delay or lower the
-hazard of dying from stroke. This would require transformation of the
-research questions into ``Do individuals with milk intake habit have
-lower hazard of dying from a stroke event compared with people who never
-consume milk?'' Another way of asking the same research question would
-be ``Can a event of dying from stroke be postponed by having a milk
-intake habit?'' The later question is indeed directly comparing the
-length of times before events or the speed from the same departure point
-(entry of the study) to a fatal stroke event. Accelerated failure time
-models (AFT) under Bayesian framework are convenient tools that would
-help avoid worrying about the assumptions of repeatability of a large
-scale prospective study, and can calculate the exact proportion of
-posterior estimates (a hazard ratio) that is lower than 1. AFT model is
-helpful in estimating acceleration factors which can be interpreted as
-the speed for developing an event of interest. This speed parameter
-shows how faster/slower individuals in one exposure group might have an
-event compared to others among different exposure groups
+Moreover, a more intuitive or straightforward interpretation would be
+available if we were able to show the probabilities and the certainty
+that the existing data can provide evidence about whether drinking milk
+can delay or lower the hazard of dying from stroke. This would require
+transformation of the research question into ``Do individuals with milk
+intake habit have lower hazard of dying from a stroke event?'' Another
+way of asking the same research question would be ``Can a event of dying
+from stroke be postponed by having a milk intake habit?'' The later
+question is indeed directly comparing the length of times before events
+or the speed from the same departure point (entry of the study) to a
+fatal stroke event. Accelerated failure time models (AFT) under Bayesian
+framework are convenient tools that would help avoid worrying about the
+assumptions of repeatability of a large scale prospective study, and can
+calculate the exact proportion of posterior estimates (hazard ratios,
+HR) that is lower than 1. AFT model is helpful in estimating
+acceleration factors (AF) which can be interpreted as the velocity for
+developing an event of interest. This velocity parameter shows how
+faster/slower individuals in one exposure group might have an event
+compared to others in different exposure groups
 \citep{Wei1992, ibrahim2014b}.
 
 Our aim was to provide a more straightforward answer to the primary
@@ -270,16 +270,16 @@ Hokkaido University School of Medicine.
 interest}\label{exposure-and-the-outcome-of-interest}}
 
 Frequency of milk intake during the preceding year of the baseline was
-assessed by FFQ from ``never'', ``1-2 times/month'', ``1-2 times/week'',
+assessed by FFQ as ``never'', ``1-2 times/month'', ``1-2 times/week'',
 ``3-4 times/week'', and ``Almost daily''. The exact amount of milk
 consumption was difficult to assess here. However, good reproducibility
 and validity were confirmed previously (Spearman rank correlation
 coefficient between milk intake frequency and weighed dietary record for
 12 days was 0.65) \citep{Date2005}. From the same validation study
 \citep{Date2005} on the FFQ, daily consumers of milk was found to have a
-median intake of 146 gram per day. In the baseline year of the JACC
-study (between 1988 and 1990), most ``milk and dairy product''
-consumption (92.1\%) was in the form of whole milk \citep{eigyogenjyo}.
+median intake of 146 gram per day. At the baseline of the JACC study
+(between 1988 and 1990), most ``milk and dairy product'' consumption
+(92.1\%) was in the form of whole milk \citep{eigyogenjyo}.
 
 In the study area, investigators conducted systematic review of death
 certificates till the end of 2009. Date and cause of death were
@@ -302,7 +302,7 @@ in their death certificates were available.
 Analyses were stratified by sex as difference in milk consumption levels
 and mortality rate was suggested previously
 \citep{wang_milk_2015, Talaei_2016}. We calculated sex-specific means
-(standard deviation, sd) and proportion of selected baseline
+(standard deviation, SD) and proportion of selected baseline
 characteristics according to the frequency of milk intake. Age-adjusted
 stroke mortality rate were expressed as per 1000 person-year predicted
 through poisson regression models.
@@ -324,7 +324,7 @@ identified if convergence has been achieved or if a high degree of
 auto-correlation exists in the sample. Then, the number of iterations
 discarded as `burn-in' was chosen. All models had a posterior sample
 size of 100000 from four separated chains with a ``burn-in'' of 2500
-iterations. Posterior means (sd) and 95\% Credible Intervals (CrI) of
+iterations. Posterior means (SD) and 95\% Credible Intervals (CrI) of
 the estimated hazard ratios (HRs) as well as acceleration factors (AFs)
 were presented for each category of milk intake frequency taking the
 ``never'' category as the reference. Posterior probabilities that the
@@ -398,6 +398,8 @@ education level (attended school till age 18, yes/no).
 \rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4\\
 \hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0\\
 \bottomrule
+\multicolumn{6}{l}{\textit{Note: }}\\
+\multicolumn{6}{l}{Abbreviations: JACC: Japan Collaborative Cohort; SD: standard deviation; BMI: body mass index.   }\\
 \end{tabular}}
 \end{table}
 
@@ -408,17 +410,17 @@ The total follow-up was 1555073 person-years (median = 19.3 years),
 during which 2675 deaths from stroke were confirmed (1352 men and 1323
 women). Among these stroke mortality, 952 were hemorrhagic stroke (432
 men and 520 women), and 957 were cerebral infarction (520 men and 437
-women). Number of deaths from causes other than stroke were 18868 (10731
+women). Number of deaths from causes other than stroke was 18868 (10731
 men and 8137 women); 5493 (2022 men and 3471 women) dropped out from the
 follow-up (5.8\%); 67349 (25281 men and 42068 women) were censored at
 the end of follow-up (71.4\%). The median (interquartile range, IQR) of
 follow-up years for hemorrhagic stroke mortality were 9.9 (5.4, 12.3) in
-men and 10.9 (5.9, 15.1) in women; the median (IQR) of follow-up years
+men and 10.9 (5.9, 15.1) in women; the medians (IQR) of follow-up years
 for cerebral infarction mortality were 11.2 (7.1, 15.3) and 11.8 (7.9,
-16.4) in men and women. Age-adjusted stroke mortality rates for each
-category of milk intake frequency was estimated to be 1.8, 2.0, 1.7,
-1.6, 1.5 per 1000 person-year for men and 1.3, 1.4, 1.2, 1.1, 1.2 per
-1000 person-year for women.
+16.4) in men and women, respectively. Age-adjusted stroke mortality
+rates for each category of milk intake frequency was estimated to be
+1.8, 2.0, 1.7, 1.6, 1.5 per 1000 person-year for men and 1.3, 1.4, 1.2,
+1.1, 1.2 per 1000 person-year for women.
 
 As listed in \textbf{Table \ref{tab:tab1f}}, compared with those who
 chose ``never'' as their milk intake frequency at baseline, milk
@@ -434,13 +436,10 @@ separated by sex are listed in \textbf{Table \ref{tab:tab2}} (men) and
 \textbf{Table \ref{tab:tab3}} (women). Compared to those who never had
 milk, both men and women had slower speed and lower hazard of dying from
 total stroke in crude models. Velocities that milk consumers dying from
-stroke is slower by a crude acceleration factor (AF) between 0.79 (sd =
-0.05; 95\% CrI: 0.74, 0.90) and 0.93 (sd = 0.04; 95\% CrI: 0.85, 1.02)
+stroke is slower by a crude acceleration factor (AF) between 0.79 (SD =
+0.05; 95\% CrI: 0.74, 0.90) and 0.93 (SD = 0.04; 95\% CrI: 0.85, 1.02)
 compared with non-consumers. Chances that the posterior crude HRs were
 estimated to be lower than 1 for those who had at least 1-2 times/month
-was higher than 86.5\% in men and greater than 94.6\% in women. However,
-lower hazard and delayed time-to-event was observed to remain after age
-or multivariable adjustment only among daily male
 
 \begin{table}[H]
 
@@ -624,14 +623,17 @@ N & 10407 & 3640 & 7590 & 8108 & 25254\\
 \end{tabular}}
 \end{table}
 
-\noindent milk consumers. Specifically, the mean (sd; 95\% CrI) of
-posterior multivariable-adjusted AF and HR for daily male consumers of
-milk were 0.88 (sd = 0.05; 95\% CrI: 0.81, 0.96) and 0.80 (sd = 0.07;
-95\% CrI: 0.69, 0.93) with a probability of 99.0\% to be smaller than
-the null value (=1). Daily female milk consumers had posterior AFs and
-HRs that were distributed with means of 0.97 (sd = 0.09; 95\% CrI: 0.88,
-1.10) and 0.95 (sd = 0.12; 95\% CrI: 0.80, 1.17) which had about 78.0\%
-of chance that their HRs could be smaller than 1.
+\noindent was higher than 86.5\% in men and greater than 94.6\% in
+women. However, lower hazard and delayed time-to-event was observed to
+remain after age or multivariable adjustment only among daily male milk
+consumers. Specifically, the mean (SD; 95\% CrI) of posterior
+multivariable-adjusted AF and HR for daily male consumers of milk were
+0.88 (SD = 0.05; 95\% CrI: 0.81, 0.96) and 0.80 (SD = 0.07; 95\% CrI:
+0.69, 0.93) with a probability of 99.0\% to be smaller than the null
+value (=1). Daily female milk consumers had posterior AFs and HRs that
+were distributed with means of 0.97 (SD = 0.09; 95\% CrI: 0.88, 1.10)
+and 0.95 (SD = 0.12; 95\% CrI: 0.80, 1.17) which had about 78.0\% of
+chance that their HRs could be smaller than 1.
 
 Posterior distributions of AFs and HRs for mortality from hemorrhagic
 stroke were found to contain the null value for either men or women
@@ -653,28 +655,29 @@ especially from cerebral infarction. Our evidence also suggested that
 stroke mortality events were delayed among Japanese male daily milk
 consumers compared with non-consumers.
 
-These findings showed similar negative effect estimates reported
-previously \citep{wang_milk_2015} using data from the same cohort, in
-which the outcomes of interests were focused on cardiovascular diseases
-and all-cause mortality. Moreover, we have further updated the results
-with more comprehensive and straightforward evidence about whether and
-how certain the data had shown about daily consumption of milk is
-contributing to a postponed stroke (mostly cerebral infarction)
-mortality event among Japanese men. A recent dose-response meta-analysis
-of 18 prospective cohort studies had shown a similar negative
-association \citep{DeGoede2016} between milk consumption and risk of
-stroke. The same meta-analysis also reported a greater reduction of risk
-of stroke (18\%) for East Asian population in contrast with the 7\% less
-risk in the pooled overall finding for all populations combined.
-Benefits of increased milk intake might be particularly noticeable in
-East Asian countries where strokes are relatively more common, and milk
-consumption is much lower than those studies conducted among European or
-American populations \citep{dehghan2018association}. However, the Life
-Span Study \citep{sauvaget2003intake}, which was conducted about 10
-years earlier than the JACC Study, reported null association between
-milk intake and fatal stroke among men and women combined who survived
-from the Hiroshima and Nagasaki atomic bomb. The difference could be
-largely explained by the different targeting populations between the two
+These findings showed similar negative effect estimates that were
+reported previously \citep{wang_milk_2015} using data from the same
+cohort, in which the outcomes of interests were focused on
+cardiovascular diseases and all-cause mortality. Moreover, we have
+further updated the results with more comprehensive and straightforward
+evidence about whether and how certain the data had shown about daily
+consumption of milk is contributing to a postponed stroke (mostly
+cerebral infarction) mortality event among Japanese men. A recent
+dose-response meta-analysis of 18 prospective cohort studies had shown a
+similar negative association \citep{DeGoede2016} between milk
+consumption and risk of stroke. The same meta-analysis also reported a
+greater reduction of risk of stroke (18\%) for East Asian population in
+contrast with the 7\% less risk in the pooled overall finding for all
+populations combined. Benefits of increased milk intake might be
+particularly noticeable in East Asian countries where strokes are
+relatively more common, and milk consumption is much lower than those
+studies conducted among European or American populations
+\citep{dehghan2018association}. However, the Life Span Study
+\citep{sauvaget2003intake}, which was conducted about 10 years earlier
+than the JACC Study, reported null association between milk intake and
+fatal stroke among men and women combined who survived from the
+Hiroshima and Nagasaki atomic bomb. The difference could be largely
+explained by the different targeting populations between the two
 studies. \citet{kondo2013consumption} also reported null association in
 either men or women from the NIPPON DATA80 study. In fact, the exact
 number of stroke mortality events was about 85\% less and the number of
@@ -688,12 +691,12 @@ association between milk consumption and stroke mortality in men rather
 than in women was found in the Singapore Chinese Health Study
 \citep{Talaei_2016} as well. The reasons for this gender differences is
 currently unknown. It might be contributed by generally better/healthier
-lifestyles (much less smokers and alcohol drinkers) in women regardless
-of milk intake frequency, or maybe due to other factors that was not
-available in/considered by our models such as intake of calcium
-supplements. The probably existing beneficial effect by milk intake is
-probably less evident in women than that in men. Further investigation
-is needed.
+lifestyles (such as much less smokers and alcohol drinkers) in women
+regardless of milk intake frequency, or maybe due to other factors that
+was not available in/considered by our models such as intake of calcium
+or other supplements. The probably existing beneficial effect by milk
+intake is probably less evident in women than that in men. Further
+investigation is needed.
 
 Possible reasons for a protective effect of milk consumption against
 stroke could be interpreted as such an association may be mediated by
@@ -798,7 +801,7 @@ JAGS & Just Another Gibbs Samplers \\
 AFT & accelerated failure time \\
 HR & hazard ratio \\
 AF & acceleration factor \\
-sd & standard deviation \\
+SD & standard deviation \\
 CrI & credible interval \\
 \end{tabular}}
 

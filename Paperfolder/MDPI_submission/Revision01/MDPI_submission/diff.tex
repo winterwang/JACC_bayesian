@@ -1,15 +1,11 @@
 %  LaTeX support: latex@mdpi.com
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL Paperfolder20200801.tex   Fri Jul 31 20:30:18 2020
-%DIF ADD Paperfolder.tex           Tue Aug 25 23:28:10 2020
+%DIF ADD Paperfolder.tex           Wed Aug 26 10:48:03 2020
 %  In case you need support, please attach all files that are necessary for compiling as well as the log file, and specify the details of your LaTeX setup (which operating system and LaTeX version / tools you are using).
 
 %=================================================================
-%DIF 5c5
-%DIF < \documentclass[nutrients,article,submitted,moreauthors,pdftex]{Definitions/mdpi}
-%DIF -------
-\documentclass[nutrients,article,submitted,moreauthors,pdftex]{Definitions/mdpi} %DIF > 
-%DIF -------
+\documentclass[nutrients,article,submitted,moreauthors,pdftex]{Definitions/mdpi}
 
 % If you would like to post an early version of this manuscript as a preprint, you may use preprint as the journal and change 'submit' to 'accept'. The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
 
@@ -114,8 +110,7 @@ University Graduate School of Medicine, Osaka, Japan; \\
 %DIF < $^{4}$ \quad Department of Public Health, Hokkaido University, Graduate
 %DIF < School of Medicine, Sapporo, Japan; \\
 %DIF -------
-$^{4}$ \quad Department of Public Health, Hokkaido University, Faculty %DIF > 
-of Medicine, Sapporo, Japan; \\ %DIF > 
+$^{4}$ \quad Department of Public Health, Hokkaido University, \DIFdelbegin \DIFdel{Graduate School of Medicine}\DIFdelend \DIFaddbegin \DIFadd{Faculty of Medicine, }\DIFaddend Sapporo, Japan; \\ %DIF > 
 %DIF -------
 }
 % Contact information of the corresponding author
@@ -160,15 +155,15 @@ intake and stroke mortality among the Japanese population. We used data
 %DIF < intake among Japanese men was associated with delayed and lower hazard
 %DIF < of mortality from stroke especially cerebral infarction.}
 %DIF -------
-from the Japan Collaborative Cohort (JACC) Study (total number of %DIF > 
-participants = 110585, age range: 40-79) to estimate the posterior %DIF > 
+from the Japan Collaborative Cohort (JACC) Study \DIFaddbegin \DIFadd{(total number of 
+participants = 110585, age range: 40-79) }\DIFaddend to estimate the posterior %DIF > 
 acceleration factors (AF) as well as the hazard ratios (HR) comparing %DIF > 
 individuals with different milk intake frequencies against those who %DIF > 
 never consumed milk at the study baseline. These estimations were %DIF > 
 computed through a series of Bayesian survival models that employed a %DIF > 
 Markov Chain Monte Carlo simulation process. 100000 posterior samples %DIF > 
 were generated separately through four independent chains after model %DIF > 
-convergency were confirmed. Posterior probabilites that daily milk %DIF > 
+convergency was confirmed. Posterior probabilites that daily milk %DIF > 
 consumers had lower hazard or delayed mortality from strokes compared to %DIF > 
 non-consumers was 99.0\% and 78.0\% for men and women, respectively. %DIF > 
 Accordingly, the estimated posterior means of AF and HR for daily milk %DIF > 
@@ -282,12 +277,12 @@ time-to-event data; JACC study}
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Eastern Asian populations were reported to have higher burden from
-either mortality or morbidity from stroke than populations in European
-or American regions \citep{Kim2014}. Dairy food, especially milk has
-been suggested to reduce stroke risk by nearly 7\% for each 200 g
-increment of daily consumption \citep{DeGoede2016}. Although 2 daily
-servings of milk or dairy products is recommended in Japan
+Eastern Asian populations were reported to have higher burden from \DIFdelbegin \DIFdel{either mortality or }\DIFdelend \DIFaddbegin \DIFadd{both
+mortality and }\DIFaddend morbidity from stroke than populations in European or
+American regions \citep{Kim2014}. Dairy \DIFdelbegin \DIFdel{food}\DIFdelend \DIFaddbegin \DIFadd{foods}\DIFaddend , especially milk has been
+suggested to \DIFdelbegin \DIFdel{reduce }\DIFdelend \DIFaddbegin \DIFadd{related with decreased }\DIFaddend stroke risk by nearly 7\% for each
+200 g increment of daily consumption \citep{DeGoede2016}. Although 2
+daily servings of milk or dairy products is recommended in Japan
 \citep{Yoshiike2007}, the actual per capita intake (\(\approx\) 63
 g/day) of these food groups is much lower and less frequent than that in
 Western countries \citep{Saito2019}. Given that previous reports have
@@ -298,28 +293,28 @@ information on the association within a context that most individuals
 have much lower range of milk intake compared to most of the previous
 studies. Whether }\DIFaddend people with such a low level intake of milk can still
 benefit against stroke would require elucidation.
-\DIFdelbegin \DIFdel{A }\DIFdelend \DIFaddbegin 
+\DIFdelbegin \DIFdel{A more intuitive }\DIFdelend \DIFaddbegin 
 
-\DIFadd{Moreover, a }\DIFaddend more intuitive interpretation would be available if we were
-able to show the probabilities and how certain the existing data can
-provide evidence about whether drinking milk can delay or lower the
-hazard of dying from stroke. \DIFaddbegin \DIFadd{This would require transformation of the
-research questions into ``Do individuals with milk intake habit have
-lower hazard of dying from a stroke event compared with people who never
-consume milk?'' Another way of asking the same research question would
-be ``Can a event of dying from stroke be postponed by having a milk
-intake habit?'' The later question is indeed directly comparing the
-length of times before events or the speed from the same departure point
-(entry of the study) to a fatal stroke event. }\DIFaddend Accelerated failure time
-models \DIFaddbegin \DIFadd{(AFT) }\DIFaddend under Bayesian framework are convenient tools that would
-help avoid worrying about the \DIFdelbegin \DIFdel{assumption of proportional hazard normally required in a Cox
-proportional hazard model and can directly show }\DIFdelend \DIFaddbegin \DIFadd{assumptions of repeatability of a large
-scale prospective study, and can calculate the exact proportion of
-posterior estimates (a hazard ratio) that is lower than 1. AFT model is
-helpful in estimating acceleration factors which can be interpreted as
-the speed for developing an event of interest. This speed parameter
-shows }\DIFaddend how faster/slower individuals in one exposure group might have an
-event compared to others among different exposure groups
+\DIFadd{Moreover, a more intuitive or straightforward }\DIFaddend interpretation would be
+available if we were able to show the probabilities and \DIFdelbegin \DIFdel{how certain the }\DIFdelend \DIFaddbegin \DIFadd{the certainty
+that the }\DIFaddend existing data can provide evidence about whether drinking milk
+can delay or lower the hazard of dying from stroke. \DIFaddbegin \DIFadd{This would require
+transformation of the research question into ``Do individuals with milk
+intake habit have lower hazard of dying from a stroke event?'' Another
+way of asking the same research question would be ``Can a event of dying
+from stroke be postponed by having a milk intake habit?'' The later
+question is indeed directly comparing the length of times before events
+or the speed from the same departure point (entry of the study) to a
+fatal stroke event. }\DIFaddend Accelerated failure time models \DIFaddbegin \DIFadd{(AFT) }\DIFaddend under Bayesian
+framework are convenient tools that would help avoid worrying about the
+\DIFdelbegin \DIFdel{assumption of proportional hazard normally required in a Cox
+proportional hazard model and can directly show }\DIFdelend \DIFaddbegin \DIFadd{assumptions of repeatability of a large scale prospective study, and can
+calculate the exact proportion of posterior estimates (hazard ratios,
+HR) that is lower than 1. AFT model is helpful in estimating
+acceleration factors (AF) which can be interpreted as the velocity for
+developing an event of interest. This velocity parameter shows }\DIFaddend how
+faster/slower individuals in one exposure group might have an event
+compared to others \DIFdelbegin \DIFdel{among }\DIFdelend \DIFaddbegin \DIFadd{in }\DIFaddend different exposure groups
 \citep{Wei1992, ibrahim2014b}.
 
 Our aim was to provide a more straightforward answer to the primary
@@ -367,7 +362,7 @@ Hokkaido University School of Medicine.
 interest}\label{exposure-and-the-outcome-of-interest}}
 
 Frequency of milk intake during the preceding year of the baseline was
-assessed by FFQ from ``never'', ``1-2 times/month'', ``1-2 times/week'',
+assessed by FFQ \DIFdelbegin \DIFdel{from }\DIFdelend \DIFaddbegin \DIFadd{as }\DIFaddend ``never'', ``1-2 times/month'', ``1-2 times/week'',
 ``3-4 times/week'', and ``Almost daily''. The exact amount of milk
 consumption was difficult to assess here. However, good reproducibility
 and validity were confirmed previously (Spearman rank correlation
@@ -376,9 +371,9 @@ coefficient between milk intake frequency and weighed dietary record for
 \mbox{%DIFAUXCMD
 \citep{Date2005} }\hspace{0pt}%DIFAUXCMD
 on the FFQ, daily consumers of milk was found to have a
-median intake of 146 gram per day. In the baseline year of the JACC
-study (between 1988 and 1990), most ``milk and dairy product''
-consumption (92.1\%) was in the form of whole milk \mbox{%DIFAUXCMD
+median intake of 146 gram per day. At the baseline of the JACC study
+(between 1988 and 1990), most ``milk and dairy product'' consumption
+(92.1\%) was in the form of whole milk \mbox{%DIFAUXCMD
 \citep{eigyogenjyo}}\hspace{0pt}%DIFAUXCMD
 .
 }\DIFaddend 
@@ -407,7 +402,7 @@ and mortality rate was suggested previously
 \mbox{%DIFAUXCMD
 \citep{wang_milk_2015, Talaei_2016}}\hspace{0pt}%DIFAUXCMD
 . }\DIFaddend We calculated sex-specific means
-(standard deviation, sd) and proportion of selected baseline
+(standard deviation, \DIFdelbegin \DIFdel{sd}\DIFdelend \DIFaddbegin \DIFadd{SD}\DIFaddend ) and proportion of selected baseline
 characteristics according to the frequency of milk intake. Age-adjusted
 stroke mortality rate were expressed as per 1000 person-year predicted
 through poisson regression models.
@@ -429,7 +424,7 @@ identified if convergence has been achieved or if a high degree of
 auto-correlation exists in the sample. Then, the number of iterations
 discarded as `burn-in' was chosen. All models had a posterior sample
 size of 100000 from four separated chains with a ``burn-in'' of 2500
-iterations. Posterior means (sd) and 95\% Credible Intervals (CrI) of
+iterations. Posterior means (\DIFdelbegin \DIFdel{sd}\DIFdelend \DIFaddbegin \DIFadd{SD}\DIFaddend ) and 95\% Credible Intervals (CrI) of
 the estimated hazard ratios (HRs) as well as acceleration factors (AFs)
 were presented for each category of milk intake frequency taking the
 ``never'' category as the reference. Posterior probabilities that the
@@ -456,7 +451,56 @@ education level (attended school till age 18, yes/no).
 \caption{\label{tab:tab1f}Sex-specific baseline characteristics according to the frequency of milk intake  (JACC study, 1988-2009).}
 \centering
 \fontsize{8}{10}\selectfont
-\resizebox{\textwidth}{!}{%
+\DIFdelbeginFL %DIFDELCMD < \resizebox{\textwidth}{!}{%
+%DIFDELCMD < \begin{tabular}[t]{lcccccc}
+%DIFDELCMD < \toprule
+%DIFDELCMD < \multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\textbf{Milk drinkers}} \\
+%DIFDELCMD < \cmidrule(l{3pt}r{3pt}){4-7}
+%DIFDELCMD <  & \textbf{Never} & \textbf{Drinkers} & \textbf{1-2 times/} & \textbf{1-2 times/} & \textbf{3-4 times/} & \textbf{Almost}  \\
+%DIFDELCMD <  &       &         & \textbf{Month}     & \textbf{Week}      & \textbf{Week}         & \textbf{Daily}  \\
+%DIFDELCMD < \midrule
+%DIFDELCMD < \rowcolor{gray!6}  \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{7}{l}{\textbf{Men (n = 39386)}}\\
+%DIFDELCMD < \hspace{1em}Number of subjects & 8508 & 30878 & 3522 & 5928 & 5563 & 15865\\
+%DIFDELCMD < \hspace{1em}Age, year (mean (SD)) & 56.8 (9.9) & 56.8 (10.2) & 55.2 (10.1) & 55.4 (10.1) & 55.4 (9.9) & 58.1 (10.1)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 58.7 & 49.8 & 57.4 & 55.9 & 51.1 & 45.4\\
+%DIFDELCMD < \hspace{1em}Daily alcohol drinker, \% & 51.9 & 47.8 & 50.9 & 48.4 & 48.6 & 46.5\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 22.6 (3.4) & 22.7 (3.4) & 22.8 (2.8) & 22.8 (2.8) & 22.9 (5.4) & 22.6 (2.8)\\
+%DIFDELCMD < \hspace{1em}Exercise (> 1h/week), \% & 19.0 & 27.6 & 26.5 & 25.0 & 25.5 & 29.5\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 35.6 & 35.9 & 34.6 & 36.2 & 35.1 & 36.3\\
+%DIFDELCMD < \hspace{1em}Energy intake, kcal/day (mean (SD))  & 1611 (505) & 1764 (504) & 1606 (496) & 1679 (495) & 1772 (509) & 1830 (495)\\
+%DIFDELCMD < \hspace{1em}Vegetable intake, daily, \% & 21.3 & 25.4 & 20.1 & 20.4 & 20.8 & 30.1\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 14.8 & 22.4 & 15.4 & 16.3 & 17.3 & 28.1\\
+%DIFDELCMD < \hspace{1em}Green tea intake, daily, \% & 76.5 & 79.2 & 79.9 & 78.3 & 77.9 & 79.8\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 43.8 & 50.7 & 50.5 & 48.0 & 47.5 & 52.9\\
+%DIFDELCMD < \hspace{1em}Educated over 18 years old, \% & 9.9 & 14.1 & 12.4 & 12.8 & 11.1 & 15.9 \\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 5.0 & 6.3 & 4.5 & 4.2 & 5.5 & 7.7\\
+%DIFDELCMD < \hspace{1em}History of hypertension, \% & 18.4 & 17.9 & 17.5 & 17.1 & 16.8 & 18.7\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.0 & 3.4 & 3.8 & 3.0 & 3.0 & 3.5\\
+%DIFDELCMD < \hspace{1em}History of liver diseases, \% & 5.8 & 6.5 & 6.3 & 6.0 & 5.4 & 7.2\\
+%DIFDELCMD < \rowcolor{gray!6}  \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{7}{l}{\textbf{Women (n = 54999)}}\\
+%DIFDELCMD < \hspace{1em}number of subjects & 10407 & 44592 & 3640 & 7590 & 8108 & 25254\\
+%DIFDELCMD < \hspace{1em}Age, year (mean (SD)) & 58.0 (10.2) & 56.9 (9.9) & 56.5 (10.2) & 55.6 (10.1) & 55.6 (9.9) & 57.9 (9.9)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Current smoker, \% & 6.9 & 4.2 & 6.1 & 5.5 & 4.3 & 3.5\\
+%DIFDELCMD < \hspace{1em}Daily alcohol drinker, \% & 4.3 & 4.5 & 5.5 & 4.3 & 4.2 & 4.6\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}BMI, kg/m$^2$ (mean (SD)) & 23.0 (3.4) & 22.9 (3.7) & 23.0 (3.8) & 23.1 (4.4) & 23.1 (3.1) & 22.8 (3.6)\\
+%DIFDELCMD < \hspace{1em}Exercise (> 1h/week), \% & 13.6 & 20.8 & 17.1 & 18.5 & 18.8 & 22.6\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Sleep duration, 8-9 hours, \% & 27.7 & 25.6 & 25.1 & 25.9 & 25.4 & 25.7\\
+%DIFDELCMD < \hspace{1em}Energy intake, kcal/day (mean (SD)) & 1519 (451) & 1690 (449) & 1522 (447) & 1596 (443) & 1661 (432) & 1752 (443)\\
+%DIFDELCMD < \hspace{1em}Vegetable intake, daily, \% & 24.7 & 30.4 & 25.0 & 24.6 & 24.2 & 34.8\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Fruit intake, daily, \% & 25.0 & 35.7 & 26.6 & 29.2 & 29.2 & 41.1\\
+%DIFDELCMD < \hspace{1em}Green tea intake, daily, \% & 73.8 & 76.8 & 77.0 & 76.4 & 75.8 & 77.3\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Coffee intake, daily, \% & 39.6 & 48.2 & 46.2 & 46.4 & 44.4 & 50.2\\
+%DIFDELCMD < \hspace{1em}Educated over 18 years old, \% & 4.8 & 8.3 & 6.7 & 7.2 & 6.5 & 9.4\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}History of diabetes, \% & 2.6 & 3.7 & 3.2 & 2.7 & 2.7 & 4.4\\
+%DIFDELCMD < \hspace{1em}History of hypertension, \% & 21.5 & 19.7 & 20.5 & 19.1 & 18.9 & 20.0\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4\\
+%DIFDELCMD < \hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0\\
+%DIFDELCMD < \bottomrule
+%DIFDELCMD < \end{tabular}}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \resizebox{\textwidth}{!}{%
 \begin{tabular}[t]{lcccccc}
 \toprule
 \multicolumn{1}{c}{ } & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{4}{c}{\textbf{Milk drinkers}} \\
@@ -503,8 +547,10 @@ education level (attended school till age 18, yes/no).
 \rowcolor{gray!6}  \hspace{1em}History of kidney diseases, \% & 3.6 & 4.1 & 3.9 & 3.7 & 3.7 & 4.4\\
 \hspace{1em}History of liver diseases, \% & 3.5 & 4.6 & 4.9 & 3.9 & 3.9 & 5.0\\
 \bottomrule
+\multicolumn{6}{l}{\textit{Note: }}\\
+\multicolumn{6}{l}{Abbreviations: JACC: Japan Collaborative Cohort; SD: standard deviation; BMI: body mass index.   }\\
 \end{tabular}}
-\end{table}
+\DIFaddendFL \end{table}
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -513,17 +559,17 @@ The total follow-up was 1555073 person-years (median = 19.3 years),
 during which 2675 \DIFdelbegin \DIFdel{death from stroke was }\DIFdelend \DIFaddbegin \DIFadd{deaths from stroke were }\DIFaddend confirmed (1352 men and 1323
 women). Among these stroke mortality, 952 were hemorrhagic stroke (432
 men and 520 women), and 957 were cerebral infarction (520 men and 437
-women). \DIFaddbegin \DIFadd{Number of deaths from causes other than stroke were 18868 (10731
+women). \DIFaddbegin \DIFadd{Number of deaths from causes other than stroke was 18868 (10731
 men and 8137 women); 5493 (2022 men and 3471 women) dropped out from the
 follow-up (5.8\%); 67349 (25281 men and 42068 women) were censored at
 the end of follow-up (71.4\%). The median (interquartile range, IQR) of
 follow-up years for hemorrhagic stroke mortality were 9.9 (5.4, 12.3) in
-men and 10.9 (5.9, 15.1) in women; the median (IQR) of follow-up years
+men and 10.9 (5.9, 15.1) in women; the medians (IQR) of follow-up years
 for cerebral infarction mortality were 11.2 (7.1, 15.3) and 11.8 (7.9,
-16.4) in men and women. }\DIFaddend Age-adjusted stroke mortality rates for each
-category of milk intake frequency was estimated to be 1.8, 2.0, 1.7,
-1.6, 1.5 per 1000 person-year for men and 1.3, 1.4, 1.2, 1.1, 1.2 per
-1000 person-year for women.
+16.4) in men and women, respectively. }\DIFaddend Age-adjusted stroke mortality
+rates for each category of milk intake frequency was estimated to be
+1.8, 2.0, 1.7, 1.6, 1.5 per 1000 person-year for men and 1.3, 1.4, 1.2,
+1.1, 1.2 per 1000 person-year for women.
 
 As listed in \textbf{Table \ref{tab:tab1f}}, compared with those who
 chose ``never'' as their milk intake frequency at baseline, milk
@@ -533,16 +579,7 @@ than 1-2 times/month were more likely to be a daily consumers of
 vegetable, fruit as well as coffee, and more likely to join exercise
 more than 1 hour/week among both sexes.
 
-Detailed results from the Bayesian survival models (crude, age-adjusted
-and multivariable-adjusted) according to the frequency of milk intake
-separated by sex are listed in \textbf{Table \ref{tab:tab2}} (men) and
-\textbf{Table \ref{tab:tab3}} (women). Compared to those who never had
-milk, both men and women had slower speed and lower hazard of dying from
-total stroke in crude models. Velocities that milk consumers dying from
-stroke is slower by a crude acceleration factor (AF) between 0.79 (sd =
-0.05; 95\% CrI: 0.74, 0.90) and 0.93 (sd = 0.04; 95\% CrI: 0.85, 1.02)
-compared with non-consumers. Chances that the posterior crude HRs were
-estimated to be lower than 1 for those who had at least 1-2 times/month
+
 
 \DIFaddbegin 
 
@@ -728,12 +765,26 @@ N & 10407 & 3640 & 7590 & 8108 & 25254\\
 \end{tabular}}
 \end{table}
 
-\noindent \DIFaddend was higher than 86.5\% in men and greater than 94.6\% in women. However, lower hazard and delayed time-to-event was observed to remain after age or multivariable adjustment only among daily male milk consumers. Specifically, the mean (sd; 95\% CrI) of posterior multivariable-adjusted AF and HR for daily male consumers of milk were 0.88 (sd = 0.05; 95\% CrI: 0.81, 0.96) and 0.80 (sd = 0.07;
-95\% CrI: 0.69, 0.93) with a probability of 99.0\% to be smaller than
-the null value (=1). Daily female milk consumers had posterior AFs and
-HRs that were distributed with means of 0.97 (sd = 0.09; 95\% CrI: 0.88,
-1.10) and 0.95 (sd = 0.12; 95\% CrI: 0.80, 1.17) which had about 78.0\%
-of chance that their HRs could be smaller than 1.
+Detailed results from the Bayesian survival models (crude, age-adjusted
+and multivariable-adjusted) according to the frequency of milk intake
+separated by sex are listed in \textbf{Table \ref{tab:tab2}} (men) and
+\textbf{Table \ref{tab:tab3}} (women). Compared to those who never had
+milk, both men and women had slower speed and lower hazard of dying from
+total stroke in crude models. Velocities that milk consumers dying from
+stroke is slower by a crude acceleration factor (AF) between 0.79 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend =
+0.05; 95\% CrI: 0.74, 0.90) and 0.93 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.04; 95\% CrI: 0.85, 1.02)
+compared with non-consumers. Chances that the posterior crude HRs were
+estimated to be lower than 1 for those who had at least 1-2 times/month \DIFaddend was higher than 86.5\% in men and greater than 94.6\% in
+women. However, lower hazard and delayed time-to-event was observed to
+remain after age or multivariable adjustment only among daily male milk
+consumers. Specifically, the mean (\DIFdelbegin \DIFdel{sd}\DIFdelend \DIFaddbegin \DIFadd{SD}\DIFaddend ; 95\% CrI) of posterior
+multivariable-adjusted AF and HR for daily male consumers of milk were
+0.88 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.05; 95\% CrI: 0.81, 0.96) and 0.80 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.07; 95\% CrI:
+0.69, 0.93) with a probability of 99.0\% to be smaller than the null
+value (=1). Daily female milk consumers had posterior AFs and HRs that
+were distributed with means of 0.97 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.09; 95\% CrI: 0.88, 1.10)
+and 0.95 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.12; 95\% CrI: 0.80, 1.17) which had about 78.0\% of
+chance that their HRs could be smaller than 1.
 
 Posterior distributions of AFs and HRs for mortality from hemorrhagic
 stroke were found to contain the null value for either men or women
@@ -755,40 +806,235 @@ especially from cerebral infarction. Our evidence also suggested that
 stroke mortality events were delayed among Japanese male daily milk
 consumers compared with non-consumers.
 
+\DIFdelbegin %DIFDELCMD < \begin{table}[H]
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+%DIFDELCMD < \label{tab:tab2}%%%
+% \DIFdelFL{Summary of posterior Acceleration Factors (AF) and Hazard Ratios (HR) of mortality from total stroke, stroke types according to the frequency of milk intake in men (JACC study, 1988-2009).}}
+%DIFAUXCMD
+%DIFDELCMD < \centering
+%DIFDELCMD < \fontsize{6}{8}\selectfont
+%DIFDELCMD < \resizebox*{!}{\dimexpr\textheight-\lineskip\relax}{%
+%DIFDELCMD < \begin{tabular}[t]{lccccc}
+%DIFDELCMD < \toprule
+%DIFDELCMD < \textbf{ } & \textbf{Never} & \textbf{1-2 times/Month} & \textbf{1-2 times/Week} & \textbf{3-4 times/Week} & \textbf{Almost Daily}\\
+%DIFDELCMD < \midrule
+%DIFDELCMD < \rowcolor{gray!6}  Person-year & 135704 & 56551 & 97098 & 92153 & 252364\\
+%DIFDELCMD < N & 8508 & 3522 & 5928 & 5563 & 15865\\
+%DIFDELCMD < \rowcolor{gray!6}  Total Stroke & 326 & 122 & 181 & 177 & 546\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 0}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 0.93 (0.07) & 0.83 (0.05) & 0.85 (0.05) & 0.93 (0.04)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.81, 1.06) & (0.73, 0.94) & (0.74, 0.96) & (0.85, 1.02)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 0.89 (0.09) & 0.77 (0.07) & 0.79 (0.07) & 0.90 (0.06)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.73, 1.08) & (0.63, 0.91) & (0.66, 0.94) & (0.79, 1.03)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 86.5\% & 99.9\% & 99.7\% & 93.5\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 1}}\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.99 (0.06) & 0.90 (0.05) & 0.91 (0.05) & 0.85 (0.04)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.87, 1.11) & (0.81, 1.00) & (0.82, 1.01) & (0.78, 0.92)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 0.98 (0.11) & 0.84 (0.08) & 0.86 (0.08) & 0.76 (0.05)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.79, 1.19) & (0.70, 1.00) & (0.71, 1.02) & (0.66, 0.87)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 58.7\% & 97.3\% & 96.1\% & 100.0\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 2}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 1.00 (0.07) & 0.92 (0.06) & 0.94 (0.06) & 0.88 (0.05)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.88, 1.14) & (0.82, 1.03) & (0.84, 1.05) & (0.81, 0.96)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 1.01 (0.12) & 0.87 (0.09) & 0.90 (0.09) & 0.80 (0.07)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.81, 1.24) & (0.72, 1.05) & (0.74, 1.08) & (0.69, 0.93)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 50.6\% & 93.7\% & 89.6\% & 99.0\%\\
+%DIFDELCMD < \hline
+%DIFDELCMD < \rowcolor{gray!6}  Hemorrhagic stroke & 100 & 42 & 58 & 56 & 176\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 0}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 1.03 (0.17) & 0.85 (0.12) & 0.87 (0.13) & 0.98 (0.11)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.74, 1.38) & (0.63, 1.12) & (0.65, 1.14) & (0.78, 1.22)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 1.03 (0.19) & 0.82 (0.14) & 0.84 (0.15) & 0.97 (0.13)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.70, 1.46) & (0.56, 1.14) & (0.60, 1.17) & (0.75, 1.26)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 47.2\% & 88.4\% & 86.3\% & 63.1\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 1}}\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 1.08 (0.17) & 0.91 (0.13) & 0.92 (0.13) & 0.90 (0.10)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.80, 1.45) & (0.70, 1.20) & (0.71, 1.19) & (0.74, 1.11)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 1.11 (0.21) & 0.88 (0.16) & 0.90 (0.16) & 0.88 (0.12)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.75, 1.58) & (0.63, 1.25) & (0.63, 1.24) & (0.67, 1.14)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 31.6\% & 79.7\% & 76.6\% & 87.6\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 2}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 1.11 (0.18) & 0.93 (0.15) & 0.96 (0.16) & 0.96 (0.13)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.79, 1.58) & (0.70, 1.25) & (0.71, 1.34) & (0.76, 1.25)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 1.14 (0.22) & 0.92 (0.17) & 0.95 (0.18) & 0.95 (0.14)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.75, 1.61) & (0.63, 1.29) & (0.65, 1.37) & (0.71, 1.27)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 28.8\% & 72.4\% & 64.4\% & 69.3\%\\
+%DIFDELCMD < \hline
+%DIFDELCMD < \rowcolor{gray!6}  Cerebral infarction & 151 & 41 & 64 & 66 & 198\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 0}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 0.76 (0.09) & 0.71 (0.07) & 0.74 (0.08) & 0.79 (0.06)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.59, 0.94) & (0.58, 0.86) & (0.61, 0.89) & (0.68, 0.93)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 0.65 (0.12) & 0.59 (0.09) & 0.64 (0.09) & 0.71 (0.09)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.46, 0.92) & (0.43, 0.79) & (0.47, 0.85) & (0.56, 0.89)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 99.1\% & 99.9\% & 99.7\% & 99.5\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 1}}\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.83 (0.08) & 0.79 (0.07) & 0.82 (0.07) & 0.74 (0.05)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.68, 1.01) & (0.67, 0.93) & (0.69, 0.96) & (0.66, 0.84)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 0.73 (0.13) & 0.65 (0.10) & 0.70 (0.11) & 0.58 (0.07)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.49, 1.02) & (0.48, 0.88) & (0.51, 0.94) & (0.46, 0.72)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 96.9\% & 99.8\% & 98.9\% & 100.0\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 2}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 0.84 (0.09) & 0.80 (0.08) & 0.83 (0.08) & 0.75 (0.06)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.67, 1.02) & (0.67, 0.95) & (0.69, 0.99) & (0.66, 0.85)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 0.73 (0.14) & 0.67 (0.11) & 0.72 (0.12) & 0.61 (0.08)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.50, 1.04) & (0.48, 0.91) & (0.52, 0.99) & (0.48, 0.79)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 96.1\% & 99.1\% & 97.5\% & 99.8\%\\
+%DIFDELCMD < \bottomrule
+%DIFDELCMD < \multicolumn{6}{l}{\textit{Note: }}\\
+%DIFDELCMD < \multicolumn{6}{l}{Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;}\\
+%DIFDELCMD < \multicolumn{6}{l}{ Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.}\\
+%DIFDELCMD < \multicolumn{6}{l}{Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.}\\
+%DIFDELCMD < \multicolumn{6}{l}{Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of}\\
+%DIFDELCMD < \multicolumn{6}{l}{hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.}\\
+%DIFDELCMD < \end{tabular}}
+%DIFDELCMD < \end{table}
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{table}[H]
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+%DIFDELCMD < \label{tab:tab3}%%%
+% \DIFdelFL{Summary of posterior Acceleration Factors (AF) and Hazard Ratios (HR) of mortality from total stroke, stroke type according to the frequency of milk intake in women (JACC study, 1988-2009).}}
+%DIFAUXCMD
+%DIFDELCMD < \centering
+%DIFDELCMD < \fontsize{7}{9}\selectfont
+%DIFDELCMD < \resizebox*{!}{\dimexpr\textheight-\lineskip\relax}{%
+%DIFDELCMD < \begin{tabular}[t]{lccccc}
+%DIFDELCMD < \toprule
+%DIFDELCMD < \textbf{ } & \textbf{Never} & \textbf{1-2 times/Month} & \textbf{1-2 times/Week} & \textbf{3-4 times/Week} & \textbf{Almost Daily}\\
+%DIFDELCMD < \midrule
+%DIFDELCMD < \rowcolor{gray!6}  Person-year & 173222 & 59904 & 129233 & 139919 & 418925\\
+%DIFDELCMD < N & 10407 & 3640 & 7590 & 8108 & 25254\\
+%DIFDELCMD < \rowcolor{gray!6}  Total Stroke & 300 & 84 & 182 & 172 & 585\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 0}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 0.88 (0.07) & 0.87 (0.05) & 0.79 (0.05) & 0.88 (0.04)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.75, 1.03) & (0.78, 0.98) & (0.71, 0.90) & (0.80, 0.96)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 0.83 (0.10) & 0.81 (0.08) & 0.70 (0.07) & 0.81 (0.07)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.64, 1.05) & (0.68, 0.97) & (0.58, 0.85) & (0.71, 0.93)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 94.6\% & 98.7\% & 99.9\% & 99.6\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 1}}\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.99 (0.09) & 1.11 (0.08) & 1.02 (0.08) & 0.95 (0.06)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.85, 1.17) & (0.97, 1.26) & (0.89, 1.16) & (0.86, 1.06)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 1.00 (0.14) & 1.18 (0.14) & 1.03 (0.12) & 0.92 (0.09)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.76, 1.31) & (0.95, 1.47) & (0.82, 1.28) & (0.78, 1.09)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 52.3\% & 6.3\% & 42.0\% & 86.8\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 2}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 1.01 (0.12) & 1.11 (0.14) & 1.02 (0.12) & 0.97 (0.09)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.85, 1.20) & (0.97, 1.30) & (0.89, 1.19) & (0.88, 1.10)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 1.01 (0.17) & 1.19 (0.15) & 1.03 (0.15) & 0.95 (0.12)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.75, 1.36) & (0.96, 1.52) & (0.81, 1.31) & (0.80, 1.17)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 52.8\% & 6.4\% & 44.4\% & 78.0\%\\
+%DIFDELCMD < \hline
+%DIFDELCMD < \rowcolor{gray!6}  Hemorrhagic stroke & 108 & 27 & 78 & 76 & 231\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 0}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 0.78 (0.13) & 0.98 (0.12) & 0.90 (0.11) & 0.92 (0.09)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.55, 1.06) & (0.76, 1.25) & (0.70, 1.13) & (0.76, 1.12)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 0.73 (0.16) & 0.98 (0.15) & 0.87 (0.14) & 0.89 (0.11)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.47, 1.08) & (0.71, 1.31) & (0.64, 1.16) & (0.71, 1.15)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 94.7\% & 58.1\% & 83.1\% & 83.0\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 1}}\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 0.88 (0.13) & 1.12 (0.13) & 1.04 (0.13) & 0.95 (0.09)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.63, 1.17) & (0.90, 1.41) & (0.82, 1.32) & (0.80, 1.14)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 0.84 (0.18) & 1.17 (0.18) & 1.06 (0.17) & 0.93 (0.12)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.54, 1.24) & (0.86, 1.58) & (0.76, 1.45) & (0.73, 1.19)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 81.6\% & 16.9\% & 38.9\% & 74.6\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 2}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 0.93 (0.24) & 1.23 (0.38) & 1.14 (0.33) & 1.04 (0.25)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.64, 1.33) & (0.93, 1.98) & (0.87, 1.83) & (0.83, 1.55)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 0.89 (0.22) & 1.26 (0.26) & 1.15 (0.23) & 1.02 (0.19)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.55, 1.39) & (0.90, 1.90) & (0.83, 1.74) & (0.78, 1.51)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 73.2\% & 9.5\% & 24.8\% & 53.3\%\\
+%DIFDELCMD < \hline
+%DIFDELCMD < \rowcolor{gray!6}  Cerebral infarction & 102 & 35 & 63 & 50 & 187\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 0}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 1.01 (0.13) & 0.90 (0.09) & 0.75 (0.08) & 0.86 (0.06)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.79, 1.27) & (0.75, 1.10) & (0.60, 0.91) & (0.75, 0.99)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 1.03 (0.20) & 0.85 (0.14) & 0.61 (0.11) & 0.78 (0.10)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.69, 1.48) & (0.60, 1.13) & (0.43, 0.84) & (0.59, 0.99)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 51.9\% & 75.6\% & 97.6\% & 96.1\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 1}}\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean AF (SD) & 1 & 1.21 (0.32) & 1.16 (0.30) & 0.98 (0.19) & 0.97 (0.14)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.95, 2.08) & (0.93, 1.95) & (0.79, 1.48) & (0.84, 1.43)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Mean HR (SD) & 1 & 1.37 (0.33) & 1.25 (0.28) & 0.94 (0.22) & 0.92 (0.17)\\
+%DIFDELCMD < \hspace{1em}95\% CrI & - & (0.89, 2.18) & (0.87, 1.95) & (0.63, 1.52) & (0.69, 1.40)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}Pr(HR < 1) & - & 8.5\% & 14.2\% & 70.1\% & 79.4\%\\
+%DIFDELCMD < \addlinespace[0.3em]
+%DIFDELCMD < \multicolumn{6}{l}{\textbf{Model 2}}\\
+%DIFDELCMD < \hspace{1em}Mean AF (SD) & 1 & 1.19 (0.19) & 1.12 (0.15) & 0.96 (0.12) & 0.97 (0.09)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.94, 1.62) & (0.92, 1.49) & (0.78, 1.21) & (0.83, 1.18)\\
+%DIFDELCMD < \hspace{1em}Mean HR (SD) & 1 & 1.38 (0.29) & 1.21 (0.22) & 0.91 (0.18) & 0.94 (0.14)\\
+%DIFDELCMD < \rowcolor{gray!6}  \hspace{1em}95\% CrI & - & (0.89, 2.02) & (0.85, 1.70) & (0.62, 1.34) & (0.69, 1.25)\\
+%DIFDELCMD < \hspace{1em}Pr(HR < 1) & - & 7.3\% & 15.6\% & 72.8\% & 70.0\%\\
+%DIFDELCMD < \bottomrule
+%DIFDELCMD < \multicolumn{6}{l}{\textit{Note: }}\\
+%DIFDELCMD < \multicolumn{6}{l}{Abbreviations: SD, standard deviation; CrI, credible interval; MCSE, Monte Carlo Standard Error;}\\
+%DIFDELCMD < \multicolumn{6}{l}{ Pr(HR < 1) indicates the prabability for posterior HR to be smaller than 1.}\\
+%DIFDELCMD < \multicolumn{6}{l}{Model 0 = Crude model; Model 1 = age-adjusted model; Model 2 = multivariable adjusted model.}\\
+%DIFDELCMD < \multicolumn{6}{l}{Covariates included in Model 2: age, smoking habit, alcohol intake, body mass index, history of}\\
+%DIFDELCMD < \multicolumn{6}{l}{hypertension, diabetes, kidney/liver diseases, exercise, sleep duration, coffee intake, education level.}\\
+%DIFDELCMD < \end{tabular}}
+%DIFDELCMD < \end{table}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
 \DIFdel{These findings are in line with our previous report
 \mbox{%DIFAUXCMD
 \citep{wang_milk_2015} }\hspace{0pt}%DIFAUXCMD
-as well as other studies conducted in
-East Asian
+as well as other studies conducted in East Asian
 populations
 \mbox{%DIFAUXCMD
-\citep{umesawa2008dietary, kondo2013consumption, ozawa2017dietary, sauvaget2003intake, Talaei_2016}}\hspace{0pt}%DIFAUXCMD
-}\DIFdelend \DIFaddbegin \DIFadd{These findings showed similar negative effect estimates reported
-previously \mbox{%DIFAUXCMD
+\citep{umesawa2008dietary, kondo2013consumption, sauvaget2003intake, Talaei_2016}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{These findings showed similar negative effect estimates that were
+reported previously \mbox{%DIFAUXCMD
 \citep{wang_milk_2015} }\hspace{0pt}%DIFAUXCMD
-using data from the same cohort, in
-which the outcomes of interests were focused on cardiovascular diseases
-and all-cause mortality}\DIFaddend . Moreover, we have further updated \DIFaddbegin \DIFadd{the results
-}\DIFaddend with more comprehensive and straightforward evidence about whether and
-how certain the data had shown about daily consumption of milk is
-contributing to a postponed stroke (mostly cerebral infarction)
-mortality event among Japanese men. A recent dose-response meta-analysis
-of 18 prospective cohort studies had \DIFdelbegin \DIFdel{also }\DIFdelend shown a similar negative
-association \citep{DeGoede2016} between milk consumption and risk of
-stroke. The same meta-analysis also reported a greater reduction of risk
-of stroke (18\%) for East Asian population in contrast with the 7\% less
-risk in the pooled overall finding for all populations combined.
-Benefits of increased milk intake might be particularly noticeable in
-East Asian countries where strokes are relatively more common, and milk
-consumption is much lower than those studies conducted among European or
-American populations \citep{dehghan2018association}. \DIFaddbegin \DIFadd{However, the Life
-Span Study \mbox{%DIFAUXCMD
+using data from the same
+cohort, in which the outcomes of interests were focused on
+cardiovascular diseases and all-cause mortality}\DIFaddend . Moreover, we have
+further updated \DIFaddbegin \DIFadd{the results }\DIFaddend with more comprehensive and straightforward
+evidence about whether and how certain the data had shown about daily
+consumption of milk is contributing to a postponed stroke (mostly
+cerebral infarction) mortality event among Japanese men. A recent
+dose-response meta-analysis of 18 prospective cohort studies had \DIFdelbegin \DIFdel{also }\DIFdelend shown a
+similar negative association \citep{DeGoede2016} between milk
+consumption and risk of stroke. The same meta-analysis also reported a
+greater reduction of risk of stroke (18\%) for East Asian population in
+contrast with the 7\% less risk in the pooled overall finding for all
+populations combined. Benefits of increased milk intake might be
+particularly noticeable in East Asian countries where strokes are
+relatively more common, and milk consumption is much lower than those
+studies conducted among European or American populations
+\citep{dehghan2018association}. \DIFaddbegin \DIFadd{However, the Life Span Study
+\mbox{%DIFAUXCMD
 \citep{sauvaget2003intake}}\hspace{0pt}%DIFAUXCMD
-, which was conducted about 10
-years earlier than the JACC Study, reported null association between
-milk intake and fatal stroke among men and women combined who survived
-from the Hiroshima and Nagasaki atomic bomb. The difference could be
-largely explained by the different targeting populations between the two
+, which was conducted about 10 years earlier
+than the JACC Study, reported null association between milk intake and
+fatal stroke among men and women combined who survived from the
+Hiroshima and Nagasaki atomic bomb. The difference could be largely
+explained by the different targeting populations between the two
 studies. \mbox{%DIFAUXCMD
 \citet{kondo2013consumption} }\hspace{0pt}%DIFAUXCMD
 also reported null association in
@@ -808,12 +1054,12 @@ than in women was found in the Singapore Chinese Health Study
 \citep{Talaei_2016} }\hspace{0pt}%DIFAUXCMD
 as well. The reasons for this gender differences is
 currently unknown. It might be contributed by generally better/healthier
-lifestyles (much less smokers and alcohol drinkers) in women regardless
-of milk intake frequency, or maybe due to other factors that was not
-available in/considered by our models such as intake of calcium
-supplements. The probably existing beneficial effect by milk intake is
-probably less evident in women than that in men. Further investigation
-is needed.
+lifestyles (such as much less smokers and alcohol drinkers) in women
+regardless of milk intake frequency, or maybe due to other factors that
+was not available in/considered by our models such as intake of calcium
+or other supplements. The probably existing beneficial effect by milk
+intake is probably less evident in women than that in men. Further
+investigation is needed.
 }\DIFaddend 
 
 Possible reasons for a protective effect of milk consumption against
@@ -856,13 +1102,11 @@ more transparent ones that is easier for interpretation. Direct
 probabilities that daily milk intake is associated with lower hazard or
 delayed stroke mortality event were provided here after thorough
 computer simulations.
-\DIFaddbegin 
 
-\hypertarget{conclusion}{%
+\DIFaddbegin \hypertarget{conclusion}{%
 \subsection{Conclusion}\label{conclusion}}
-\DIFaddend 
 
-In conclusion, the JACC study database has provided evidence that
+\DIFaddend In conclusion, the JACC study database has provided evidence that
 Japanese men who consumed milk daily had lower hazard of dying from
 stroke particularly cerebral infarction compared with their counterparts
 who never consumed milk. Time before an event of stroke mortality
@@ -910,7 +1154,23 @@ manuscript, an in the decision to publish the results.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
-\abbreviations{The following abbreviations are used in this manuscript:\\
+\DIFdelbegin %DIFDELCMD < \abbreviations{The following abbreviations are used in this manuscript:\\
+%DIFDELCMD < 
+
+%DIFDELCMD < \noindent
+%DIFDELCMD < \begin{tabular}{@{}ll}
+%DIFDELCMD < JACC & Japan Collaborative Cohort \\
+%DIFDELCMD < FFQ & Food Frequency Questionnaire \\
+%DIFDELCMD < MCMC & Markov Chain Monte Carlo \\
+%DIFDELCMD < JAGS & Just Another Gibbs Samplers \\
+%DIFDELCMD < AFT & accelerated failure time \\
+%DIFDELCMD < HR & hazard ratio \\
+%DIFDELCMD < AF & acceleration factor \\
+%DIFDELCMD < sd & standard deviation \\
+%DIFDELCMD < CrI & credible interval \\
+%DIFDELCMD < \end{tabular}}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \abbreviations{The following abbreviations are used in this manuscript:\\
 
 \noindent
 \begin{tabular}{@{}ll}
@@ -921,9 +1181,10 @@ JAGS & Just Another Gibbs Samplers \\
 AFT & accelerated failure time \\
 HR & hazard ratio \\
 AF & acceleration factor \\
-sd & standard deviation \\
+SD & standard deviation \\
 CrI & credible interval \\
 \end{tabular}}
+\DIFaddend 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

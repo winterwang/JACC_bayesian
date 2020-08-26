@@ -99,6 +99,26 @@ Date, C.; Fukui, M.; Yamamoto, A.; Wakai, K.; Ozeki, A.; Motohashi, Y.; Adachi,
   questionnaire used in the JACC study.
 \newblock {\em Journal of Epidemiology} {\bf 2005}, {\em 15},~S9--S23.
 
+\bibitem[{Ministry of Health and Welfare}(1992)]{eigyogenjyo}
+{Ministry of Health and Welfare}.
+\newblock {\em Kokumin Eiyo no Genjyo (The National Nutrition Survey in Japan,
+  1990)}; Tokyo: Daiichi Shuppan,  1992.
+
+\bibitem[Wang \em{et~al.}(2015)Wang, Yatsuya, Tamakoshi, Iso, and
+  Tamakoshi]{wang_milk_2015}
+Wang, C.; Yatsuya, H.; Tamakoshi, K.; Iso, H.; Tamakoshi, A.
+\newblock Milk drinking and mortality: findings from the {Japan} collaborative
+  cohort study.
+\newblock {\em Journal of Epidemiology} {\bf 2015}, {\em 25},~66--73.
+
+\bibitem[Talaei \em{et~al.}(2016)Talaei, Koh, Yuan, and Pan]{Talaei_2016}
+Talaei, M.; Koh, W.P.; Yuan, J.M.; Pan, A.
+\newblock The association between dairy product intake and cardiovascular
+  disease mortality in Chinese adults.
+\newblock {\em European Journal of Nutrition} {\bf 2016}, {\em 56},~2343--2352.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.1007/s00394-016-1274-1}{\detokenize{10.1007/s00394-016-1274-1}}}.
+
 \bibitem[Plummer(2003)]{Plummer2003}
 Plummer, M.
 \newblock JAGS: A program for analysis of Bayesian graphical models using Gibbs
@@ -120,20 +140,13 @@ Brooks, S.P.; Gelman, A.
 \newblock {\em Journal of Computational and Graphical Statistics} {\bf 1998},
   {\em 7},~434--455.
 
-\bibitem[Wang \em{et~al.}(2015)Wang, Yatsuya, Tamakoshi, Iso, and
-  Tamakoshi]{wang_milk_2015}
-Wang, C.; Yatsuya, H.; Tamakoshi, K.; Iso, H.; Tamakoshi, A.
-\newblock Milk drinking and mortality: findings from the {Japan} collaborative
-  cohort study.
-\newblock {\em Journal of Epidemiology} {\bf 2015}, {\em 25},~66--73.
-
-\bibitem[Umesawa \em{et~al.}(2008)Umesawa, Iso, Ishihara, Saito, Kokubo, Inoue,
-  and Tsugane]{umesawa2008dietary}
-Umesawa, M.; Iso, H.; Ishihara, J.; Saito, I.; Kokubo, Y.; Inoue, M.; Tsugane,
-  S.
-\newblock Dietary calcium intake and risks of stroke, its subtypes, and
-  coronary heart disease in Japanese: the JPHC Study Cohort I.
-\newblock {\em Stroke} {\bf 2008}, {\em 39},~2449--2456.
+\bibitem[Dehghan \em{et~al.}(2018)Dehghan, Mente, Rangarajan, Sheridan, Mohan,
+  Iqbal, Gupta, Lear, Wentzel-Viljoen, Avezum, et~al.]{dehghan2018association}
+Dehghan, M.; Mente, A.; Rangarajan, S.; Sheridan, P.; Mohan, V.; Iqbal, R.;
+  Gupta, R.; Lear, S.; Wentzel-Viljoen, E.; Avezum, A.; others.
+\newblock Association of dairy intake with cardiovascular disease and mortality
+  in 21 countries from five continents (PURE): a prospective cohort study.
+\newblock {\em The Lancet} {\bf 2018}, {\em 392},~2288--2297.
 
 \bibitem[Kondo \em{et~al.}(2013)Kondo, Ojima, Nakamura, Hayasaka, Hozawa,
   Saitoh, Ohnishi, Akasaka, Hayakawa, Murakami, et~al.]{kondo2013consumption}
@@ -143,29 +156,13 @@ Kondo, I.; Ojima, T.; Nakamura, M.; Hayasaka, S.; Hozawa, A.; Saitoh, S.;
   in the Japanese general population: the NIPPON DATA80.
 \newblock {\em Journal of Epidemiology} {\bf 2013}, {\em 23},~47--54.
 
-\bibitem[Ozawa \em{et~al.}(2017)Ozawa, Yoshida, Hata, Ohara, Mukai, Shibata,
-  Uchida, Nagata, Kitazono, Kiyohara, et~al.]{ozawa2017dietary}
-Ozawa, M.; Yoshida, D.; Hata, J.; Ohara, T.; Mukai, N.; Shibata, M.; Uchida,
-  K.; Nagata, M.; Kitazono, T.; Kiyohara, Y.; others.
-\newblock Dietary protein intake and stroke risk in a general Japanese
-  population: the Hisayama Study.
-\newblock {\em Stroke} {\bf 2017}, {\em 48},~1478--1486.
-
-\bibitem[Talaei \em{et~al.}(2016)Talaei, Koh, Yuan, and Pan]{Talaei_2016}
-Talaei, M.; Koh, W.P.; Yuan, J.M.; Pan, A.
-\newblock The association between dairy product intake and cardiovascular
-  disease mortality in Chinese adults.
-\newblock {\em European Journal of Nutrition} {\bf 2016}, {\em 56},~2343--2352.
-\newblock
-  doi:{\changeurlcolor{black}\href{https://doi.org/10.1007/s00394-016-1274-1}{\detokenize{10.1007/s00394-016-1274-1}}}.
-
-\bibitem[Dehghan \em{et~al.}(2018)Dehghan, Mente, Rangarajan, Sheridan, Mohan,
-  Iqbal, Gupta, Lear, Wentzel-Viljoen, Avezum, et~al.]{dehghan2018association}
-Dehghan, M.; Mente, A.; Rangarajan, S.; Sheridan, P.; Mohan, V.; Iqbal, R.;
-  Gupta, R.; Lear, S.; Wentzel-Viljoen, E.; Avezum, A.; others.
-\newblock Association of dairy intake with cardiovascular disease and mortality
-  in 21 countries from five continents (PURE): a prospective cohort study.
-\newblock {\em The Lancet} {\bf 2018}, {\em 392},~2288--2297.
+\bibitem[Umesawa \em{et~al.}(2008)Umesawa, Iso, Ishihara, Saito, Kokubo, Inoue,
+  and Tsugane]{umesawa2008dietary}
+Umesawa, M.; Iso, H.; Ishihara, J.; Saito, I.; Kokubo, Y.; Inoue, M.; Tsugane,
+  S.
+\newblock Dietary calcium intake and risks of stroke, its subtypes, and
+  coronary heart disease in Japanese: the JPHC Study Cohort I.
+\newblock {\em Stroke} {\bf 2008}, {\em 39},~2449--2456.
 
 \bibitem[Iacoviello \em{et~al.}(2018)Iacoviello, Bonaccio, Cairella, Catani,
   Costanzo, D'Elia, Giacco, Rendina, Sabino, Savini, et~al.]{Iacoviello2018}
