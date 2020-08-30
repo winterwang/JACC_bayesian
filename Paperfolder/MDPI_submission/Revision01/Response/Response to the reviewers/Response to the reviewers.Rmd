@@ -78,15 +78,17 @@ We have also added possible explanations for the sex-interaction in the Discussi
 
 - *#4: The aim states to “provide a more straightforward answer to the primary research question” – compared to what? And how is this more straightforward answer achieved. This is not clear, neither in the aim nor in the discussion (lines166-167). Please revise.*
 
-[Response:] Thanks 
+[Response:] Thanks for the useful suggestion. We meant that the Bayesian approach would provide more straightforward answer compared to traditional statistical approach. We have added clearer descriptions about these research questions and interpretations in Introduction and Discussion. 
 
-
-Thanks for your suggestion. The more straightforward answer is provided as Pr(HR < 1) which shows the percentages of HRs < 1 calculated through the large amount of simulations. The detailed interpretation is described above in answering your second comment. These probabilities show directly how certain it is for individuals with that milk intake frequency could have lower hazard compared with those who never consume milk. In the traditional way the answer was not clear since only estimates of HRs, 95% confidence intervals, and/or P-values were shown. None of these actually can directly answer the question "how sure it is to have lower hazard in one group compared with another?" We have added clearer descriptions about these research questions and interpretations. 
 
 
 - *Please describe the context of milk intake in Japan. Is milk consumed as a beverage with food, added to coffee or other consumption patterns? Are other milk products than fresh non-fermented milk consumed and could be included in the “milk” exposure?*
 
-[Response:] Thanks for your suggestions.   In the baseline year of the JACC study (between 1988 and 1990), most "milk and dairy product" consumption (92.1%) was in the form of whole milk. We have added the context of milk intake in Japan for participants who were invited into the JACC study. 
+[Response:] We appreciate the reviewer's great points. During the baseline years of the JACC study (between 1988 and 1990), most "milk and dairy product" consumption (92.1%) was in the form of whole milk. We have added the context of milk intake in Japan for participants who were invited into the JACC study. For detailed description about more current situation, as we cited in the Introduction (Reference #4, as cited below), the per capta consumption is still much lower than that in the western population: 
+
+Saito, A.; Okada, E.; Tarui, I.; Matsumoto, M.; Takimoto, H. The Association between Milk and Dairy Products Consumption and Nutrient Intake Adequacy among Japanese Adults: Analysis of the 2016 National Health and Nutrition Survey. Nutrients 2019, 11, 2361.
+
+
 
 - *Please specify age at baseline in abstract and methods.*
 
@@ -95,15 +97,15 @@ Thanks for your suggestion. The more straightforward answer is provided as Pr(HR
 
 - *Outcome ascertainment: Information on cause of death was from death certificates. Is there a possibility of individual linkage of the FFQ responses to a cause of death registry or were each of the participants’ death certificates reviewed? How many died from other causes, how many moved from the study area (and were thus lost to follow-up) and how many were censored at the end of follow-up (alive). Has stroke mortality changed during follow-up? Is there a difference in time trends of stroke subtype mortality? In how many cases was stroke subtype not recorded? The authors should also discuss potential reasons for differences in the results for stroke subtypes.*
 
-[Response:] We have added these detailed information at the beginning of the results section. In the study area, investigators conducted systematic review of death certificates till the end of 2009. Date and cause of death were confirmed with the permission of the Director-General of the Prime Minister's Office. Number of deaths from causes other than stroke were 18868 (10731 men and 8137 women); 5493 (2022 men and 3471 women) dropped out from the follow-up (5.8%); 67349 (25281 men and 42068 women) were censored at the end of follow-up (71.4%). Among the 2675 stroke mortality confirmed in the JACC study, 766 were unfortunately not recorded with subtypes. The median (IQR) of follow-up years for cerebral infarction mortality were 11.2 (7.1, 15.3) and 11.8 (7.9, 16.4) in men and women; the median (IQR) of follow-up years for hemorrhagic stroke mortality were 9.9 (5.4, 12.3) and 10.9 (5.9, 15.1) in men and women. Potential reasons for differences in the results for stroke subtypes are described in discussion. 
+[Response:] We are grateful to the reviewer's suggestion. We have added these detailed information at the beginning of the Results section. In the study area, investigators conducted systematic review of death certificates till the end of 2009. Date and cause of death were confirmed with the permission of the Director-General of the Prime Minister's Office. Number of deaths from causes other than stroke were 18868 (10731 men and 8137 women); 5493 (2022 men and 3471 women) dropped out from the follow-up (5.8%); 67349 (25281 men and 42068 women) were censored at the end of follow-up (71.4%). Among the 2675 stroke mortality confirmed in the JACC study, 766 were unfortunately not recorded with subtypes. The median (IQR) of follow-up years for cerebral infarction mortality were 11.2 (7.1, 15.3) and 11.8 (7.9, 16.4) in men and women; the median (IQR) of follow-up years for hemorrhagic stroke mortality were 9.9 (5.4, 12.3) and 10.9 (5.9, 15.1) in men and women. Potential reasons for differences in the results for stroke subtypes are described in discussion. 
 
 - *I agree with the authors that presenting the results in the FFQ categories is a good option, rather than to calculate the amount of consumption. However, I wonder if there is some indication from the validation study as to how much is on average consumed in the higher categories of intake?*
 
-[Response:] Thanks for your positive comments. The validation study of the FFQ used in the JACC study found that the median intake for a daily milk consumer was about 146 grams per day. This has been added in the first paragraph of "2.2 Exposure and the outcome of interest" section. 
+[Response:] Thanks for the suggestion. The validation study of the FFQ used in the JACC study found that the median intake for a milk consumer was about 146 grams per day. This has been added in the first paragraph of "2.2 Exposure and the outcome of interest" section. 
 
 - *Why did you adjust for sleep duration, is that a factor that influences both milk intake and stroke mortality risk?* 
 
-[Response:] Thanks for pointing this out. Previous report (cited as below) using the same data showed that healthy lifestyle behaviors (including milk intake daily and proper sleep duration) were associated with CVD mortality and therefore, we also included sleep duration as one of the potential confounders. 
+[Response:] Thanks for pointing this out. A previous report from the JACC Study (cited as below) showed that healthy lifestyle behaviors are closely related with each other and (including milk intake daily and proper sleep duration) were associated with CVD mortality. Therefore, we also included sleep duration as one of the potential confounders. 
 
 
 Eri Eguchi, Hiroyasu Iso, Naohito Tanabe, Yasuhiko Wada, Hiroshi Yatsuya, Shogo Kikuchi, Yutaka Inaba, Akiko Tamakoshi, on behalf of the Japan Collaborative Cohort Study Group, Healthy lifestyle behaviours and cardiovascular mortality among Japanese men and women: the Japan collaborative cohort study, European Heart Journal, Volume 33, Issue 4, February 2012, Pages 467–477. 
