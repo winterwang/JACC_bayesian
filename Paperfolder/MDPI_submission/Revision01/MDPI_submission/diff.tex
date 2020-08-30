@@ -1,7 +1,7 @@
 %  LaTeX support: latex@mdpi.com
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL Paperfolder20200801.tex   Fri Jul 31 20:30:18 2020
-%DIF ADD Paperfolder.tex           Wed Aug 26 10:48:03 2020
+%DIF ADD Paperfolder.tex           Sun Aug 30 11:01:37 2020
 %  In case you need support, please attach all files that are necessary for compiling as well as the log file, and specify the details of your LaTeX setup (which operating system and LaTeX version / tools you are using).
 
 %=================================================================
@@ -112,6 +112,8 @@ University Graduate School of Medicine, Osaka, Japan; \\
 %DIF -------
 $^{4}$ \quad Department of Public Health, Hokkaido University, \DIFdelbegin \DIFdel{Graduate School of Medicine}\DIFdelend \DIFaddbegin \DIFadd{Faculty of Medicine, }\DIFaddend Sapporo, Japan; \\ %DIF > 
 %DIF -------
+
+%DIF -------
 }
 % Contact information of the corresponding author
 \corres{Correspondence: Email.:
@@ -170,7 +172,7 @@ Accordingly, the estimated posterior means of AF and HR for daily milk %DIF >
 consumers were 0.88 (95\% Credible Interval, CrI: 0.81, 0.96) and 0.80 %DIF > 
 (95\% CrI: 0.69, 0.93) for men and 0.97 (95\% CrI: 0.88, 1.10) and 0.95 %DIF > 
 (95\% CrI: 0.80, 1.17) for women. In conclusion, data from the JACC %DIF > 
-study has provided strong evidence that daily milk intake among Japanese %DIF > 
+study provided strong evidence that daily milk intake among Japanese %DIF > 
 men was associated with delayed and lower hazard of mortality from %DIF > 
 stroke especially cerebral infarction.} %DIF > 
 %DIF -------
@@ -280,7 +282,7 @@ time-to-event data; JACC study}
 Eastern Asian populations were reported to have higher burden from \DIFdelbegin \DIFdel{either mortality or }\DIFdelend \DIFaddbegin \DIFadd{both
 mortality and }\DIFaddend morbidity from stroke than populations in European or
 American regions \citep{Kim2014}. Dairy \DIFdelbegin \DIFdel{food}\DIFdelend \DIFaddbegin \DIFadd{foods}\DIFaddend , especially milk has been
-suggested to \DIFdelbegin \DIFdel{reduce }\DIFdelend \DIFaddbegin \DIFadd{related with decreased }\DIFaddend stroke risk by nearly 7\% for each
+suggested to \DIFdelbegin \DIFdel{reduce }\DIFdelend \DIFaddbegin \DIFadd{relate with decreased }\DIFaddend stroke risk by nearly 7\% for each
 200 g increment of daily consumption \citep{DeGoede2016}. Although 2
 daily servings of milk or dairy products is recommended in Japan
 \citep{Yoshiike2007}, the actual per capita intake (\(\approx\) 63
@@ -303,9 +305,9 @@ transformation of the research question into ``Do individuals with milk
 intake habit have lower hazard of dying from a stroke event?'' Another
 way of asking the same research question would be ``Can a event of dying
 from stroke be postponed by having a milk intake habit?'' The later
-question is indeed directly comparing the length of times before events
-or the speed from the same departure point (entry of the study) to a
-fatal stroke event. }\DIFaddend Accelerated failure time models \DIFaddbegin \DIFadd{(AFT) }\DIFaddend under Bayesian
+question is directly comparing the length of times before events or the
+speed from the same departure point (entry of the study) to a fatal
+stroke event. }\DIFaddend Accelerated failure time models \DIFaddbegin \DIFadd{(AFT) }\DIFaddend under Bayesian
 framework are convenient tools that would help avoid worrying about the
 \DIFdelbegin \DIFdel{assumption of proportional hazard normally required in a Cox
 proportional hazard model and can directly show }\DIFdelend \DIFaddbegin \DIFadd{assumptions of repeatability of a large scale prospective study, and can
@@ -346,16 +348,16 @@ study completed self-administered questionnaires about their lifestyles,
 food intake (food frequency questionnaire, FFQ), and medical histories
 of cardiovascular disease or cancer. In the final follow-up of the JACC
 study, data from a total of 110585 individuals (46395 men and 64190
-women) \DIFaddbegin \DIFadd{who aged between 40-79 at the baseline year }\DIFaddend were successfully
-retained for the current analysis. We further excluded samples if they
-meet one of the following criteria: 1) with any disease history of
-stroke, cancer, myocardial infarction, ischemic heart disease, or other
-types heart disease (n = 6655, 2931 men and 3724 women); 2) did not
-answer the question regarding their milk consumption in the baseline FFQ
-survey (n = 9545, 3593 men and 5952 women). Finally, 94385 (39386 men
-and 54999 women) are left in the database. The study design and informed
-consent procedure were approved by the Ethics Review Committee of
-Hokkaido University School of Medicine.
+women) \DIFaddbegin \DIFadd{who aged between 40-79 at the baseline }\DIFaddend were successfully retained
+for the current analysis. We further excluded samples if they meet one
+of the following criteria: 1) with any disease history of stroke,
+cancer, myocardial infarction, ischemic heart disease, or other types
+heart disease (n = 6655, 2931 men and 3724 women); 2) did not answer the
+question regarding their milk consumption in the baseline FFQ survey (n
+= 9545, 3593 men and 5952 women). Finally, 94385 (39386 men and 54999
+women) are left in the database. The study design and informed consent
+procedure were approved by the Ethics Review Committee of Hokkaido
+University School of Medicine.
 
 \hypertarget{exposure-and-the-outcome-of-interest}{%
 \subsection{Exposure and the outcome of
@@ -580,9 +582,6 @@ vegetable, fruit as well as coffee, and more likely to join exercise
 more than 1 hour/week among both sexes.
 
 
-
-\DIFaddbegin 
-
 \begin{table}[H]
 
 \caption{\label{tab:tab2}\DIFaddFL{Summary of posterior Acceleration Factors (AF) and Hazard Ratios (HR) of mortality from total stroke, stroke types according to the frequency of milk intake in men (JACC study, 1988-2009).}}
@@ -765,26 +764,27 @@ N & 10407 & 3640 & 7590 & 8108 & 25254\\
 \end{tabular}}
 \end{table}
 
+
 Detailed results from the Bayesian survival models (crude, age-adjusted
 and multivariable-adjusted) according to the frequency of milk intake
 separated by sex are listed in \textbf{Table \ref{tab:tab2}} (men) and
 \textbf{Table \ref{tab:tab3}} (women). Compared to those who never had
 milk, both men and women had slower speed and lower hazard of dying from
 total stroke in crude models. Velocities that milk consumers dying from
-stroke is slower by a crude acceleration factor (AF) between 0.79 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend =
-0.05; 95\% CrI: 0.74, 0.90) and 0.93 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.04; 95\% CrI: 0.85, 1.02)
-compared with non-consumers. Chances that the posterior crude HRs were
-estimated to be lower than 1 for those who had at least 1-2 times/month \DIFaddend was higher than 86.5\% in men and greater than 94.6\% in
-women. However, lower hazard and delayed time-to-event was observed to
-remain after age or multivariable adjustment only among daily male milk
-consumers. Specifically, the mean (\DIFdelbegin \DIFdel{sd}\DIFdelend \DIFaddbegin \DIFadd{SD}\DIFaddend ; 95\% CrI) of posterior
-multivariable-adjusted AF and HR for daily male consumers of milk were
-0.88 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.05; 95\% CrI: 0.81, 0.96) and 0.80 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.07; 95\% CrI:
-0.69, 0.93) with a probability of 99.0\% to be smaller than the null
-value (=1). Daily female milk consumers had posterior AFs and HRs that
-were distributed with means of 0.97 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.09; 95\% CrI: 0.88, 1.10)
-and 0.95 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.12; 95\% CrI: 0.80, 1.17) which had about 78.0\% of
-chance that their HRs could be smaller than 1.
+stroke \DIFdelbegin \DIFdel{is slower }\DIFdelend \DIFaddbegin \DIFadd{was slowed down }\DIFaddend by a crude acceleration factor (AF) between 0.79
+(\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.05; 95\% CrI: 0.74, 0.90) and 0.93 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.04; 95\% CrI: 0.85,
+1.02) compared with non-consumers. Chances that the posterior crude HRs were estimated to be lower
+than 1 for those who had at least 1-2 times/month was higher than 86.5\%
+in men and greater than 94.6\% in women. However, lower hazard and
+delayed time-to-event was observed to remain after age or multivariable
+adjustment only among daily male milk consumers. Specifically, the mean
+(\DIFdelbegin \DIFdel{sd}\DIFdelend \DIFaddbegin \DIFadd{SD}\DIFaddend ; 95\% CrI) of posterior multivariable-adjusted AF and HR for daily
+male consumers of milk were 0.88 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.05; 95\% CrI: 0.81, 0.96) and
+0.80 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.07; 95\% CrI: 0.69, 0.93) with a probability of 99.0\% to
+be smaller than the null value (=1). Daily female milk consumers had
+posterior AFs and HRs that were distributed with means of 0.97 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend =
+0.09; 95\% CrI: 0.88, 1.10) and 0.95 (\DIFdelbegin \DIFdel{sd }\DIFdelend \DIFaddbegin \DIFadd{SD }\DIFaddend = 0.12; 95\% CrI: 0.80, 1.17)
+which had about 78.0\% of chance that their HRs could be smaller than 1.
 
 Posterior distributions of AFs and HRs for mortality from hemorrhagic
 stroke were found to contain the null value for either men or women
@@ -1085,8 +1085,9 @@ infarction in the current study.
 \DIFaddend Some limitations here are worth mentioning. First, the milk intake
 frequency as well as other lifestyle information was collected only once
 at the baseline and was self-reported. Apparently life habits are
-possible to alter over time and these would \DIFdelbegin \DIFdel{resulted }\DIFdelend \DIFaddbegin \DIFadd{result }\DIFaddend in misclassfication
-and residual confoundings. Second, despite reasonable validity of FFQ in
+possible to alter over time and these would \DIFdelbegin \DIFdel{resulted in misclassfication
+and residual confoundings}\DIFdelend \DIFaddbegin \DIFadd{result in misclassification
+and residual confounding}\DIFaddend . Second, despite reasonable validity of FFQ in
 the JACC study cohort was assessed and confirmed, measurement errors are
 inevitable. Therefore, we did not try to compute the amount of
 consumption by multiplying an average volume per occasion with the
@@ -1110,8 +1111,7 @@ computer simulations.
 Japanese men who consumed milk daily had lower hazard of dying from
 stroke particularly cerebral infarction compared with their counterparts
 who never consumed milk. Time before an event of stroke mortality
-occurred were slowed down and delayed among men who drank milk
-regularly.
+occurred were slowed down \DIFdelbegin \DIFdel{and delayed }\DIFdelend among men who drank milk regularly.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% optional
