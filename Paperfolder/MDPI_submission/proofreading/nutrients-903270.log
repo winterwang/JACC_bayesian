@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.21)  4 SEP 2020 23:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.8.21)  5 SEP 2020 14:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1367,11 +1367,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26557 strings out of 482816
- 464746 string characters out of 5954387
- 812644 words of memory out of 5000000
+ 26554 strings out of 482816
+ 464719 string characters out of 5954387
+ 812648 words of memory out of 5000000
  41093 multiletter control sequences out of 15000+600000
- 592733 words of font info for 289 fonts, out of 8000000 for 9000
+ 592574 words of font info for 287 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  68i,13n,64p,2402b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/wangcc.me/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Us
@@ -1385,7 +1385,7 @@ type1/urw/palatino/uplb8a.pfb></Users/wangcc.me/Library/TinyTeX/texmf-dist/font
 s/type1/urw/palatino/uplbi8a.pfb></Users/wangcc.me/Library/TinyTeX/texmf-dist/f
 onts/type1/urw/palatino/uplr8a.pfb></Users/wangcc.me/Library/TinyTeX/texmf-dist
 /fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on nutrients-903270.pdf (11 pages, 246228 bytes).
+Output written on nutrients-903270.pdf (11 pages, 246182 bytes).
 PDF statistics:
  284 PDF objects out of 1000 (max. 8388607)
  241 compressed objects within 3 object streams
